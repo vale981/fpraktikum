@@ -1,0 +1,23 @@
+* IAP
+** SZ Solarzelle
+** OCT Opt. Koh. Tom
+* IFMP
+** TEM Elektronenm.
+** PSL Phasenueber
+* IKTP
+** RE Reaktor
+** DD Dosimetrie
+** PET Positronen Em. Sp.
+** BE Beta Zerfall
+** MY Myonen
+** TR Transmission th. neutr
+* ZIK B Cube
+** MMC Molekularmotoren
+
+
+* Olga
+** GL
+** MMC
+** RS
+** SZ
+** SO
