@@ -4,9 +4,11 @@
 \author{Oliver Matthes, Valentin Boettcher}
 \usepackage[version=4]{mhchem}
 \usepackage{todonotes}
+\usepackage{amssymb}
+\usepackage{graphicx,wrapfig}
 \graphicspath{ {figs/} }
 \newcommand{\laser}{\textsc{Laser}}
-\newcommand{\hne}{\ce{HNe}}
+\newcommand{\hne}{\ce{HeNe}-Laser}
 
 \newtheorem{acro}{Acronym}[section]
 \begin{document}
@@ -49,9 +51,10 @@ besteht ein Laser aus:
 \item einer ``Energiepumpe'' (Lichtblitze, Elektronenst\"osse)
 \end{enumerate}
 
-\begin{figure}[H]\centering\label{fig:aufb}
+\begin{figure}[H]\centering
   \includegraphics[width=.5\columnwidth]{schema.png}
   \caption[Aufbau]{Schema eines Lasers}
+  \label{fig:aufb}
 \end{figure}
 
 Die Energiepumpe erzeugt im aktiven Medium eine
@@ -116,7 +119,6 @@ Damit eine Verst\"arkung auftritt muss gelten:
   \tag{Erste Laserbedingung}
   N_2>N_1
 \end{equation}
-\end{document}
 
 Eine Besetzungsinversion kann erst mit einem Dreiniveausystem
 hergestellt werden. Da dort Allerdings das untere Laserniveau der
@@ -125,4 +127,285 @@ Vierniveausystem kann man durch die Nutzung eines selten thermisch
 besetzten Niveaus schon mit relativ geringen Pumpraten eine
 Besetzungsinversion erzeugen.
 
-Der \hne
+\begin{figure}[H]\centering
+  \includegraphics[width=.8\columnwidth]{heneniv.png}
+  \caption[Aufbau]{Vierniveausystem des \hne{}}
+  \label{fig:niveaus}
+\end{figure}
+
+Der \hne{} basiert auf dem in~\ref{fig:niveaus} dargestellten
+Vierniveausystem. Das Helium wird (z.B. mit Elektronenst\"o\ss{}en)
+angeregt (nach \(2^1S\) bzw. \(2^3S\)) und \"ubertr\"agt diese
+Anregungung durch Atomst\"o\ss{}e an das Neon, dessen Niveaus (\(5S\),
+\(4S\)) \"ahnlich liegen. Der im optisch sichtbaren Bereich liegende
+\"Ubergang \(5S\rightarrow 3P\) wird vorwiegend im \hne{} genutzt und
+ist f\"ur eine Besetzungsinversion besonders vorteilhaft, da die
+Lebensdauer der \(S\) Niveaus h\"oher als die der \(P\) Niveaus ist.
+
+
+Um nun die Verst\"arkungswirkung des Lasers in Anwendungen zu nutzen,
+ist eine Betrachtung von Energieverlusten n\"otig. \"Ublicherweise
+durchqueren Photonen einen Resonator der L\"ange \(L\) mehrfach und
+werden dabei durch stimulierte Emission verst\"arkt. Allerdings treten
+auch immer Verluste auf, sodass sich pro doppelten Umlauf die
+Intensit\"at um einen Faktor \(e^{-\kappa}\) korrigiert werden muss,
+wobei \(\kappa\) der sog. Verlustkoeffizient ist. Nach dieser
+Betrachtung muss die Verst\"arkung gr\"o\ss{}er sein als der Verlust.
+Mit dem Wirkungsquerschnitt \(\sigma_{21}=B_{21}\frac{h\cdot\nu}{c}\)
+ergibt sich:
+
+\begin{equation}
+  \label{eq:zwlabe}
+  \tag{zweite Laserbedingung}
+  \sigma_{21}(N_2-N_1)\cdot 2L \geq \kappa
+\end{equation}
+
+Falls nur Verluste bei der Reflexion an den Resonatorspiegeln
+auftreten, gilt mit den Reflexionskoeffizienten \(r_1,r_2\):
+
+\begin{equation}
+  \label{eq:kappa}
+  \kappa = - \ln(r_1\cdot r_2)
+\end{equation}
+
+Falls der Laserprozess stabil ist, stellt sich ein Gleichgewicht ein
+und die \ref{eq:zwlabe} gilt mit einem Gleichheitszeichen.
+
+\subsection{Optischer Resonator}
+\label{sec:reso}
+
+Ein optischer Resonator besteht im einfachsten Fall aus zwei Spiegeln
+mit den Radien \(R_1,R_2\) im Abstand \(L\). (Siehe auch
+\ref{fig:aufb}.)
+
+% Damit ein Stabiler Lasing prozess m\"oglich ist, muss sich ein
+% station\"ares Wellenfeld ausbilden.
+Damit sich in longitudinaler Richtung eine stehende Welle ausbilden
+kann, muss L ein Vielfaches der halben Wellenl\"ange des Lichtes sein.
+Der Abstand der m\"oglichen Frequenzen (Moden) betr\"agt daher:
+
+\begin{equation}
+  \label{eq:longmodes}
+  \Delta\nu = \frac{c}{2L}
+\end{equation}
+
+Wenn man die elektromagnetische Wellengleichung f\"ur in der
+\(x,y\)-Ebene langsam ver\"anderliche Felder n\"ahert (paraxial)
+ergeben sich analytische L\"osungen f\"uhr strahlenartige Felder.
+Diese Strahlen zeigen in transversaler Richtung unterschiedliche
+Intesit\"atsverteilungen von denen die einfachste und am wenigsten
+divergierende Mode die Form einer Gaussverteilung hat:
+\textbf{Gau\ss{}-Strahl}
+
+\begin{figure}[H]\centering
+  \includegraphics[width=.5\columnwidth]{gauss-strahl.png}
+  \caption[Gauss]{Gau\ss{}-Strahl }
+  \label{fig:gauss}
+\end{figure}
+
+Dieser Strahl wird, wie in~\ref{fig:gauss} ersichtlich, charakterisiert durch
+die Strahldicke \(w(z)\) und den Radius der Wellenfronten
+\(R(z)\). Die Angabe von Amplitude, Strahltaille \(w(z=0)=w_0\) und
+Wellenl\"ange beschreibt den Strahl vollst\"andig.
+
+\subsubsection{Matrizenopik}
+\label{sec:matrizen}
+
+Um eine Stabilit\"atsbedingung f\"ur den Resonator aufzustellen, muss
+zuerst das Verhalten des Lichtfeldes beschrieben werden. Die
+Matrizenmethode der Strahlenoptik ist auch auf Gau\ss{}strahlen
+anwendbar und stellt daher ein probates Mittel dar. Diese Basiert auf
+der zweidimensionalen Darstellung des Lichtstrahles durch einen
+Vektor:
+
+\begin{equation}
+  \mqty(d \\ \alpha) \widehat{=} \mqty(\text{Abstand zur Achse} \\
+  \text{Winkel zur Achse})
+\end{equation}
+
+Das optische System wird durch eine Matrix dargestellt, die man
+eleganterweise durch multiplikation der Matrizen der einzelsysteme
+erh\"alt.
+
+\begin{equation}
+  \label{eq:systmatrix}
+  \mathfrak{M}_{\text{System}}=\mathfrak{M}_{\text{1}}\cdot\ldots\cdot\mathfrak{M}_{n}=\mqty(A
+  & B \\ C & D)
+\end{equation}
+
+Die hier ben\"otigten Matrizen sind im folgenden aufgef\"uhrt.
+\setlength{\tabcolsep}{20pt}
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{l | c | l}
+    \textbf{Element} & \textbf{Matrix} & \textbf{Parameter} \\
+    \midrule\\
+    \addlinespace[-2ex]
+    freie Ausbreitung & \(\begin{pmatrix}
+      1 & s \\
+      0 & 1
+    \end{pmatrix}\) & Wegl\"ange \(s\) \\
+    \midrule\\
+    \addlinespace[-2ex]
+    d\"unne Linse & \(\begin{pmatrix}
+      1 & 0 \\
+      -1/f & 1
+    \end{pmatrix}\) & Brennweite \(f\) \\
+    \midrule\\
+    \addlinespace[-2ex]
+    sph\"arischer Spiegel & \(\begin{pmatrix}
+      1 & 0 \\
+      -2/R & 1
+    \end{pmatrix}\) & Radius \(R\) \\
+
+  \end{tabular}
+  \caption{Einige optische Matrizen}
+  \label{tab:mats}
+\end{table}
+
+Definiert man \(\frac{1}{q(z)}=\frac{1}{R(z)}+i\frac{\lambda}{\pi
+  w^2(z)}=a+i\cdot b\) so transformiert sich dieser Parameter mit der Matrix
+\(\mathfrak{M}_{\text{System}}\) wie folgt:
+
+\begin{equation}
+  \label{eq:qtrans}
+  q'=\frac{Aq + B}{Cq+D}
+\end{equation}
+
+So kann man die Kaustik eines Laserstrahls, der in einem
+Hemisph\"arischen Resonator entsteht und durch eine Linse mit
+Brennweite \(f\) fokussiert wie folgt berechnet.
+
+Da \(R_2=\infty\) kann man \(z=0\) (postition des Beamwaist) auf die
+Spiegelposition legen.  Aus dem in~\ref{sec:stabres} diskutierten
+Anpassungen, ergibt sich der Beamwaist am Endspiegel zu:
+
+\begin{equation}
+  \label{eq:konfwaist}
+  w_0^4=\qty(\frac{\lambda}{\pi})^2L(R-L)
+\end{equation}
+
+Wenn \(s\) den Weg vor der Linse und \(x\) den Weg nach der Linse
+bezeichnet, dann ergibt sich f\"ur den Imagin\"arteil von \(q'\):
+
+\begin{equation}
+  \label{eq:qkaust}
+  b'=b\cdot\frac{AD-CB}{A^2+B^2b^2}
+\end{equation}
+
+Damit kann man den Beamwaist des resultierenden Strahls berechen:
+
+\begin{equation}
+  \label{eq:reswaist}
+  w'=\sqrt{\frac{\lambda}{\pi\cdot b'(x)}}
+\end{equation}
+
+
+\subsubsection{Stabilit\"at im Resonator}
+\label{sec:stabres}
+
+Wenn man den Gau\ss{}strahl so anpasst, dass \(R(z_1)=R_1,\;
+R(z_2)=R_2\) (siehe \ref{fig:gauss-res}) und fordert, dass der Strahl
+nach zweifacher Reflexion in sich selbst \"ubergeht, so kann man ein
+geometrisches Kriterium f\"ur die Resonatorstabilit\"at.
+
+\begin{wrapfigure}{r}{10cm}
+  \includegraphics[width=10cm]{gauss-res.png}
+  \caption[Gauss]{Gau\ss{}-Strahl im Resonator}
+  \label{fig:gauss-res}
+\end{wrapfigure}
+
+Mit der Defintion
+\begin{equation}
+  \label{eq:gparams}
+  g_i=1-\frac{L}{R_i};\; i=1,2
+\end{equation}
+
+ist ein Resonator stabil, falls:
+\begin{equation}
+  \label{eq:stabbed}
+  0\leq g_1g_2\leq 1
+\end{equation}
+
+\subsection{Modenstruktur und Linienverbreiterung des Laser-Lichtes}
+\label{ref:linv}
+
+Da, wie in~\ref{sec:reso} diskutiert, mehrere Moden im Resonator
+stabil sind, werden im Allgemeinen auch mehrere Moden verst\"arkt.
+Unterschiedliche Moden werden in der Regel unterschiedlich
+verst\"arkt, sodass nur endlich viele Moden die~\ref{eq:zwlabe}
+erf\"ullen, also \"uber der Verlustgrenze liegen.
+
+Das h\"ohere transversale Moden schneller Divergieren als die
+Gau\ss{}mode, sind bei diesen Moden die Beugungsverluste gr\"o\ss{}er,
+sodass meist nur wenige davon \"uber der Verlustgrenze liegen. \todo{quelle!}
+
+Die Longitudinalen Moden unterscheiden sich in ihren Frequenzen und
+liegen mit steigender Resonatorl\"ange zunehmend dicht
+(\ref{eq:longmodes}). Die stimulierte Emission akzeptiert aufgrund der
+sog. \textbf{Linienverbreiterung} mehrere Frequenzen, also mehrere
+longitudinale Moden, die sich die Besetzungsinversion teilen m\"ussen.
+
+F\"ur die Linienverbreiterung sind unter anderem die Energie-Zeit
+Unsch\"arfe, strahlungsfreie \"Uberg\"ange, elastische St\"o\ss{}e
+(Druckverbreiterung) und der Dopplereffekt (Dopplerverbreiterung)
+verantwortlich. Dabei unterscheidet zwischen \textit{homogener-} (die
+ersten drei Beispiele) und \textit{inhomogener} Linienverbreiterung,
+wobei erstere auf alle Gasatome gleichzeitig und letztere nur auf
+bestimmte Atomgruppen wirkt. \todo{ev. folgen, quelle!}
+
+Beim \hne{} in diesem Versuch \"uberwiegt die Dopplerverbreitung,
+deren halbwertsbreite hier angegeben werden soll.
+
+\begin{equation}
+  \label{eq:doppler}
+  (\Delta\nu)_{\text{Doppler}}=2\cdot \nu_0\qty(\frac{2kT\ln{2}}{mc^2})^{1/2}
+\end{equation}
+
+\begin{conditions}
+  T & Temperatur \\
+  \nu_0 & Zentralfrequenz \\
+  m & mittlere Atommasse
+\end{conditions}
+\todo{Brewsterfenster}
+
+\subsection{Fabry-Perot-Interferometer}
+\label{sec:fabry}
+
+Das \textit{Fabry-Perot-Interferometer} (im Folgenden FPI) beruht auf
+Vielstrahlinterferenz, worin sich auch seine hohe spektrale
+Aufl\"osung begr\"undet. Die einfallende Welle wird zwischen zwei
+planparallelen Fl\"achen (genannt Etalon, Abstand \(d\),
+Reflexionsverm\"ogen \(R\)) sehr oft reflektiert. Die Wellen, die das
+Etalon verlassen, interferieren nur bei bestimmten Abst\"anden \(d\)
+oder Wellenl\"angen \(\lambda\) konstruktiv.
+
+Damit kann das FPI sowohl als Interferometer zur Messung von
+Frequenzen, als auch als Modenfilter eingesetzt werden.
+
+Der \textit{freie Spektralbereich} (FSR) des FPI gibt an, wie weit die
+Einzelnen passierenden Frequenzen auseinander liegen und kann zur
+Kalibrierung von Frequenzdifferenzen genutzt werden.
+Es gilt:
+
+\begin{equation}
+  \label{eq:fsr}
+  \text{FSR} = \frac{c}{2\cdot d} = \delta\nu
+\end{equation}
+
+Die \textit{Finesse} des FPI ist der Quotien aus FSR und
+Halbwertsbreite der Peaks, also ein Ma\ss{} f\"ur die Aufl\"osung des
+FPI:
+
+\begin{equation}
+  \label{eq:finesse}
+  \mathfrak{F} = \frac{\pi\sqrt{R}}{1-R}
+\end{equation}
+
+Es sollte also \(R\rightarrow 1\) gelten.
+
+Es ist zu beachten, dass die hier aufgef\"uhrten Beziehungen nur bei
+senkrechten Strahleinfall gelten.
+
+
+\end{document}
