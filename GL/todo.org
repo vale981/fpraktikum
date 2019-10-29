@@ -1,6 +1,58 @@
-* Fragen an Betreuer
+* Fraxgen an Betreuer
  - Alle Fehlerformeln
  - Aufgabenstellung
 * Messungen
 ** Resonator
  -
+* Protokoll
+** Justage
+ - der Reihe nach spiegel bis durch blende
+ - zentral durch blende kleine oeffnung
+ - justage gr. laser
+** Messung Einfachdurchgang
+ - messg. ohne deckenbel. sonnenlicht schwankt unvorhersehbar
+ - erst bestimmung messzeit, wenn stddev cons.
+   - bestimmt zu: 1.2 bei 2 min, 1.1 bei 3 min rel. stabil nach drei minuten -> 150s
+   - powermeter reflektiert...
+ - Messungen in [[file:messungen/messungen.ods][messungen]] A2
+ - mit akt r. stted klein
+** Laserbau
+*** a
+  - ungenauigkeit statistik gr. als syst in powermeter
+  - justage erstaunlich schnell. rueckreflexe
+  - justage der zw. opt bank durch drehen spiegel 4,5
+  - laegne ungenauigkeit auf ca. .5cm
+  - spiegel 1: bei ca 0cm
+  - optimum auf ca. 0.01mw
+*** b
+  - reslaenge 80cm
+  - messzeit 1min
+  - absolutwinkel
+  - skalenteil: 2 grad
+  - glatte zahlen wegen die striche
+*** c
+  - nur gaussmode anregen durch blende
+  - s=10+25+29.5 +-2cm
+      os ss sl
+  - entf. kamera +- 1cm
+  - kalibiere mittelp. kamera an bw linse, schwierig wegen fluktuation gemessener intestaet
+  - y fit passt meist besser
+  - mittelpunkt
+  - zunehmende asyemtrie mit entfernung
+  - ab 23 cm filter entfernt
+
+*** d
+  - ocean optics hr2000+
+  - einzelne moden nicht zu erkennen
+* Fabry Perot
+  - warum mehrere Moden
+  - d = 7.5cm 1/4cm ungenau
+*** komerzieller laser
+ - wabern
+ - zwei moden mit ungekehrter pol
+ - 0 grad kleine mode
+ - 85 grad grosse
+
+
+*** offener lasrw
+ - wabern instablil 2-3 moden, 80cm

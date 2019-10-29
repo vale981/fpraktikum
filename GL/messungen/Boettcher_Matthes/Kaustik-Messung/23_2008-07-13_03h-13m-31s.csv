@@ -1,0 +1,22 @@
+Tool;Name;Value;Unit;Name;Value;Unit;Name;Value;Unit;Name;Value;Unit;Name;Value;Unit;Name;Value;Unit;Name;Value;Unit;Name;Value;Unit;Name;Value;Unit;Name;Value;Unit;Name;Value;Unit;Name;Value;Unit;Name;Value;Unit;Name;Value;Unit;Name;Value;Unit;Name;Value;Unit;Name;Value;Unit;Name;Value;Unit;Name;Value;Unit;Name;Value;Unit;Name;Value;Unit;Name;Value;Unit;Name;Value;Unit;Name;Value;Unit;Name;Value;Unit;Name;Value;Unit
+Profile;Pos x;404;Pixel;Pos y;297;Pixel;Averaging;1;Pixel;Green x horiz;0;Pixel;Green y horiz;0;a.u.;Red x horiz;0;Pixel;Red y horiz;0;a.u.;Dist x horiz;0;Pixel;Green x vert;184;Pixel;Green y vert;184;a.u.;Red x vert;0;Pixel;Red y vert;0;a.u.;Dist x vert;184;Pixel;FWHM horiz;53.9;Pixel;1/e² horiz;91.6;Pixel;µ horiz;401.0;Pixel;Amplitude horiz;192.1;a.u.;Offset horiz;-0.1;a.u.;FWHM vert;56.0;Pixel;1/e² vert;95.1;Pixel;µ vert;293.9;Pixel;Amplitude vert;194.7;a.u.;Offset vert;-0.3;a.u.;;;;;;;;;
+Position;Pos x;;;Pos y;;;Pos Value;;;Circle Pos x;;;Circle Pos y;;;Radius;;;Rect Pos x;;;Rect Pos y;;;Width;;;Height;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Peak;Pos x;;;Pos y;;;Value;;;ROI;;;Peak Determination Method;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Centroid;Pos x;;;Pos y;;;ROI;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Peak Profile;Pos x;;;Pos y;;;Value;;;Averaging;;;Green x horiz;;;Green y horiz;;;Red x horiz;;;Red y horiz;;;Dist x horiz;;;Green x vert;;;Green y vert;;;Red x vert;;;Red y vert;;;Dist x vert;;;ROI;;;Peak Determination Method;;;FWHM horiz;;;1/e² horiz;;;µ horiz;;;Amplitude horiz;;;Offset horiz;;;FWHM vert;;;1/e² vert;;;µ vert;;;Amplitude vert;;;Offset vert;;
+Statistics;Sum;643798;a.u.;Max;198;a.u.;Mean;2.096;a.u.;Std Dev;14.408;a.u.;ROI;Image;;Number of Pixels;307200;Pixel;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Histogram;ROI;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Noise Reduction;Filter;;;Masksize;;;Double SD;;;ROI;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Offset;Offset Type;;;Offset Gray;;;Offset Red;;;Offset Green;;;Offset Blue;;;ROI Input;;;ROI Output;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Contrast;Min Source;;;Max Source;;;Min Destination;;;Max Destination;;;ROI;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Image No.;21643;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Comment;lol;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Name;DMx 21BF04;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Label;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Exposure;0.022000 s;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Gain;180.00 dB;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Black Level Offset;0.00;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Gamma;10.00;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Chip Size X;4.60 mm;Chip Size Y;3.97 mm;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
