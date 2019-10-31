@@ -1,0 +1,15 @@
+#+begin_src emacs-lisp :tangle yes
+1
+#+end_src
+
+#+RESULTS:
+: 1
+
+
+#BEGIN_SRC python :tangle yes
+x = 1
+  import numpy, math, matplotlib.pyplot as plt
+  %matplotlib inline
+  x = numpy.linspace(0, 2*math.pi)
+  plt.plot(x, numpy.sin(x))
+#+END_SRC

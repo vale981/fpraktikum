@@ -1,4 +1,4 @@
-\documentclass[slug=GL, room=HZDR\ Dresden/Rossendorf\,\ Geb.\ 620/123, supervisor=Martin\ Rehwald;\, Tim\ Ziegler]{../../Lab_Report_LaTeX/lab_report}
+\documentclass[slug=GL, room=HZDR\ Dresden/Rossendorf\,\ Geb.\ 620/123, supervisor=Tim\ Ziegler]{../../Lab_Report_LaTeX/lab_report}
 
 \title{Gaslaser}
 \author{Oliver Matthes, Valentin Boettcher}
@@ -9,6 +9,7 @@
 \graphicspath{ {figs/} }
 \newcommand{\laser}{\textsc{Laser}}
 \newcommand{\hne}{\ce{HeNe}-Laser}
+\usepackage[ngerman]{babel}
 
 \newtheorem{acro}{Acronym}[section]
 \begin{document}
@@ -388,12 +389,13 @@ Einzelnen passierenden Frequenzen auseinander liegen und kann zur
 Kalibrierung von Frequenzdifferenzen genutzt werden.
 Es gilt:
 
-\begin{equation}
+\begin{eqnarray}
   \label{eq:fsr}
-  \text{FSR} = \frac{c}{2\cdot d} = \delta\nu
-\end{equation}
+  \text{FSR} = \frac{c}{2\cdot d} = \delta\nu \\
+  \Delta\text{FSR} = \frac{c}{2\cdot d^2}\cdot\Delta d
+\end{eqnarray}
 
-Die \textit{Finesse} des FPI ist der Quotien aus FSR und
+Die \textit{Finesse} des FPI ist der Quotient aus FSR und
 Halbwertsbreite der Peaks, also ein Ma\ss{} f\"ur die Aufl\"osung des
 FPI:
 
@@ -494,7 +496,7 @@ justiert und die Ausgangsleistung des Lasers in Abeh\"angigkeit der
 Resonatorl\"ange gemessen. Die L\"ange wurde durch Verschieben des
 gekr\"ummten Spiegels verstellt.
 
-\subsection{Messung der Polarisationseigenschafte}
+\subsection{Messung der Polarisationseigenschaften}
 \label{sec:poleig}
 
 Nach Einstellung der Resonatorl\"ange auf \SI{80}{\centi\meter}, wurde
@@ -506,6 +508,43 @@ Da die Polarisationsrichtung des Lasers mit der Nullstellung des
 Polfilters \"ubereinstimmte, konnte der Polarisationswinkel absolut
 abgelesen werden.
 
+\subsection{Messung der Kaustik}
+\label{sec:messkaus}
+
+Zur messung der Kaustik wurde eine Linse mit \(f=\SI{15}{cm}\) in
+einem Abstand \(s=\SI{64.5\pm 2.0}{\centi\meter}\) in den Strahlengang
+gebracht und alles bis auf die Gau\ss{}mode ausgeblendet. Die
+Strahlkaustik konnte dann mit einer CCD Kamera bei fester Linse
+aufgenommen werden. Mit dem Programm \textsc{Laser Light Inspector}
+wurde nach anpassung der Belichtung auf eine S\"attigung von
+\(200/255\) das FWHM des Lasertstrahls durch einen automatischen
+Gauss-Fit bestimmt (in Vertikaler Richtung, da Anomalie in
+horizontaler Richtung). Der Abstand des Kamera-Sensors wurde durch die
+Brennweite der Linse abgesch\"atzt.
+
+Die Messunsicherheiten erbeben sich aus der Schwiergkeit die genauen
+Abst\"ande der Aufpunkte der Spiegel zu bestimmen und wurden
+gesch\"atzt.
+
+\subsection{Messung des Spektrums mit dem Faserspektrometer}
+\label{sec:faser}
+
+Das Faserspektrometer \textsc{Ocean Optics HR+C1743} wurde in den
+Strahlengang gebracht und das Spektrum des offenen \hne{}s digital aufgenommen.
+
+\subsection{Kalibierierung der Zeitachse des Oszilloskops}
+\label{sec:kalibzeit}
+
+Nach Justage des Strahlengangs auf das FPI durch R\"uckreflexe wurde
+der Abstand der Spiegel auf \(d=\SI{7.50+-0.25}{\centi\meter}\)
+bestimmt.
+
+Die Ungenauigkeit von \(d\) wurde gesch\"atzt (stat. Ungenauigkeit),
+da ein genaues Ablesen wieder afgrund perspektivischer effekte
+schwierig war.
+
+Das sich ergebende Spektrogramm wurde mit einem Digitaloszilloskop am
+Computer aufgenommen.
 \section{Auswertung}
 \label{sec:auswertung}
 
@@ -567,8 +606,13 @@ Fehler des Lineals ist im Vergleich sehr klein (\(\approx
 \SI{.5}{\milli\meter}\)). Der hohe schw\"atzwert der Messungenaugikeit
 bedingt sich die Schwierigkeiten des Ablesens der Spiegelposition
 (Perspektivabh\"angigkeit durch Abstand zum Ma\ss{}stab).
-\todo{ungenauigkeit Maximum diskuti..}
-\begin{figure}[H]\centering
+
+
+Vernachl\"assigt wurden hier die Ungenaugkeiten, die sich beim
+Einstellen des Leistungsmaximums durch Beamwalken ergeben, da die
+Betrachtungen hier eher qualitativer Natur sind.
+
+\begin{figure}[h]\centering
   \includegraphics[width=.8\columnwidth]{figs/power-over-l.pdf}
   \caption{Maximale Durchschnittsleistung in Abh\"angigkeit der Resonatorl\"ange }
   \label{fig:power-over-l}
@@ -591,11 +635,6 @@ bedingt sich die Schwierigkeiten des Ablesens der Spiegelposition
   \label{tab:leistunglaenge}
 \end{table}
 
-
-
-
-
-
 \subsection{Polarisationseigenschaften des Laserstrahls}
 \label{sec:diskpol}
 
@@ -608,13 +647,20 @@ Kurve und auch andere Punkte liegen neben der Kurve. Gr\"unde daf\"ur
 k\"onnten ungenaue Einstellung und besondere Eigenschaften des Strahls
 oder Filters sein.
 
-\begin{figure}[H]\centering
+Die Messungenaugikeiten resultieren hier aus der Statistik des
+Leistungsmessger\"tes und der Einstellung des Polfilters, sind also
+beide statistischer Natur. Die Abweichungen von der Theorie \"uber die
+Abweichungsgrenzen hinaus deutet auf untersch\"atzte (systematsiche)
+Faktoren hin.
+
+
+\begin{figure}[h]\centering
   \includegraphics[width=.8\columnwidth]{figs/malus.pdf}
   \caption{Maximale Durchschnittsleistung in Abh\"angigkeit des Polarisationswinkels}
   \label{fig:malus}
 \end{figure}
 
-\begin{table}[h]
+\begin{table}[H]
   \centering
   \begin{tabular}{SSS}
     \toprule
@@ -638,18 +684,175 @@ oder Filters sein.
   \label{tab:malus}
 \end{table}
 
+\subsection{Messung der Kaustik}
+\label{sec:messkaustdisk}
+Da die Intensit\"at des Gausstrahls proportional zu
+\(\exp{\frac{-2r^2}{w^2}}\) ist, gillt also:
+
+\begin{equation}
+  \label{eq:beamwaistfwhm}
+  w = 2\sigma = \frac{\text{FWHM}}{\sqrt{2\ln{2}}}
+\end{equation}
+
+Da die Messung der Entfernung des CCD Chips ungenau war, wurde neben
+dem initialen Beamwaist \(w_0\) auch ein offset \(\delta\) der Kameraposition
+geftittet. Es ergeben sich \(w_0=\SI{396\pm 16}{\micro\meter}\) und
+\(\delta=\SI{1.2}{cm}\) (ungeauigkeit aus Fitfehler).
+
+Wie in \ref{fig:kaustik} zu erkennen, ist die \"Ubereinstimmung mit
+der Theoretschen Kurve sehr gut. Alle Werte stimmen innerhalb der
+Tolleranzen mit der Theoriekurve \"uberein. Das verifiziert die
+gaussche Optik und spricht daf\"ur, dass nur die Gau\ss{}mode angeregt
+wurde.
+
+Die Ungenauigkeit der \(z\) Koordinate (Abstand der Kamera) ist
+statistischer Natur und wurde auf \SI{1}{\centi\meter} gesch\"atzt
+(was sich nun gut mit dem offset deckt). Die systematsiche
+Unsicherheit des FWHM wurde auf \(\SI{1}{px}=\SI{5.6}{\micro\meter}\)
+gesch\"atzt. Die software gab leider keine statistischen
+Unsicherheiten f\"ur den FWHM Wert.
+
+Der theoretische Wert f\"ur den Beamwaist liegt bei
+\SI{284}{\micro\meter} und nicht innerhalb der Toleranzen. Gr\"unde
+daf\"ur k\"onnten effekte an der Blende und Abweichung der Geometrie
+durch ungenaue Einstellung der Resonatorspiegel sein.
+
+\begin{figure}[H]\centering
+  \includegraphics[width=.8\columnwidth]{figs/kaustik.pdf}
+  \caption{Gemessene und Theoretische Kaustik}
+  \label{fig:kaustik}
+\end{figure}
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{SSS}
+    \toprule
+    {\(z\) [\si{\centi\meter}]} & {FWHM [\si{px}]} & {\(w\) [\si{\micro\meter}]}\\
+    \midrule
+    11 & 29.9 & 142 \\
+    13 & 19.1 & 91  \\
+    15 & 14.0 & 67  \\
+    17 & 17.5 & 83  \\
+    19 & 27.7 & 132 \\
+    21 & 41.5 & 197 \\
+    23 & 56.  & 266 \\
+    27 & 78.3 & 372 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Werte der Kaustikmessung}
+  \label{tab:kaustik}
+\end{table}
+
+\subsection{Messung des Spektrums mit dem Faserspektrometer}
+\label{sec:faserausw}
+
+Das in~\ref{fig:faserspek} geplottete Spektrum zeigt, wie zu erwarten
+war, einen gro\ss{}en Peak bein
+\(\lambda_0=\SI{631.89}{\nano\meter}\). Es sind keine individuellen
+Moden erkennbar. Der Abstand der einzelnen Messpunkte betr\"agt rund
+\(\Delta\lambda=\SI{.5}{\nano\meter}\).
+
+Damit ergibt sich f\"ur die Frequenzaufl\"osung um \(\lambda_0\):
+
+\begin{equation}
+  \Delta\nu=c\cdot\frac{\Delta\lambda}{\lambda_0^2}=\SI{3.30e11}{\hertz}
+\end{equation}
+
+Der Modenabstand betr\"agt nach \ref{eq:longmodes} (Ungenauigkeiten
+aus \(L=\SI{80+-.5}{\centi\meter}\) erst in vierter Nachkommastelle):
+
+\begin{equation}
+  \label{eq:moda}
+  \delta\nu = \SI{1.87e11}{\hertz} < \Delta\nu
+\end{equation}
+
+Somit k\"onnen keine individuellen Moden aufgel\"ost werden.
+\begin{figure}[h]\centering
+  \includegraphics[width=.8\columnwidth]{figs/faserspek.pdf}
+  \caption{Spektrum des offenen \hne{}s}
+  \label{fig:faserspek}
+\end{figure}
+
+\subsection{Kalibierierung der Zeitachse des Oszilloskops}
+\label{sec:kalibzeitausw}
+
+Man gewinnt mit~\ref{eq:fsr}:
+
+\begin{equation}
+  \label{eq:realfsr}
+  \text{FSR} = \SI{6.66+-0.07}{\hertz}
+\end{equation}
+
+Im folgenden werden die wird die Einheit der Zeitachse mit \si{u}
+bezeichnet. Mit den Positionen zweier zusammengeh\"origer Peaks (siehe~\ref{fig:fsrkalib})
+\(t_1=\SI{88}{u},\; t_2=\SI{204}{u}\) (\(\Delta t = \SI{1}{u}\), 1 Digit)
+kann man eine Beziehung zwischen \si{u} und \si{\hertz} herstellen.
+
+\begin{eqnarray}
+  \label{eq:unithertz}
+  \si{u} = \frac{\text{FSR}}{t_2-t_1} =\SI{5.7e5}{\hertz} \\
+  \Delta\si{u}  = \sqrt{\qty(\frac{\Delta\text{FSR}}{x_2-x_1})^2 +
+  2\cdot\qty(\frac{\text{FSR}}{(x_2-x_1)^2}\Delta t)^2}  & = \SI{.7e5}{\hertz}
+\end{eqnarray}
+
+Die Aufl\"osung des FPI ist also um gr\"o\ss{}enordnungen besser, als
+die des Faserspektrometers.
+
+\begin{figure}[h]\centering
+  \includegraphics[width=.8\columnwidth]{figs/fsrkalib.pdf}
+  \caption{Kalibrierung des FSR, Spektrum des Kommerzielen \hne{}}
+  \label{fig:fsrkalib}
+\end{figure}
+
+\subsection{Bestimmung der Finesse}
+\label{sec:bestfinesse}
+
+Zur bestimmung der Finesse wurde das FWHM der vier Peaks
+in~\ref{fig:fsrkalib} gemittelt.
+
+\begin{eqnarray}
+  \label{eq:fwhmlaser}
+  \overline{\text{FWHM}} = \SI{4.72\pm .31}{u} = \SI{2710000\pm
+    180000}{\hertz} \\
+  \Delta\overline{\text{FWHM}} =
+  \sqrt{\qty(\overline{\text{FWHM}}\cdot\Delta u)^2 +
+  \qty(\frac{\sigma_{\overline{\text{FWHM}}}}{\sqrt{4}}\cdot u)^2}
+\end{eqnarray}
+
+F\"ur die Finesse gilt nun:
+
+\begin{eqnarray}
+  \label{eq:finesselaser}
+  \mathfrak{F}=\frac{\text{FSR}}{\text{FWHM}}=\SI{24.6\pm 1.6}{} \\
+  \Delta\mathfrak{F} =
+  \sqrt{\qty(\frac{\Delta\text{FSR}}{\text{FWHM}})^2 + \qty(\frac{\text{FSR}}{\text{FWHM}^2}\cdot\Delta\text{FWHM})^2}
+\end{eqnarray}
+
+Das ist sicherlich kein \"Uberragender Wert (vgl. Anleitung, Anhang),
+aber, wie in~\ref{fig:fsrkalib} zu erkennen, zur Aufl\"osung der
+longitudinalen Moden ausreichend.
+
+\subsection{Modenstruktur des Kommerziellen Lasers}
+
+Nach~\ref{fig:polarisations} haben die beiden erkennbaren Moden des
+kommerziellen Lasers genau ortogonale Polarisation.
 
 
+\label{sec:modsturkom}
+\begin{figure}[b]\centering
+  \includegraphics[width=.3\columnwidth]{pol1.png}
+  \includegraphics[width=.3\columnwidth]{pol2.png}
+  \caption[Gauss]{Spektrum des Kommerziellen \hne{}s f\"ur zwei
+    ortogonale Polarisationen}
+  \label{fig:polarisations}
+\end{figure}
 
+Die der Abstand der Moden des komm. Lasers wird den daten
+aus~\ref{fig:fskalib} entnommen und betr\"agt:
 
-
-
-
-
-
-
-
-
-
+\begin{equation}
+  \label{eq:modeabstkom}
+  \delta\nu_k=
+\end{equation}
 
 \end{document}
