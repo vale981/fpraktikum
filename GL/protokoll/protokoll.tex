@@ -532,7 +532,7 @@ gesch\"atzt.
 Das Faserspektrometer \textsc{Ocean Optics HR+C1743} wurde in den
 Strahlengang gebracht und das Spektrum des offenen \hne{}s digital aufgenommen.
 
-\subsection{Kalibierierung der Zeitachse des Oszilloskops}
+\subsection{Messung von Spektra mit dem FPI}
 \label{sec:kalibzeit}
 
 Nach Justage des Strahlengangs auf das FPI durch R\"uckreflexe wurde
@@ -540,11 +540,15 @@ der Abstand der Spiegel auf \(d=\SI{7.50+-0.25}{\centi\meter}\)
 bestimmt.
 
 Die Ungenauigkeit von \(d\) wurde gesch\"atzt (stat. Ungenauigkeit),
-da ein genaues Ablesen wieder afgrund perspektivischer effekte
+da ein genaues Ablesen wieder aufgrund perspektivischer Effekte
 schwierig war.
 
-Das sich ergebende Spektrogramm wurde mit einem Digitaloszilloskop am
-Computer aufgenommen.
+Anschlie\ss{}end wurde das Spektrum des kommerzielen Lasers ohne
+Filter und zweifach mit Polfilter in verschiedenen Stellungen mithilfe
+eines Digitaloszilloskop aufgenommen. Zwecks der Untersuchung der
+longitudinalen Modenstruktur des offenen Lasers wurde dessen Spektrum
+bei zwei verschiedenen Resonatorl\"angen gemessen.
+
 \section{Auswertung}
 \label{sec:auswertung}
 
@@ -780,7 +784,7 @@ Man gewinnt mit~\ref{eq:fsr}:
 
 \begin{equation}
   \label{eq:realfsr}
-  \text{FSR} = \SI{6.66+-0.07}{\hertz}
+  \text{FSR} = \SI{2.00+-0.07}{\giga\hertz}
 \end{equation}
 
 Im folgenden werden die wird die Einheit der Zeitachse mit \si{u}
@@ -790,9 +794,9 @@ kann man eine Beziehung zwischen \si{u} und \si{\hertz} herstellen.
 
 \begin{eqnarray}
   \label{eq:unithertz}
-  \si{u} = \frac{\text{FSR}}{t_2-t_1} =\SI{5.7e5}{\hertz} \\
+  \si{u} = \frac{\text{FSR}}{t_2-t_1} =\SI{.172}{\mega\hertz} \\
   \Delta\si{u}  = \sqrt{\qty(\frac{\Delta\text{FSR}}{x_2-x_1})^2 +
-  2\cdot\qty(\frac{\text{FSR}}{(x_2-x_1)^2}\Delta t)^2}  & = \SI{.7e5}{\hertz}
+  2\cdot\qty(\frac{\text{FSR}}{(x_2-x_1)^2}\Delta t)^2}  & = \SI{.07}{\mega\hertz}
 \end{eqnarray}
 
 Die Aufl\"osung des FPI ist also um gr\"o\ss{}enordnungen besser, als
@@ -804,6 +808,7 @@ die des Faserspektrometers.
   \label{fig:fsrkalib}
 \end{figure}
 
+Falls eine Gr\"
 \subsection{Bestimmung der Finesse}
 \label{sec:bestfinesse}
 
@@ -812,8 +817,8 @@ in~\ref{fig:fsrkalib} gemittelt.
 
 \begin{eqnarray}
   \label{eq:fwhmlaser}
-  \overline{\text{FWHM}} = \SI{4.72\pm .31}{u} = \SI{2710000\pm
-    180000}{\hertz} \\
+  \overline{\text{FWHM}} = \SI{4.72\pm .31}{u} = \SI{81\pm
+    6}{\mega\hertz} \\
   \Delta\overline{\text{FWHM}} =
   \sqrt{\qty(\overline{\text{FWHM}}\cdot\Delta u)^2 +
   \qty(\frac{\sigma_{\overline{\text{FWHM}}}}{\sqrt{4}}\cdot u)^2}
@@ -823,7 +828,7 @@ F\"ur die Finesse gilt nun:
 
 \begin{eqnarray}
   \label{eq:finesselaser}
-  \mathfrak{F}=\frac{\text{FSR}}{\text{FWHM}}=\SI{24.6\pm 1.6}{} \\
+  \mathfrak{F}=\frac{\text{FSR}}{\text{FWHM}}=\SI{24.6\pm 2.0}{} \\
   \Delta\mathfrak{F} =
   \sqrt{\qty(\frac{\Delta\text{FSR}}{\text{FWHM}})^2 + \qty(\frac{\text{FSR}}{\text{FWHM}^2}\cdot\Delta\text{FWHM})^2}
 \end{eqnarray}
@@ -835,7 +840,9 @@ longitudinalen Moden ausreichend.
 \subsection{Modenstruktur des Kommerziellen Lasers}
 
 Nach~\ref{fig:polarisations} haben die beiden erkennbaren Moden des
-kommerziellen Lasers genau ortogonale Polarisation.
+kommerziellen Lasers genau ortogonale Polarisation. Ein plot beider
+Spektra in ein Diagramm war leider nicht m\"oglich, da die Daten einer
+Aufnahme fehlerhaft waren.
 
 
 \label{sec:modsturkom}
@@ -848,11 +855,16 @@ kommerziellen Lasers genau ortogonale Polarisation.
 \end{figure}
 
 Die der Abstand der Moden des komm. Lasers wird den daten
-aus~\ref{fig:fskalib} entnommen und betr\"agt:
-
+aus~\ref{fig:lengthkomm} entnommen und \"uber die 5 sichtbaren Gruppen
+gemittelt:
+\begin{figure}[b]\centering
+  \includegraphics[width=.8\columnwidth]{figs/komm_all_peaks.pdf}
+  \caption{Bestimmung der Resonatorl\"ange, Spektrum des Kommerzielen \hne{}}
+  \label{fig:lengthkomm}
+\end{figure}
 \begin{equation}
   \label{eq:modeabstkom}
-  \delta\nu_k=
+  \delta\nu_k=\
 \end{equation}
 
 \end{document}
