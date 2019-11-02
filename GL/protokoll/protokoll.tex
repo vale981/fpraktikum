@@ -27,10 +27,10 @@ kann ein Laserstrahl zur Erzeugung von sehr tiefen Temperaturen
 Erzeugung und Untersuchung von Schockwellen und zur Beschleunigung von
 Elementarteilchen genutzt werden.
 
-\todo{erlautern} Auch in der Technik findet der \laser{} aufgrund
-der hohen Koh\"arenz und Intensit\"t des emmitierten Lichtstrahls
-vielfach Anwendung. So hat man allt\"aglich mit auf Lasertechnologie
-basierenden Barcode-Scannern und CD-Spielern zu tun. Auch die moderne
+Auch in der Technik findet der \laser{} aufgrund der hohen Koh\"arenz
+und Intensit\"t des emmitierten Lichtstrahls vielfach Anwendung. So
+hat man allt\"aglich mit auf Lasertechnologie basierenden
+Barcode-Scannern und CD-Spielern zu tun. Auch die moderne
 Telekommunikationstechnik um das Internet nutzt \laser{} zur
 Daten\"ubertragung.
 
@@ -342,7 +342,8 @@ erf\"ullen, also \"uber der Verlustgrenze liegen.
 
 Da h\"ohere transversale Moden schneller Divergieren als die
 Gau\ss{}mode, sind bei diesen Moden die Beugungsverluste gr\"o\ss{}er,
-sodass meist nur wenige davon \"uber der Verlustgrenze liegen. \todo{quelle!}
+sodass meist nur wenige davon \"uber der Verlustgrenze
+liegen.~\cite[171]{Sigrist2018}
 
 Die longitudinalen Moden unterscheiden sich in ihren Frequenzen und
 liegen mit steigender Resonatorl\"ange zunehmend dicht
@@ -356,7 +357,7 @@ Unsch\"arfe, strahlungsfreie \"Uberg\"ange, elastische St\"o\ss{}e
 verantwortlich. Dabei unterscheidet zwischen \textit{homogener-} (die
 ersten drei Beispiele) und \textit{inhomogener} Linienverbreiterung,
 wobei erstere auf alle Gasatome gleichzeitig und letztere nur auf
-bestimmte Atomgruppen wirkt. \todo{ev. folgen, quelle!}
+bestimmte Atomgruppen wirkt.
 
 Beim \hne{} in diesem Versuch \"uberwiegt die Dopplerverbreitung,
 deren Halbwertsbreite hier angegeben werden soll.
@@ -371,7 +372,6 @@ deren Halbwertsbreite hier angegeben werden soll.
   \nu_0 & Zentralfrequenz \\
   m & mittlere Atommasse
 \end{conditions}
-\todo{Brewsterfenster}
 
 \subsection{Fabry-Perot-Interferometer}
 \label{sec:fabry}
@@ -959,12 +959,13 @@ ungew\"unschten Transversalmoden verwendete Blende zu sehr zugedreht.
 
 Die Temperatur in der Laser R\"ohre sollte die Umgebungstemperatur
 \(\approx \SI{300}{\kelvin}\) \"ubersteigen. Wie in der Anleitung und
-in \todo{Buch Zitieren} dargestellt, sollte bei solchen Temperaturen
+in~\cite[60]{Sigrist2018} dargestellt, sollte bei solchen Temperaturen
 der Hauptanteil der Linienverbreiterung durch die inhomogene
-Dopplerverbreiterung zustandekommen. Die Einh\"ullende des
-Modenspektrums sollte also einer Gaußkurve gleichen, da die
-Intensit\"aten der einzelnen Moden zum Profil der Dopplerverbreiterung
-proportional sind (Gau\ss{}kurve).
+Dopplerverbreiterung zustandekommen (Dopplerverbreiterung
+ca. \SI{1.5}{\mega\hertz}). Die Einh\"ullende des Modenspektrums
+sollte also einer Gaußkurve gleichen, da die Intensit\"aten der
+einzelnen Moden zum Profil der Dopplerverbreiterung proportional sind
+(Gau\ss{}kurve).
 
 Um eine Schätzung f\"ur die Linienverbreiterung zu erhalten, wurde
 eine Gaußfunktion \"uber die drei bei \(L=\SI{80}{\centi\meter}\)
@@ -993,12 +994,12 @@ F\"ur die Standardabweichung und Breite ergibt sich nun:
 Die Abweichung von \(\sigma\) ergibt sich nicht aus dem Fit Residuum,
 sondern wurde gesch\"atzt. Die erhaltene Linienverbreiterung
 \(\Delta\nu\) ist ungef\"ahr halb so gro\ss{} wie der in der
-Literatur f\"ur \hne{} angegebene \todo{Zitat aus dem Laserbuch!}.
+Literatur f\"ur \hne{} angegebene~\cite[60]{Sigrist2018}.
 
 Dementsprechend erh\"alt man mit~\ref{eq:doppler} (angepasst f\"ur
 \(\sigma\) anstatt der Halbwertsbreite), wobei
-\(m=\SI{3.35092e-26}{\kg}\) und \(\nu_0=\SI{473.755}{\tera\hertz}\)
-~\autocite{IUPAC2013}.
+\(m=\SI{3.35092e-26}{\kg}\)~\cite{IUPAC2013} und
+\(\nu_0=\SI{473.755}{\tera\hertz}\) ~\cite[226]{Sigrist2018}.
 
 \begin{align}
   \label{eq:temp}
