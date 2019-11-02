@@ -11,6 +11,9 @@
 \newcommand{\hne}{\ce{HeNe}-Laser}
 \usepackage[ngerman]{babel}
 
+% bib
+\addbibresource{protokoll.bib}
+
 \newtheorem{acro}{Acronym}[section]
 \begin{document}
 \maketitle
@@ -537,7 +540,10 @@ Strahlengang gebracht und das Spektrum des offenen \hne{}s digital aufgenommen.
 
 Nach Justage des Strahlengangs auf das FPI durch R\"uckreflexe wurde
 der Abstand der Spiegel auf \(d=\SI{7.50+-0.25}{\centi\meter}\)
-bestimmt.
+bestimmt. Dabei war darauf zu achten, dass der Strahl genau mittig auf
+die Spiegel trifft, sodass~\ref{eq:fsr} gilt. Falls der Strahl nich in
+der Mitte auftrifft kommt es zu Mehrfachuml\"aufen und der
+Wegunterschied verdoppelt sich.
 
 Die Ungenauigkeit von \(d\) wurde gesch\"atzt (stat. Ungenauigkeit),
 da ein genaues Ablesen wieder aufgrund perspektivischer Effekte
@@ -993,7 +999,7 @@ Literatur f\"ur \hne{} angegebene \todo{Zitat aus dem Laserbuch!}.
 Dementsprechend erh\"alt man mit~\ref{eq:doppler} (angepasst f\"ur
 \(\sigma\) anstatt der Halbwertsbreite), wobei
 \(m=\SI{3.35092e-26}{\kg}\) und \(\nu_0=\SI{473.755}{\tera\hertz}\)
-\todo{Zitat Wikipedia qelle suchen}
+~\autocite{IUPAC2013}.
 
 \begin{align}
   \label{eq:temp}
@@ -1008,9 +1014,16 @@ verdopplung der Breite eine Vervierfachung der erhaltenen
 Temperatur. Die zu geringe Linienbreite verf\"alscht die errechnete
 Temperatur also enorm. F\"ur ein plausibles Ergebnis w\"ahre fast die
 Doppelte breite \(\sigma\) notwendig. Soetwas l\"asst sich nicht als
-Unsicherheit behandeln, da die Fehlergrenzen dann negative Temperaturen
-(in \si{\kelvin}) umfassen.
+Unsicherheit behandeln, da die Fehlergrenzen dann negative
+Temperaturen (in \si{\kelvin}) umfassen. Bei Vernachl\"ssigung anderer
+Verbreiterungsmechanismen ist ja eigentlich eher zu hohe Temperatur zu
+erwarten.
 
 Drei sichtbare Moden lassen also keine vern\"unftige
 Temperaturabsch\"atzung zu.
+
+\section{Literatur}
+\label{sec:literatur}
+
+\printbibliography
 \end{document}
