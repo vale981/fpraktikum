@@ -461,7 +461,7 @@ Da \(g_1(R_1=\infty)=1\) folgt mit \(R_2=\SI{1}{\meter}\) und \(0\leq g_2\leq 1\
 \end{equation}
 
 Das ist auch aus dem Stabilit\"atsdiagramm ersichtlich.
-\begin{figure}[H]\centering
+\begin{figure}[b]\centering
   \includegraphics[width=.5\columnwidth]{figs/stabdiag.pdf}
   \caption[Gauss]{Stabilit\"atsdiagramm}
   \label{fig:stabdiag}
@@ -616,13 +616,13 @@ Vernachl\"assigt wurden hier die Ungenaugkeiten, die sich beim
 Einstellen des Leistungsmaximums durch Beamwalken ergeben, da die
 Betrachtungen hier eher qualitativer Natur sind.
 
-\begin{figure}[h]\centering
+\begin{figure}[b]\centering
   \includegraphics[width=.8\columnwidth]{figs/power-over-l.pdf}
   \caption{Maximale Durchschnittsleistung in Abh\"angigkeit der Resonatorl\"ange }
   \label{fig:power-over-l}
 \end{figure}
 
-\begin{table}[h]
+\begin{table}[b]
   \centering
   \begin{tabular}{SSS}
     \toprule
@@ -658,13 +658,13 @@ Abweichungsgrenzen hinaus deutet auf untersch\"atzte (systematsiche)
 Faktoren hin.
 
 
-\begin{figure}[h]\centering
+\begin{figure}[b]\centering
   \includegraphics[width=.8\columnwidth]{figs/malus.pdf}
   \caption{Maximale Durchschnittsleistung in Abh\"angigkeit des Polarisationswinkels}
   \label{fig:malus}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[b]
   \centering
   \begin{tabular}{SSS}
     \toprule
@@ -721,13 +721,13 @@ Der theoretische Wert f\"ur den Beamwaist liegt bei
 daf\"ur k\"onnten effekte an der Blende und Abweichung der Geometrie
 durch ungenaue Einstellung der Resonatorspiegel sein.
 
-\begin{figure}[H]\centering
+\begin{figure}[b]\centering
   \includegraphics[width=.8\columnwidth]{figs/kaustik.pdf}
   \caption{Gemessene und Theoretische Kaustik}
   \label{fig:kaustik}
 \end{figure}
 
-\begin{table}[h]
+\begin{table}[b]
   \centering
   \begin{tabular}{SSS}
     \toprule
@@ -752,7 +752,7 @@ durch ungenaue Einstellung der Resonatorspiegel sein.
 
 Das in~\ref{fig:faserspek} geplottete Spektrum zeigt, wie zu erwarten
 war, einen gro\ss{}en Peak bein
-\(\lambda_0=\SI{631.89}{\nano\meter}\). Es sind keine individuellen
+\(\lambda_0=\SI{631.9}{\nano\meter}\). Es sind keine individuellen
 Moden erkennbar. Der Abstand der einzelnen Messpunkte betr\"agt rund
 \(\Delta\lambda=\SI{.5}{\nano\meter}\).
 
@@ -771,7 +771,7 @@ aus \(L=\SI{80+-.5}{\centi\meter}\) erst in vierter Nachkommastelle):
 \end{equation}
 
 Somit k\"onnen keine individuellen Moden aufgel\"ost werden.
-\begin{figure}[h]\centering
+\begin{figure}[b]\centering
   \includegraphics[width=.8\columnwidth]{figs/faserspek.pdf}
   \caption{Spektrum des offenen \hne{}s}
   \label{fig:faserspek}
@@ -800,45 +800,57 @@ kann man eine Beziehung zwischen \si{u} und \si{\hertz} herstellen.
 \end{eqnarray}
 
 Die Aufl\"osung des FPI ist also um gr\"o\ss{}enordnungen besser, als
-die des Faserspektrometers.
+die des Faserspektrometers.  Die Unsicherheit der Einheitsumrechnung,
+die sich aus der L\"angenmessung des FPI und dem
+Digitalisierungsungenauigkeit fortpflanzt, ist erstaunlich gering.
 
-\begin{figure}[h]\centering
+\begin{figure}[b]\centering
   \includegraphics[width=.8\columnwidth]{figs/fsrkalib.pdf}
   \caption{Kalibrierung des FSR, Spektrum des Kommerzielen \hne{}}
   \label{fig:fsrkalib}
 \end{figure}
 
-Falls eine Gr\"
+Falls eine Gr\"o\ss{}e \(g\) in \si{u} gemessen und dann in \si{\hertz}
+umgerechnet wird, so gilt f\"ur ihre unsicherheit:
+
+\begin{equation}
+  \label{eq:uerr}
+  \Delta g = \sqrt{\qty(g\cdot\Delta u)^2 + \qty(\Delta g\cdot u)^2}
+\end{equation}
+
+Diese Relation wird im Folgenden immer angwandt.
+
 \subsection{Bestimmung der Finesse}
 \label{sec:bestfinesse}
 
 Zur bestimmung der Finesse wurde das FWHM der vier Peaks
 in~\ref{fig:fsrkalib} gemittelt.
 
-\begin{eqnarray}
+\begin{align}
   \label{eq:fwhmlaser}
-  \overline{\text{FWHM}} = \SI{4.72\pm .31}{u} = \SI{81\pm
-    6}{\mega\hertz} \\
-  \Delta\overline{\text{FWHM}} =
+  \overline{\text{FWHM}} =&\; \SI{4.72}{u} = \SI{81\pm
+  6}{\mega\hertz} \\
+  \sigma_{\overline{\text{FWHM}}} =&\; \SI{.31}{u}\\
+  \Delta\overline{\text{FWHM}} =&
   \sqrt{\qty(\overline{\text{FWHM}}\cdot\Delta u)^2 +
   \qty(\frac{\sigma_{\overline{\text{FWHM}}}}{\sqrt{4}}\cdot u)^2}
-\end{eqnarray}
+\end{align}
 
 F\"ur die Finesse gilt nun:
 
-\begin{eqnarray}
+\begin{align}
   \label{eq:finesselaser}
-  \mathfrak{F}=\frac{\text{FSR}}{\text{FWHM}}=\SI{24.6\pm 2.0}{} \\
-  \Delta\mathfrak{F} =
+  \mathfrak{F} =& \frac{\text{FSR}}{\text{FWHM}}=\SI{24.6\pm 2.0}{} \\
+  \Delta\mathfrak{F} =&
   \sqrt{\qty(\frac{\Delta\text{FSR}}{\text{FWHM}})^2 + \qty(\frac{\text{FSR}}{\text{FWHM}^2}\cdot\Delta\text{FWHM})^2}
-\end{eqnarray}
+\end{align}
 
 Das ist sicherlich kein \"Uberragender Wert (vgl. Anleitung, Anhang),
 aber, wie in~\ref{fig:fsrkalib} zu erkennen, zur Aufl\"osung der
 longitudinalen Moden ausreichend.
 
 \subsection{Modenstruktur des Kommerziellen Lasers}
-
+\label{sec:modkomm}
 Nach~\ref{fig:polarisations} haben die beiden erkennbaren Moden des
 kommerziellen Lasers genau ortogonale Polarisation. Ein plot beider
 Spektra in ein Diagramm war leider nicht m\"oglich, da die Daten einer
@@ -864,7 +876,141 @@ gemittelt:
 \end{figure}
 \begin{equation}
   \label{eq:modeabstkom}
-  \delta\nu_k=\
+  \overline{\delta\nu_k}=\SI{37.6\pm 2.2}{u}=\SI{650\pm 40}{\mega\hertz}
 \end{equation}
 
+Die ungenauigkeiten kommen hier aus der Statistik der Mittelung.
+
+Damit kann nun die unbekannte L\"ange des Resonators bestimmt werden.
+
+\begin{align}
+  L_k =& \frac{c}{2\cdot \delta\nu_k} = \SI{23.1\pm 1.6}{\centi\meter}
+  \\
+  \Delta L_k =& \abs{\frac{c}{2\cdot\delta\nu_k^2}\cdot \Delta\delta\nu_k}
+\end{align}
+
+Dieses Ergebnis erschein plausibel und die Pr\"azision ist mit den
+vorhergehenden L\"angenmessungen vergleichbar.
+
+\subsection{Longitudinale Modenstruktur des Offnen \hne{}}
+\label{sec:longoff}
+
+Die Bestimmung des Modenabstandes verl\"auft analog
+zu~\ref{sec:modkomm} (auch hier wird gemittelt).  Da sich der Masstab
+der Zeitachse des Oszilloskops ge\"ander hat, muss die Umrechnung in
+\si{\hertz} wieder analog zu~\ref{sec:kalibzeitausw} kalibriert
+werden.
+
+Die gemessenen Spektra und Peakpositionen sind in~\ref{fig:off_80_60} dargestellt.
+\begin{figure}[b]\centering
+  \includegraphics[width=.5\columnwidth]{figs/off_80.pdf}
+  \includegraphics[width=.5\columnwidth]{figs/off_60.pdf}
+
+  \caption{Spektrum des offenen \hne{} bei \(L=\SI{80}{\centi\meter}\)
+  und \(L=\SI{60}{\centi\meter}\)}
+  \label{fig:off_80_60}
+\end{figure}
+
+Die pr\"azision ist hier durmh die geringe Anzahl von sichtbaren Moden
+limitiert.
+
+Die Ungenauigkeit der Messung der Resonatorl\"ange wurde wiered auf
+\SI{.5}{\centi\meter} gesch\"atzt.
+
+Mit~\ref{eq:longmodes} kann aus der Resonatorl\"ange der Mberechnet
+werden. Man erh\"alt nun f\"ur die Modenabst\"ande:
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{SSS}
+    \toprule
+    {\(L\) [\si{\centi\meter}]} & {\(\delta\nu\) Theorie [\si{\mega\hertz}]} & {\(\delta\nu\) Experimentell [\si{\mega\hertz}]}\\
+    \midrule
+    80 & 187.4\pm 1.2 & 201\pm 14 \\
+    60 & 249.8\pm 2.1 & 279\pm 11 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Modenabs\"ande am Offenen \hne{}}
+  \label{tab:kaustik}
+\end{table}
+
+Es ergibt sich also f\"ur \(L=\SI{60}{\centi\meter}\) ergibt sich also
+\"ubereinstimmung innerhalb der Fehlergrenzen. F\"ur
+\(L=\SI{60}{\centi\meter}\) ist die differenz gr\"o\ss{}er als die
+Messungenaugkeiten. Dieser Umstand k\"onnte eventuell auf die geringe
+Anzahl von Peaks \"uber die gemittelt wird zur\"uzufu\"hern sein. Da
+somit die Statistik mangelhaft wird, k\"onnten vernachl\"assigte
+systematische Abweichungen zum Tragen kommen (die Messunsicherheiten
+wurden untersch\"atzt).
+
+\subsection{Betrachtung der Linienverbreiterung}
+\label{sec:linver}
+
+Die geringe Anzahl sichtbaren Moden macht es schwierig, qualifizierte
+Aussagen \"uber die Einh\"ullende zu treffen. Die geringe Anzahl der
+sichtbaren Moden l\"asst auf eine hohe Verlustgrenze
+schlie\ss{}en. Eventuel wurden auch die zum Ausblenden der
+ungew\"unschten Transversalmoden verwendete Blende zusehr zugedreht.
+
+Die Temperatur in der Laser R\"ohre sollte die Umgebungstemperatur
+\(\approx \SI{300}{\kelvin}\) \"ubersteigen. Wie in der Anleitung und
+in \todo{Buch Zitieren} dargestellt, sollte bei solchen Temperaturen
+der Hauptanteil der Linienverbreiterung durch die Inhomogene
+Dopplerverbreiterung zustandekommen. Die einh\"ullende des
+Modenspektrums sollte also einer Gausskurve Gleichen, da die
+Intensit\"aten der einzelnen Moden zum Profil der Dopplerverbreiterung
+proportional sind (Gau\ss{}kurve).
+
+Um einen sch\"atzer f\"ur die Linienverbreiterung zu erhalten wurde
+eine Gaussfunktion \"uber die drei bei \(L=\SI{80}{\centi\meter}\)
+sichtbaren Peaks mit abgezogener Baseline gefittet
+(siehe~\ref{fig:fit_einh}). Als freie Parameter wurden die
+Standartabweichung \(\sigma\) und die H\"ohe gew\"ahlt. Der
+Mittelwert wurde fest auf den h\"ochsten Peak gelegt, da die
+Verst\"arkung im Zentrum des Verbreiterungsprofiels am gr\"o\ss{}ten
+ist.
+
+\begin{figure}[b]\centering
+  \includegraphics[width=.8\columnwidth]{figs/verbr_fit.pdf}
+
+  \caption{Einh\"ullende der Intesit\"aten der Longitudinalen Moden
+    des Offenen \hne{}}
+  \label{fig:fit_einh}
+\end{figure}
+
+F\"ur die Standardabweichung und Breite ergibt sich nun:
+
+\begin{align}
+  \sigma =& \SI{53\pm 20}{u} = \SI{340\pm 130}{\mega\hertz} \\
+  \Delta\nu =& 2\sqrt{2\ln{2}}\cdot\sigma = \SI{800\pm 300}{\mega\hertz}
+\end{align}
+
+Die Abweichung von \(\sigma\) ergibt sich nicht aus dem fit Residuum,
+sondern wurde gesch\"atzt. Die erhaltene Lininenverbreiterung
+\(\Delta\nu\) ist ungef\"ahr halb so gro\ss{} wie der in der
+Literatur f\"ur \hne{} angegebene \todo{Zitat aus dem Laserbuch!}.
+
+Dementsprechend erh\"alt man mit~\ref{eq:doppler} (angepasst f\"ur
+\(\sigma\) anstatt der Halbwertsbreite), wobei
+\(m=\SI{3.35092e-26}{\kg}\) und \(\nu_0=\SI{473.755}{\tera\hertz}\)
+\todo{Zitat Wikipedia qelle suchen}
+
+\begin{align}
+  \label{eq:temp}
+  T = \qty(\frac{\sigma\cdot c}{\nu_0})^2\cdot \frac{m}{k_B}=\SI{110\pm 90}{\kelvin}
+\end{align}
+
+Das ist also selbst mit bei Auss\"opfung der Unsicherheitsgernzen kein
+sinnvolles Ergebnis, da die Temperatur sehr weit unter dem
+Gefrierpunkt und allemal unter der Zimmertemperatur
+liegt. Da~\ref{eq:temp} Quadratisch in \(\sigma\) ist, bewirkt eine
+verdopplung der Breite eine Vervierfachung der erhaltenen
+Temperatur. Die zu geringe Linienbreite verf\"alscht die errechnete
+Temperatur also enorm. F\"ur ein plausibles Ergebnis w\"ahre fast die
+Doppelte breite \(\sigma\) notwendig. Soetwas l\"asst sich nicht als
+Unsicherheit behandeln, da die Fehlergrenzen dann negative Temperaturen
+(in \si{\kelvin}) umfassen.
+
+Drei sichtbare Moden lassen also keine vern\"unftige
+Temperaturabsch\"atzung zu.
 \end{document}
