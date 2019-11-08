@@ -937,14 +937,14 @@ werden. Man erh\"alt nun f\"ur die Modenabst\"ande:
     \bottomrule
   \end{tabular}
   \caption{Modenabs\"ande am offenen \hne{}}
-  \label{tab:kaustik}
+  \label{tab:longmodstruk}
 \end{table}
 
 Es ergibt sich also f\"ur \(L=\SI{60}{\centi\meter}\) in
 \"Ubereinstimmung innerhalb der Fehlergrenzen. F\"ur
 \(L=\SI{60}{\centi\meter}\) ist die Differenz gr\"o\ss{}er als die
 Messungenauigkeiten. Dieser Umstand k\"onnte eventuell auf die geringe
-Anzahl von Peaks \"uber die gemittelt wird zur\"uckzufu\"hren sein. Da
+Anzahl von Peaks \"uber die gemittelt wird zur\"uckzuf\"uhren sein. Da
 somit die Statistik mangelhaft wird, k\"onnten vernachl\"assigte
 systematische Abweichungen zum Tragen kommen (die Messunsicherheiten
 wurden untersch\"atzt).
@@ -957,7 +957,7 @@ Aussagen \"uber die Einh\"ullende zu treffen und l\"asst auf eine hohe Verlustgr
 schlie\ss{}en. Eventuell wurde auch die zum Ausblenden der
 ungew\"unschten Transversalmoden verwendete Blende zu sehr zugedreht.
 
-Die Temperatur in der Laser R\"ohre sollte die Umgebungstemperatur
+Die Temperatur in der Laserr\"ohre sollte die Umgebungstemperatur
 \(\approx \SI{300}{\kelvin}\) \"ubersteigen. Wie in der Anleitung und
 in~\cite[60]{Sigrist2018} dargestellt, sollte bei solchen Temperaturen
 der Hauptanteil der Linienverbreiterung durch die inhomogene
@@ -1021,6 +1021,50 @@ erwarten.
 
 Drei sichtbare Moden lassen also keine vern\"unftige
 Temperaturabsch\"atzung zu.
+    
+\section {Zusammenfassung}
+\label{sec:zusfass}
+    Bei der Messung der Verstärkung des kommerziellen Lasers beim Einfachdurchgang durch die \hne - Röhre,
+    konnte festgestellt werden, dass die aktivierte \hne Röhre den kommerziellen Laser zwar kaum verstärkt,
+    wohl aber stabilisiert und für eine Verstärkung lediglich mehrere Durchgänge durch den Resonator nötig wären.
+    
+    Die Messung der Laserausgangsleistung in Abhängigkeit von der Resonatorlänge ergab das aus~\ref{sec:stabber} erwartete Ergebnis - 
+    die Ausgangsleistung brach ab einer Resonatorlänge von ca. \SI{0,9}{\meter} trastisch ein, was auf die
+    zunehmende Unstabilität zurückzuführen ist.
+    
+    Bei der Überprüfung der Ausgangleistung des Laser in Abhängigkeit des Winkels eines
+    externen Polarisators (Malus Law), konnte eine sehr gute Übereinstimmung der
+    Messwerte mit der theoretischen Kurve gezeigt werden (vgl. \ref{fig:malus}).
+    
+    Beim Nachvollziehen der Kaustik des Strahls konnte ebenfalls eine sehr gute
+    Übereinstimmung von Theorie und Praxis nachgewiesen werden.
+    
+    Die Messung des Spektrums des Lasers mit Hilfe eines Faserspektrometers,
+    zeigte wie zu erwarten einen starken Peak bei \(\lambda_0=\SI{631.9}{\nano\meter}\).
+    Der in der Literatur für einen \hne-Laser angegebene Wellenlänge
+    beträgt: \(\lambda_0=\SI{632,8}{\nano\meter}\), was eine geringe Abweichung darstellt.
+    Diese könnte auf ... zurückzuführen sein. \todo{Begründung?}
+    
+    Die ermittelte Finesse des FPI beträgt: \mathfrak{F}=\SI{24.6\pm 2.0}{}
+    Die Wert der Finesse von handelsüblichen FPI bewegt sich im Bereich von einigen
+    Zehn bis einigen Hundert. Dieses Interferometer befindet sich also im unteren
+    Teil dieses Bereichs, ist also nicht so gut.
+    
+    Der ermittelte Abstand der beiden Moden des kommerziellen Lasers, die genau
+    orthogonal zu einander polarisiert sind, ist: \overline{\delta\nu_k}=\SI{650\pm 40}{\mega\hertz}.
+    
+    Der Vergleich der ermittelten logitudinalen Modenstruktur mit den berechneten
+    Werten (vgl.~\ref{tab:longmodstruk}) zeigt für eine Resonatorlänge von 
+    \(L=\SI{80}{\centi\meter}\) eine Übereinstimmung innerhalb der Ungenauigkeiten.
+    Für \(L=\SI{60}{\centi\meter}\) hingegen weicht der experimentelle Wert etwas, 
+    wenn auch nicht stark, ab.
+    
+    Die Bestimmung der Einhüllenden des longitudinalen Modenspektrums stellte sich als
+    recht schwierig dar, da nur drei Peaks vorhanden waren. Der Versuch durch einen 
+    manuellen Gauß-Fit, auf die Temperatur des Gasgemisches zu schließen, war leider
+    nicht von Erfolg gekrönt, weil aufgrund der wenigen Peaks eine zu geringe Linienbreite
+    und damit auch eine viel zu geringe Temperatur ermittelt wurde.
+    
 
 \section{Literatur}
 \label{sec:literatur}
