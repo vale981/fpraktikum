@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
-import seaborn
 from matplotlib import rc
 from scipy import interpolate
 from scipy import optimize
@@ -37,7 +36,7 @@ def plot_ccurve(ccurve, log=False, area=None, compliance=.99, median=False,
     if median:
         compliance = np.median(ccurve[:, 0])
 
-    plot_ccurve_line(ax, ccurve, compliance=compliance, **pyplot_args)
+    plot_ccurve_line(ax, ccurve, area=area, compliance=compliance, **pyplot_args)
     if log:
         ax.set_yscale('log')
 
@@ -51,11 +50,11 @@ def plot_ccurve_line(ax, ccurve, area=None, marker='.', compliance=.99, **pyplot
     if area:
         c /= area
 
-    ax.errorbar(v, c, linestyle='None', marker=marker, markersize=1.5, alpha=1,
+    ax.errorbar(v, c, linestyle='None', marker=marker, markersize=2, alpha=1,
                 **pyplot_args)
     ax.set_xlabel("Spannung V [V]")
     ax.set_ylabel("Stromstaerke I [A]" \
-                  if area else r"Stromdichte j [$\frac{A}{cm^2}$]")
+                  if not area else r"Stromdichte j [$\frac{A}{cm^2}$]")
     ax.grid(True, which='both')
     ax.set_xlim(v[0], v[-1])
 
@@ -84,7 +83,8 @@ def analyze_ccurve(ccurve, area, int_ein):
                                      bracket=(0, u_cc), bounds=(0, u_cc),
                                      method='bounded').x
     p_mlp = -interpolated(u_mlp)*u_mlp
-    ff = -p_mlp / i_c * u_cc
+    ff = -p_mlp / (i_c * u_cc)
 
     eta = p_mlp / (int_ein * area)
-    return -j_c, u_cc, u_mlp, p_mlp, ff, eta
+    return {'j_c': -j_c, 'u_cc': u_cc, 'u_mlp': u_mlp, 'p_mlp': p_mlp,
+       'ff': ff, 'eta': eta}
