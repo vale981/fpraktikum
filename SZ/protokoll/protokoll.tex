@@ -1,4 +1,4 @@
-\documentclass[slug=SZ, room=Hermann-Krone-Bau\,\ Labor\ 1.25, supervisor=Tim\ Ziegler]{../../Lab_Report_LaTeX/lab_report}
+\documentclass[slug=SZ, room=Hermann-Krone-Bau\,\ Labor\ 1.25, supervisor=Martin\ Kroll]{../../Lab_Report_LaTeX/lab_report}
 
 \title{Solarzelle}
 \author{Oliver Matthes, Valentin Boettcher}
@@ -37,14 +37,14 @@ Die beste Erklärung der elektrischen Eigenschaften von Halbleitern liefert das 
 Dieses Modell besteht aus Energiebändern und Bandlücken.
 
 In einem einzelnem Atom können Elektronen nur diskrete Energiewerte annehmen.
-Kristalle allerdings bestehen aus sehr vielen Atomen (~10^{23}), mit einem geringen Abstand zu einander,
+Kristalle allerdings bestehen aus sehr vielen Atomen (\(\approx 10^{23}\)), mit einem geringen Abstand zu einander,
 der dazu führt, dass die Wellenfunktionen der Elektronen überlappen und somit die Energieniveaus in sehr
 viele Unterniveaus aufspalten, die praktisch kontinuierlich aussehen.
 Zwischen diesen Energiebändern befinden sich Bandlücken, die einen nicht erlaubten Bereich darstellen und
-einen Abstand $ \mathit{E_g} $ besitzen.
+einen Abstand \(E_g\) besitzen.
 
-Das bei einer Temperatur von $ T=0 K $ höchste vollbesetzte Band nennt man das \emph{Valenzband}.
-Die maximale Energie, die die Elektronen bei $ T=0 K $ besitzen \emph{Fermienergie}. Das nächst höhere Band ist
+Das bei einer Temperatur von  \(T=0 K\)  höchste vollbesetzte Band nennt man das \emph{Valenzband}.
+Die maximale Energie, die die Elektronen bei \(T=0 K\) besitzen \emph{Fermienergie}. Das nächst höhere Band ist
 also nicht vollständig besetzt, weswegen sich Ladungsträger ziemlich gut auf diesem fortbewegen können, da
 ihnen viele unbesetzte Zustände zur Verfügung stehen.
 Aufgrund dieser Eigenschaft wird jenes Band als \emph{Leitungsband} bezeichnet.
@@ -55,7 +55,7 @@ wofür es genügend Energie benötigt. Diese erhält es durch die Absorption von
 	E_g = h\nu
 \end{equation}
 
-Bei einer Temperatur von $ T=0 K $ sind Halbleiter ebenso wie Isolatoren nichtleitend.
+Bei einer Temperatur von \(T=0 K\) sind Halbleiter ebenso wie Isolatoren nichtleitend.
 Der Unterschied zwischen den Beiden ist die Größe der Bandlücke. Diese ist bei Isolatoren relativ groß,
 bei Halbleitern hingegen eher klein, sodass schon geringe Energien ausreichen, um Elektronen aus dem Valenz-
 in das Leitungsband anzuheben.
@@ -73,7 +73,8 @@ Man unterscheidet dabei zwischen \emph{n-dotierten Halbleitern} und \emph{p-doti
 
 \begin{description}
 	
-	\item[n-dotierte Halbleiter] Bringt man in einen Siliziumkristall, dessen Atome je vier Valenzelektronen
+	\item[n-dotierte Halbleiter] 
+	Bringt man in einen Siliziumkristall, dessen Atome je vier Valenzelektronen
 	besitzen, ein paar Atome, die beispielsweise fünf Valenzelektronen (z.B. Phosphor) haben, so binden die 
 	vier Siliziumelektronen vier der Elektronen der Fremdatome. Ein Außenelektron es Phosphors bleibt also
 	ungebunden und dient als Ladungsträger. Die nun positiv geladenen Phosphoratome sitzen fest im Kristall,
@@ -82,7 +83,8 @@ Man unterscheidet dabei zwischen \emph{n-dotierten Halbleitern} und \emph{p-doti
 	beweglichen Elektronen der Hauptladungsträger sind, nennt man diese \emph{Majoritätsladungsträger}, die
 	Elektron-Loch-Paare entsprechend \emph{Minoritätsladungsträger}.
 	
-	\item[p-dotierte Halbleiter] Bei p-dotierten Halbleitern macht man genau das Gegenteil von dem, was man
+	\item[p-dotierte Halbleiter]
+	Bei p-dotierten Halbleitern macht man genau das Gegenteil von dem, was man
 	bei den n-dotierten getan hat. Statt Fremdatome mit fünf bringt man solche mit drei Valenzelektronen
 	in den Siliziumkristall ein. Das nun fehlende Elektron steuert das Silizium bei. Dadurch entsteht eine
 	frei bewegliche positive Ladung, ein so genanntes Loch, das jetzt den \emph{Majoritätsladungsträger}
@@ -100,13 +102,169 @@ Ein p-n-Übergang findet statt, wenn man einen p-dotierten und einen n-dotierten
 bringt. Im n-Gebiet befinden sich mehr Elektronen als im p-Gebiet. Dadurch kommt es zu einem Konzentrationsgefälle
 und die Löcher diffundieren Richtung n-Gebiet, die Elektronen Richtung p-Gebiet. Treffen beide Ladungsträger
 aufeinander rekombinieren sie. Aufgrund dessen sinkt die Zahl der Ladungsträger nahe der Grenze der beiden
-Halbleiter und es entsteht eine so genannte \emph{Verarmungszone}. Die Atomen, mit denen der Halbleiter
+Halbleiter und es entsteht eine so genannte \emph{Verarmungszone}. Die Atome, mit denen der Halbleiter
 dotiert worden ist, sind, wie in \ref{sec:dotierung} unbeweglich. Deswegen bleiben diese in der Verarmungszone
 zurück und es entsteht ein negativ geladener Bereich im p-dotierten und ein positiv geladener im
 n-dotierten Halbleiter. Diese beiden Bereiche zusammen werden als \emph{Raumladungszone} bezeichnet.
 In dieser Zone entsteht also durch diese festen Ladungen eine Potentialdifferenz, die der Diffusion der
 beweglichen Ladungen entgegen wirkt. Im Gleichgewicht zwischen Diffusion und Feldstrom ist die 
-\emph{Raumladungszone} gleich der \emph{Verarmungszone}.
+\emph{Raumladungszone} gleich der \emph{Verarmungszone}.\\
+
+Unter Anlegung einer äußeren Spannung verhält sich der p-n-Übergang wie eine Diode, d.h. es gibt eine Sperr-
+und eine Durchlassrichtung.
+Setzt man den Minuspol an das n-Gebiet und den Pluspol entsprechend an den p-Halbleiter, dann ist die Spannung
+in Durchlassrichtung gepolt. Die Elektronen im n-Gebiet werden vom Minuspol abgestoßen und in die Raumladungszone
+gedrückt. Äquivalentes passiert mit den Löchern im p-Gebiet. Dadurch wird ein Stromfluss ermöglicht.
+Legt man die Pole entgegengesetzt an die Diode an, bewegen sich die Elektronen des n-Gebiets logischerweise in
+Richtung des positiven Pols, die Löcher entsprechend gen Minuspol auf der anderen Seite. Dadurch wird die
+Raumladungszone vergrößert und es fehlen Ladungsträger, um einen Stromfluss zu ermöglichen.
+
+Dieses Verhalten einer idealen Diode wird durch ihre Kennlinie beschrieben, die mit der \emph{Shockley-Gleichung}
+dargestellt werden kann.
+
+\begin{equation}\label{eq:shockley}
+	I = I_S \cdot \qty(\exp[\frac{eU}{a \cdot k_B T}]-1)
+\end{equation}
+
+\begin{tabular}{llll}
+	 & \(I_S\) & ... & Sättigungsstrom        \\
+	 & \(a\)   & ... & Diodenidealitätsfaktor \\
+	 & \(k_B\) & ... & Boltzmann-Konstante    \\
+	 & \(T\)   & ... & Temperatur
+\end{tabular}
+
+\newpage
+
+Mit
+
+\begin{equation}\label{eq:sattigstrom}
+	I_S = I_{S0} \cdot \exp[-\frac{E_g}{k_B T}]
+\end{equation}
+
+\begin{tabular}{lllllll}
+	 & \(I_{S0}\) & ... & Sättigungsstrom bei \(T=0 K\) &
+\end{tabular}
+
+\subsection{Lichtabsorption in Halbleitern}
+\label{sec:absorp}
+
+Um Strom erzeugen zu können, müssen Solarzellen das auf sie einstrahlende Licht absorbieren.
+Diese Eigenschaft wird durch das Absorptionsgesetz beschrieben:
+
+\begin{equation}\label{eq:absorp}
+	i(z) = (1-R) \cdot i_0 \cdot \exp[-\alpha x]
+\end{equation}
+
+\begin{tabular}{llll}
+	 & \(i\)      & ... & transmittierte Lichtintensität bei Materialdurchgang Richtung x \\
+	 & \(R\)      & ... & Reflektivität                                                   \\
+	 & \(i_0\)    & ... & einfallende Strahlintensität                                    \\
+	 & \(\alpha\) & ... & Absorptionskoeffizient
+\end{tabular}\\ \\
+
+Dabei sollte die Absorption möglichst groß sein. Dafür muss \(i\) möglichst klein werden, was bedeutet, dass
+\(\alpha\) und \(x\) recht groß sein sollten.\\
+
+Um nutzbar absorbiert werden zu können, müssen die Photonen eine Mindestenergie besitzen, damit die Elektronen
+die Bandlücke überwinden können (vgl.~\ref{eq:bandenenergie}). Wenn die Photonen allerdings mehr Energie als
+die Größe der Bandlücke besitzen, geht die überschüssige Energie der Ladungsträger durch Relaxation an die
+Bandkanten verloren. Die Größe der Bandlücke bestimmt also die Energie, die pro Photon, das absorbiert wurde,
+genutzt werden kann.
+
+\subsubsection{Direkte und indirekte Halbleiter}
+\label{sec:dirindhalb}
+
+Wenn das Minimum des Leitungsbandes und das Maximum des Valenzbandes im Impulsraum gegeneinander verschoben sind,
+muss zusätzlich zur Absorption eines Photons ein Impuls durch die Wechselwirkung mit einem Phonon aufgenommen
+werden. Man spricht in diesem Fall von indirekten Halbleitern. Die Interaktion zwischen drei Teilchen ist
+allerdings recht unwahrscheinlich verglichen mit direkten Halbleitern, bei denen die Aufnahme eines Photons schon
+ausreichend ist.
+Deswegen müssen Solarzellen aus indirekten Halbleitern, wie zum Beispiel Silizium, wesentlich dicker als die
+aus direkten (z. B. Galliumarsenid) sein.
+
+\subsection{Funktionsweise einer Solarzelle}
+\label{sec:solar}
+
+Bei einer Solarzelle wird der p-n-Übergang des Halbleiters beleuchtet. Dort entstehen dann durch
+die Photonenabsorption Elektron-Loch-Paare. Falls diese in der Raumladungszone entstehen, werden die 
+entgegengesetzten Ladungen der Paare durch die Raumladung in der Verarmungszone von einander getrennt: 
+Die Elektronen werden Richtung n-Gebiet gezogen, die positiv geladenen Löcher gen p-Gebiet.
+Erreichen die Ladungsträger das Ende der Raumladungszone so treiben sie die anderen gleichnamigen Ladungsträger 
+vor sich her und es entsteht eine Spannung. Ist ein Verbraucher angeschlossen, so fließt durch diesen der so genannte \emph{Photostrom}.
+Erfolgt die Photonenabsorption und damit die Ladungsträgerpaarerzeugung nicht innerhalb der Verarmungszone,
+müssen diese Paare erst durch den Halbleiter in diese Zone diffundieren.
+
+\subsubsection{Ersatzschaltbild}
+\label{sec:ersatz}
+
+Geht man von einer idealen Solarzelle aus, so kann man diese als Diode auffassen. Ein Generator sorgt dabei
+im Ersatzschaltbild für den Photostrom, der durch Beleuchtung der Solarzelle entsteht. Um die in einer
+Solarzelle auftretenden Verluste darzustellen, nutzt man einerseits einen Serienwiderstand für den
+Bahnwiderstand des Materials des Halbleiters und der Kontakte sowie einen Parallelwiderstand, der die an einer
+nicht idealen p-n-Grenzfläche auftretende Leckströme beschreibt.
+Damit folgt für den Gesamtstrom einer Solarzelle:
+
+\begin{equation}\label{eq:ersatz}
+	I = I_{Ph} - I_S \cdot (\exp[\frac{e(U-IR_S)}{a \cdot k_B T}] -1 ) - \frac{U-IR_S}{R_P}
+\end{equation}
+
+\begin{tabular}{llll}
+	 & \(I_{Ph}\) & ... & Photostrom                   \\
+	 & \(I_S\)    & ... & Sättigungsstrom              \\
+	 & \(U\)      & ... & von außen angelegte Spannung \\
+	 & \(R_S\)    & ... & Serienwiderstand             \\
+	 & \(R_P\)    & ... & Parallelwiderstand
+\end{tabular}
+
+\subsubsection{Kennlinie der Solarzelle}
+
+Ist die Solarzelle unbeleuchtet so gleicht ihre Kennlinie der einer Diode.
+Der Kennlinie der beleuchteten Zelle kann man einiges entnehmen.
+Zum einen die Leerlaufspannung \(U_L\), also die Spannung für \(I=0 A\), den Kurzschlussstrom \(I_K\), der den
+Strom darstellt, der fließt, wenn keine äußere Spannung anliegt und den maximalen Leistungspunkt, also der Punkt
+der maximalen Leistung der Solarzelle. Außerdem findet man mit dem Füllfaktor \emph{FF}, der sich aus dem
+Quotienten von maximaler Leistung und \(|I_K| \cdot U_L\) bestimmt, den Wirkungsgrad der Zelle:
+
+\begin{equation}\label{eq:wirkgrad}
+	\eta = \frac{FF \cdot |I_K| \cdot U_L}{P_{ein}}
+\end{equation}
+
+\begin{tabular}{llll}
+	 & \(P_{ein}\) & ... & einfallende Strahlungsleistung
+\end{tabular}
+
+\subsection{Organische Solarzellen}
+\label{sec:orgsolar}
+
+Organische Solarzellen bestehen, wie der Name schon sagt, aus organischen Materialien, was den größten
+Unterschied zwischen ihnen und anorganischen ausmacht.
+Das organische Material bringt allerdings auch andere Eigenschaften mit, die zu neuen Herausforderungen, aber
+auch Vorteilen führen.\\
+
+Eine sehr wichtige neue Eigenschaft ist die kleine Dielektrizitätszahl, die dazu führt, dass sich die durch
+Photonenabsorption erzeugten Elektron-Loch-Paare nicht frei bewegen können sondern an dem Molekül, an dem sie 
+erzeugt wurden, lokalisiert sind. Diesen (angeregten) Zustand des Moleküls nennt man \emph{Exziton}.
+Die Trennung der Ladungsträger erfolgt mit Hilfe eines so genannten \emph{Heteroübergangs} wofür man allerdings
+ein anderes Molekül benötigt. Das Elektron wird dabei auf dem Elektronenakzeptormaterial zu den Kontakten
+abtransportiert die Löcher auf dem Elektronendonatormaterial.
+Die Exzitonen werden allein mittels Diffusion durch das Material geleitet. Allerdings besitzen sie nur eine
+geringe Diffusionslänge. Damit Exzitonen also noch innerhalb ihrer Lebensdauer, also bevor sie rekombinieren
+zu einem Heteroübergang gelangen können, sollte die Strecke, die sie bis zu diesem Übergang zurücklegen müssen,
+möglichst gering sein. Aufgrund dessen mischt man die beiden Moleküle miteinander.
+Um einen guten Abtransport der getrennten Ladungsträger gewährleisten zu können, sorgt man dafür, dass es in der
+Mischschicht der beiden benötigten Moleküle geschlossene Pfade gibt. Gäbe es keine geschlossenen Pfade, könnte
+es zu einem recht großen Rekombinationsverlust während des Transport kommen, da sich Elektronen und Löcher
+treffen.
+Der Vorteil dieser Eigenschaft ist, dass sie, in Kombination mit einem sehr großen Absorptionskoeffizienten
+vieler organischer Stoffe in für uns wichtigen Wellenlängenbereichen, sehr dünne Schichten der Solarzellen 
+ermöglicht.
+Ein weiterer großer Vorteil organischer Solarzellen ist ihre Flexibilität, die einen weiten Anwendungsbereich
+vor allem im alltäglichen Leben, eröffnet.\\
+
+Ein Nachteil, der allerdings momentan Gegenstand aktueller Forschung ist, ist der noch recht geringe
+Wirkungsgrad im Vergleich mit anorganischen Zellen.
+
+
 \section{Literatur}
 \label{sec:literatur}
 
