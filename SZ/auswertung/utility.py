@@ -4,6 +4,7 @@ from matplotlib.figure import Figure
 from matplotlib import rc
 from scipy import interpolate
 from scipy import optimize
+import pandas as pd
 
 # rc('font', **{'family':'serif', 'sans-serif':['Times']})
 # rc('text', usetex=False)
@@ -19,6 +20,7 @@ def parse_ccurve(path, compliance=.98):
     return data
 
 def plot_ccurve(ccurve, log=False, area=None, compliance=.99, median=False,
+              mlp=None,
               save=False, **pyplot_args):
     """Plots the characteristic curve.
 
@@ -39,7 +41,9 @@ def plot_ccurve(ccurve, log=False, area=None, compliance=.99, median=False,
     plot_ccurve_line(ax, ccurve, area=area, compliance=compliance, **pyplot_args)
     if log:
         ax.set_yscale('log')
-
+    if mlp:
+        plt.plot(*mlp, marker='*', markersize=4, label=mlp)
+        ax.legend()
     if save:
         save_fig(fig, save)
     return fig, ax
@@ -82,9 +86,27 @@ def analyze_ccurve(ccurve, area, int_ein):
     u_mlp = optimize.minimize_scalar(lambda u: u * interpolated(u),
                                      bracket=(0, u_cc), bounds=(0, u_cc),
                                      method='bounded').x
-    p_mlp = -interpolated(u_mlp)*u_mlp
+    i_mlp = interpolated(u_mlp)
+    p_mlp = -i_mlp*u_mlp
     ff = -p_mlp / (i_c * u_cc)
 
     eta = p_mlp / (int_ein * area)
     return {'j_c': -j_c, 'u_cc': u_cc, 'u_mlp': u_mlp, 'p_mlp': p_mlp,
-       'ff': ff, 'eta': eta}
+       'ff': ff, 'eta': eta, 'i_mlp': i_mlp}
+
+def load_and_analyze(files, intensity, formatter="{}".format, area=1,
+                   columns=['desc', 'curve', 'area', 'j_c', 'u_cc',
+                   'ff', 'eta', 'p_mlp', 'u_mlp', 'i_mlp']):
+    ccurves = pd.DataFrame(columns=columns)
+    for point, desc, *rest in files:
+        a = area*rest[0] if rest else area
+
+        row = pd.Series({'desc': desc, 'area': a*area,
+                         'curve': parse_ccurve(formatter(point))})
+
+        ccurves.loc[desc] = pd.concat((row,
+                                       pd.Series(analyze_ccurve(row['curve'],
+                                                                row['area'],
+                                                                intensity))))
+
+    return ccurves
