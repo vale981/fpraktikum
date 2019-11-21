@@ -38,21 +38,22 @@ def plot_ccurve(ccurve, log=False, area=None, compliance=.99, median=False,
     if median:
         compliance = np.median(ccurve[:, 0])
 
-    plot_ccurve_line(ax, ccurve, area=area, compliance=compliance, **pyplot_args)
+    plot_ccurve_line(ax, ccurve, area=area, compliance=compliance,
+                     mlp=mlp, **pyplot_args)
     if log:
         ax.set_yscale('log')
-    if mlp:
-        plt.plot(*mlp, marker='*', markersize=4, label=mlp)
-        ax.legend()
     if save:
         save_fig(fig, save)
+
     return fig, ax
 
-def plot_ccurve_line(ax, ccurve, area=None, marker='.', compliance=.99, **pyplot_args):
+def plot_ccurve_line(ax, ccurve, area=None, marker='.', compliance=.99,
+                   mlp=None, **pyplot_args):
     v, c = ccurve[ccurve[:,1] < compliance].T
 
     if area:
         c /= area
+        mlp[1] = mlp[1]/area
 
     ax.errorbar(v, c, linestyle='None', marker=marker, markersize=2, alpha=1,
                 **pyplot_args)
@@ -61,6 +62,10 @@ def plot_ccurve_line(ax, ccurve, area=None, marker='.', compliance=.99, **pyplot
                   if not area else r"Stromdichte j [$\frac{A}{cm^2}$]")
     ax.grid(True, which='both')
     ax.set_xlim(v[0], v[-1])
+
+    if mlp:
+        plt.plot(*mlp, marker='x', markersize=10, label='MPP')
+        ax.legend()
 
 def save_fig(fig, name):
     fig.savefig('./figs/' + name, tranparent=True, dpi=300)

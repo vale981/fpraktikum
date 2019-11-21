@@ -5,7 +5,13 @@
 \usepackage[version=4]{mhchem}
 \usepackage{todonotes}
 \graphicspath{ {figs/} }
-
+\newcommand{\sun}[1]{\SI{#1}{Sonne}}
+\newcommand{\mwcm}[1]{\SI{#1}{\milli\watt\per\centi\meter^2}}
+\newcommand{\voc}{V_{\text{OC}}}
+\newcommand{\isc}{I_{\text{SC}}}
+\newcommand{\jsc}{j_{\text{SC}}}
+\usepackage{circuitikz}
+\sisetup{math-celsius = {}^{\circ}\kern-\scriptspace C}
 \usepackage[ngerman]{babel}
 
 % bib
@@ -285,8 +291,101 @@ der gesch\"atzten Intensit\"atschwankung durch Inhomogenit\"aten und
 Restlicht aus dem Raum (Fenster, Beleuchtung).
 
 \todo{ref auf Fehlerrechnung}
+
+\subsection{Vergleich verschiedener Solarzellen-Typen}
+\label{sec:vgltyp}
+
+Es wurden f\"ur die in~\ref{tab:atemps} aufgef\"uhrten Solarzellen
+jeweils Dunkel und Hellkennlinien aufgenommen. Bei der Aufnahme der
+Dunkelkennlinien wurden die Solarzellen zus\"atzlich mit Stoff
+abgedeckt.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ll|SS}
+    \toprule
+    Zelle & Kurzname & {Temperatur Dunkelkennlinie [\si{\degreeCelsius}]} & {Temperatur
+                                                      Hellkennlinie [\si{\degreeCelsius}]}
+    \\
+    \midrule
+    Anorganisch (8) & A8 & 32 & 45 \\
+    Organisch & O1 & 26 & 33 \\
+    Folie & O2 & 26 & 40 \\
+  \end{tabular}
+  \caption{Mittlere Temperaturen der Solarzellen.}
+  \label{tab:atemps}
+\end{table}
+
+\subsection{Einfluss der Beleuchtungsintensit\"at}
+\label{sec:einfint}
+
+Es wurde f\"ur f\"unf Intensit\"aten jeweils eine \(I(V)\) Kennlinie
+aufgenommen. Die nidrigste Intensit\a"t wurde so gew\"ahlt, dass die
+Intensit\"at der Halogenbeleuchtung die Umgebungshelligkeit noch
+deutilch \"ubertraf und \(\voc\) der Referenzzelle konstant blieb. Das
+maximum wurde zu \(\sun{1}\) gew\"ahlt (siehe~\ref{tab:brefvolts}).
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{S}
+    \toprule
+    {\(\voc\) Referenzzelle [\si{\milli\volt}]} 
+    \\
+    \midrule
+    11 \\
+    17 \\
+    21 \\
+    26 \\
+    32
+  \end{tabular}
+  \caption{Lehrlaufspannung der Referenzelle.}
+  \label{tab:brefvolts}
+\end{table}
+
+\subsection{Solarmodul – Versuche an realistischen Verschaltungen}
+\label{sec:solmod}
+
+\subsubsection{Solarmodul aus 6 Zellen}
+\label{sec:sol6}
+
+Es wurden wurden jeweils zwei Zellen Parallelgeschalten. Drei dieser
+Parallelschaltungen wurden dann in Reihe geschalten und es wurde eine
+Hellkennlinie aufgenommen. Diese Bauweise balancierte Robustheit durch
+Parallelschaltung und Leistungssteigerung durch erh\"ohung von
+\(\voc\) und \(\isc\) zugleich. (Ausserdem sollte \(\isc\)
+\SI{1}{\ampere} nicht \"ubersteigen.)
+
+\begin{figure}[h!]\centering
+  \includegraphics[width=.8\columnwidth]{diagrams/photos/6_cell.jpg}
+  \caption{Solarmodul aus 6 Zellen.}
+  \label{fig:p:6_cell}
+\end{figure}
+
+
+\subsubsection{Verschaltung mit Widerst\"anden}
+\label{sec:verschwider}
+
+Anschlie\ss{}end wurd das Solarmodul auf drei Verschiedene weisen mit
+Widerst\"anden verschalten. Zum Einsatz kamen Widerst\"ande der Gr\"o\ss{}e
+\(R_G=\SI{4.99}{\kilo\ohm}\) und \(R_K=\SI{3.3}{\ohm}\) wobei \(R_K\)
+mit dem Multimeter vermessen wurde.
+
+Die umgesetzten Schaltungen sind in
+\begin{circuitikz} \draw
+  (0,0) to[empty photodiode] (0,2)
+  to[short] (2, 2)
+  to[european resistor, l=$R_G$] (2, 0)
+  to[short] (0, 0);
+  \draw (2,2)
+  to[european resistor, l=$R_K$] (4, 2)
+  node[circ]{};
+  \draw (2,0)
+  to[short] (4, 0)
+  node[circ]{};
+\end{circuitikz}
 \section{Literatur}
 \label{sec:literatur}
 
 \printbibliography
 \end{document}
+\sisetup{math-celsius = {}^{\circ}\kern-\scriptspace C}
