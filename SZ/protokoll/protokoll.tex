@@ -34,7 +34,7 @@ Außerdem muss es aufgrund dieser Absorption zu einer Anregung von beweglichen L
 (positiven und negativen) kommen, die von einander getrennt werden müssen.
 
 Zur Erfüllung dieser Kriterien, benötigt man einen Übergang zwischen zwei verschieden dotierten
-Halbleitern (p-n-Übergang)(vgl. ref...).
+Halbleitern (p-n-Übergang, vgl.~\ref{sec:pnüber}).
 
 \subsection{Halbleiter}
 \label{sec:halbleiter}
@@ -191,9 +191,9 @@ aus direkten (z. B. Galliumarsenid) sein.
 \subsection{Funktionsweise einer Solarzelle}
 \label{sec:solar}
 
-Bei einer Solarzelle wird der p-n-Übergang des Halbleiters beleuchtet. Dort entstehen dann durch
-die Photonenabsorption Elektron-Loch-Paare. Falls diese in der Raumladungszone entstehen, werden die 
-entgegengesetzten Ladungen der Paare durch die Raumladung in der Verarmungszone von einander getrennt: 
+Wird eine Solarzelle beleuchtet, entstehen dann durch die Photonenabsorption Elektron-Loch-Paare. Falls diese in der
+Raumladungszone entstehen, werden die entgegengesetzten Ladungen der Paare durch die Raumladung in der
+Verarmungszone von einander getrennt: 
 Die Elektronen werden Richtung n-Gebiet gezogen, die positiv geladenen Löcher gen p-Gebiet.
 Erreichen die Ladungsträger das Ende der Raumladungszone so treiben sie die anderen gleichnamigen Ladungsträger 
 vor sich her und es entsteht eine Spannung. Ist ein Verbraucher angeschlossen, so fließt durch diesen der so genannte \emph{Photostrom}.
@@ -220,7 +220,34 @@ Damit folgt für den Gesamtstrom einer Solarzelle:
 	 & \(U\)      & ... & von außen angelegte Spannung \\
 	 & \(R_S\)    & ... & Serienwiderstand             \\
 	 & \(R_P\)    & ... & Parallelwiderstand
-\end{tabular}
+\end{tabular}\\ \\
+
+Das Ersatzschaltbild ergibt sich zu:
+
+\begin{figure} [h] \centering
+	\label{fig:schaltbild}
+\begin{circuitikz} 
+	\draw
+	(0,0) to[european current source] (0,2.5)
+	to node[currarrow, rotate=90]{} (0,2) node[right]{\(I_{Ph}\)}
+	to [short] (0, 2.5) to [short] (1.5, 2.5)
+	to node[currarrow, rotate=-90] {} (1.5,2) node[right]{\(I_D\)}
+	to[stroke diode] (1.5, .5)
+	to[short] (1.5, 0) to[short] (0, 0);
+	\draw
+	(1.5,2.5) to [short] (3,2.5)
+	to[european resistor, l=$R_P$] (3, 0)
+	to [short] (1.5,0);
+	\draw
+	(3,2.5) to [european resistor, l=\(R_S\)] (5,2.5)
+	to node[currarrow] {} (5.5,2.5) node[above]{\(I\)};
+	\draw
+	(3,0) to [short] (5.5,0);
+	\draw
+	[-latex](5,2) -- (5,.5) node[right]{\(U\)};
+\end{circuitikz}
+\caption{Ersatzschaltbild einer Solarzelle.}
+\end{figure}
 
 \subsubsection{Kennlinie der Solarzelle}
 
@@ -370,7 +397,8 @@ Widerst\"anden verschalten. Zum Einsatz kamen Widerst\"ande der Gr\"o\ss{}e
 \(R_G=\SI{4.99}{\kilo\ohm}\) und \(R_K=\SI{3.3}{\ohm}\) wobei \(R_K\)
 mit dem Multimeter vermessen wurde.
 
-Die umgesetzten Schaltungen sind in
+Die umgesetzten Schaltungen sind in:\\
+
 \begin{circuitikz} \draw
   (0,0) to[empty photodiode] (0,2)
   to[short] (2, 2)
@@ -383,6 +411,33 @@ Die umgesetzten Schaltungen sind in
   to[short] (4, 0)
   node[circ]{};
 \end{circuitikz}
+
+\begin{circuitikz} \draw
+	(0,0) to[empty photodiode] (0,2)
+	to[short] (2, 2)
+	to[european resistor, l=$R_K$] (2, 0)
+	to[short] (0, 0);
+	\draw (2,2)
+	to[european resistor, l=$R_G$] (4, 2)
+	node[circ]{};
+	\draw (2,0)
+	to[short] (4, 0)
+	node[circ]{};
+\end{circuitikz}
+
+\begin{circuitikz} \draw
+	(0,0) to[empty photodiode] (0,2)
+	to[short] (2, 2)
+	to[european resistor, l=$R_{K1}$] (2, 0)
+	to[short] (0, 0);
+	\draw (2,2)
+	to[european resistor, l=$R_{K2}$] (4, 2)
+	node[circ]{};
+	\draw (2,0)
+	to[short] (4, 0)
+	node[circ]{};
+\end{circuitikz}
+
 \section{Literatur}
 \label{sec:literatur}
 
