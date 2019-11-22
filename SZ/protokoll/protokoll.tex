@@ -12,6 +12,7 @@
 \newcommand{\jsc}{j_{\text{SC}}}
 \usepackage{circuitikz}
 \usepackage{subcaption}
+\usepackage{ amssymb }
 \sisetup{math-celsius = {}^{\circ}\kern-\scriptspace C}
 \usepackage[ngerman]{babel}
 
@@ -346,6 +347,12 @@ maximum wurde zu \(\sun{1}\) gew\"ahlt (siehe~\ref{tab:brefvolts}).
 \subsection{Solarmodul – Versuche an realistischen Verschaltungen}
 \label{sec:solmod}
 
+Es wurde die Beleuchtungsintensit\"at auf der gesamten Fl\"ache des
+Aufbaus auf \(\sun{1/3}\) eingestellt, wobei sich durch die
+Ihomogenit\"at der Beleuchtung and den R\"andern des Aufbaus
+Abweichungen von bis zu \SI{5}{\milli\volt} ergaben. \todo{ref,
+  begruendung der Unbedenklichkeit.}
+
 \subsubsection{Solarmodul aus 6 Zellen}
 \label{sec:sol6}
 
@@ -496,6 +503,25 @@ In~\ref{fig:modverschatt} sind diese Situatione skizziert.
     f\"ur Reihenschaltung.}
   \label{fig:modverschatt}
 \end{figure}
+
+\subsubsection{Solarmodul aus 13 Zellen mit Verbraucher}
+\label{sec:bigmodule}
+
+Da ein anorganischen Modul eine Lehrlaufspannung von
+\(\lesssim\SI{.5}{\volt}\) hat wurden, um mindestens
+\(\voc = \SI{6}{\volt}\) zu erreichen \(6\cdot 2 + 1 = 13\) Zellen in
+Reihe geschalten. Dies entsprach dem verf\"ugbaren
+Vorrats\todo{wirklich?} an Zellen. Es wurde eine Hellkennlinie
+aufgenommen. Das Modul ist in~\ref{fig:p:13_cell} abgebildet.
+
+\begin{figure}[h!]\centering
+  \includegraphics[width=.8\columnwidth]{diagrams/photos/13_cell.jpg}
+  \caption{Solarmodul aus 13 Zellen.}
+  \label{fig:p:13_cell}
+\end{figure}
+
+Ein kleiner Ventilator wurde als
+Verbraucher mit dem Solarmodul in Reihe geschalten.
 
 
 
