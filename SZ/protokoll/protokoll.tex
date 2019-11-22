@@ -213,7 +213,7 @@ nicht idealen p-n-Grenzfläche auftretende Leckströme beschreibt.
 Damit folgt für den Gesamtstrom einer Solarzelle:
 
 \begin{equation}\label{eq:ersatz}
-        I = I_{Ph} - I_S \cdot (\exp[\frac{e(U-IR_S)}{a \cdot k_B T}] -1 ) - \frac{U-IR_S}{R_P}
+        I = I_{Ph} - I_S \cdot \qty(\exp[\frac{e(U-IR_S)}{a \cdot k_B T}] -1 ) - \frac{U-IR_S}{R_P}
 \end{equation}
 
 \begin{tabular}{llll}
@@ -226,29 +226,29 @@ Damit folgt für den Gesamtstrom einer Solarzelle:
 
 Das Ersatzschaltbild ergibt sich zu:
 
-\begin{figure} [h] \centering
-        \label{fig:schaltbild}
-\begin{circuitikz}
-        \draw
-        (0,0) to[european current source] (0,2.5)
-        to node[currarrow, rotate=90]{} (0,2) node[right]{\(I_{Ph}\)}
-        to [short] (0, 2.5) to [short] (1.5, 2.5)
-        to node[currarrow, rotate=-90] {} (1.5,2) node[right]{\(I_D\)}
-        to[stroke diode] (1.5, .5)
-        to[short] (1.5, 0) to[short] (0, 0);
-        \draw
-        (1.5,2.5) to [short] (3,2.5)
-        to[european resistor, l=$R_P$] (3, 0)
-        to [short] (1.5,0);
-        \draw
-        (3,2.5) to [european resistor, l=\(R_S\)] (5,2.5)
-        to node[currarrow] {} (5.5,2.5) node[above]{\(I\)};
-        \draw
-        (3,0) to [short] (5.5,0);
-        \draw
-        [-latex](5,2) -- (5,.5) node[right]{\(U\)};
-\end{circuitikz}
-\caption{Ersatzschaltbild einer Solarzelle.}
+\begin{figure}[h]\centering
+  \label{fig:schaltbild}
+  \begin{circuitikz}
+    \draw
+    (0,0) to[european current source] (0,2.5)
+    to node[currarrow, rotate=90]{} (0,2) node[right]{\(I_{Ph}\)}
+    to [short] (0, 2.5) to [short] (1.5, 2.5)
+    to node[currarrow, rotate=-90] {} (1.5,2) node[right]{\(I_D\)}
+    to[stroke diode] (1.5, .5)
+    to[short] (1.5, 0) to[short] (0, 0);
+    \draw
+    (1.5,2.5) to [short] (3,2.5)
+    to[european resistor, l=$R_P$] (3, 0)
+    to [short] (1.5,0);
+    \draw
+    (3,2.5) to [european resistor, l=\(R_S\)] (5,2.5)
+    to node[currarrow] {} (5.5,2.5) node[above]{\(I\)};
+    \draw
+    (3,0) to [short] (5.5,0);
+    \draw
+    [-latex](5,2) -- (5,.5) node[right]{\(U\)};
+  \end{circuitikz}
+  \caption{Ersatzschaltbild einer Solarzelle.}
 \end{figure}
 
 \subsubsection{Kennlinie der Solarzelle}
