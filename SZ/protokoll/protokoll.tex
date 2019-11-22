@@ -583,6 +583,7 @@ etwas angehoben, um sie anschließend vernünftig rotieren zu
 können. Die Beleuchtung wurde wiederum auf \sun{1} kalibiert.
 Der Leerlaufstrom beider Solarzellen wurde in \(10^\circ\) - Schritten aufgenommen.
 
+
 \section{Auswertung}
 \label{sec:auswert}
 Bei allen Plots wurden grunds\"atzlich alle durch die Strombegrenzung
@@ -751,7 +752,38 @@ Bei der Folienzelle wird klar, dass bei ung\"unstiger Lage von
 \(\voc,\jcc\) selbst ein besserer F\"ullfaktor wenig Einfluss auf
 \(\eta\) hat. Eventuell lag bei der Folienzelle auch ein Defekt vor.
 
+\subsection{C - Versuche an realistischen Verschaltungen}
+\label{sec:c}
 
+\subsubsection{Verhalten bei Verschattung}
+\label{sec:verschattung}
+\todo{diagramme einfügen}
+
+An den Diagrammen kann man erkennen, dass der Stromfluss eines gesamten Solarmoduls 
+zum Erliegen kommt sobald ein in Reihe geschaltetes Teilmodul komplett verschattet wird.
+Im Realen ist dies natürlich ein nicht hinnehmbarer Zustand, da es zum Beispiel bei
+Bewölkung immer wieder zu Teilverschattung kommt und dies somit den Stromfluss der gesamten
+Anlage stark beeinflussen kann.
+Dies umgeht man, in dem man zu jedem einzelnen Teilmodul eine so genannte \emph{Freilaufdiode}
+antiparallel schaltet, da diese den Stromfluss bei Verschattung eines in Reihe geschalteten 
+Moduls um dieses herumleitet und damit eine solche Verschattung nicht das gesamte
+Solarmodul beeinflusst.
+
+\subsection{Winkelabhängigkeit des Stromflusses vom einfallenden Licht}
+\label{sec:winkel}
+
+\begin{figure}[H]\centering\label{fig:winkel}
+	\includegraphics[width=.5\columnwidth]{figs/python/E/relativ.pdf}
+	\caption[.]{.}
+\end{figure}
+
+Wie in \todo{ref auf diag einfügen} erkennbar gibt es zwischen dem Winkel des einfallenden
+Lichtes und dem Stromfluss eine Sinus-Abhängigkeit. Wobei bei einem senkrechten 
+Lichteinfallswinkel so gut wie kein Strom mehr fließt.
+In \todo{ref auf diag einfügen} ist bei \(\sin(\theta) = 0\) zwar noch ein Stromfluss erkennbar,
+dieser liegt aber daran, dass das Modul in Richtung der Fenster gedreht wurde und somit,
+auch wenn das Wetter am Versuchstag bewölkt war, immer noch genügend Licht auf die beiden
+Solarzellen fallen konnte, um einen Stromfluss zu ermöglichen.
 
 \section{Literatur}
 \label{sec:literatur}
