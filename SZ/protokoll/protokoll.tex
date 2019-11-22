@@ -11,6 +11,7 @@
 \newcommand{\isc}{I_{\text{SC}}}
 \newcommand{\jsc}{j_{\text{SC}}}
 \usepackage{circuitikz}
+\usepackage{subcaption}
 \sisetup{math-celsius = {}^{\circ}\kern-\scriptspace C}
 \usepackage[ngerman]{babel}
 
@@ -29,7 +30,7 @@ Auch Solarzellen steuern dazu einen wichtigen Beitrag bei. Deswegen ist es wicht
 Technologie weiterzuentwickeln.
 
 Solarzellen wandeln durch Lichtabsorption Strahlung in elektrische Energie um (photovoltaischer Effekt).
-Dafür müssen Solarzellen die eintreffende Strahlung natürlich absorbieren. 
+Dafür müssen Solarzellen die eintreffende Strahlung natürlich absorbieren.
 Außerdem muss es aufgrund dieser Absorption zu einer Anregung von beweglichen Ladungsträgern
 (positiven und negativen) kommen, die von einander getrennt werden müssen.
 
@@ -58,7 +59,7 @@ Um ein Elektron also aus dem Valenz- in das Leitungsband anzuheben, muss es die 
 wofür es genügend Energie benötigt. Diese erhält es durch die Absorption von Strahlung der Energie:
 
 \begin{equation}\label{eq:bandenenergie}
-	E_g = h\nu
+        E_g = h\nu
 \end{equation}
 
 Bei einer Temperatur von \(T=0 K\) sind Halbleiter ebenso wie Isolatoren nichtleitend.
@@ -78,24 +79,24 @@ die Eigenschaften dieses Halbleiters zu verändern.
 Man unterscheidet dabei zwischen \emph{n-dotierten Halbleitern} und \emph{p-dotierten Halbleitern}.
 
 \begin{description}
-	
-	\item[n-dotierte Halbleiter] 
-	Bringt man in einen Siliziumkristall, dessen Atome je vier Valenzelektronen
-	besitzen, ein paar Atome, die beispielsweise fünf Valenzelektronen (z.B. Phosphor) haben, so binden die 
-	vier Siliziumelektronen vier der Elektronen der Fremdatome. Ein Außenelektron es Phosphors bleibt also
-	ungebunden und dient als Ladungsträger. Die nun positiv geladenen Phosphoratome sitzen fest im Kristall,
-	können sich also nicht bewegen und dienen deswegen nicht als Ladungsträger.
-	Da thermisch angeregte Elektron-Loch-Paare in dotierten Halbleitern relativ selten vorkommen und die 
-	beweglichen Elektronen der Hauptladungsträger sind, nennt man diese \emph{Majoritätsladungsträger}, die
-	Elektron-Loch-Paare entsprechend \emph{Minoritätsladungsträger}.
-	
-	\item[p-dotierte Halbleiter]
-	Bei p-dotierten Halbleitern macht man genau das Gegenteil von dem, was man
-	bei den n-dotierten getan hat. Statt Fremdatome mit fünf bringt man solche mit drei Valenzelektronen
-	in den Siliziumkristall ein. Das nun fehlende Elektron steuert das Silizium bei. Dadurch entsteht eine
-	frei bewegliche positive Ladung, ein so genanntes Loch, das jetzt den \emph{Majoritätsladungsträger}
-	darstellt.
-	
+
+        \item[n-dotierte Halbleiter]
+        Bringt man in einen Siliziumkristall, dessen Atome je vier Valenzelektronen
+        besitzen, ein paar Atome, die beispielsweise fünf Valenzelektronen (z.B. Phosphor) haben, so binden die
+        vier Siliziumelektronen vier der Elektronen der Fremdatome. Ein Außenelektron es Phosphors bleibt also
+        ungebunden und dient als Ladungsträger. Die nun positiv geladenen Phosphoratome sitzen fest im Kristall,
+        können sich also nicht bewegen und dienen deswegen nicht als Ladungsträger.
+        Da thermisch angeregte Elektron-Loch-Paare in dotierten Halbleitern relativ selten vorkommen und die
+        beweglichen Elektronen der Hauptladungsträger sind, nennt man diese \emph{Majoritätsladungsträger}, die
+        Elektron-Loch-Paare entsprechend \emph{Minoritätsladungsträger}.
+
+        \item[p-dotierte Halbleiter]
+        Bei p-dotierten Halbleitern macht man genau das Gegenteil von dem, was man
+        bei den n-dotierten getan hat. Statt Fremdatome mit fünf bringt man solche mit drei Valenzelektronen
+        in den Siliziumkristall ein. Das nun fehlende Elektron steuert das Silizium bei. Dadurch entsteht eine
+        frei bewegliche positive Ladung, ein so genanntes Loch, das jetzt den \emph{Majoritätsladungsträger}
+        darstellt.
+
 \end{description}
 
 Durch die Dotierung kommt es zu einem Ladungsträgerungleichgewicht, das die Fermie-Energie in Richtung des
@@ -113,7 +114,7 @@ dotiert worden ist, sind, wie in \ref{sec:dotierung} unbeweglich. Deswegen bleib
 zurück und es entsteht ein negativ geladener Bereich im p-dotierten und ein positiv geladener im
 n-dotierten Halbleiter. Diese beiden Bereiche zusammen werden als \emph{Raumladungszone} bezeichnet.
 In dieser Zone entsteht also durch diese festen Ladungen eine Potentialdifferenz, die der Diffusion der
-beweglichen Ladungen entgegen wirkt. Im Gleichgewicht zwischen Diffusion und Feldstrom ist die 
+beweglichen Ladungen entgegen wirkt. Im Gleichgewicht zwischen Diffusion und Feldstrom ist die
 \emph{Raumladungszone} gleich der \emph{Verarmungszone}.\\
 
 Unter Anlegung einer äußeren Spannung verhält sich der p-n-Übergang wie eine Diode, d.h. es gibt eine Sperr-
@@ -129,14 +130,14 @@ Dieses Verhalten einer idealen Diode wird durch ihre Kennlinie beschrieben, die 
 dargestellt werden kann.
 
 \begin{equation}\label{eq:shockley}
-	I = I_S \cdot \qty(\exp[\frac{eU}{a \cdot k_B T}]-1)
+        I = I_S \cdot \qty(\exp[\frac{eU}{a \cdot k_B T}]-1)
 \end{equation}
 
 \begin{tabular}{llll}
-	 & \(I_S\) & ... & Sättigungsstrom        \\
-	 & \(a\)   & ... & Diodenidealitätsfaktor \\
-	 & \(k_B\) & ... & Boltzmann-Konstante    \\
-	 & \(T\)   & ... & Temperatur
+         & \(I_S\) & ... & Sättigungsstrom        \\
+         & \(a\)   & ... & Diodenidealitätsfaktor \\
+         & \(k_B\) & ... & Boltzmann-Konstante    \\
+         & \(T\)   & ... & Temperatur
 \end{tabular}
 
 \newpage
@@ -144,11 +145,11 @@ dargestellt werden kann.
 Mit
 
 \begin{equation}\label{eq:sattigstrom}
-	I_S = I_{S0} \cdot \exp[-\frac{E_g}{k_B T}]
+        I_S = I_{S0} \cdot \exp[-\frac{E_g}{k_B T}]
 \end{equation}
 
 \begin{tabular}{lllllll}
-	 & \(I_{S0}\) & ... & Sättigungsstrom bei \(T=0 K\) &
+         & \(I_{S0}\) & ... & Sättigungsstrom bei \(T=0 K\) &
 \end{tabular}
 
 \subsection{Lichtabsorption in Halbleitern}
@@ -158,14 +159,14 @@ Um Strom erzeugen zu können, müssen Solarzellen das auf sie einstrahlende Lich
 Diese Eigenschaft wird durch das Absorptionsgesetz beschrieben:
 
 \begin{equation}\label{eq:absorp}
-	i(z) = (1-R) \cdot i_0 \cdot \exp[-\alpha x]
+        i(z) = (1-R) \cdot i_0 \cdot \exp[-\alpha x]
 \end{equation}
 
 \begin{tabular}{llll}
-	 & \(i\)      & ... & transmittierte Lichtintensität bei Materialdurchgang Richtung x \\
-	 & \(R\)      & ... & Reflektivität                                                   \\
-	 & \(i_0\)    & ... & einfallende Strahlintensität                                    \\
-	 & \(\alpha\) & ... & Absorptionskoeffizient
+         & \(i\)      & ... & transmittierte Lichtintensität bei Materialdurchgang Richtung x \\
+         & \(R\)      & ... & Reflektivität                                                   \\
+         & \(i_0\)    & ... & einfallende Strahlintensität                                    \\
+         & \(\alpha\) & ... & Absorptionskoeffizient
 \end{tabular}\\ \\
 
 Dabei sollte die Absorption möglichst groß sein. Dafür muss \(i\) möglichst klein werden, was bedeutet, dass
@@ -192,10 +193,10 @@ aus direkten (z. B. Galliumarsenid) sein.
 \label{sec:solar}
 
 Bei einer Solarzelle wird der p-n-Übergang des Halbleiters beleuchtet. Dort entstehen dann durch
-die Photonenabsorption Elektron-Loch-Paare. Falls diese in der Raumladungszone entstehen, werden die 
-entgegengesetzten Ladungen der Paare durch die Raumladung in der Verarmungszone von einander getrennt: 
+die Photonenabsorption Elektron-Loch-Paare. Falls diese in der Raumladungszone entstehen, werden die
+entgegengesetzten Ladungen der Paare durch die Raumladung in der Verarmungszone von einander getrennt:
 Die Elektronen werden Richtung n-Gebiet gezogen, die positiv geladenen Löcher gen p-Gebiet.
-Erreichen die Ladungsträger das Ende der Raumladungszone so treiben sie die anderen gleichnamigen Ladungsträger 
+Erreichen die Ladungsträger das Ende der Raumladungszone so treiben sie die anderen gleichnamigen Ladungsträger
 vor sich her und es entsteht eine Spannung. Ist ein Verbraucher angeschlossen, so fließt durch diesen der so genannte \emph{Photostrom}.
 Erfolgt die Photonenabsorption und damit die Ladungsträgerpaarerzeugung nicht innerhalb der Verarmungszone,
 müssen diese Paare erst durch den Halbleiter in diese Zone diffundieren.
@@ -211,15 +212,15 @@ nicht idealen p-n-Grenzfläche auftretende Leckströme beschreibt.
 Damit folgt für den Gesamtstrom einer Solarzelle:
 
 \begin{equation}\label{eq:ersatz}
-	I = I_{Ph} - I_S \cdot (\exp[\frac{e(U-IR_S)}{a \cdot k_B T}] -1 ) - \frac{U-IR_S}{R_P}
+        I = I_{Ph} - I_S \cdot (\exp[\frac{e(U-IR_S)}{a \cdot k_B T}] -1 ) - \frac{U-IR_S}{R_P}
 \end{equation}
 
 \begin{tabular}{llll}
-	 & \(I_{Ph}\) & ... & Photostrom                   \\
-	 & \(I_S\)    & ... & Sättigungsstrom              \\
-	 & \(U\)      & ... & von außen angelegte Spannung \\
-	 & \(R_S\)    & ... & Serienwiderstand             \\
-	 & \(R_P\)    & ... & Parallelwiderstand
+         & \(I_{Ph}\) & ... & Photostrom                   \\
+         & \(I_S\)    & ... & Sättigungsstrom              \\
+         & \(U\)      & ... & von außen angelegte Spannung \\
+         & \(R_S\)    & ... & Serienwiderstand             \\
+         & \(R_P\)    & ... & Parallelwiderstand
 \end{tabular}
 
 \subsubsection{Kennlinie der Solarzelle}
@@ -232,11 +233,11 @@ der maximalen Leistung der Solarzelle. Außerdem findet man mit dem Füllfaktor 
 Quotienten von maximaler Leistung und \(|I_K| \cdot U_L\) bestimmt, den Wirkungsgrad der Zelle:
 
 \begin{equation}\label{eq:wirkgrad}
-	\eta = \frac{FF \cdot |I_K| \cdot U_L}{P_{ein}}
+        \eta = \frac{FF \cdot |I_K| \cdot U_L}{P_{ein}}
 \end{equation}
 
 \begin{tabular}{llll}
-	 & \(P_{ein}\) & ... & einfallende Strahlungsleistung
+         & \(P_{ein}\) & ... & einfallende Strahlungsleistung
 \end{tabular}
 
 \subsection{Organische Solarzellen}
@@ -248,7 +249,7 @@ Das organische Material bringt allerdings auch andere Eigenschaften mit, die zu 
 auch Vorteilen führen.\\
 
 Eine sehr wichtige neue Eigenschaft ist die kleine Dielektrizitätszahl, die dazu führt, dass sich die durch
-Photonenabsorption erzeugten Elektron-Loch-Paare nicht frei bewegen können sondern an dem Molekül, an dem sie 
+Photonenabsorption erzeugten Elektron-Loch-Paare nicht frei bewegen können sondern an dem Molekül, an dem sie
 erzeugt wurden, lokalisiert sind. Diesen (angeregten) Zustand des Moleküls nennt man \emph{Exziton}.
 Die Trennung der Ladungsträger erfolgt mit Hilfe eines so genannten \emph{Heteroübergangs} wofür man allerdings
 ein anderes Molekül benötigt. Das Elektron wird dabei auf dem Elektronenakzeptormaterial zu den Kontakten
@@ -262,7 +263,7 @@ Mischschicht der beiden benötigten Moleküle geschlossene Pfade gibt. Gäbe es 
 es zu einem recht großen Rekombinationsverlust während des Transport kommen, da sich Elektronen und Löcher
 treffen.
 Der Vorteil dieser Eigenschaft ist, dass sie, in Kombination mit einem sehr großen Absorptionskoeffizienten
-vieler organischer Stoffe in für uns wichtigen Wellenlängenbereichen, sehr dünne Schichten der Solarzellen 
+vieler organischer Stoffe in für uns wichtigen Wellenlängenbereichen, sehr dünne Schichten der Solarzellen
 ermöglicht.
 Ein weiterer großer Vorteil organischer Solarzellen ist ihre Flexibilität, die einen weiten Anwendungsbereich
 vor allem im alltäglichen Leben, eröffnet.\\
@@ -329,7 +330,7 @@ maximum wurde zu \(\sun{1}\) gew\"ahlt (siehe~\ref{tab:brefvolts}).
   \centering
   \begin{tabular}{S}
     \toprule
-    {\(\voc\) Referenzzelle [\si{\milli\volt}]} 
+    {\(\voc\) Referenzzelle [\si{\milli\volt}]}
     \\
     \midrule
     11 \\
@@ -370,19 +371,134 @@ Widerst\"anden verschalten. Zum Einsatz kamen Widerst\"ande der Gr\"o\ss{}e
 \(R_G=\SI{4.99}{\kilo\ohm}\) und \(R_K=\SI{3.3}{\ohm}\) wobei \(R_K\)
 mit dem Multimeter vermessen wurde.
 
-Die umgesetzten Schaltungen sind in
-\begin{circuitikz} \draw
-  (0,0) to[empty photodiode] (0,2)
-  to[short] (2, 2)
-  to[european resistor, l=$R_G$] (2, 0)
-  to[short] (0, 0);
-  \draw (2,2)
-  to[european resistor, l=$R_K$] (4, 2)
-  node[circ]{};
-  \draw (2,0)
-  to[short] (4, 0)
-  node[circ]{};
-\end{circuitikz}
+Die umgesetzten Schaltungen sind in~\ref{fig:modschaltungen} dargestellt.
+\begin{figure}[h!]\centering
+  \begin{subfigure}[b]{.3\textwidth}
+    \begin{circuitikz} \draw
+      (0,0) to[empty photodiode] (0,2)
+      to[short] (2, 2)
+      to[european resistor, l=$R_G$] (2, 0)
+      to[short] (0, 0);
+      \draw (2,2)
+      to[european resistor, l=$R_K$] (4, 2)
+      node[circ]{};
+      \draw (2,0)
+      to[short] (4, 0)
+      node[circ]{};
+    \end{circuitikz}
+    \caption{Schaltung 1}
+    \label{fig:schalt1}
+  \end{subfigure}
+  \begin{subfigure}[b]{.3\textwidth}
+    \begin{circuitikz} \draw
+      (0,0) to[empty photodiode] (0,2)
+      to[short] (2, 2)
+      to[european resistor, l=$R_K$] (2, 0)
+      to[short] (0, 0);
+      \draw (2,2)
+      to[european resistor, l=$R_G$] (4, 2)
+      node[circ]{};
+      \draw (2,0)
+      to[short] (4, 0)
+      node[circ]{};
+    \end{circuitikz}
+    \caption{Schaltung 2}
+    \label{fig:schalt2}
+  \end{subfigure}
+  \begin{subfigure}[b]{.3\textwidth}
+    \begin{circuitikz} \draw
+      (0,0) to[empty photodiode] (0,2)
+      to[short] (2, 2)
+      to[european resistor, l=$R_K$] (2, 0)
+      to[short] (0, 0);
+      \draw (2,2)
+      to[european resistor, l=$R_K$] (4, 2)
+      node[circ]{};
+      \draw (2,0)
+      to[short] (4, 0)
+      node[circ]{};
+    \end{circuitikz}
+    \caption{Schaltung 3}
+    \label{fig:schalt2}
+  \end{subfigure}
+  \caption{Verschaltungen des Solarmoduls mit verschiedenen
+    kombinationen von Widerst\"anden.}
+  \label{fig:modschaltungen}
+\end{figure}
+
+\subsubsection{Teilverschattung des Moduls}
+\label{sec:teilversch}
+
+Zuletzt wurde das selbstgebaute Solarmodul verschiedenen
+Verschattungssituationen durch Abdecken mit einem Tuch ausgesetzt.
+In~\ref{fig:modverschatt} sind diese Situatione skizziert.
+
+\begin{figure}[h!]\centering
+  \begin{subfigure}[b]{.3\textwidth}\centering
+    \begin{tikzpicture}[scale=.3]
+      \draw[black, thick, fill=black] (0,0) rectangle (2,2);
+      \draw (2,1) -- (3,1);
+      \draw[black, thick, fill=black] (3,0) rectangle (5,2);
+      \draw (2.5,1) -- (2.5,4);
+
+      \draw[black, thick] (0,3) rectangle (2,5);
+      \draw (2,4) -- (3,4);
+      \draw[black, thick] (3,3) rectangle (5,5);
+      \draw (2.5,4) -- (2.5,7);
+
+      \draw[black, thick] (0,6) rectangle (2,8);
+      \draw (2,7) -- (3,7);
+      \draw[black, thick] (3,6) rectangle (5,8);
+    \end{tikzpicture}
+    \caption{Verschattung von zwei parallelgeschaltenen Zellen.}
+    \label{fig:schatt1}
+  \end{subfigure}
+  \begin{subfigure}[b]{.3\textwidth}\centering
+    \begin{tikzpicture}[scale=.3]
+      \draw[black, thick, fill=black] (0,0) rectangle (2,2);
+      \draw (2,1) -- (3,1);
+      \draw[black, thick] (3,0) rectangle (5,2);
+      \draw (2.5,1) -- (2.5,4);
+
+      \draw[black, thick, fill=black] (0,3) rectangle (2,5);
+      \draw (2,4) -- (3,4);
+      \draw[black, thick] (3,3) rectangle (5,5);
+      \draw (2.5,4) -- (2.5,7);
+
+      \draw[black, thick, fill=black] (0,6) rectangle (2,8);
+      \draw (2,7) -- (3,7);
+      \draw[black, thick] (3,6) rectangle (5,8);
+    \end{tikzpicture}
+    \caption{Verschattung der h\"alfte der Parallelgeschaltenen Zelle.}
+    \label{fig:schatt2}
+  \end{subfigure}
+  \begin{subfigure}[b]{.3\textwidth}\centering
+    \begin{tikzpicture}[scale=.3]
+      \draw[black, thick, fill=black] (0,0) rectangle (2,2);
+      \draw (2,1) -- (3,1);
+      \draw[black, thick, fill=black] (3,0) rectangle (5,2);
+      \draw (2.5,1) -- (2.5,4);
+
+      \draw[black, thick, fill=black] (0,3) rectangle (2,5);
+      \draw (2,4) -- (3,4);
+      \draw[black, thick] (3,3) rectangle (5,5);
+      \draw (2.5,4) -- (2.5,7);
+
+      \draw[black, thick] (0,6) rectangle (2,8);
+      \draw (2,7) -- (3,7);
+      \draw[black, thick] (3,6) rectangle (5,8);
+    \end{tikzpicture}
+    \caption{Der Mittelweg zwischen den vorhergehenden Situationen.}
+    \label{fig:schatt3}
+  \end{subfigure}
+  \caption{Verschiedene Verschattungssituationen. Die horizontalen
+    Linien symbolisieren Parallelschaltung, die vertikale Linie steht
+    f\"ur Reihenschaltung.}
+  \label{fig:modverschatt}
+\end{figure}
+
+
+
 \section{Literatur}
 \label{sec:literatur}
 
