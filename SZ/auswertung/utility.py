@@ -48,23 +48,24 @@ def plot_ccurve(ccurve, log=False, area=None, compliance=.99, median=False,
     return fig, ax
 
 def plot_ccurve_line(ax, ccurve, area=None, marker='.', compliance=.99,
-                   mlp=None, **pyplot_args):
+                   mlp=None, label=None, **pyplot_args):
     v, c = ccurve[ccurve[:,1] < compliance].T
 
     if area:
         c /= area
-        mlp[1] = mlp[1]/area
+        if mlp:
+            mlp[1] = mlp[1]/area
 
-    ax.errorbar(v, c, linestyle='None', marker=marker, markersize=2, alpha=1,
+    ax.errorbar(v, c, linestyle='None', marker=marker, markersize=2, alpha=1, label=label,
                 **pyplot_args)
-    ax.set_xlabel("Spannung V [V]")
+    ax.set_xlabel("Spannung U [V]")
     ax.set_ylabel("Stromstaerke I [A]" \
                   if not area else r"Stromdichte j [$\frac{A}{cm^2}$]")
     ax.grid(True, which='both')
     ax.set_xlim(v[0], v[-1])
 
     if mlp:
-        plt.plot(*mlp, marker='x', markersize=10, label='MPP')
+        plt.plot(*mlp, marker='x', markersize=10, label='MPP ' + label if label else 'MP')
         ax.legend()
 
 def save_fig(fig, name):
@@ -94,10 +95,10 @@ def analyze_ccurve(ccurve, area, int_ein):
     i_mlp = interpolated(u_mlp)
     p_mlp = -i_mlp*u_mlp
     ff = -p_mlp / (i_c * u_cc)
-
-    eta = p_mlp / (int_ein * area)
+    p_ein = int_ein * area
+    eta = p_mlp / p_ein
     return {'j_c': -j_c, 'u_cc': u_cc, 'u_mlp': u_mlp, 'p_mlp': p_mlp,
-       'ff': ff, 'eta': eta, 'i_mlp': i_mlp}
+       'ff': ff, 'eta': eta, 'i_mlp': i_mlp, 'p_ein': p_ein}
 
 def load_and_analyze(files, intensity, formatter="{}".format, area=1,
                    columns=['desc', 'curve', 'area', 'j_c', 'u_cc',
