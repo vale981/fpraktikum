@@ -618,8 +618,8 @@ in~\ref{fig:a-anorg-dunkel} dargestellte Kennlinien aufgenommen.
   \label{fig:a-anorg-dunkel}
 \end{figure}
 
-Wenn man in~\ref{eq:ersatz} \(I_{Ph}, R_{P}=0\) setzt (gilt in
-Resultierenden Ausdruck nach \(U\) umstelltdunkelheit und bei
+Wenn man in~\ref{eq:ersatz} \(I_{Ph}, R_{P}=0\) setzt (gilt im
+resultierenden Ausdruck nach \(U\) umstelltdunkelheit und bei
 rel. gro\ss{}en Str\"omen), und den Resultierenden Ausdruck nach \(U\)
 umstellt, erh\"alt man:
 
@@ -629,8 +629,8 @@ umstellt, erh\"alt man:
 \end{equation}
 
 
-Diese gleichung lie\ss{}e sich im Prinzip gegen~\ref{fig:a-anorg-dunkel}
-fitten. Jedoch hat der \(\ln\) eine Singularit\"at an der stelle
+Diese Gleichung ließe sich im Prinzip gegen~\ref{fig:a-anorg-dunkel}
+fitten. Jedoch hat der \(\ln\) eine Singularit\"at an der Stelle
 \(x=0\) und ist damit numerisch instabil.
 
 Also wurde zun\"achst, wie in der Versuchsanleitung empfohlen, durch
@@ -645,9 +645,9 @@ auch~\ref{fig:a-anorg-lin}.
   \label{fig:a-anorg-lin}
 \end{figure}
 
-Anschliessend wurde \(R_S\) manuell so angepasst, dass \(U-I\cdot
+Anschließend wurde \(R_S\) manuell so angepasst, dass \(U-I\cdot
 R_S\) \"uber \(\ln(I)\) aufgetragen bei gro\ss{}en Str\"omen (bei
-denen man \(R_P\) vernachl\"assigen kann) ann\"ahernd Linear wurde.
+denen man \(R_P\) vernachl\"assigen kann) ann\"ahernd linear wurde.
 
 \begin{figure}[H]\centering
   \includegraphics[width=.5\columnwidth]{./figs/python/A/dark_an_lin_fit_end.pdf}
@@ -656,10 +656,10 @@ denen man \(R_P\) vernachl\"assigen kann) ann\"ahernd Linear wurde.
 \end{figure}
 
 Damit ergibt sich \(R_S=\SI{.35}{\ohm}\). Teilt man den negativen
-Achsenschnittpunkt (\(-\alpha\)) der geraden durch iheren Anstieg \(\beta\) erhält man
+Achsenschnittpunkt (\(-\alpha\)) der geraden durch ihren Anstieg \(\beta\) erhält man
 au\ss{}erdem den Logarithmus von \(\isc\) und somit \(\isc=\exp(\frac{-\alpha}{\beta})\)
 
-Der Anstieg der Geraden gibt den parameter
+Der Anstieg der Geraden gibt den Parameter
 \(a=\beta\cdot\frac{e}{k_B\cdot T}\).
 \begin{table}[h]
   \centering
@@ -677,16 +677,16 @@ Der Anstieg der Geraden gibt den parameter
 \end{table}
 
 
-Auch wenn aufgrund des halbmanuellen charakters des Fits die
-genauigkeit dieser Werte schwer einzusch\"atzen ist, so liegen die
-erhaltenen werte jedoch im Ramen des zu erwartenden
+Auch wenn aufgrund des halbmanuellen Charakters des Fits die
+Genauigkeit dieser Werte schwer einzusch\"atzen ist, so liegen die
+erhaltenen Werte jedoch im Rahmen des zu erwartenden
 (siehe~\ref{tab:diodano}). Auch der Widerstand \(R_S\) der Diode
 scheint, wenn auch sehr gering, zumindest von der Gr\"o\ss{}enordnung
-plausibel und ist f\"ur eine Diode in durchlassrichtung sicherlich zu
+plausibel und ist f\"ur eine Diode in Durchlassrichtung sicherlich zu
 erwarten.
 
 Plottet man~\ref{eq:uofi} in die Kennlinie dann ergibt sich mit den
-gefundenen parametern eine gute \"Ubereinstimmung (siehe~\ref{fig:a-anorg-log}).
+gefundenen Parametern eine gute \"Ubereinstimmung (siehe~\ref{fig:a-anorg-log}).
 
 
 \begin{figure}[H]\centering
@@ -706,31 +706,86 @@ gefundenen parametern eine gute \"Ubereinstimmung (siehe~\ref{fig:a-anorg-log}).
 
 F\"ur die anorganische Solarzelle ist laut~\ref{fig:a-anorg-combined}
 das asymptotische Verhalten f\"ur gro\ss{}e Spannungen und bei
-Str\"omen sehr \"ahnlich. Bei negtativen Spannung addiert sich
+Str\"omen sehr \"ahnlich. Bei negativer Spannung addiert sich
 \(\jsc\) zum S\"attigungsstrom doch auch hier verlaufen beide Linien
-zunehmend parallel. Die Dunkelkennlinien entspricht im wesentlichen
+zunehmend parallel. Die Dunkelkennlinie entspricht im wesentlichen
 den Erwartungen f\"ur eine Diode.\todo{vlt auf gleichung eingehen}
 
 Vergleicht man die Hellkennlinien (~\ref{fig:a-all-combined} und ) so wird
 erkenntlich, dass sich entsprechend
 \(P=U\cdot I \approx \text{const}\) die Reihenfolge der \(\jsc, \voc\)
 umgekehrt verhalten. Die anorganische Zelle hat den gr\"o\ss{}ten
-Kurzschlussstrom und die Folienzelle die Gr\"o\ss{}te
-Lehrlaufspannung. Dabei ist die kennlinie der Folienzelle weit
-ausserhalb des Ma\ss{}stabs der beiden anderen Zellen, dass er
-nocheinmal in~\ref{fig:a-fol-light} in G\"anze dargestellt wird.
-Dies ist auch zu erwarten, da organsche Zellen
-schlechter Leiten.\todo{really?} Verglicht man die beiden Organischen
-Zellen so ist zu vermuten, dass die Folienzelle interen eher eine
-Reihenschaltung (grosse Spannung, wenig Strom) und die Zelle
-O1 eine Parallelschaltung darstellung.
+Kurzschlussstrom und die Folienzelle die gr\"o\ss{}te
+Leerlaufspannung. Dabei ist die Kennlinie der Folienzelle weit
+außerhalb des Ma\ss{}stabs der beiden anderen Zellen, das wird
+noch einmal in~\ref{fig:a-fol-light} in G\"anze dargestellt.
+Dies ist auch zu erwarten, da organische Zellen
+schlechter Leiten.\todo{really?} Vergleicht man die beiden organischen
+Zellen so ist zu vermuten, dass die Folienzelle intern eher eine
+Reihenschaltung (große Spannung, wenig Strom) und die Zelle
+O1 eine Parallelschaltung darstellt.\\
 
+Stellt man~\ref{eq:wirkgrad} nach \(I_K\) um und nimmt man für den
+Wirkungsgrad und Füllfaktor realistische Werte an, so kann man für
+\(\jsc\) eine Erwartung formulieren:
+
+\begin{table}[H]\centering
+        \label{tab:jscanorg}
+        \begin{tabular}{s|s|s|s|s}
+                \toprule
+                \(\eta\)  & \(P_{ein}\) [\(\si{\watt}/\si{\centi\meter}^2\)] & \(voc\) [\si{\volt}] & FF  & \(jsc\) [\(\si{\ampere}/\si{\centi\meter}^2\)]\\
+                \midrule
+                0,21 & 2,6              & 0,5         & 0,5 & 0,084  \\
+                0,21 & 2,6              & 0,55        & 0,5 & 0,076  \\
+                0,21 & 2,6              & 1           & 0,5 & 0,042  \\
+                0,21 & 2,6              & 1,5         & 0,5 & 0,028  \\
+                0,21 & 2,6              & 2           & 0,5 & 0,021
+        \end{tabular}
+        \caption{Erwartbare \(\jsc\) für die anorganische Solarzelle.}
+\end{table}
+
+
+Der Wirkungsgrad von Siliziumsolarzellen liegt im Bereich von wenigen 20 \(\si{\percent}\)
+und die bei A8 gemessene \(\voc\) bei \(\approx \SI{0,55}{\volt}\). Auch die Schätzung des
+Füllfaktors ist nicht schlecht wie sich in~\ref{tab:diodano} zeigen wird.
+Deswegen kann man durchaus einen Kurzschlussstrom von
+\(\jsc\approx\SI{0,076}{\ampere\per\centi\meter\squared}\) erwarten.
+
+\begin{table}[H]\centering
+        \label{tab:jsco1}
+        \begin{tabular}{s|s|s|s|s}
+                \toprule
+                 \(\eta\) & \(P_{ein}\) [\(\si{\watt}/\si{\centi\meter}^2\)] & \(voc\) [\si{\volt}] & FF  & \(jsc\) [\(\si{\ampere}/\si{\centi\meter}^2\)] \\
+                \midrule
+                0,05 & 0,0064           & 0,9         & 0,5 & 0,011     \\
+                0,05 & 0,0064           & 1           & 0,5 & 0,010
+        \end{tabular}
+        \caption{Erwartbare \(\jsc\) für die organische Solarzelle O1.}
+\end{table}
+
+\begin{table}[H]\centering
+        \label{tab:jsco2}
+        \begin{tabular}{s|s|s|s|s}
+                \toprule
+                \(\eta\)  & \(P_{ein}\) [\(\si{\watt}/\si{\centi\meter}^2\)] & \(voc\) [\si{\volt}] & FF  & \(jsc\) [\(\si{\ampere}/\si{\centi\meter}^2\)] \\
+                \midrule
+                0,05 & 2,5              & 6           & 0,5 & \num{0,167e-2}  \\
+                0,05 & 2,5              & 6,5         & 0,5 & \num{0,154e-2}     \\
+                0,05 & 2,5              & 7           & 0,5 & \num{0,143e-2}     \\
+                0,05 & 2,5              & 7,5         & 0,5 & \num{0,133e-2}     \\
+                0,05 & 2,5              & 8           & 0,5 & \num{0,125e-2}
+        \end{tabular}
+        \caption{Erwartbare \(\jsc\) für die organische Solarzelle O2.}
+\end{table}
+
+Bei organischen Solarzellen liegen die Wirkungsgrade momentan noch bei wenigen Prozent.
 
 \begin{figure}[H]\centering
   \includegraphics[width=.7\columnwidth]{./figs/python/A/all_combined.pdf}
   \caption{\(j(U)\) Kennlinie f\"ur O1,O2,A8}
   \label{fig:a-all-combined}
 \end{figure}
+
 \begin{figure}[H]\centering
   \includegraphics[width=.7\columnwidth]{./figs/python/A/fol_hell.pdf}
   \caption{\(j(U)\) Kennlinie f\"ur O2}
@@ -738,8 +793,8 @@ O1 eine Parallelschaltung darstellung.
 \end{figure}
 
 Die charakteristischen Werte der Kennlinien und Solarzellen wurden
-durch lineare interplation und einfacher numerischer optimierung
-(\textit{scipy}) errechnet und in
+durch lineare Interpolation und einfacher numerischer Optimierung
+(\verb|scipy|) errechnet und in
 
 \begin{table}[h]
   \centering
@@ -760,7 +815,7 @@ durch lineare interplation und einfacher numerischer optimierung
 \end{table}
 
 Wie zu erwarten war, liegt der Wirkungsgrad der organischen Zelle
-unter dem der Anorganischen. Alle Zellen habel \"ahnliche
+unter dem der anorganischen. Alle Zellen haben \"ahnliche
 F\"ullfaktoren.
 Bei der Folienzelle wird klar, dass bei ung\"unstiger Lage von
 \(\voc, \jsc\) selbst ein besserer F\"ullfaktor wenig Einfluss auf
@@ -838,15 +893,16 @@ Solarmodul beeinflusst.
 \subsection{Winkelabhängigkeit des Stromflusses vom einfallenden Licht}
 \label{sec:winkel}
 
-\begin{figure}[H]\centering\label{fig:winkel}
+\begin{figure}[H]\centering
         \includegraphics[width=.5\columnwidth]{figs/python/E/relativ.pdf}
-        \caption[.]{.}
+        \caption{Winkelabhängigkeit des Stromflusses vom einfallenden Licht}
+        \label{fig:winkel}
 \end{figure}
 
-Wie in \todo{ref auf diag einfügen} erkennbar gibt es zwischen dem Winkel des einfallenden
+Wie in~\ref{fig:winkel} erkennbar gibt es zwischen dem Winkel des einfallenden
 Lichtes und dem Stromfluss eine Sinus-Abhängigkeit. Wobei bei einem senkrechten
 Lichteinfallswinkel so gut wie kein Strom mehr fließt.
-In \todo{ref auf diag einfügen} ist bei \(\sin(\theta) = 0\) zwar noch ein Stromfluss erkennbar,
+In~\ref{fig:winkel} ist bei \(\sin(\theta) = 0\) zwar noch ein Stromfluss erkennbar,
 dieser liegt aber daran, dass das Modul in Richtung der Fenster gedreht wurde und somit,
 auch wenn das Wetter am Versuchstag bewölkt war, immer noch genügend Licht auf die beiden
 Solarzellen fallen konnte, um einen Stromfluss zu ermöglichen.
