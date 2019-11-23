@@ -465,7 +465,7 @@ Die umgesetzten Schaltungen sind in~\ref{fig:modschaltungen} dargestellt.
       node[circ]{};
     \end{circuitikz}
     \caption{Schaltung 3}
-    \label{fig:schalt2}
+    \label{fig:schalt3}
   \end{subfigure}
   \caption{Verschaltungen des Solarmoduls mit verschiedenen
     Kombinationen von Widerst\"anden.}
@@ -878,7 +878,46 @@ ergibt. Aus nur f\"unf Messpunkten lassen sich keine definitiven
 Schl\"usse \"uber den Zusammenhang von \(\voc\) ziehen.
 
 \subsection{Versuche an realistischen Verschaltungen}
-\label{sec:c}
+\label{sec:auswc}
+Die in~\ref{sec:sol6} dargestellte und schon Kurz begr\"undete
+Schaltung der Solarzellen wurde gew\"ahlt um gleichm\"a\ss{}ig
+\(\isc\) und \(\voc\) zu erh\"ohen und damit
+gem\"a\ss{}~\ref{eq:wirkgrad} den Wirkungsgrad zu steigern (unter der
+annahme, dass \(FF=\text{const.}\) eine intensive Gr\"o\ss{}e ist).
+
+Die Parallelschaltung sorgt dabei f\"ur die Erh\"ohung der Robustheit,
+da bei Verschattung/Ausfall einer Zelle, diese den Stromfluss nicht
+behindert. Dementsprechend w\"ahre auch eine Reihenschaltung von
+jeweils drei parallelgeschaltenen Modulen m\"oglich gewesen.
+
+\subsubsection{Analyse der Kennlinien}
+
+Die Werte in~\ref{tab:verschtab} aufgelisteten Werte wurden wie
+in~\ref{sec:vglhell} gewonnen. Die angegebenen Dezimalstellen stehen
+nicht im Zusammenhang mit eventuellen (hier nicht im Detail
+betrachteten) Messungenauigkeiten und dienen nur dem einfachen Vergleich.
+
+\label{sec:ankenn}
+\begin{table}[h]
+  \centering
+  \begin{tabular}{l|SSSS}
+    \toprule
+    Kennlinie & {\(\jsc\) [\si{\milli\ampere}]} &  {\(\voc\) [\si{\volt}]} & {FF} & {\(\eta\)} \\
+    \midrule
+    6er Modul Hell &  0.134430 &  1.62 &  0.60 &  0.001315 \\
+    6er Modul, Schaltung~\ref{fig:schalt1} &  0.096670 &  1.65 &  0.26 &  0.000414 \\
+    6er Modul, Schaltung~\ref{fig:schalt2} &  0.000076 &  1.53 &  0.25 &  0.000000 \\
+    6er Modul, Schaltung~\ref{fig:schalt3} &  0.037735 &  1.46 &  0.26 &  0.000144 \\
+    6er Modul, Verschattung~\ref{fig:schatt1} &  0.001228 &  1.43 &  0.65 &  0.000011 \\
+    6er Modul, Verschattung~\ref{fig:schatt2} &  0.063305 &  1.57 &  0.69 &  0.000684 \\
+    6er Modul, Verschattung~\ref{fig:schatt3} &  0.004057 &  1.48 &  0.76 &  0.000045 \\
+    6er Modul, Hell &  0.021841 &  7.02 &  0.65 &  0.001002 \\
+    6er Modul mit Verbraucher &  0.026106 &  6.11 &  0.29 &  0.000467 \\
+  \end{tabular}
+  \caption{Charakteristische Kenngr\"o\ss{}en der betrachteten Solarmodule.}
+  \label{tab:verschtab}
+\end{table}
+
 
 \subsubsection{Verhalten bei Verschattung}
 \label{sec:verschattung}
