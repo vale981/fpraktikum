@@ -873,25 +873,25 @@ S\"attigungsstrom, so ergibt sich theoretisch
 \(\voc\propto\ln(I) + \text{const}\).
 
 \begin{equation}
-	0 = I_{Ph} - I_S \cdot \qty(exp\qty[\frac{eU}{ak_BT}]-1)
+        0 = I_{Ph} - I_S \cdot \qty(exp\qty[\frac{eU}{ak_BT}]-1)
 \end{equation}
 
 \begin{equation}
-	\frac{I_{Ph}+I_S}{I_S} =  exp\qty[\frac{eU}{ak_BT}]
+        \frac{I_{Ph}+I_S}{I_S} =  exp\qty[\frac{eU}{ak_BT}]
 \end{equation}
 
 \begin{equation}
-	\ln(\frac{I_{Ph}}{I_S}+1) = \frac{eU}{ak_BT}
+        \ln(\frac{I_{Ph}}{I_S}+1) = \frac{eU}{ak_BT}
 \end{equation}
 
 \begin{equation}
-	\ln(\frac{I_{Ph}}{I_S}+1) \cdot \frac{ak_BT}{e} = U
+        \ln(\frac{I_{Ph}}{I_S}+1) \cdot \frac{ak_BT}{e} = U
 \end{equation}
 
 Für \(I_{Ph} \gg I_S\) folgt:
 
 \begin{equation}\label{eq:iphgross}
-	  U \approx \ln(I_{Ph}) \cdot \frac{ak_BT}{e}
+          U \approx \ln(I_{Ph}) \cdot \frac{ak_BT}{e}
 \end{equation}
 
 Bei niedrigen
@@ -920,27 +920,55 @@ Die Werte in~\ref{tab:verschtab} aufgelisteten Werte wurden wie
 in~\ref{sec:vglhell} gewonnen. Die angegebenen Dezimalstellen stehen
 nicht im Zusammenhang mit eventuellen (hier nicht im Detail
 betrachteten) Messungenauigkeiten und dienen nur dem einfachen Vergleich.
-
-\label{sec:ankenn}
+Plots der Kennlinien finden sich im Anhang:~\ref{sec:plotsc}
 \begin{table}[h]
   \centering
   \begin{tabular}{l|SSSS}
     \toprule
     Kennlinie & {\(\jsc\) [\si{\milli\ampere}]} &  {\(\voc\) [\si{\volt}]} & {FF} & {\(\eta\)} \\
     \midrule
-    6er Modul Hell &  0.134430 &  1.62 &  0.60 &  0.001315 \\
-    6er Modul, Schaltung~\ref{fig:schalt1} &  0.096670 &  1.65 &  0.26 &  0.000414 \\
-    6er Modul, Schaltung~\ref{fig:schalt2} &  0.000076 &  1.53 &  0.25 &  0.000000 \\
-    6er Modul, Schaltung~\ref{fig:schalt3} &  0.037735 &  1.46 &  0.26 &  0.000144 \\
-    6er Modul, Verschattung~\ref{fig:schatt1} &  0.001228 &  1.43 &  0.65 &  0.000011 \\
-    6er Modul, Verschattung~\ref{fig:schatt2} &  0.063305 &  1.57 &  0.69 &  0.000684 \\
-    6er Modul, Verschattung~\ref{fig:schatt3} &  0.004057 &  1.48 &  0.76 &  0.000045 \\
-    6er Modul, Hell &  0.021841 &  7.02 &  0.65 &  0.001002 \\
-    6er Modul mit Verbraucher &  0.026106 &  6.11 &  0.29 &  0.000467 \\
+    6er Modul Hell &  0.134430 &  1.62 &  0.60 & 0.102551 \\
+    6er Modul, Schaltung~\ref{fig:schalt1} &  0.096670 &  1.65 &  0.26 &  0.032320 \\
+    6er Modul, Schaltung~\ref{fig:schalt2} &  0.000076 &  1.53 &  0.25 &  0.000023 \\
+    6er Modul, Schaltung~\ref{fig:schalt3} &  0.037735 &  1.46 &  0.26 &  0.011259 \\
+    6er Modul, Verschattung~\ref{fig:schatt1} &  0.001228 &  1.43 &  0.65 &  0.000894 \\
+    6er Modul, Verschattung~\ref{fig:schatt2} &  0.063305 &  1.57 &  0.69 &  0.053387 \\
+    6er Modul, Verschattung~\ref{fig:schatt3} &  0.004057 &  1.48 &  0.76 &  0.003533 \\
+    6er Modul, Hell &  0.021841 &  7.02 &  0.65 &  0.078163 \\
+    6er Modul mit Verbraucher &  0.026106 &  6.11 &  0.29 &  0.036418 \\
   \end{tabular}
   \caption{Charakteristische Kenngr\"o\ss{}en der betrachteten Solarmodule.}
   \label{tab:verschtab}
 \end{table}
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{l|SS}
+    \toprule
+    Verschaltung & {\(R_S\) [\si{\ohm}]} &  {\(R_P\) [\si{\ohm}]} \\
+    \midrule
+    \ref{fig:schalt1} & 4  & {-}  \\
+    \ref{fig:schalt2} & 4931  & 27  \\
+    \ref{fig:schalt3} & 9   & 3  \\
+  \end{tabular}
+  \caption{Gefittete Widerst\"ande der Verschaltungen, Fits
+    in~\ref{fig:hellkennfit},~~\ref{fig:hellkennfit1}}
+  \label{tab:verschwd}
+\end{table}
+
+
+\ref{tab:verschwd} speist sich aus den Fits f\"ur gro\ss{}e \(I>0\)
+(gibt \(R_S\)) und gro\ss{}en \(I<0\) (gibt \(R_S+R_P\)), wobei
+letztere Fits aufgrund der form der Kennlinien (\ref{fig:hellkennfit})
+wenig Aussagekraft besitzen. Die Werte
+\(R_G=\SI{4.99}{\kilo\ohm}\) und \(R_K=\SI{3.3}{\ohm}\) erkennt man in
+den Werten f\"ur \(R_S\) in allen Schaltungen in Korrespondenz mit den
+Erwartungen wieder. F\"ur \(R_K\) als \(R_S\) in Schaltungen 1,3
+ergeben sich im Fit gr\"o\ss{}ere Werte, da hier der Widerstand des
+Solarmoduls an mehr ins Gewicht f\"allt. Bei n\"aherer Betrachtung
+von~\ref{fig:hellkenn} und~ kann man erkennen, dass sich die f
+
+
 
 
 \subsubsection{Verhalten bei Verschattung}
@@ -988,82 +1016,83 @@ Solarzellen fallen konnte, um einen Stromfluss zu ermöglichen.
 
 \begin{figure}[H]\centering
 \begin{subfigure}[b]{1\textwidth}\centering
-	\includegraphics[width=.5\columnwidth]{figs/python/C/3x3_schaltung_2.pdf}
-	\caption{Schaltung 1 (vgl.~\ref{fig:schalt1})}
-	\label{diag:hellschalt1}
+        \includegraphics[width=.5\columnwidth]{figs/python/C/3x3_schaltung_2.pdf}
+        \caption{Schaltung 1 (vgl.~\ref{fig:schalt1})}
+        \label{diag:hellschalt1}
 \end{subfigure}
 \begin{subfigure}[b]{1\textwidth}\centering
-	\includegraphics[width=.5\columnwidth]{figs/python/C/3x3_schaltung_3.pdf}
-	\caption{Schaltung 2 (vgl.~\ref{fig:schalt2})}
-	\label{diag:hellschalt2}
+        \includegraphics[width=.5\columnwidth]{figs/python/C/3x3_schaltung_3.pdf}
+        \caption{Schaltung 2 (vgl.~\ref{fig:schalt2})}
+        \label{diag:hellschalt2}
 \end{subfigure}
 \begin{subfigure}[b]{1\textwidth}\centering
-	\includegraphics[width=.5\columnwidth]{figs/python/C/3x3_schaltung_4.pdf}
-	\caption{Schaltung 3 (vgl.~\ref{fig:schalt3})}
-	\label{diag:hellschalt3}
+        \includegraphics[width=.5\columnwidth]{figs/python/C/3x3_schaltung_4.pdf}
+        \caption{Schaltung 3 (vgl.~\ref{fig:schalt3})}
+        \label{diag:hellschalt3}
 \end{subfigure}
-	\caption{Hellkennlinien}
-	\label{fig:hellkenn}
+        \caption{Hellkennlinien}
+        \label{fig:hellkenn}
 \end{figure}
 
 \begin{figure}[H]\centering
-	\begin{subfigure}[b]{1\textwidth}\centering
-		\includegraphics[width=.5\columnwidth]{figs/python/C/3x3_verschattung_1.pdf}
-		\caption{Schaltung 1 (vgl.~\ref{fig:schatt1})}
-		\label{diag:verschattung1}
-	\end{subfigure}
-	\begin{subfigure}[b]{1\textwidth}\centering
-		\includegraphics[width=.5\columnwidth]{figs/python/C/3x3_verschattung_2.pdf}
-		\caption{Schaltung 2 (vgl.~\ref{fig:schatt2})}
-		\label{diag:verschattung2}
-	\end{subfigure}
-	\begin{subfigure}[b]{1\textwidth}\centering
-		\includegraphics[width=.5\columnwidth]{figs/python/C/3x3_verschattung_3.pdf}
-		\caption{Schaltung 3 (vgl.~\ref{fig:schatt3})}
-		\label{diag:verschattung3}
-	\end{subfigure}
-	\caption{Kennlinien für verschiedene Verschattungen}
-	\label{fig:verschattung}
+        \begin{subfigure}[b]{1\textwidth}\centering
+                \includegraphics[width=.5\columnwidth]{figs/python/C/3x3_verschattung_1.pdf}
+                \caption{Schaltung 1 (vgl.~\ref{fig:schatt1})}
+                \label{diag:verschattung1}
+        \end{subfigure}
+        \begin{subfigure}[b]{1\textwidth}\centering
+                \includegraphics[width=.5\columnwidth]{figs/python/C/3x3_verschattung_2.pdf}
+                \caption{Schaltung 2 (vgl.~\ref{fig:schatt2})}
+                \label{diag:verschattung2}
+        \end{subfigure}
+        \begin{subfigure}[b]{1\textwidth}\centering
+                \includegraphics[width=.5\columnwidth]{figs/python/C/3x3_verschattung_3.pdf}
+                \caption{Schaltung 3 (vgl.~\ref{fig:schatt3})}
+                \label{diag:verschattung3}
+        \end{subfigure}
+        \caption{Kennlinien für verschiedene Verschattungen}
+        \label{fig:verschattung}
 \end{figure}
 
 \begin{figure}[H]\centering
-	\begin{subfigure}[b]{1\textwidth}\centering
-		\includegraphics[width=.5\columnwidth]{figs/python/3x3_schaltung_2_rsrp.pdf}
-		\caption{Schaltung 1 (vgl.~\ref{fig:schalt1})}
-		\label{diag:hellschalt1fit}
-	\end{subfigure}
-	\begin{subfigure}[b]{1\textwidth}\centering
-		\includegraphics[width=.5\columnwidth]{figs/python/3x3_schaltung_3_rsrp.pdf}
-		\caption{Schaltung 2 (vgl.~\ref{fig:schalt2})}
-		\label{diag:hellschalt2fit}
-	\end{subfigure}
-	\begin{subfigure}[b]{1\textwidth}\centering
-		\includegraphics[width=.5\columnwidth]{figs/python/3x3_schaltung_4_rsrp.pdf}
-		\caption{Schaltung 3 (vgl.~\ref{fig:schalt3})}
-		\label{diag:hellschalt3fit}
-	\end{subfigure}
-	\caption{Hellkennlinien mit Fits}
-	\label{fig:hellkennfit}
+        \begin{subfigure}[b]{1\textwidth}\centering
+                \includegraphics[width=.5\columnwidth]{figs/python/3x3_schaltung_2_rsrp.pdf}
+                \caption{Schaltung 1 (vgl.~\ref{fig:schalt1})}
+                \label{diag:hellschalt1fit}
+        \end{subfigure}
+        \begin{subfigure}[b]{1\textwidth}\centering
+                \includegraphics[width=.5\columnwidth]{figs/python/3x3_schaltung_3_rsrp.pdf}
+                \caption{Schaltung 2 (vgl.~\ref{fig:schalt2})}
+                \label{diag:hellschalt2fit}
+        \end{subfigure}
+        \begin{subfigure}[b]{1\textwidth}\centering
+                \includegraphics[width=.5\columnwidth]{figs/python/3x3_schaltung_4_rsrp.pdf}
+                \caption{Schaltung 3 (vgl.~\ref{fig:schalt3})}
+                \label{diag:hellschalt3fit}
+        \end{subfigure}
+        \caption{Hellkennlinien mit Fits f\"ur den Parallelwiderstand}
+        \label{fig:hellkennfit}
 \end{figure}
 
+
 \begin{figure}[H]\centering
-	\begin{subfigure}[b]{1\textwidth}\centering
-		\includegraphics[width=.5\columnwidth]{figs/python/3x3_verschattung_1_rsrp.pdf}
-		\caption{Schaltung 1 (vgl.~\ref{fig:schatt1})}
-		\label{diag:verschattung1fit}
-	\end{subfigure}
-	\begin{subfigure}[b]{1\textwidth}\centering
-		\includegraphics[width=.5\columnwidth]{figs/python/3x3_verschattung_2_rsrp.pdf}
-		\caption{Schaltung 2 (vgl.~\ref{fig:schatt2})}
-		\label{diag:verschattung2fit}
-	\end{subfigure}
-	\begin{subfigure}[b]{1\textwidth}\centering
-		\includegraphics[width=.5\columnwidth]{figs/python/3x3_verschattung_3_rsrp.pdf}
-		\caption{Schaltung 3 (vgl.~\ref{fig:schatt3})}
-		\label{diag:verschattung3fit}
-	\end{subfigure}
-	\caption{Kennlinien für verschiedene Verschattungen mit Fits}
-	\label{fig:verschattungfit}
+        \begin{subfigure}[b]{1\textwidth}\centering
+                \includegraphics[width=.5\columnwidth]{figs/python/3x3_schaltung_2_rs.pdf}
+                \caption{Schaltung 1 (vgl.~\ref{fig:schalt1})}
+                \label{diag:hellschalt1fit1}
+        \end{subfigure}
+        \begin{subfigure}[b]{1\textwidth}\centering
+                \includegraphics[width=.5\columnwidth]{figs/python/3x3_schaltung_3_rs.pdf}
+                \caption{Schaltung 2 (vgl.~\ref{fig:schalt2})}
+                \label{diag:hellschalt2fit1}
+        \end{subfigure}
+        \begin{subfigure}[b]{1\textwidth}\centering
+                \includegraphics[width=.5\columnwidth]{figs/python/3x3_schaltung_4_rs.pdf}
+                \caption{Schaltung 3 (vgl.~\ref{fig:schalt3})}
+                \label{diag:hellschalt3fit1}
+        \end{subfigure}
+        \caption{Hellkennlinien mit Fits f\"ur den Serienwiderstand}
+        \label{fig:hellkennfit1}
 \end{figure}
 
 \section{Literatur}

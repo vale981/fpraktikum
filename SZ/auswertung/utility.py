@@ -107,7 +107,7 @@ def load_and_analyze(files, intensity, formatter="{}".format, area=1,
     for point, desc, *rest in files:
         a = area*rest[0] if rest else area
 
-        row = pd.Series({'desc': desc, 'area': a*area,
+        row = pd.Series({'desc': desc, 'area': a,
                          'curve': parse_ccurve(formatter(point))})
 
         ccurves.loc[desc] = pd.concat((row,
