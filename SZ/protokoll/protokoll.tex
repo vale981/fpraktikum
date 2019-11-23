@@ -707,14 +707,69 @@ Dies ist auch zu erwarten, da organische Zellen
 schlechter Leiten.\todo{really?} Vergleicht man die beiden organischen
 Zellen so ist zu vermuten, dass die Folienzelle intern eher eine
 Reihenschaltung (große Spannung, wenig Strom) und die Zelle
-O1 eine Parallelschaltung darstellt.
+O1 eine Parallelschaltung darstellt.\\
 
+Stellt man~\ref{eq:wirkgrad} nach \(I_K\) um und nimmt man für den
+Wirkungsgrad und Füllfaktor realistische Werte an, so kann man für
+\(\jsc\) eine Erwartung formulieren:
+
+\begin{table}[H]\centering
+	\label{tab:jscanorg}
+	\begin{tabular}{s|s|s|s|s}
+		\toprule
+		\(\eta\)  & \(P_{ein}\) [\(\si{\watt}/\si{\centi\meter}^2\)] & \(voc\) [\si{\volt}] & FF  & \(jsc\) [\(\si{\ampere}/\si{\centi\meter}^2\)]\\
+		\midrule
+		0,21 & 2,6              & 0,5         & 0,5 & 0,084  \\
+		0,21 & 2,6              & 0,55        & 0,5 & 0,076  \\
+		0,21 & 2,6              & 1           & 0,5 & 0,042  \\
+		0,21 & 2,6              & 1,5         & 0,5 & 0,028  \\
+		0,21 & 2,6              & 2           & 0,5 & 0,021          
+	\end{tabular}
+	\caption{Erwartbare \(\jsc\) für die anorganische Solarzelle.}
+\end{table}
+
+
+Der Wirkungsgrad von Siliziumsolarzellen liegt im Bereich von wenigen 20 \(\si{\percent}\)
+und die bei A8 gemessene \(\voc\) bei \(\approx \SI{0,55}{\volt}\). Auch die Schätzung des
+Füllfaktors ist nicht schlecht wie sich in~\ref{tab:diodano} zeigen wird.
+Deswegen kann man durchaus einen Kurzschlussstrom von
+\(\jsc\approx\SI{0,076}{\ampere\per\centi\meter\squared}\) erwarten.
+
+\begin{table}[H]\centering
+	\label{tab:jsco1}
+	\begin{tabular}{s|s|s|s|s}
+		\toprule
+		 \(\eta\) & \(P_{ein}\) [\(\si{\watt}/\si{\centi\meter}^2\)] & \(voc\) [\si{\volt}] & FF  & \(jsc\) [\(\si{\ampere}/\si{\centi\meter}^2\)] \\
+		\midrule
+		0,05 & 0,0064           & 0,9         & 0,5 & 0,011     \\
+		0,05 & 0,0064           & 1           & 0,5 & 0,010           
+	\end{tabular}
+	\caption{Erwartbare \(\jsc\) für die organische Solarzelle O1.}
+\end{table}
+
+\begin{table}[H]\centering
+	\label{tab:jsco2}
+	\begin{tabular}{s|s|s|s|s}
+		\toprule
+		\(\eta\)  & \(P_{ein}\) [\(\si{\watt}/\si{\centi\meter}^2\)] & \(voc\) [\si{\volt}] & FF  & \(jsc\) [\(\si{\ampere}/\si{\centi\meter}^2\)] \\
+		\midrule
+		0,05 & 2,5              & 6           & 0,5 & \num{0,167e-2}  \\
+		0,05 & 2,5              & 6,5         & 0,5 & \num{0,154e-2}     \\
+		0,05 & 2,5              & 7           & 0,5 & \num{0,143e-2}     \\
+		0,05 & 2,5              & 7,5         & 0,5 & \num{0,133e-2}     \\
+		0,05 & 2,5              & 8           & 0,5 & \num{0,125e-2}      
+	\end{tabular}
+	\caption{Erwartbare \(\jsc\) für die organische Solarzelle O2.}
+\end{table}
+
+Bei organischen Solarzellen liegen die Wirkungsgrade momentan noch bei wenigen Prozent.
 
 \begin{figure}[H]\centering
   \includegraphics[width=.7\columnwidth]{./figs/python/A/all_combined.pdf}
   \caption{\(j(U)\) Kennlinie f\"ur O1,O2,A8}
   \label{fig:a-all-combined}
 \end{figure}
+
 \begin{figure}[H]\centering
   \includegraphics[width=.7\columnwidth]{./figs/python/A/fol_hell.pdf}
   \caption{\(j(U)\) Kennlinie f\"ur O2}
