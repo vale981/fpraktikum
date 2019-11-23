@@ -13,6 +13,7 @@
 \usepackage{circuitikz}
 \usepackage{subcaption}
 \usepackage{ amssymb }
+\usepackage{tabularx}
 \sisetup{math-celsius = {}^{\circ}\kern-\scriptspace C}
 \usepackage[ngerman]{babel}
 
@@ -308,11 +309,11 @@ wurde die Beleuchtung zun\"achst auf $\sun{1}=\mwcm{1}$
 kalibriert. Dies entsprach ungef\"ahr dem verf\"ugbaren Maximum.
 
 Bei der Messung der Leerlaufspannung der Referenzzelle ergibt sich eine
-gesch\"atzter Abweichung von
+gesch\"atzter Abweichung (untere Grenze) von:
 
 \begin{equation}
   \label{eq:deltavocref}
-  \Delta \voc = \SI{3}{\milli\volt}
+  \Delta U = \SI{2}{\milli\volt}
 \end{equation}
 
 aus der Anzeigegenauigkeit des Multimeters (\SI{1}{\milli\volt}) und
@@ -589,6 +590,18 @@ Der Leerlaufstrom beider Solarzellen wurde in \(10^\circ\) - Schritten aufgenomm
 Bei allen Plots wurden grunds\"atzlich alle durch die Strombegrenzung
 hervorgerufenen Plateaus abgeschnitten.
 
+Zur Berechnung von Intensit\"aten wird in linearer Zussamenhang von
+\(\voc\) der Referenzelle und der Beleuchtungsintensität angenommen,
+wobei \(U(I=\mwcm{0})=\SI{0}{\milli\volt}\) und
+\(U(I=\mwcm{100}=I_0)=\SI{32.2}{\milli\volt}=U_0\).
+
+\begin{align}
+  \label{eq:refint}
+  I(U) &= I_0\cdot\frac{U}{U_0} \\
+  \Delta I(U) &= I_0\cdot\frac{\Delta U}{U_0} \overset{\text{\ref{eq:deltavocref}}}{\approx} \mwcm{6.2}
+\end{align}
+
+
 \subsection{Vergleich verschiedener Solarzellen-Typen}
 \label{sec:aussoztyp}
 
@@ -616,7 +629,7 @@ umstellt, erh\"alt man:
 \end{equation}
 
 
-Diese gleichung lie\sse{} sich im Prinzip gegen~\ref{fig:a-anorg-dunkel}
+Diese gleichung lie\ss{}e sich im Prinzip gegen~\ref{fig:a-anorg-dunkel}
 fitten. Jedoch hat der \(\ln\) eine Singularit\"at an der stelle
 \(x=0\) und ist damit numerisch instabil.
 
@@ -655,9 +668,9 @@ Der Anstieg der Geraden gibt den parameter
     Zelle & {\(R_S\) [\si{ohm}]} & {\(\isc\) [\si{\A}]} & {\(a\)} \\
     \midrule
     A8 & .34 & 9.56e-8 & 1.49 \\
-    \"ubliche Werte \footcite{wikipedia_2019} & &
+    \"ubliche Werte \footcite{wikipedia_2019} & {-} &
                                                   \SIrange{e-12}{e-6}{}
-                                                        & \SIrange{1}{2}
+                                                        & \SIrange{1}{2}{}
   \end{tabular}
   \caption{Diodenkennwerte der Anorganischen Solarzelle.}
   \label{tab:diodano}
@@ -700,7 +713,7 @@ den Erwartungen f\"ur eine Diode.\todo{vlt auf gleichung eingehen}
 
 Vergleicht man die Hellkennlinien (~\ref{fig:a-all-combined} und ) so wird
 erkenntlich, dass sich entsprechend
-\(P=U\cdot I \approx \text{const}\) die Reihenfolge der \(\jsc, \vcc\)
+\(P=U\cdot I \approx \text{const}\) die Reihenfolge der \(\jsc, \voc\)
 umgekehrt verhalten. Die anorganische Zelle hat den gr\"o\ss{}ten
 Kurzschlussstrom und die Folienzelle die Gr\"o\ss{}te
 Lehrlaufspannung. Dabei ist die kennlinie der Folienzelle weit
@@ -726,15 +739,16 @@ O1 eine Parallelschaltung darstellung.
 
 Die charakteristischen Werte der Kennlinien und Solarzellen wurden
 durch lineare interplation und einfacher numerischer optimierung
-(\verb{scipy}) errechnet und in
+(\textit{scipy}) errechnet und in
 
 \begin{table}[h]
   \centering
-  \begin{tabular}{l|SSSS{1em}SS}
+  \begin{tabular}{l|SSSSSS}
     \toprule
-    Zelle & {\(\jsc\) [\si{A\per\centi\meter^2}]} & {\(\voc\) [\si{\volt}]} & {MPP
-                                                            [\si{\watt}]}
-    & {FF} & {\(\eta\)} & {Fl\"ache [\si{\centi\meter^2}]}\\
+    Zelle & {\(\jsc\)} & {\(\voc\)} & {MPP}
+    & {FF} & {\(\eta\)} & {Fl\"ache}\\
+    {} & {[\si{A\per\centi\meter^2}]} & {[\si{\volt}]} & {[\si{\watt}]}
+    & {} & {} & {[\si{\centi\meter^2}]}\\
     \midrule
     A8 & 2.63e-2 & .56 & .16 & .41 & .06 & 26 \\
     O1 & 4.06e-3 & .91 & 1.62e-4 & .68 & .03 & 6.4e-2\\
@@ -749,8 +763,60 @@ Wie zu erwarten war, liegt der Wirkungsgrad der organischen Zelle
 unter dem der Anorganischen. Alle Zellen habel \"ahnliche
 F\"ullfaktoren.
 Bei der Folienzelle wird klar, dass bei ung\"unstiger Lage von
-\(\voc,\jcc\) selbst ein besserer F\"ullfaktor wenig Einfluss auf
+\(\voc, \jsc\) selbst ein besserer F\"ullfaktor wenig Einfluss auf
 \(\eta\) hat. Eventuell lag bei der Folienzelle auch ein Defekt vor.
+
+
+\subsection{Der Einfluss der Beleuchtungsintensität}
+\label{sec:auswintens}
+
+Wie in~\ref{fig:b-all} zu sehen erben sich Ma\ss{}gebliche
+Abh\"angigkeiten von \(\jsc\) und weniger von \(\voc\).
+\begin{figure}[H]\centering
+  \includegraphics[width=.7\columnwidth]{./figs/python/B/all.pdf}
+  \caption{\(j(U)\) Kennlinie der Anorganischen Solarzelle in
+    Abhängigkeit der Intensität (\([I] = \mwcm{}\))  }
+  \label{fig:b-all}
+\end{figure}
+\begin{figure}[H]\centering
+  \includegraphics[width=.7\columnwidth]{./figs/python/B/j_sc.pdf}
+  \caption{\(\jsc\)  der Anorganischen Solarzelle in
+    Abhängigkeit der Intensität.}
+  \label{fig:b-jsc}
+\end{figure}
+\begin{figure}[H]\centering
+  \includegraphics[width=.7\columnwidth]{./figs/python/B/u_cc.pdf}
+  \caption{\(\voc\) der Anorganischen Solarzelle in
+    Abhängigkeit der Intensität. Logarithmischer Plot.}
+  \label{fig:b-voc}
+\end{figure}
+
+Bei ausreichend gro\ss{}en intensit\"aten sollte \(\jsc\) linear von
+der Intensit\"at
+\(I\) abh\"angen, da die Photonenrate und damit auch die
+Erzeugungsrate der Elektron-Loch Paare linear von \(I\)
+abh\"angen. \ref{fig:b-jsc} spiegelt das wider. Bei niedrigen
+Intensit\"aten scheinen noch andere Effekte eine Rolle zu
+spielen. Auch k\"onnte die an der Refernzzelle gemessene Spannung bei
+geringen Intensit\"aten nicht mehr linear von selbigen abh\"angen.
+
+Setzt man in~\ref{eq:ersatz} \(I=0\) und vernachl\"assigt \(R_P\)
+(m\"oglich, falls Solarzellenspannung gro\ss{}) und den endlichen
+S\"attigungsstrom, so ergibt sich theoretisch
+\(\voc\propto\ln(I) + \text{const}\).\todo{formel} Bei niedrigen
+Intensit\"aten gelten diese Voraussetzung warscheinlich nich gut,
+sodass sich f\"ur die ersten Messpunkte in~\ref{fig:b-voc} eine
+Abweichung ergibt. Aus nur f\"unf Messpunkten lassen sich keine
+definitiven Schl\"usse \"uber den Zusammenhang von \(\voc\)
+ziehen.
+
+Die in~\ref{fig:b-voc} und~\ref{fig:b-jsc} dargestellten Fehlerbalken
+f\"ur die Intensit\"at entstammen~\ref{eq:refint} wobei
+in~\ref{fig:b-voc} die Spannungsabweichung in erster n\"aherung durch
+die Pr\"azision der abegespeicherten Spannungswerte \SI{.01}{\volt}
+gegeben ist. Die Abweichung der Strommessung ist zu gering, um
+sie~\ref{fig:b-jsc} darzustellen (Herstellerangabe maximal
+\SI{5}{\micro\ampere}).
 
 \subsection{C - Versuche an realistischen Verschaltungen}
 \label{sec:c}
@@ -759,13 +825,13 @@ Bei der Folienzelle wird klar, dass bei ung\"unstiger Lage von
 \label{sec:verschattung}
 \todo{diagramme einfügen}
 
-An den Diagrammen kann man erkennen, dass der Stromfluss eines gesamten Solarmoduls 
+An den Diagrammen kann man erkennen, dass der Stromfluss eines gesamten Solarmoduls
 zum Erliegen kommt sobald ein in Reihe geschaltetes Teilmodul komplett verschattet wird.
 Im Realen ist dies natürlich ein nicht hinnehmbarer Zustand, da es zum Beispiel bei
 Bewölkung immer wieder zu Teilverschattung kommt und dies somit den Stromfluss der gesamten
 Anlage stark beeinflussen kann.
 Dies umgeht man, in dem man zu jedem einzelnen Teilmodul eine so genannte \emph{Freilaufdiode}
-antiparallel schaltet, da diese den Stromfluss bei Verschattung eines in Reihe geschalteten 
+antiparallel schaltet, da diese den Stromfluss bei Verschattung eines in Reihe geschalteten
 Moduls um dieses herumleitet und damit eine solche Verschattung nicht das gesamte
 Solarmodul beeinflusst.
 
@@ -773,12 +839,12 @@ Solarmodul beeinflusst.
 \label{sec:winkel}
 
 \begin{figure}[H]\centering\label{fig:winkel}
-	\includegraphics[width=.5\columnwidth]{figs/python/E/relativ.pdf}
-	\caption[.]{.}
+        \includegraphics[width=.5\columnwidth]{figs/python/E/relativ.pdf}
+        \caption[.]{.}
 \end{figure}
 
 Wie in \todo{ref auf diag einfügen} erkennbar gibt es zwischen dem Winkel des einfallenden
-Lichtes und dem Stromfluss eine Sinus-Abhängigkeit. Wobei bei einem senkrechten 
+Lichtes und dem Stromfluss eine Sinus-Abhängigkeit. Wobei bei einem senkrechten
 Lichteinfallswinkel so gut wie kein Strom mehr fließt.
 In \todo{ref auf diag einfügen} ist bei \(\sin(\theta) = 0\) zwar noch ein Stromfluss erkennbar,
 dieser liegt aber daran, dass das Modul in Richtung der Fenster gedreht wurde und somit,
