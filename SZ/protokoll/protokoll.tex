@@ -256,13 +256,13 @@ Das Ersatzschaltbild ergibt sich zu:
 
 Ist die Solarzelle unbeleuchtet so gleicht ihre Kennlinie der einer Diode.
 Der Kennlinie der beleuchteten Zelle kann man einiges entnehmen.
-Zum einen die Leerlaufspannung \(U_L\), also die Spannung für \(I=0 A\), den Kurzschlussstrom \(I_K\), der den
+Zum einen die Leerlaufspannung \(\voc\), also die Spannung für \(I=0 A\), den Kurzschlussstrom \(I_{SC}\), der den
 Strom darstellt, der fließt, wenn keine äußere Spannung anliegt und den maximalen Leistungspunkt, also der Punkt
 der maximalen Leistung der Solarzelle. Außerdem findet man mit dem Füllfaktor \emph{FF}, der sich aus dem
-Quotienten von maximaler Leistung und \(|I_K| \cdot U_L\) bestimmt, den Wirkungsgrad der Zelle:
+Quotienten von maximaler Leistung und \(|I_{SC}| \cdot \voc\) bestimmt, den Wirkungsgrad der Zelle:
 
 \begin{equation}\label{eq:wirkgrad}
-        \eta = \frac{FF \cdot |I_K| \cdot U_L}{P_{ein}}
+        \eta = \frac{FF \cdot |I_{SC}| \cdot \voc}{P_{ein}}
 \end{equation}
 
 \begin{tabular}{llll}
@@ -979,6 +979,12 @@ Solarzellen fallen konnte, um einen Stromfluss zu ermöglichen.
 
 \subsection{Weitere Plots zu C}
 \label{sec:plotsc}
+
+\begin{figure}[H]\centering
+	\includegraphics[width=.5\columnwidth]{figs/python/C/3x3_hell.pdf}
+	\caption{Hellkennlinie des 6er-Moduls}
+	\label{diag:hell6er}
+\end{figure}
 
 \begin{figure}[H]\centering
 \begin{subfigure}[b]{1\textwidth}\centering
