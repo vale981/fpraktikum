@@ -733,13 +733,13 @@ Wirkungsgrad und Füllfaktor realistische Werte an, so kann man für
         \label{tab:jscanorg}
         \begin{tabular}{s|s|s|s|s}
                 \toprule
-                \(\eta\)  & \(P_{ein}\) [\(\si{\watt}/\si{\centi\meter}^2\)] & \(\voc\) [\si{\volt}] & FF  & \(jsc\) [\(\si{\ampere}/\si{\centi\meter}^2\)]\\
+                \(\eta\)  & \(P_{ein}\) [\(\si{\watt}\)] & \(\voc\) [\si{\volt}] & FF  & \(jsc\) [\(\si{\ampere}/\si{\centi\meter}^2\)]\\
                 \midrule
-                0,21 & 2,6              & 0,5         & 0,5 & 0,084  \\
-                0,21 & 2,6              & 0,55        & 0,5 & 0,076  \\
-                0,21 & 2,6              & 1           & 0,5 & 0,042  \\
-                0,21 & 2,6              & 1,5         & 0,5 & 0,028  \\
-                0,21 & 2,6              & 2           & 0,5 & 0,021
+                {0.21} & {2.6}              & {0,5}         & {0,5} & {0,084}  \\
+                {0.21} & {2.6}              & {0,55}        & {0,5} & {0,076}  \\
+                {0.21} & {2.6}              & 1           & {0.5} & {0,042}  \\
+                {0.21} & {2.6}              & {1,5}         & {0.5} & {0,028}  \\
+                {0.21} & {2.6}              & 2           & {0.5} & {0,021}
         \end{tabular}
         \caption{Erwartbare \(\jsc\) für die anorganische Solarzelle.}
 \end{table}
@@ -755,10 +755,10 @@ Deswegen kann man durchaus einen Kurzschlussstrom von
         \label{tab:jsco1}
         \begin{tabular}{s|s|s|s|s}
                 \toprule
-                 \(\eta\) & \(P_{ein}\) [\(\si{\watt}/\si{\centi\meter}^2\)] & \(\voc\) [\si{\volt}] & FF  & \(jsc\) [\(\si{\ampere}/\si{\centi\meter}^2\)] \\
+                 \(\eta\) & \(P_{ein}\) [\(\si{\watt}\)] & \(\voc\) [\si{\volt}] & FF  & \(jsc\) [\(\si{\ampere}/\si{\centi\meter}^2\)] \\
                 \midrule
-                0,05 & 0,0064           & 0,9         & 0,5 & 0,011     \\
-                0,05 & 0,0064           & 1           & 0,5 & 0,010
+                {0.05} & {0.0064}           & {0,9}        & {0,5} & {0,011}     \\
+                {0.05} & {0.0064}           & 1           & {0,5} & {0,010}
         \end{tabular}
         \caption{Erwartbare \(\jsc\) für die organische Solarzelle O1.}
 \end{table}
@@ -767,13 +767,13 @@ Deswegen kann man durchaus einen Kurzschlussstrom von
         \label{tab:jsco2}
         \begin{tabular}{s|s|s|s|s}
                 \toprule
-                \(\eta\)  & \(P_{ein}\) [\(\si{\watt}/\si{\centi\meter}^2\)] & \(\voc\) [\si{\volt}] & FF  & \(jsc\) [\(\si{\ampere}/\si{\centi\meter}^2\)] \\
+                \(\eta\)  & \(P_{ein}\) [\(\si{\watt}\)] & \(\voc\) [\si{\volt}] & FF  & \(jsc\) [\(\si{\ampere}/\si{\centi\meter}^2\)] \\
                 \midrule
-                0,05 & 2,5              & 6           & 0,5 & \num{0,167e-2}  \\
-                0,05 & 2,5              & 6,5         & 0,5 & \num{0,154e-2}     \\
-                0,05 & 2,5              & 7           & 0,5 & \num{0,143e-2}     \\
-                0,05 & 2,5              & 7,5         & 0,5 & \num{0,133e-2}     \\
-                0,05 & 2,5              & 8           & 0,5 & \num{0,125e-2}
+                {0.05} & {2.5}              & 6           & {0.5} & \num{0.167e-2}  \\
+                {0.05} & {2.5}              & {6.5}         & {0.5} & \num{0.154e-2}     \\
+                {0.05} & {2.5}              & 7           & {0.5} & \num{0.143e-2}     \\
+                {0.05} & {2.5}              & {7.5}         & {0.5} & \num{0.133e-2}     \\
+                {0.05} & {2.5}              & 8           & {{0.5}} & \num{0.125e-2}
         \end{tabular}
         \caption{Erwartbare \(\jsc\) für die organische Solarzelle O2.}
 \end{table}
@@ -870,7 +870,31 @@ interperitieren ist.
 Setzt man in~\ref{eq:ersatz} \(I=0\) und vernachl\"assigt \(R_P\)
 (m\"oglich, falls Solarzellenspannung gro\ss{}) und den endlichen
 S\"attigungsstrom, so ergibt sich theoretisch
-\(\voc\propto\ln(I) + \text{const}\).\todo{formel} Bei niedrigen
+\(\voc\propto\ln(I) + \text{const}\).
+
+\begin{equation}
+	0 = I_{Ph} - I_S \cdot \qty(exp\qty[\frac{eU}{ak_BT}]-1)
+\end{equation}
+
+\begin{equation}
+	\frac{I_{Ph}+I_S}{I_S} =  exp\qty[\frac{eU}{ak_BT}]
+\end{equation}
+
+\begin{equation}
+	\ln(\frac{I_{Ph}}{I_S}+1) = \frac{eU}{ak_BT}
+\end{equation}
+
+\begin{equation}
+	\ln(\frac{I_{Ph}}{I_S}+1) \cdot \frac{ak_BT}{e} = U
+\end{equation}
+
+Für \(I_{Ph} \gg I_S\) folgt:
+
+\begin{equation}\label{eq:iphgross}
+	  U \approx \ln(I_{Ph}) \cdot \frac{ak_BT}{e}
+\end{equation}
+
+Bei niedrigen
 Intensit\"aten gelten diese Voraussetzung wahrscheinlich nicht gut,
 sodass sich f\"ur die ersten Messpunkte in~\ref{fig:b-voc} eine
 Abweichung (noch innerhalb der gesch\"atzten Messungenauigkeiten)
@@ -950,7 +974,94 @@ dieser liegt aber daran, dass das Modul in Richtung der Fenster gedreht wurde un
 auch wenn das Wetter am Versuchstag bewölkt war, immer noch genügend Licht auf die beiden
 Solarzellen fallen konnte, um einen Stromfluss zu ermöglichen.
 
+\section{Anhang}
+\label{sec:anh}
+
+\subsection{Weitere Plots zu C}
+\label{sec:plotsc}
+
+\begin{figure}[H]\centering
+\begin{subfigure}[b]{1\textwidth}\centering
+	\includegraphics[width=.5\columnwidth]{figs/python/C/3x3_schaltung_2.pdf}
+	\caption{Schaltung 1 (vgl.~\ref{fig:schalt1})}
+	\label{diag:hellschalt1}
+\end{subfigure}
+\begin{subfigure}[b]{1\textwidth}\centering
+	\includegraphics[width=.5\columnwidth]{figs/python/C/3x3_schaltung_3.pdf}
+	\caption{Schaltung 2 (vgl.~\ref{fig:schalt2})}
+	\label{diag:hellschalt2}
+\end{subfigure}
+\begin{subfigure}[b]{1\textwidth}\centering
+	\includegraphics[width=.5\columnwidth]{figs/python/C/3x3_schaltung_4.pdf}
+	\caption{Schaltung 3 (vgl.~\ref{fig:schalt3})}
+	\label{diag:hellschalt3}
+\end{subfigure}
+	\caption{Hellkennlinien}
+	\label{fig:hellkenn}
+\end{figure}
+
+\begin{figure}[H]\centering
+	\begin{subfigure}[b]{1\textwidth}\centering
+		\includegraphics[width=.5\columnwidth]{figs/python/C/3x3_verschattung_1.pdf}
+		\caption{Schaltung 1 (vgl.~\ref{fig:schatt1})}
+		\label{diag:verschattung1}
+	\end{subfigure}
+	\begin{subfigure}[b]{1\textwidth}\centering
+		\includegraphics[width=.5\columnwidth]{figs/python/C/3x3_verschattung_2.pdf}
+		\caption{Schaltung 2 (vgl.~\ref{fig:schatt2})}
+		\label{diag:verschattung2}
+	\end{subfigure}
+	\begin{subfigure}[b]{1\textwidth}\centering
+		\includegraphics[width=.5\columnwidth]{figs/python/C/3x3_verschattung_3.pdf}
+		\caption{Schaltung 3 (vgl.~\ref{fig:schatt3})}
+		\label{diag:verschattung3}
+	\end{subfigure}
+	\caption{Kennlinien für verschiedene Verschattungen}
+	\label{fig:verschattung}
+\end{figure}
+
+\begin{figure}[H]\centering
+	\begin{subfigure}[b]{1\textwidth}\centering
+		\includegraphics[width=.5\columnwidth]{figs/python/3x3_schaltung_2_rsrp.pdf}
+		\caption{Schaltung 1 (vgl.~\ref{fig:schalt1})}
+		\label{diag:hellschalt1fit}
+	\end{subfigure}
+	\begin{subfigure}[b]{1\textwidth}\centering
+		\includegraphics[width=.5\columnwidth]{figs/python/3x3_schaltung_3_rsrp.pdf}
+		\caption{Schaltung 2 (vgl.~\ref{fig:schalt2})}
+		\label{diag:hellschalt2fit}
+	\end{subfigure}
+	\begin{subfigure}[b]{1\textwidth}\centering
+		\includegraphics[width=.5\columnwidth]{figs/python/3x3_schaltung_4_rsrp.pdf}
+		\caption{Schaltung 3 (vgl.~\ref{fig:schalt3})}
+		\label{diag:hellschalt3fit}
+	\end{subfigure}
+	\caption{Hellkennlinien mit Fits}
+	\label{fig:hellkennfit}
+\end{figure}
+
+\begin{figure}[H]\centering
+	\begin{subfigure}[b]{1\textwidth}\centering
+		\includegraphics[width=.5\columnwidth]{figs/python/3x3_verschattung_1_rsrp.pdf}
+		\caption{Schaltung 1 (vgl.~\ref{fig:schatt1})}
+		\label{diag:verschattung1fit}
+	\end{subfigure}
+	\begin{subfigure}[b]{1\textwidth}\centering
+		\includegraphics[width=.5\columnwidth]{figs/python/3x3_verschattung_2_rsrp.pdf}
+		\caption{Schaltung 2 (vgl.~\ref{fig:schatt2})}
+		\label{diag:verschattung2fit}
+	\end{subfigure}
+	\begin{subfigure}[b]{1\textwidth}\centering
+		\includegraphics[width=.5\columnwidth]{figs/python/3x3_verschattung_3_rsrp.pdf}
+		\caption{Schaltung 3 (vgl.~\ref{fig:schatt3})}
+		\label{diag:verschattung3fit}
+	\end{subfigure}
+	\caption{Kennlinien für verschiedene Verschattungen mit Fits}
+	\label{fig:verschattungfit}
+\end{figure}
+
 \section{Literatur}
+
 \label{sec:literatur}
 
 \printbibliography
