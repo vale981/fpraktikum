@@ -733,7 +733,7 @@ Wirkungsgrad und Füllfaktor realistische Werte an, so kann man für
         \label{tab:jscanorg}
         \begin{tabular}{s|s|s|s|s}
                 \toprule
-                \(\eta\)  & \(P_{ein}\) [\(\si{\watt}/\si{\centi\meter}^2\)] & \(voc\) [\si{\volt}] & FF  & \(jsc\) [\(\si{\ampere}/\si{\centi\meter}^2\)]\\
+                \(\eta\)  & \(P_{ein}\) [\(\si{\watt}/\si{\centi\meter}^2\)] & \(\voc\) [\si{\volt}] & FF  & \(jsc\) [\(\si{\ampere}/\si{\centi\meter}^2\)]\\
                 \midrule
                 0,21 & 2,6              & 0,5         & 0,5 & 0,084  \\
                 0,21 & 2,6              & 0,55        & 0,5 & 0,076  \\
@@ -755,7 +755,7 @@ Deswegen kann man durchaus einen Kurzschlussstrom von
         \label{tab:jsco1}
         \begin{tabular}{s|s|s|s|s}
                 \toprule
-                 \(\eta\) & \(P_{ein}\) [\(\si{\watt}/\si{\centi\meter}^2\)] & \(voc\) [\si{\volt}] & FF  & \(jsc\) [\(\si{\ampere}/\si{\centi\meter}^2\)] \\
+                 \(\eta\) & \(P_{ein}\) [\(\si{\watt}/\si{\centi\meter}^2\)] & \(\voc\) [\si{\volt}] & FF  & \(jsc\) [\(\si{\ampere}/\si{\centi\meter}^2\)] \\
                 \midrule
                 0,05 & 0,0064           & 0,9         & 0,5 & 0,011     \\
                 0,05 & 0,0064           & 1           & 0,5 & 0,010
@@ -767,7 +767,7 @@ Deswegen kann man durchaus einen Kurzschlussstrom von
         \label{tab:jsco2}
         \begin{tabular}{s|s|s|s|s}
                 \toprule
-                \(\eta\)  & \(P_{ein}\) [\(\si{\watt}/\si{\centi\meter}^2\)] & \(voc\) [\si{\volt}] & FF  & \(jsc\) [\(\si{\ampere}/\si{\centi\meter}^2\)] \\
+                \(\eta\)  & \(P_{ein}\) [\(\si{\watt}/\si{\centi\meter}^2\)] & \(\voc\) [\si{\volt}] & FF  & \(jsc\) [\(\si{\ampere}/\si{\centi\meter}^2\)] \\
                 \midrule
                 0,05 & 2,5              & 6           & 0,5 & \num{0,167e-2}  \\
                 0,05 & 2,5              & 6,5         & 0,5 & \num{0,154e-2}     \\
@@ -829,19 +829,19 @@ Wie in~\ref{fig:b-all} zu sehen erben sich Ma\ss{}gebliche
 Abh\"angigkeiten von \(\jsc\) und weniger von \(\voc\).
 \begin{figure}[H]\centering
   \includegraphics[width=.7\columnwidth]{./figs/python/B/all.pdf}
-  \caption{\(j(U)\) Kennlinie der Anorganischen Solarzelle in
+  \caption{\(j(U)\) Kennlinie der anorganischen Solarzelle in
     Abhängigkeit der Intensität (\([I] = \mwcm{}\))  }
   \label{fig:b-all}
 \end{figure}
 \begin{figure}[H]\centering
   \includegraphics[width=.7\columnwidth]{./figs/python/B/j_sc.pdf}
-  \caption{\(\jsc\)  der Anorganischen Solarzelle in
+  \caption{\(\jsc\)  der anorganischen Solarzelle in
     Abhängigkeit der Intensität.}
   \label{fig:b-jsc}
 \end{figure}
 \begin{figure}[H]\centering
   \includegraphics[width=.7\columnwidth]{./figs/python/B/u_cc.pdf}
-  \caption{\(\voc\) der Anorganischen Solarzelle in
+  \caption{\(\voc\) der anorganischen Solarzelle in
     Abhängigkeit der Intensität. Logarithmischer Plot.}
   \label{fig:b-voc}
 \end{figure}
@@ -871,13 +871,13 @@ Setzt man in~\ref{eq:ersatz} \(I=0\) und vernachl\"assigt \(R_P\)
 (m\"oglich, falls Solarzellenspannung gro\ss{}) und den endlichen
 S\"attigungsstrom, so ergibt sich theoretisch
 \(\voc\propto\ln(I) + \text{const}\).\todo{formel} Bei niedrigen
-Intensit\"aten gelten diese Voraussetzung warscheinlich nich gut,
+Intensit\"aten gelten diese Voraussetzung wahrscheinlich nicht gut,
 sodass sich f\"ur die ersten Messpunkte in~\ref{fig:b-voc} eine
 Abweichung (noch innerhalb der gesch\"atzten Messungenauigkeiten)
 ergibt. Aus nur f\"unf Messpunkten lassen sich keine definitiven
 Schl\"usse \"uber den Zusammenhang von \(\voc\) ziehen.
 
-\subsection{C - Versuche an realistischen Verschaltungen}
+\subsection{Versuche an realistischen Verschaltungen}
 \label{sec:c}
 
 \subsubsection{Verhalten bei Verschattung}
