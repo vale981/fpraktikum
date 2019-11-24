@@ -262,7 +262,7 @@ der maximalen Leistung der Solarzelle. Außerdem findet man mit dem Füllfaktor 
 Quotienten von maximaler Leistung und \(|I_{SC}| \cdot \voc\) bestimmt, den Wirkungsgrad der Zelle:
 
 \begin{equation}\label{eq:wirkgrad}
-        \eta = \frac{FF \cdot |I_{SC}| \cdot \voc}{P_{ein}}
+        \eta = \frac{FF \cdot |\isc| \cdot \voc}{P_{ein}}
 \end{equation}
 
 \begin{tabular}{llll}
@@ -671,7 +671,7 @@ Der Anstieg der Geraden gibt den Parameter
   \centering
   \begin{tabular}{l|SSS}
     \toprule
-    Zelle & {\(R_S\) [\si{ohm}]} & {\(I_\text{S}}\) [\si{\A}]} & {\(a\)} \\
+    Zelle & {\(R_S\) [\si{\ohm}]} & {\(I_\text{S}\) [\si{\ampere}]} & {\(a\)} \\
     \midrule
     A8 & .34 & 9.56e-8 & 1.49 \\
     \"ubliche Werte \footcite{wikipedia_2019} & {-} &
@@ -761,7 +761,7 @@ Deswegen kann man durchaus einen Kurzschlussstrom von
         \label{tab:jsco1}
         \begin{tabular}{s|s|s|s|s}
                 \toprule
-                 \(\eta\) & \(P_{ein}\) [\(\si{\watt}\)] & \(\voc\) [\si{\volt}] & FF  & \(jsc\) [\(\si{\ampere}/\si{\centi\meter}^2\)] \\
+                 \(\eta\) & \(P_{ein}\) [\(\si{\watt}\)] & \(\voc\) [\si{\volt}] & FF  & \(\jsc\) [\(\si{\ampere}/\si{\centi\meter}^2\)] \\
                 \midrule
                 {0.05} & {0.0064}           & {0,9}        & {0,5} & {0,011}     \\
                 {0.05} & {0.0064}           & 1           & {0,5} & {0,010}
@@ -773,7 +773,7 @@ Deswegen kann man durchaus einen Kurzschlussstrom von
         \label{tab:jsco2}
         \begin{tabular}{s|s|s|s|s}
                 \toprule
-                \(\eta\)  & \(P_{ein}\) [\(\si{\watt}\)] & \(\voc\) [\si{\volt}] & FF  & \(jsc\) [\(\si{\ampere}/\si{\centi\meter}^2\)] \\
+                \(\eta\)  & \(P_{ein}\) [\(\si{\watt}\)] & \(\voc\) [\si{\volt}] & FF  & \(\jsc\) [\(\si{\ampere}/\si{\centi\meter}^2\)] \\
                 \midrule
                 {0.05} & {2.5}              & 6           & {0.5} & \num{0.167e-2}  \\
                 {0.05} & {2.5}              & {6.5}         & {0.5} & \num{0.154e-2}     \\
