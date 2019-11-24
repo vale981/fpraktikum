@@ -1,4 +1,4 @@
-\documentclass[slug=GL, room=HZDR\ Dresden/Rossendorf\,\ Geb.\ 620/123, supervisor=Tim\ Ziegler]{../../Lab_Report_LaTeX/lab_report}
+\documentclass[slug=GL, room=HZDR\ Dresden/Rossendorf\,\ Geb.\ 540/239, supervisor=Tim\ Ziegler, coursedate=25.\ 10.\ 2019]{../../Lab_Report_LaTeX/lab_report}
 
 \title{Gaslaser}
 \author{Oliver Matthes, Valentin Boettcher}
@@ -267,8 +267,14 @@ Die hier ben\"otigten Matrizen sind im folgenden aufgef\"uhrt.
   \label{tab:mats}
 \end{table}}
 
-Definiert man \(\frac{1}{q(z)}=\frac{1}{R(z)}+i\frac{\lambda}{\pi
-  w^2(z)}=a+i\cdot b\) so transformiert sich dieser Parameter mit der Matrix
+Definiert man einen Parameter
+\(\frac{1}{q(z)}=\frac{1}{R(z)}+i\frac{\lambda}{\pi w^2(z)}=a+i\cdot
+b\) enth\"alt dieser alle wichtigen Informationen des Strahls in einer
+Form, die man mit der Matrizenoptik behandeln kann (sog. komplexer
+Strahlradius aus dem Exponenten der mathematischen Darstellung des
+Gau\ss{}-Strahls).
+
+So transformiert sich dieser Parameter mit der Matrix
 \(\mathfrak{M}_{\text{System}}\) wie folgt:
 
 \begin{equation}
@@ -434,6 +440,7 @@ Der Versuchaufbau ist schematisch in~\ref{fig:aufb} dargestellt und umfasst unte
 \begin{description}
 \item[Spiegel] Nummeriert von 1 bis 10.
 \item[Laser] Kommerzieller \hne{} und gr\"uner Justagelaser.
+\item[Laserr\"ohre] \hne Laserr\"ohre
 \item[Blenden] Als Justagehilfe und zum Ausblenden von unerw\"unschten Moden.
 \item[Linsen und Filter] Zur Untersuchung der Strahleigenschaften. (Sammellinse, Polfilter, Graufilter)
 \item[Fabry Perot Interferometer] Festaufbau, Konfokal
@@ -456,14 +463,16 @@ Der Versuchaufbau ist schematisch in~\ref{fig:aufb} dargestellt und umfasst unte
 \subsection{Stabilit\"atsbereich}
 \label{sec:stabber}
 
-Da \(g_1(R_1=\infty)=1\) folgt mit \(R_2=\SI{1}{\meter}\) und \(0\leq g_2\leq 1\):
+Da \(g_1(R_1=\infty)=1\) folgt mit \(R_2=\SI{1}{\meter}\) und \(0\leq
+g_2\leq 1\) durch~\ref{eq:stabbed}:
 
 \begin{equation}
   \label{eq:stabber}
-  \SI{0}{\meter}\leq L \leq \SI{1}{\meter}
+  g_2=1-\frac{L}{\SI{1}{\meter}}\implies\SI{0}{\meter}\leq L \leq \SI{1}{\meter}
 \end{equation}
 
-Das ist auch aus dem Stabilit\"atsdiagramm ersichtlich.
+Das ist auch aus dem Stabilit\"atsdiagramm ersichtlich. Die orangene
+Linie liegt genau f\"ur eben diese \(L\) im Stabilit\"atsbereich.
 \begin{figure}[H]\centering
   \includegraphics[width=.5\columnwidth]{figs/stabdiag.pdf}
   \caption[Gauss]{Stabilit\"atsdiagramm}
@@ -472,12 +481,16 @@ Das ist auch aus dem Stabilit\"atsdiagramm ersichtlich.
 
 \subsection{Justage und Messung der Verst\"arkung im Einfachdurchgang}
 \label{sec:justage}
-
+Ziel des Versuches ist es, in einer mit \hne{} Gemisch gef\"ullte
+R\"ohre, einen Laserprozess anzuregen. An dieser R\"ohre sind
+Elektroden angebracht, die eine Gasentladung in Gang bringen k\"onnen
+(anschalten der R\"ohre). Im ersten Schritt wird daher der
+Verst\"arkungseffekt bei Durchgang eines Laserstrahls betrachtet.
 Durch Anpassen der Spiegel 4 und 5 und zweier Blenden auf der
-optischen Achse (OA) der \ce{HeNe}-R\"ohre wurde der rote Laser
-parallel zur OA ausgerichtet, sodass er die R\"ohre ohne st\"orende
-Reflexe an den Kappilarw\"anden passierte. Auf \"ahnliche Weise
-geschah das auch mit dem gr\"unen Laser (\"uber Spiegel 1, 2).
+optischen Achse (OA) der vormontierten \ce{HeNe}-R\"ohre wurde der
+rote Laser parallel zur OA ausgerichtet, sodass er die R\"ohre ohne
+st\"orende Reflexe an den Kappilarw\"anden passierte. Auf \"ahnliche
+Weise geschah das auch mit dem gr\"unen Laser (\"uber Spiegel 1, 2).
 
 Anschlie\ss{}end wurde die Leistung des kommerziellen Lasers vor der
 R\"ohre und bei Durchgang durch diese im deaktivierten und im aktiven
@@ -489,15 +502,17 @@ des Messwertes ab dieser Zeit annähernd konstant blieb.
 \subsection{Aufbau des Hemisph\"arischen Resonators}
 \label{sec:aufbauhemi}
 
-Nach dem Einbau der Resonatorspiegel wurde deren Justage mit Hilfe von
-R\"uckreflexen der Justagelaser durchgef\"uhrt. Die anf\"angliche
-Leistung des Lasers war gering, konnte jedoch durch Beamwalken
-erheblich gesteigert werden (auf ca \SI{1}{\milli\watt}).
+Nach dem Einbau der Resonatorspiegel (planar und sph\"arisch) wurde
+deren Justage mit Hilfe von R\"uckreflexen der Justagelaser
+durchgef\"uhrt. Die anf\"angliche Leistung des Lasers war gering,
+konnte jedoch durch Beamwalken (iteratives Feinjustieren der
+Stellschrauben an den Spiegel) erheblich gesteigert werden (auf ca
+\SI{1}{\milli\watt}).
 
-Anschlie\ss{}end wurde der Laserstrahl auf eine zweite optische Bahn
-justiert und die Ausgangsleistung des Lasers in Abh\"angigkeit der
-Resonatorl\"ange gemessen. Die L\"ange wurde durch Verschieben des
-gekr\"ummten Spiegels verstellt.
+Anschlie\ss{}end wurde der ausgekoppelte Laserstrahl auf eine zweite
+optische Bahn justiert und die Ausgangsleistung des Lasers in
+Abh\"angigkeit der Resonatorl\"ange gemessen. Die L\"ange wurde durch
+Verschieben des gekr\"ummten Spiegels verstellt.
 
 \subsection{Messung der Polarisationseigenschaften}
 \label{sec:poleig}
@@ -649,16 +664,13 @@ Betrachtungen hier eher qualitativer Natur sind.
 \label{sec:diskpol}
 
 Die im Laser verbauten Brewsterfenster erlaubten nur Moden mit einer
-Polarisationsrichtung. Somit folgt die Transmission, wie
+Polarisationsrichtung. Alle anderen werden herausreflektiert und
+damit nicht verst\"arkt. Somit folgt die Transmission, wie
 in~\ref{fig:malus} zu erkennen, sehr gut dem Gesetz von Malus.
 
-Am der letzte Messwert liegt deutlich \"uber der theoretischen
-Kurve und auch andere Punkte liegen neben der Kurve. Gr\"unde daf\"ur
-k\"onnten ungenaue Einstellung und besondere Eigenschaften des Strahls
-oder Filters sein.
-
 Die Messungenauigkeiten resultieren hier aus der Statistik des
-Leistungsmessger\"tes und der Einstellung des Polfilters, sind also
+Leistungsmessger\"tes und der Einstellung des Polfilters (halbes
+Skalenteil \(=0.5^\circ\)), sind also
 beide statistischer Natur. Die Abweichungen von der Theorie \"uber die
 Abweichungsgrenzen hinaus deuten auf untersch\"atzte (systematsiche)
 Faktoren hin.
@@ -701,7 +713,7 @@ Da die Intensit\"at des Gausstrahls proportional zu
 
 \begin{equation}
   \label{eq:beamwaistfwhm}
-  w = 2\sigma = \frac{\text{FWHM}}{\sqrt{2\ln{2}}}
+  w = 2\sigma = \frac{\overset{\text{der Intensitätsverteilung}}{\text{FWHM)}}}{\sqrt{2\ln{2}}}
 \end{equation}
 
 Da die Messung der Entfernung des CCD Chips ungenau war, wurde neben
@@ -719,8 +731,7 @@ Die Ungenauigkeit der \(z\) Koordinate (Abstand der Kamera) ist
 statistischer Natur und wurde auf \SI{1}{\centi\meter} gesch\"atzt
 (was sich nun gut mit dem Offset deckt). Die systematsiche
 Unsicherheit des FWHM wurde auf \(\SI{1}{px}=\SI{5.6}{\micro\meter}\)
-gesch\"atzt. Die Software gab leider keine statistischen
-Unsicherheiten f\"ur den FWHM Wert an.
+gesch\"atzt.
 
 Der theoretische Wert f\"ur den Beamwaist liegt bei
 \SI{284}{\micro\meter} und liegt nicht innerhalb der Toleranzen. Gr\"unde
@@ -765,7 +776,7 @@ Moden erkennbar. Der Abstand der einzelnen Messpunkte betr\"agt rund
 Damit ergibt sich f\"ur die Frequenzaufl\"osung um \(\lambda_0\):
 
 \begin{equation}
-  \Delta\nu=c\cdot\frac{\Delta\lambda}{\lambda_0^2}=\SI{3.30e11}{\hertz}
+  \Delta\nu=c\cdot\frac{\Delta\lambda}{\lambda_0^2}=\SI{3.30e8}{\hertz}
 \end{equation}
 
 Der Modenabstand betr\"agt nach \ref{eq:longmodes} (Ungenauigkeiten
@@ -1020,7 +1031,9 @@ Verbreiterungsmechanismen ist ja eigentlich eher zu hohe Temperatur zu
 erwarten.
 
 Drei sichtbare Moden lassen also keine vern\"unftige
-Temperaturabsch\"atzung zu.
+Temperaturabsch\"atzung zu. Die Qualit\"at der Messung ist hier die
+Limitierung. Drei Peaks auf drei freihe Parameter lassen keinen
+aussagekr\"aftigen Fit zu.
 
 \section {Zusammenfassung}
 \label{sec:zusfass}
