@@ -412,7 +412,7 @@ Parallelschaltung und Leistungssteigerung durch Erh\"ohung von
 \subsubsection{Verschaltung mit Widerst\"anden}
 \label{sec:verschwider}
 
-Anschlie\ss{}end wurd das Solarmodul auf drei verschiedene Weisen mit
+Anschlie\ss{}end wurde das Solarmodul auf drei verschiedene Weisen mit
 Widerst\"anden verschalten. Zum Einsatz kamen Widerst\"ande der gr\"o\ss{}e
 \(R_G=\SI{4.99}{\kilo\ohm}\) und \(R_K=\SI{3.3}{\ohm}\) wobei \(R_K\)
 mit dem Multimeter vermessen wurde.
@@ -587,7 +587,7 @@ herunterzukühlen.
 Zur Messung der Winkelabhängigkeit des einfallenden Lichtes, wurden zunächst die Solarzellen
 A8 und O1 nebeneinander auf die Grundplatte montiert. Nun wurde die Grundplatte
 etwas angehoben, um sie anschließend vernünftig rotieren zu
-können. Die Beleuchtung wurde wiederum auf \sun{1} kalibiert.
+können. Die Beleuchtung wurde wiederum auf \sun{1} kalibriert.
 Der Leerlaufstrom beider Solarzellen wurde in \(10^\circ\) - Schritten aufgenommen.
 
 
@@ -596,7 +596,7 @@ Der Leerlaufstrom beider Solarzellen wurde in \(10^\circ\) - Schritten aufgenomm
 Bei allen Plots wurden grunds\"atzlich alle durch die Strombegrenzung
 hervorgerufenen Plateaus abgeschnitten.
 
-Zur Berechnung von Intensit\"aten wird in linearer Zussamenhang von
+Zur Berechnung von Intensit\"aten wird in linearer Zusammenhang von
 \(\voc\) der Referenzelle und der Beleuchtungsintensität angenommen,
 wobei \(U(I=\mwcm{0})=\SI{0}{\milli\volt}\) und
 \(U(I=\mwcm{100}=I_0)=\SI{32.2}{\milli\volt}=U_0\).
@@ -624,10 +624,9 @@ in~\ref{fig:a-anorg-dunkel} dargestellte Kennlinien aufgenommen.
   \label{fig:a-anorg-dunkel}
 \end{figure}
 
-Wenn man in~\ref{eq:ersatz} \(I_{Ph}, R_{P}=0\) setzt (gilt im
-resultierenden Ausdruck nach \(U\) umstelltdunkelheit und bei
-rel. gro\ss{}en Str\"omen), und den Resultierenden Ausdruck nach \(U\)
-umstellt, erh\"alt man:
+Wenn man in~\ref{eq:ersatz} \(I_{Ph}, R_{P}=0\) setzt (gilt bei
+Dunkelheit und bei rel. gro\ss{}en Str\"omen) und den resultierenden Ausdruck
+nach \(U\) umstellt, erh\"alt man:
 
 \begin{equation}
   \label{eq:uofi}
@@ -878,21 +877,12 @@ Setzt man in~\ref{eq:ersatz} \(I=0\) und vernachl\"assigt \(R_P\)
 S\"attigungsstrom, so ergibt sich theoretisch
 \(\voc\propto\ln(I) + \text{const}\).
 
-\begin{equation}
-        0 = I_{Ph} - I_S \cdot \qty(exp\qty[\frac{eU}{ak_BT}]-1)
-\end{equation}
-
-\begin{equation}
-        \frac{I_{Ph}+I_S}{I_S} =  exp\qty[\frac{eU}{ak_BT}]
-\end{equation}
-
-\begin{equation}
-        \ln(\frac{I_{Ph}}{I_S}+1) = \frac{eU}{ak_BT}
-\end{equation}
-
-\begin{equation}
-        \ln(\frac{I_{Ph}}{I_S}+1) \cdot \frac{ak_BT}{e} = U
-\end{equation}
+\begin{gather}
+0  = I_{Ph} - I_S \cdot \qty(exp\qty[\frac{eU}{ak_BT}]-1)\\
+\frac{I_{Ph}+I_S}{I_S} = exp\qty[\frac{eU}{ak_BT}]\\
+\ln(\frac{I_{Ph}}{I_S}+1) = \frac{eU}{ak_BT}\\
+\ln(\frac{I_{Ph}}{I_S}+1) \cdot \frac{ak_BT}{e} = U \label{eq:shocknachu}
+\end{gather}
 
 Für \(I_{Ph} \gg I_S\) folgt:
 
@@ -984,27 +974,27 @@ wenn man die Widerst\"ande im Ersatzschaltbild direkt anpasste. F\"ur
 \(R_K\) als \(R_S\) in Schaltungen 1,3 ergeben sich im Fit
 gr\"o\ss{}ere Werte, da hier der Widerstand des Solarmoduls an mehr
 ins Gewicht f\"allt. Bei n\"aherer Betrachtung von~\ref{fig:hellkenn}
-und~\ref{tab:verschtab} kann man erkennen, dass sich durch hinzunahme
-von Widerst\"anden die Kennlinien vom Ideal entfernt (FF und \(\eta\)
+und~\ref{tab:verschtab} kann man erkennen, dass sich durch Hinzunahme
+von Widerst\"anden die Kennlinie vom Ideal entfernt (FF und \(\eta\)
 sinken). Ist \(R_K\) gro\ss{} und \(R_S\) klein, so ist der Effekt
-gering (Schaltung 1). Verstauscht man die Verh\"altnisse (Schaltung
+gering (Schaltung 1). Vertauscht man die Verh\"altnisse (Schaltung
 2), so erh\"alt man den geringsten F\"ullfaktor und eine sehr geringe
-effizienz. Die kennlinien wird zu einer verschobenen geraden. Im falle
+Effizienz. Die Kennlinie wird zu einer verschobenen Geraden. Im Falle
 kleiner, gleichartiger Widerst\"ande (Schaltung 3) \"uberwiegt der
 Effekt des Parallelwiderstandes (siehe \(U\rightarrow \SI{-1}{\volt}\))
-und auch hier wird die Effizienz beintr\"achtigt, wenn auch nich so
+und auch hier wird die Effizienz beinträchtigt, wenn auch nicht so
 stark, wie in der vorherigen Situation.
 
 
-Diese Betrachtungen spiegeln verschiedene Grade der nichtidealit\"at
-der Solarzelle wieder. Idealer weise sollte also \(R_S\) klein und
+Diese Betrachtungen spiegeln verschiedene Grade der Nichtidealit\"at
+der Solarzelle wider. Idealerweise sollte also \(R_S\) klein und
 \(R_P\) gro\ss{} sein.
 
 In einer realen Solarzelle entsteht \(R_S\) durch den inneren
 Widerstand des Halbleiters und durch den Widerstand an den Kontakten.
-\(R_P\) wird warscheinlich durch fehler im p-n-\"Ubergang
+\(R_P\) wird wahrscheinlich durch Fehler im p-n-\"Ubergang
 hervorgerufen \todo{cite} durch die getrennte Ladungen in die falsche
-Richtung zur\"uckflie\ss{}en.
+Richtung zurückfließen.
 
 
 \subsubsection{Verhalten bei Verschattung}
@@ -1019,23 +1009,24 @@ ist dies natürlich ein nicht hinnehmbarer Zustand, da es zum Beispiel
 bei Bewölkung immer wieder zu Teilverschattung kommt und dies somit
 den Stromfluss der gesamten Anlage stark beeinflussen kann.  Dies
 umgeht man, in dem man zu jedem einzelnen Teilmodul eine so genannte
-\emph{Freilaufdiode}\todo{Quelle} antiparallel schaltet, da diese den
+\emph{Freilaufdiode}\footcite{Wikipedia: Solarmodul (aufgerufen: 22.11.2019)}
+antiparallel schaltet, da diese den
 Stromfluss bei Verschattung eines in Reihe geschalteten Moduls um
 dieses herumleitet und damit eine solche Verschattung nicht das
 gesamte Solarmodul beeinflusst.
 
 Verdeckt man jeweils nur eine H\"alfte der Parallelschaltungen
 (\ref{diag:verschattung2}) so verringert sich zwar der
-Kurzzschlussstrom und die Effizienz halbiert sich, aber der Effekt ist
-im Ganzen nur die Parallelschaltung eines zus\"atzlichen (grossen)
-Wiederstandes \(R_P\).
+Kurzschlussstrom und die Effizienz halbiert sich, aber der Effekt ist
+im Ganzen nur die Parallelschaltung eines zus\"atzlichen (großen)
+Widerstandes \(R_P\).
 
-Die dritte Situation \"ahnelt einer Reihen und Parallelschaltung von
+Die dritte Situation \"ahnelt einer Reihen- und Parallelschaltung von
 gro\ss{}en Widerst\"anden zum Modul und stellt somit das Mittel der
 beiden ersten Situationen dar.
 
-H\"atte man f\"ur Schaltung zwei gro\ss{}e Widerst\"ande gew\"ahlt, so
-h\"atten sich f\"ur alle Verschattungssituationen korrespondenzen
+H\"atte man f\"ur die Schaltung zwei gro\ss{}e Widerst\"ande gew\"ahlt, so
+h\"atten sich f\"ur alle Verschattungssituationen Korrespondenzen
 ergeben. (Hier gilt Schalt. 1 zu Verschatt. 2; Schalt. 2 zu Verschatt. 1)
 
 \subsubsection{Solarmodul mit Verbraucher}
@@ -1045,24 +1036,24 @@ Die Leistung des Verbrauchers am gemessenen Arbeitspunkt betr\"agt
 (siehe auch~\ref{eq:last}): \[P_V=\SI{.75}{\watt}\]. Die Leistung am
 MPP des Solarmoduls betr\"agt: \[P_{MPP}=\SI{.88}{\watt}\]
 
-Der Verbracher nutzt also ca. \SI{85}{\percent} der Maximal
+Der Verbraucher nutzt also ca. \SI{85}{\percent} der maximal
 verf\"ugbaren Leistung. Diese Ausnutzung kann vergrößert werden, indem
 man \(R_P\) des Moduls m\"oglichst mit \(R_S+R_V\) abstimmt, wobei
 \(R_V\) der innere Widerstand des Verbrauchers ist. Zur Herleitung
-dieses Zusammenh\"ange siehe (aus Zeitgr\"unden):
+dieser Zusammenh\"ange siehe (aus Zeitgr\"unden):
 \cite[154]{Demtröder2018}.
 
 \subsection{Der Einfluss der Temperatur}
 \label{sec:analysetemp}
 \begin{figure}[H]\centering
         \includegraphics[width=.5\columnwidth]{figs/python/D/ucc.pdf}
-        \caption{Temperaturabh\"angigkei von \(\voc\).}
-        \label{fig:winkel}
+        \caption{Temperaturabh\"angigkeit von \(\voc\).}
+        \label{fig:temp}
 \end{figure}
 
 Bei konstanter Intensit\"at sinkt \(\voc\). Das ist zu erwarten, da
 mit steigender Temperatur der Diffusionsstrom zunimmt und damit die
-Eingbaute Spannung verringert.
+eingebaute Spannung verringert.
 
 D
 
