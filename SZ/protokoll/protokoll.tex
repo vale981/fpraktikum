@@ -1,4 +1,5 @@
-\documentclass[slug=SZ, room=Hermann-Krone-Bau\,\ Labor\ 1.25, supervisor=Martin\ Kroll]{../../Lab_Report_LaTeX/lab_report}
+\documentclass[slug=SZ, room=Hermann-Krone-Bau\,\ Labor\ 1.25,
+supervisor=Martin\ Kroll, coursedate=14.\ 11.\ 2019]{../../Lab_Report_LaTeX/lab_report}
 
 \title{Solarzelle}
 \author{Oliver Matthes, Valentin Boettcher}
@@ -14,6 +15,7 @@
 \usepackage{subcaption}
 \usepackage{ amssymb }
 \usepackage{tabularx}
+\usepackage{pgf}
 \sisetup{math-celsius = {}^{\circ}\kern-\scriptspace C}
 \usepackage[ngerman]{babel}
 
@@ -331,8 +333,6 @@ In dem Versuch wurden folgende Geräte verwendet:
         \item Computer zur Aufnahme der Messkurven
 \end{list}
 
-\todo{ref auf Fehlerrechnung}
-
 \subsection{Vergleich verschiedener Solarzellen-Typen}
 \label{sec:vgltyp}
 
@@ -389,20 +389,19 @@ Maximum wurde zu \(\sun{1}\) gew\"ahlt (siehe~\ref{tab:brefvolts}).
 Es wurde die Beleuchtungsintensit\"at auf der gesamten Fl\"ache des
 Aufbaus auf \(\sun{1/3}\) eingestellt, wobei sich durch die
 Inhomogenit\"at der Beleuchtung an den R\"andern des Aufbaus
-Abweichungen von bis zu \SI{5}{\milli\volt} ergaben. \todo{ref,
-  begruendung der Unbedenklichkeit.}
+Abweichungen von bis zu \SI{5}{\milli\volt} ergaben.
 
 \subsubsection{Solarmodul aus 6 Zellen}
 \label{sec:sol6}
 
 Es wurden wurden jeweils zwei Zellen parallelgeschaltet. Drei dieser
 Parallelschaltungen wurden dann in Reihe geschaltet und es wurde eine
-Hellkennlinie aufgenommen. Diese Bauweise balancierte Robustheit durch
-Parallelschaltung und Leistungssteigerung durch Erh\"ohung von
-\(\voc\) und \(\isc\) zugleich. (Außerdem sollte \(\isc\)
-\SI{1}{\ampere} nicht \"ubersteigen.)
+Hellkennlinie aufgenommen (siehe~\ref{fig:p:6_cell}). Diese Bauweise
+balancierte Robustheit durch Parallelschaltung und Leistungssteigerung
+durch Erh\"ohung von \(\voc\) und \(\isc\) zugleich. (Außerdem sollte
+\(\isc\) \SI{1}{\ampere} nicht \"ubersteigen.)
 
-\begin{figure}[H]\centering
+\begin{figure}[b]\centering
   \includegraphics[width=.5\columnwidth]{diagrams/photos/6_cell.jpg}
   \caption{Solarmodul aus 6 Zellen.}
   \label{fig:p:6_cell}
@@ -550,7 +549,7 @@ Da ein anorganischen Modul eine Lehrlaufspannung von
 \(\lesssim\SI{.5}{\volt}\) hat wurden, um mindestens
 \(\voc = \SI{6}{\volt}\) zu erreichen \(6\cdot 2 + 1 = 13\) Zellen in
 Reihe geschaltet. Dies entsprach dem verf\"ugbaren
-Vorrats \todo{wirklich?} an Zellen. Es wurde eine Hellkennlinie
+Vorrats an Zellen. Es wurde eine Hellkennlinie
 aufgenommen. Das Modul ist in~\ref{fig:p:13_cell} abgebildet.
 
 \begin{figure}[h!]\centering
@@ -569,7 +568,6 @@ wurden mit dem Multimeter gemessen.
   U_V = \SI{5.25}{\volt}\\
   I_V = \SI{143}{\milli\ampere}
 \end{align}
-\footnote{Dr. D\"orr macht den besten Kartoffelsalat.}
 
 \subsection{Temperatureinfluss}
 \label{sec:tempeinfl}
@@ -579,7 +577,7 @@ wieder auf eine Sonne kalibriert. Zur Steigerung der Temperatur wurde die Lüfte
 nach und nach reduziert. Die Leerlaufspannung wurde dabei in Abständen von \(\SI{5}{\kelvin}\)
 aufgenommen. Nach Aufnahme des letzten Messwertes wurde sofort die Beleuchtung deaktiviert
 sowie die Lüfter auf volle Leistung gestellt, um das Setup so schnell wie möglich wieder
-herunterzukühlen.
+herunterzukühlen.\footnote{Dr. D\"orr macht den besten Kartoffelsalat.}
 
 \subsection{Einfallswinkelabhängigkeit des Lichtes}
 \label{sec:einfwink}
@@ -614,15 +612,15 @@ wobei \(U(I=\mwcm{0})=\SI{0}{\milli\volt}\) und
 \subsubsection{Analyse der Dunkelkennlinie der anorganischen
   Solarzelle}
 \label{sec:anordunkel}
+\begin{figure}[H]\centering
+  \input{./figs/python/A/an_dark_all.pgf}
+  \input{./figs/python/A/an_dark_close.pgf}
+  \caption{Dunkelkennlinie, Anorganische Zelle A8, \"Uberblick und Ausschnitt.}
+  \label{fig:a-anorg-dunkel}
+\end{figure}
 
 F\"ur die anorganische Solarzelle A8 wurden die
 in~\ref{fig:a-anorg-dunkel} dargestellte Kennlinien aufgenommen.
-\begin{figure}[H]\centering
-  \includegraphics[width=.5\columnwidth]{./figs/python/A/an_dark_all.pdf}
-  \includegraphics[width=.5\columnwidth]{./figs/python/A/an_dark_close.pdf}
-  \caption{Dunkelkennlinie, Anorganische Zelle A8, \"Uberblick und Ausschnitt}
-  \label{fig:a-anorg-dunkel}
-\end{figure}
 
 Wenn man in~\ref{eq:ersatz} \(I_{Ph}, R_{P}=0\) setzt (gilt bei
 Dunkelheit und bei rel. gro\ss{}en Str\"omen) und den resultierenden Ausdruck
@@ -645,7 +643,7 @@ Reihenwiderstand zu \(R_S=\SI{.56}{\ohm}\) bestimmt. In diesem Bereich
 auch~\ref{fig:a-anorg-lin}.
 
 \begin{figure}[H]\centering
-  \includegraphics[width=.5\columnwidth]{./figs/python/A/dark_an_lin_fit.pdf}
+  \input{./figs/python/A/dark_an_lin_fit.pgf}
   \caption{Linearer Fit an Kennlinie.}
   \label{fig:a-anorg-lin}
 \end{figure}
@@ -655,7 +653,7 @@ R_S\) \"uber \(\ln(I)\) aufgetragen bei gro\ss{}en Str\"omen (bei
 denen man \(R_P\) vernachl\"assigen kann) ann\"ahernd linear wurde.
 
 \begin{figure}[H]\centering
-  \includegraphics[width=.5\columnwidth]{./figs/python/A/dark_an_lin_fit_end.pdf}
+  \input{./figs/python/A/dark_an_lin_fit_end.pgf}
   \caption{Linearer Fit an \(U-I\cdot R_S\).}
   \label{fig:a-anorg-lin-log}
 \end{figure}
@@ -695,7 +693,7 @@ gefundenen Parametern eine gute \"Ubereinstimmung (siehe~\ref{fig:a-anorg-log}).
 
 
 \begin{figure}[H]\centering
-  \includegraphics[width=.5\columnwidth]{./figs/python/A/dark_an_fit_final.pdf}
+  \input{./figs/python/A/dark_an_fit_final.pgf}
   \caption{Kennlinie und Fit von~\ref{eq:uofi}.}
   \label{fig:a-anorg-log}
 \end{figure}
@@ -704,7 +702,7 @@ gefundenen Parametern eine gute \"Ubereinstimmung (siehe~\ref{fig:a-anorg-log}).
 \label{sec:vglhell}
 
 \begin{figure}[H]\centering
-  \includegraphics[width=.7\columnwidth]{./figs/python/A/anorg_combined.pdf}
+  \input{./figs/python/A/anorg_combined.pgf}
   \caption{\(j(U)\) Kennlinie j\"ur die anorganische Zelle A8.}
   \label{fig:a-anorg-combined}
 \end{figure}
@@ -714,7 +712,7 @@ das asymptotische Verhalten f\"ur gro\ss{}e Spannungen und bei
 Str\"omen sehr \"ahnlich. Bei negativer Spannung addiert sich
 \(\jsc\) zum S\"attigungsstrom doch auch hier verlaufen beide Linien
 zunehmend parallel. Die Dunkelkennlinie entspricht im wesentlichen
-den Erwartungen f\"ur eine Diode.\todo{vlt auf gleichung eingehen}
+den Erwartungen f\"ur eine Diode.
 
 Vergleicht man die Hellkennlinien (~\ref{fig:a-all-combined} und ) so wird
 erkenntlich, dass sich entsprechend
@@ -725,7 +723,7 @@ Leerlaufspannung. Dabei ist die Kennlinie der Folienzelle weit
 außerhalb des Ma\ss{}stabs der beiden anderen Zellen, das wird
 noch einmal in~\ref{fig:a-fol-light} in G\"anze dargestellt.
 Dies ist auch zu erwarten, da organische Zellen
-schlechter Leiten.\todo{really?} Vergleicht man die beiden organischen
+schlechter Leiten. Vergleicht man die beiden organischen
 Zellen so ist zu vermuten, dass die Folienzelle intern eher eine
 Reihenschaltung (große Spannung, wenig Strom) und die Zelle
 O1 eine Parallelschaltung darstellt.\\
@@ -786,13 +784,13 @@ Deswegen kann man durchaus einen Kurzschlussstrom von
 Bei organischen Solarzellen liegen die Wirkungsgrade momentan noch bei wenigen Prozent.
 
 \begin{figure}[H]\centering
-  \includegraphics[width=.7\columnwidth]{./figs/python/A/all_combined.pdf}
+  \input{./figs/python/A/all_combined.pgf}
   \caption{\(j(U)\) Kennlinie f\"ur O1,O2,A8}
   \label{fig:a-all-combined}
 \end{figure}
 
 \begin{figure}[H]\centering
-  \includegraphics[width=.7\columnwidth]{./figs/python/A/fol_hell.pdf}
+  \input{./figs/python/A/fol_hell.pgf}
   \caption{\(j(U)\) Kennlinie f\"ur O2}
   \label{fig:a-fol-light}
 \end{figure}
@@ -811,7 +809,7 @@ durch lineare Interpolation und einfacher numerischer Optimierung
     & {} & {} & {[\si{\centi\meter^2}]}\\
     \midrule
     A8 & 2.63e-2 & .56 & .16 & .41 & .06 & 26 \\
-    O1 & 4.06e-3 & .91 & 1.62e-4 & .68 & .03 & 6.4e-2\\
+    O1 & 4.06e-3 & .91 & 1.62e-4 & .68 & .03 & .064\\
     O2 & 3.29e-5 & 7.13 & 2.03e-3 & .34 & 8.11e-4 & 25 \\
   \end{tabular}
   \caption{Diodenkennwerte der Anorganischen Solarzelle bei einer
@@ -821,10 +819,16 @@ durch lineare Interpolation und einfacher numerischer Optimierung
 
 Wie zu erwarten war, liegt der Wirkungsgrad der organischen Zelle
 unter dem der anorganischen. Alle Zellen haben \"ahnliche
-F\"ullfaktoren.
+F\"ullfaktoren, wobei interessanter Weise die Organische Zelle O1
+vorne liegt.
+Der Stromdichte ist bei den organischen Zellen wesentlich geringer.
+Die Wirkungsgrade liegen allsamt weit unter den f\"ur die Formulierung
+der Erwartungen Verwendeten. Dadurch weichen auch alle anderen werte
+mehr oder weniger stark von den Erwartungen ab.
 Bei der Folienzelle wird klar, dass bei ung\"unstiger Lage von
 \(\voc, \jsc\) selbst ein besserer F\"ullfaktor wenig Einfluss auf
 \(\eta\) hat. Eventuell lag bei der Folienzelle auch ein Defekt vor.
+
 
 
 \subsection{Der Einfluss der Beleuchtungsintensität}
@@ -833,19 +837,19 @@ Bei der Folienzelle wird klar, dass bei ung\"unstiger Lage von
 Wie in~\ref{fig:b-all} zu sehen erben sich Ma\ss{}gebliche
 Abh\"angigkeiten von \(\jsc\) und weniger von \(\voc\).
 \begin{figure}[H]\centering
-  \includegraphics[width=.7\columnwidth]{./figs/python/B/all.pdf}
+  \input{./figs/python/B/all.pgf}
   \caption{\(j(U)\) Kennlinie der anorganischen Solarzelle in
     Abhängigkeit der Intensität (\([I] = \mwcm{}\))  }
   \label{fig:b-all}
 \end{figure}
 \begin{figure}[H]\centering
-  \includegraphics[width=.7\columnwidth]{./figs/python/B/j_sc.pdf}
+  \input{./figs/python/B/j_sc.pgf}
   \caption{\(\jsc\)  der anorganischen Solarzelle in
     Abhängigkeit der Intensität.}
   \label{fig:b-jsc}
 \end{figure}
 \begin{figure}[H]\centering
-  \includegraphics[width=.7\columnwidth]{./figs/python/B/u_cc.pdf}
+  \input{./figs/python/B/u_cc.pgf}
   \caption{\(\voc\) der anorganischen Solarzelle in
     Abhängigkeit der Intensität. Logarithmischer Plot.}
   \label{fig:b-voc}
@@ -993,7 +997,7 @@ der Solarzelle wider. Idealerweise sollte also \(R_S\) klein und
 In einer realen Solarzelle entsteht \(R_S\) durch den inneren
 Widerstand des Halbleiters und durch den Widerstand an den Kontakten.
 \(R_P\) wird wahrscheinlich durch Fehler im p-n-\"Ubergang
-hervorgerufen \todo{cite} durch die getrennte Ladungen in die falsche
+hervorgerufen durch die getrennte Ladungen in die falsche
 Richtung zurückfließen.
 
 
@@ -1009,7 +1013,7 @@ ist dies natürlich ein nicht hinnehmbarer Zustand, da es zum Beispiel
 bei Bewölkung immer wieder zu Teilverschattung kommt und dies somit
 den Stromfluss der gesamten Anlage stark beeinflussen kann.  Dies
 umgeht man, in dem man zu jedem einzelnen Teilmodul eine so genannte
-\emph{Freilaufdiode}\footcite{Wikipedia: Solarmodul (aufgerufen: 22.11.2019)}
+\emph{Freilaufdiode}\cite{wikipedia_solmod}
 antiparallel schaltet, da diese den
 Stromfluss bei Verschattung eines in Reihe geschalteten Moduls um
 dieses herumleitet und damit eine solche Verschattung nicht das
@@ -1047,8 +1051,8 @@ dieser Zusammenh\"ange siehe (aus Zeitgr\"unden):
 \subsection{Der Einfluss der Temperatur}
 \label{sec:analysetemp}
 \begin{figure}[H]\centering
-        \includegraphics[width=.5\columnwidth]{figs/python/D/ucc.pdf}
-        \caption{Temperaturabh\"angigkei von \(\voc\).}
+        \input{figs/python/D/ucc.pgf}
+        \caption{Temperaturabh\"angigkei von \(\voc\). Siehe auch~\ref{tab:messd}}
         \label{fig:tempeinf}
 \end{figure}
 
@@ -1064,7 +1068,7 @@ Gem\"a\ss{}~\ref{eq:sattigstrom} gilt mit \(E_g \approx
   I_{S0}=I_s\cdot\exp(-\frac{E_g}{k_B\cdot T}) \approx \SI{3e11}{\ampere}
 \end{equation}
 
-Damit und ... ergibt sich die in \ref{fig:tempeinf} eingezeichenete
+Damit und~\ref{eq:shocknachu} ergibt sich die in \ref{fig:tempeinf} eingezeichenete
 Theoriekurve, welche ohne Betrachtung der Messungenauigkeiten dennoch
 ein \"ahnliches verhalten wie die Messwerte zeigt.
 
@@ -1073,7 +1077,7 @@ welches auch in guter N\"aherung gegeben
 ist. Aus~\ref{fig:tempccurves} folgen f\"ur die Kurzschlussstr\"ome die
 in~\ref{tab:isctemps} dargestellten Str\"ome.
 
-\begin{table}[h]
+\begin{table}[H]
   \centering
   \begin{tabular}{SS}
     \toprule
@@ -1089,14 +1093,14 @@ in~\ref{tab:isctemps} dargestellten Str\"ome.
 \end{table}
 
 
-\begin{figure}[h]\centering
+\begin{figure}[H]\centering
   \begin{subfigure}[b]{1\textwidth}\centering
-    \includegraphics[width=.6\columnwidth]{figs/python/D/30.pdf}
+    \input{figs/python/D/30.pgf}
     \caption{Kennlinie bei \SI{30}{\degreeCelsius}}
     \label{diag:t30}
   \end{subfigure}
   \begin{subfigure}[b]{1\textwidth}\centering
-    \includegraphics[width=.6\columnwidth]{figs/python/D/65.pdf}
+    \input{figs/python/D/65.pgf}
     \caption{Kennlinie bei \SI{65}{\degreeCelsius}}
     \label{diag:t65}
   \end{subfigure}
@@ -1112,139 +1116,162 @@ und damit auch die Elektron-Loch Erzeugungsrate nicht \"andert.
 \label{sec:winkel}
 
 \begin{figure}[H]\centering
-        \includegraphics[width=.5\columnwidth]{figs/python/E/relativ.pdf}
-        \caption{Winkelabhängigkeit des Stromflusses vom einfallenden Licht}
+        \input{figs/python/E/relativ.pgf}
+        \caption{Winkelabhängigkeit des Stromflusses vom einfallenden
+          Licht. Relativer Kurzschlussstrom. Siehe auch~\ref{tab:messe}}
         \label{fig:winkel}
 \end{figure}
 
-Wie in~\ref{fig:winkel} erkennbar gibt es zwischen dem Winkel des einfallenden
-Lichtes und dem Stromfluss eine Sinus-Abhängigkeit. Wobei bei einem senkrechten
-Lichteinfallswinkel so gut wie kein Strom mehr fließt.
-In~\ref{fig:winkel} ist bei \(\sin(\theta) = 0\) zwar noch ein Stromfluss erkennbar,
-dieser liegt aber daran, dass das Modul in Richtung der Fenster gedreht wurde und somit,
-auch wenn das Wetter am Versuchstag bewölkt war, immer noch genügend Licht auf die beiden
+Wie in~\ref{fig:winkel} erkennbar gibt es zwischen dem Winkel des
+einfallenden Lichtes und dem Stromfluss eine Sinus-Abhängigkeit,
+welche die effektive Gr\"o\ss{}e der beleuchteten Fl\"ache
+widerspiegelt. (Der Winkel wurde um \(\frac{pi}{2}\)) zur
+Fl\"achennormale verschoben gemessen.)
+
+Dabei flie\ss{}t bei Lichteinfall parallel zu den Zellen
+\(\Theta=0^\circ\) so gut wie kein Strom mehr fließt.
+In~\ref{fig:winkel} ist bei \(\sin(\theta) = 0\) zwar noch ein
+Stromfluss erkennbar, dieser liegt aber daran, dass das Modul in
+Richtung der Fenster gedreht wurde und somit, auch wenn das Wetter am
+Versuchstag bewölkt war, immer noch genügend Licht auf die beiden
 Solarzellen fallen konnte, um einen Stromfluss zu ermöglichen.
 
+Die Organische Solarzelle scheint der anorganischen etwas \"uberlegen
+zu sein, was eventuell mit dem gr\"o\ss{}eren Absorbtionskoeffizient
+dieser Zelle begr\"undet werden kann. Ma\ss{}geblich sind diese
+Unterschiede aber nicht.
+
+Ist der Anteil von diffusem Licht hoch so sinkt der Stromertrag und
+auch die Effizienz einer Solarzelle.
+
 \section{Anhang}
+Auf die hier aufgef\"uhrten Plots und Tabellen wird i.A. nich weiter
+eingegeangen. Sie sind der Volltst\"andigkeit halber trotzdem aufgelistet.
+
 \label{sec:anh}
 
-\subsection{Weitere Plots zu C}
+\subsection{Weitere Plots zu den Versuchen an realistischen Verschaltungen}
 \label{sec:plotsc}
 
 \begin{figure}[H]\centering
-        \includegraphics[width=.6\columnwidth]{figs/python/C/3x3_hell.pdf}
+        \input{figs/python/C/3x3_hell.pgf}
         \caption{Hellkennlinie des 6er-Moduls}
         \label{diag:hell6er}
 \end{figure}
 
 \begin{figure}[H]\centering
-\begin{subfigure}[b]{1\textwidth}\centering
-        \includegraphics[width=.6\columnwidth]{figs/python/C/3x3_schaltung_2.pdf}
-        \caption{Schaltung 1 (vgl.~\ref{fig:schalt1})}
-        \label{diag:hellschalt1}
-\end{subfigure}
-\begin{subfigure}[b]{1\textwidth}\centering
-        \includegraphics[width=.6\columnwidth]{figs/python/C/3x3_schaltung_3.pdf}
-        \caption{Schaltung 2 (vgl.~\ref{fig:schalt2})}
-        \label{diag:hellschalt2}
-\end{subfigure}
-\begin{subfigure}[b]{1\textwidth}\centering
-        \includegraphics[width=.6\columnwidth]{figs/python/C/3x3_schaltung_4.pdf}
-        \caption{Schaltung 3 (vgl.~\ref{fig:schalt3})}
-        \label{diag:hellschalt3}
-\end{subfigure}
-        \caption{Hellkennlinien}
-        \label{fig:hellkenn}
+  \begin{subfigure}[b]{1\textwidth}\centering
+    \input{figs/python/C/3x3_schaltung_2.pgf}
+    \caption{Schaltung 1 (vgl.~\ref{fig:schalt1})}
+    \label{diag:hellschalt1}
+  \end{subfigure}
+  \begin{subfigure}[b]{1\textwidth}\centering
+    \input{figs/python/C/3x3_schaltung_3.pgf}
+    \caption{Schaltung 2 (vgl.~\ref{fig:schalt2})}
+    \label{diag:hellschalt2}
+  \end{subfigure}
 \end{figure}
 
 \begin{figure}[H]\centering
-        \begin{subfigure}[b]{1\textwidth}\centering
-
-\includegraphics[width=.5\columnwidth]{figs/python/C/3x3_verschattung_1.pdf}
-\caption{Verschattung 1 (vgl.~\ref{fig:schatt1})}
-\label{diag:verschattung1}
-        \end{subfigure}
-        \begin{subfigure}[b]{1\textwidth}\centering
-                \includegraphics[width=.6\columnwidth]{figs/python/C/3x3_verschattung_2.pdf}
-                \caption{Verschattung 2 (vgl.~\ref{fig:schatt2})}
-                \label{diag:verschattung2}
-        \end{subfigure}
-        \begin{subfigure}[b]{1\textwidth}\centering
-                \includegraphics[width=.6\columnwidth]{figs/python/C/3x3_verschattung_3.pdf}
-                \caption{Verschattung 3 (vgl.~\ref{fig:schatt3})}
-                \label{diag:verschattung3}
-        \end{subfigure}
-        \caption{Kennlinien für verschiedene Verschattungen}
-        \label{fig:verschattung}
+  \ContinuedFloat
+  \begin{subfigure}[b]{1\textwidth}\centering
+    \input{figs/python/C/3x3_schaltung_4.pgf}
+    \caption{Schaltung 3 (vgl.~\ref{fig:schalt3})}
+    \label{diag:hellschalt3}
+  \end{subfigure}
+  \caption{Hellkennlinien bei Verschaltungen}
+  \label{fig:hellkenn}
 \end{figure}
 
 \begin{figure}[H]\centering
-        \begin{subfigure}[b]{1\textwidth}\centering
-                \includegraphics[width=.6\columnwidth]{figs/python/3x3_schaltung_2_rsrp.pdf}
-                \caption{Schaltung 1 (vgl.~\ref{fig:schalt1})}
-                \label{diag:hellschalt1fit}
-        \end{subfigure}
-        \begin{subfigure}[b]{1\textwidth}\centering
-                \includegraphics[width=.6\columnwidth]{figs/python/3x3_schaltung_3_rsrp.pdf}
-                \caption{Schaltung 2 (vgl.~\ref{fig:schalt2})}
-                \label{diag:hellschalt2fit}
-        \end{subfigure}
-        \begin{subfigure}[b]{1\textwidth}\centering
-                \includegraphics[width=.6\columnwidth]{figs/python/3x3_schaltung_4_rsrp.pdf}
-                \caption{Schaltung 3 (vgl.~\ref{fig:schalt3})}
-                \label{diag:hellschalt3fit}
-        \end{subfigure}
-        \caption{Hellkennlinien mit Fits f\"ur den Parallelwiderstand}
-        \label{fig:hellkennfit}
+  \begin{subfigure}[b]{1\textwidth}\centering
+    \input{figs/python/C/3x3_verschattung_1.pgf}
+    \caption{Verschattung 1 (vgl.~\ref{fig:schatt1})}
+    \label{diag:verschattung1}
+  \end{subfigure}
+  \begin{subfigure}[b]{1\textwidth}\centering
+    \input{figs/python/C/3x3_verschattung_2.pgf}
+    \caption{Verschattung 2 (vgl.~\ref{fig:schatt2})}
+    \label{diag:verschattung2}
+  \end{subfigure}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \ContinuedFloat
+  \begin{subfigure}[b]{1\textwidth}\centering
+    \input{figs/python/C/3x3_verschattung_3.pgf}
+    \caption{Verschattung 3 (vgl.~\ref{fig:schatt3})}
+    \label{diag:verschattung3}
+  \end{subfigure}
+  \caption{Kennlinien für verschiedene Verschattungen}
+  \label{fig:verschattung}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \begin{subfigure}[b]{1\textwidth}\centering
+    \input{figs/python/3x3_schaltung_2_rsrp.pgf}
+    \caption{Schaltung 1 (vgl.~\ref{fig:schalt1})}
+    \label{diag:hellschalt1fit}
+  \end{subfigure}
+  \begin{subfigure}[b]{1\textwidth}\centering
+    \input{figs/python/3x3_schaltung_3_rsrp.pgf}
+    \caption{Schaltung 2 (vgl.~\ref{fig:schalt2})}
+    \label{diag:hellschalt2fit}
+  \end{subfigure}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \ContinuedFloat
+  \begin{subfigure}[b]{1\textwidth}\centering
+    \input{figs/python/3x3_schaltung_4_rsrp.pgf}
+    \caption{Schaltung 3 (vgl.~\ref{fig:schalt3})}
+    \label{diag:hellschalt3fit}
+  \end{subfigure}
+  \caption{Hellkennlinien mit Fits f\"ur den Parallelwiderstand}
+  \label{fig:hellkennfit}
 \end{figure}
 
 
 \begin{figure}[H]\centering
-        \begin{subfigure}[b]{1\textwidth}\centering
-                \includegraphics[width=.6\columnwidth]{figs/python/3x3_schaltung_2_rs.pdf}
-                \caption{Schaltung 1 (vgl.~\ref{fig:schalt1})}
-                \label{diag:hellschalt1fit1}
-        \end{subfigure}
-        \begin{subfigure}[b]{1\textwidth}\centering
-                \includegraphics[width=.6\columnwidth]{figs/python/3x3_schaltung_3_rs.pdf}
-                \caption{Schaltung 2 (vgl.~\ref{fig:schalt2})}
-                \label{diag:hellschalt2fit1}
-        \end{subfigure}
-        \begin{subfigure}[b]{1\textwidth}\centering
-                \includegraphics[width=.6\columnwidth]{figs/python/3x3_schaltung_4_rs.pdf}
-                \caption{Schaltung 3 (vgl.~\ref{fig:schalt3})}
-                \label{diag:hellschalt3fit1}
-        \end{subfigure}
-        \caption{Hellkennlinien mit Fits f\"ur den Serienwiderstand}
-        \label{fig:hellkennfit1}
+  \begin{subfigure}[b]{1\textwidth}\centering
+    \input{figs/python/3x3_schaltung_2_rs.pgf}
+    \caption{Schaltung 1 (vgl.~\ref{fig:schalt1})}
+    \label{diag:hellschalt1fit1}
+  \end{subfigure}
+  \begin{subfigure}[b]{1\textwidth}\centering
+    \input{figs/python/3x3_schaltung_3_rs.pgf}
+    \caption{Schaltung 2 (vgl.~\ref{fig:schalt2})}
+    \label{diag:hellschalt2fit1}
+  \end{subfigure}
 \end{figure}
 
 \begin{figure}[H]\centering
-        \begin{subfigure}[b]{1\textwidth}\centering
-                \includegraphics[width=.45\columnwidth]{figs/python/huge_hell_rs.pdf}
-                \caption{13er Modul ohne Verbraucher mit \(R_S\)-Fit}
-                \label{diag:hugehellrs}
-        \end{subfigure}
-\begin{subfigure}[b]{1\textwidth}\centering
-        \includegraphics[width=.45\columnwidth]{figs/python/huge_hell_rsrp.pdf}
-        \caption{13er Modul ohne Verbraucher mit \(R_S\)- und \(R_P\)-Fit}
-        \label{diag:hugehellrsrp}
-\end{subfigure}
-        \begin{subfigure}[b]{1\textwidth}\centering
-                \includegraphics[width=.45\columnwidth]{figs/python/huge_verbraucher_rs.pdf}
-                \caption{13er Modul mit Verbraucher mit \(R_S\)-Fit}
-                \label{diag:hugeverbrrs}
-        \end{subfigure}
-\begin{subfigure}[b]{1\textwidth}\centering
-        \includegraphics[width=.45\columnwidth]{figs/python/huge_verbraucher_rsrp.pdf}
-        \caption{13er Modul mit Verbraucher mit \(R_S\)- und \(R_P\)-Fit}
-        \label{diag:hugeverbrrsrp}
-\end{subfigure}
-        \caption{Kennlinien des 13er Solarmoduls}
-        \label{fig:huge}
+  \ContinuedFloat
+  \begin{subfigure}[b]{1\textwidth}\centering
+    \input{figs/python/3x3_schaltung_4_rs.pgf}
+    \caption{Schaltung 3 (vgl.~\ref{fig:schalt3})}
+    \label{diag:hellschalt3fit1}
+  \end{subfigure}
+  \caption{Hellkennlinien mit Fits f\"ur den Serienwiderstand}
+  \label{fig:hellkennfit1}
 \end{figure}
 
-\subsection{Messwerte zu D}
+\begin{figure}[H]\centering
+  \begin{subfigure}[b]{1\textwidth}\centering
+    \input{figs/python/C/huge_hell.pgf}
+    \caption{13er Modul ohne Verbraucher}
+    \label{diag:hugehellrs}
+  \end{subfigure}
+  \begin{subfigure}[b]{1\textwidth}\centering
+    \input{figs/python/C/huge_verbraucher.pgf}
+    \caption{13er Modul mit Verbraucher}
+    \label{diag:hugeverbrrsrp}
+  \end{subfigure}
+  \caption{Kennlinien des 13er Solarmoduls}
+  \label{fig:huge}
+\end{figure}
+
+\subsection{Messwerte zum Einfluss der Temperatur}
 
 \begin{table}[H]
         \centering
@@ -1264,7 +1291,7 @@ Solarzellen fallen konnte, um einen Stromfluss zu ermöglichen.
         \label{tab:messd}
 \end{table}
 
-\subsection{Messwerte zu E}
+\subsection{Messwerte zum Verhalten unter direkter und diffuser Bestrahlung}
 
 \begin{table}[H]
         \centering
@@ -1287,9 +1314,13 @@ Solarzellen fallen konnte, um einen Stromfluss zu ermöglichen.
         \label{tab:messe}
 \end{table}
 
-\section{Literatur}
+\section{Verzeichnisse}
 
 \label{sec:literatur}
+
+\listoffigures
+
+\listoftables
 
 \printbibliography
 \end{document}

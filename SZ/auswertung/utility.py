@@ -2,10 +2,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 from matplotlib import rc
+import matplotlib
 from scipy import interpolate
 from scipy import optimize
 import pandas as pd
-
+matplotlib.use("pgf")
+matplotlib.rcParams.update({
+    "pgf.texsystem": "pdflatex",
+    'font.family': 'serif',
+    'text.usetex': True,
+    'pgf.rcfonts': False,
+})
 # rc('font', **{'family':'serif', 'sans-serif':['Times']})
 # rc('text', usetex=False)
 
@@ -66,10 +73,12 @@ def plot_ccurve_line(ax, ccurve, area=None, marker='.', compliance=.99,
     ax.set_xlim(v[0], v[-1])
 
     if mlp:
-        plt.plot(*mlp, marker='x', markersize=10, label='MPP ' + label if label else 'MP')
+        plt.plot(*mlp, marker='x', markersize=10, label='MPP ' + label if label else 'MPP')
         ax.legend()
 
 def save_fig(fig, name):
+    fig.set_size_inches(5, 4)
+    fig.tight_layout()
     fig.savefig('./figs/' + name, tranparent=True, dpi=300)
 
 def parse_and_plot_ccurve(path, *args, **kwargs):
