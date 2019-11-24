@@ -1033,7 +1033,8 @@ ergeben. (Hier gilt Schalt. 1 zu Verschatt. 2; Schalt. 2 zu Verschatt. 1)
 \label{sec:analyseverbr}
 
 Die Leistung des Verbrauchers am gemessenen Arbeitspunkt betr\"agt
-(siehe auch~\ref{eq:last}): \[P_V=\SI{.75}{\watt}\]. Die Leistung am
+(siehe auch~\ref{eq:last}): \[P_V=\SI{.75}{\watt}\]
+Die Leistung am
 MPP des Solarmoduls betr\"agt: \[P_{MPP}=\SI{.88}{\watt}\]
 
 Der Verbraucher nutzt also ca. \SI{85}{\percent} der maximal
@@ -1047,15 +1048,65 @@ dieser Zusammenh\"ange siehe (aus Zeitgr\"unden):
 \label{sec:analysetemp}
 \begin{figure}[H]\centering
         \includegraphics[width=.5\columnwidth]{figs/python/D/ucc.pdf}
-        \caption{Temperaturabh\"angigkeit von \(\voc\).}
-        \label{fig:temp}
+        \caption{Temperaturabh\"angigkei von \(\voc\).}
+        \label{fig:tempeinf}
 \end{figure}
 
 Bei konstanter Intensit\"at sinkt \(\voc\). Das ist zu erwarten, da
 mit steigender Temperatur der Diffusionsstrom zunimmt und damit die
-eingebaute Spannung verringert.
+eingebaute Spannung verringert. Dementsprechend sinkt mit \(\voc\) auch
+die Effizienz.
 
-D
+Gem\"a\ss{}~\ref{eq:sattigstrom} gilt mit \(E_g \approx
+\SI{1.12}{\electronvolt}\) und (siehe~\ref{tab:atemps}) \(T=\SI{305}{\kelvin}\):
+\begin{equation}
+  \label{eq:is0}
+  I_{S0}=I_s\cdot\exp(-\frac{E_g}{k_B\cdot T}) \approx \SI{3e11}{\ampere}
+\end{equation}
+
+Damit und ... ergibt sich die in \ref{fig:tempeinf} eingezeichenete
+Theoriekurve, welche ohne Betrachtung der Messungenauigkeiten dennoch
+ein \"ahnliches verhalten wie die Messwerte zeigt.
+
+Bei diesen Betrachtungen wurde ein konstantes \(\isc\) vorrausgesetzt,
+welches auch in guter N\"aherung gegeben
+ist. Aus~\ref{fig:tempccurves} folgen f\"ur die Kurzschlussstr\"ome die
+in~\ref{tab:isctemps} dargestellten Str\"ome.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{SS}
+    \toprule
+    {Temperatur [\si{\degreeCelsius}]} & {\(\isc\) [\si{\ampere}]}
+    \\
+    \midrule
+    30 & .031243 \\
+    65 & .032597
+  \end{tabular}
+  \caption{\(\isc\) der anorganischen Zelle A8 bei verschiedenen
+    Temperaturen.}
+  \label{tab:isctemps}
+\end{table}
+
+
+\begin{figure}[h]\centering
+  \begin{subfigure}[b]{1\textwidth}\centering
+    \includegraphics[width=.6\columnwidth]{figs/python/D/30.pdf}
+    \caption{Kennlinie bei \SI{30}{\degreeCelsius}}
+    \label{diag:t30}
+  \end{subfigure}
+  \begin{subfigure}[b]{1\textwidth}\centering
+    \includegraphics[width=.6\columnwidth]{figs/python/D/65.pdf}
+    \caption{Kennlinie bei \SI{65}{\degreeCelsius}}
+    \label{diag:t65}
+  \end{subfigure}
+  \caption{Kennlinien der anorganischen Zelle A8 bei verschiedenen
+    Temperaturen.}
+  \label{fig:tempccurves}
+\end{figure}
+
+Der Photonenstrom bleibt relatic konstant da sich die Lichtintensität
+und damit auch die Elektron-Loch Erzeugungsrate nicht \"andert.
 
 \subsection{Winkelabhängigkeit des Stromflusses vom einfallenden Licht}
 \label{sec:winkel}
