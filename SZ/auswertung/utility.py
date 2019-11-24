@@ -56,7 +56,8 @@ def plot_ccurve_line(ax, ccurve, area=None, marker='.', compliance=.99,
         if mlp:
             mlp[1] = mlp[1]/area
 
-    ax.errorbar(v, c, linestyle='None', marker=marker, markersize=2, alpha=1, label=label,
+    ax.errorbar(v, c, linestyle='None', marker=marker, markersize=2, alpha=1,
+                label=label,
                 **pyplot_args)
     ax.set_xlabel("Spannung U [V]")
     ax.set_ylabel("Stromstaerke I [A]" \
