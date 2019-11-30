@@ -48,9 +48,26 @@ def pinmp_ticks(axis, ticks):
     axis.set_minor_locator(ticker.MaxNLocator(ticks*10))
     return axis
 
-def set_up_angle_plot(ticks=10):
+def set_up_plot(ticks=10, pimp_top=False):
     fig = plt.figure()
     ax = fig.add_subplot(111)
+
+    pinmp_ticks(ax.xaxis, ticks)
+    pinmp_ticks(ax.yaxis, ticks)
+
+    ax.grid(which='minor', alpha=.3)
+    ax.grid(which='major', alpha=.8)
+
+
+    if pimp_top:
+        ax.tick_params(right=True, top=True, which='both')
+    else:
+        ax.tick_params(right=True, which='both')
+
+    return fig, ax
+
+def set_up_angle_plot(ticks=10):
+    fig, ax = set_up_plot(ticks=ticks)
 
     def mu_to_deg(mu):
         return np.arccos(mu)*180/np.pi
@@ -61,14 +78,6 @@ def set_up_angle_plot(ticks=10):
     deg_ax = ax.secondary_xaxis('top', functions=(mu_to_deg, deg_to_mu))
     deg_ax.set_xlabel('Winkel')
     ax.set_xlabel('$\mu$')
-
-    pinmp_ticks(ax.xaxis, ticks)
-    pinmp_ticks(ax.yaxis, ticks)
-
-    ax.grid(which='minor', alpha=.3)
-    ax.grid(which='major', alpha=.8)
-
-    ax.tick_params(right=True, which='both')
 
     return fig, ax
 
