@@ -5,6 +5,7 @@ import scipy.constants as const
 from scipy.optimize import curve_fit
 from scipy.signal import find_peaks
 import scipy.sparse as sparse
+import matplotlib.ticker as ticker
 mu = SecondaryValue('cos(theta)')
 kappa = SecondaryValue('E_in/er', defaults=dict(er=510.99895000))
 E = SecondaryValue('E_in/(1+kappa*(1-mu))',
@@ -26,12 +27,33 @@ def load_spectrum(path, absolute=False):
 def channels(spec):
     return np.arange(1, len(spec) + 1)
 
-def plot_spec(spec):
-    plt.clf()
-    plt.plot(channels(spec), spec)
-    plt.xlabel('Channel')
-    plt.ylabel('Relative Counts')
 
+def pinmp_ticks(axis):
+    axis.set_major_locator(plt.LinearLocator(numticks=10))
+    axis.set_minor_locator(plt.LinearLocator(numticks=100))
+    return axis
+
+
+def plot_spec(spec, is_relative=False, offset=0, **pyplot_args):
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    chans = channels(spec) + offset
+
+    pinmp_ticks(ax.xaxis)
+    pinmp_ticks(ax.yaxis)
+
+    ax.tick_params(top=True, right=True, which='both')
+    ax.step(chans, spec, **pyplot_args)
+    ax.grid(which='minor', alpha=.3)
+    ax.grid(which='major', alpha=.8)
+    ax.set_xlabel('Kanal')
+    ax.set_ylabel(('Normierte' if is_relative else '') + 'Zaehlrate')
+
+    ax.set_xlim(chans[0], chans[-1])
+    ax.set_ylim(spec.min(), spec.max())
+    fig.tight_layout()
+
+    return fig, ax
 
 def gauss(x, mu, sigma):
     return np.exp(-(x-mu)**2/(2*sigma**2))
@@ -46,13 +68,10 @@ def calibrate_peak(spec, start, end):
                            sigma=1/2*np.ones_like(chan), absolute_sigma=True)
     d_opt = np.sqrt(np.diag(d_opt))
 
-    fig = plt.figure()
-    ax = fig.add_subplot(111)
 
-    ax.plot(chan, slc)
-    ax.plot(chan, gauss(chan, *opt))
-    ax.set_xlabel('Kanalnummer')
-    ax.set_ylabel('Relative Ereignisszahl')
+    fig, ax = plot_spec(slc, is_relative=True, offset=start, label='Gemessen')
+    ax.plot(chan, gauss(chan, *opt), label='Fit')
+    ax.legend()
     fig.show()
     return opt[0], d_opt[0]
 
