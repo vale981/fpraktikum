@@ -83,7 +83,7 @@ def calibrate_peak(spec, start, end, save=None):
     chan = channels(spec)[start:end]
     opt, d_opt = curve_fit(gauss_offset, chan,
                            slc, p0=((start+end)/2, (end-start)/2, 1*slc.max(), 0),
-                           sigma=1/2*np.ones_like(chan), absolute_sigma=True,
+                           sigma=np.sqrt(np.abs(slc))+1,
                            bounds=([start, -np.inf, 1/2*slc.max(), 0], [end, np.inf, 1*slc.max(), 1/2*slc.max()]))
     d_opt = np.sqrt(np.diag(d_opt))
 
@@ -94,7 +94,7 @@ def calibrate_peak(spec, start, end, save=None):
 
     if save:
         save_fig(fig, *save)
-    return opt[0], d_opt[0]
+    return opt[0], d_opt[0] + d_opt[1]
 
 def save_fig(fig, title, folder='unsorted', size=(5, 4)):
     fig.set_size_inches(*size)
