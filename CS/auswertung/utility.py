@@ -46,6 +46,29 @@ def pinmp_ticks(axis, ticks):
     axis.set_minor_locator(ticker.MaxNLocator(ticks*10))
     return axis
 
+def set_up_angle_plot(ticks=10):
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+
+    def mu_to_deg(mu):
+        return np.arccos(mu)*180/np.pi
+
+    def deg_to_mu(deg):
+        return np.cos(deg*np.pi/180)
+
+    deg_ax = ax.secondary_xaxis('top', functions=(mu_to_deg, deg_to_mu))
+    deg_ax.set_xlabel('Winkel')
+    ax.set_xlabel('$\mu$')
+
+    pinmp_ticks(ax.xaxis, ticks)
+    pinmp_ticks(ax.yaxis, ticks)
+
+    ax.grid(which='minor', alpha=.3)
+    ax.grid(which='major', alpha=.8)
+
+    ax.tick_params(right=True, which='both')
+
+    return fig, ax
 
 def plot_spec(spec, is_relative=False, offset=0, ticks=10, save=None, **pyplot_args):
     fig = plt.figure()
@@ -77,23 +100,29 @@ def gauss(x, mu, sigma):
 def gauss_offset(x, mu, sigma, A, O):
     return np.exp(-(x-mu)**2/(2*sigma**2))*A + O
 
-def calibrate_peak(spec, start, end, save=None):
+def calibrate_peak(spec, start, end, save=None, ret_sigma=False):
     slc = spec[start:end]
 
     chan = channels(spec)[start:end]
     opt, d_opt = curve_fit(gauss_offset, chan,
                            slc, p0=((start+end)/2, (end-start)/2, 1*slc.max(), 0),
                            sigma=np.sqrt(np.abs(slc))+1,
-                           bounds=([start, -np.inf, 1/2*slc.max(), 0], [end, np.inf, 1*slc.max(), 1/2*slc.max()]))
+                           bounds=([start, 0, 1/2*slc.max(), 0], [end, np.inf, 1*slc.max(), 1/2*slc.max()]))
     d_opt = np.sqrt(np.diag(d_opt))
 
 
     fig, ax = plot_spec(slc, offset=start, label='Gemessen')
     ax.plot(chan, gauss_offset(chan, *opt), label='Peak Fit', linestyle='--')
+    if ret_sigma:
+        ax.axvspan(opt[0]-3*opt[1], opt[0]+3*opt[1], alpha=.2,
+                   label='$3\cdot\sigma$', color='gray', zorder=-10)
     ax.legend()
 
     if save:
         save_fig(fig, *save)
+
+    if ret_sigma:
+        return opt[0], d_opt[0] + d_opt[1], opt[1], d_opt[1], opt[2], d_opt[2], opt[3], d_opt[3]
     return opt[0], d_opt[0] + d_opt[1]
 
 def save_fig(fig, title, folder='unsorted', size=(5, 4)):
@@ -106,13 +135,27 @@ def save_fig(fig, title, folder='unsorted', size=(5, 4)):
     fig.savefig(f'./figs/{folder}/{title}.pdf')
     fig.savefig(f'./figs/{folder}/{title}.pgf')
 
-def find_peak(spec, under, interval, width, height=.5, distance=100):
+def find_peak(spec, under, interval, width, height=.5, distance=100, save=None):
     "Find the peak roughly and fit a gauss curve."
     corrected = (spec - under)[interval[0]:interval[1]]
     corrected = corrected/corrected.max()
     peak = find_peaks(corrected, height=height, distance=distance)[0]
 
-    return calibrate_peak(spec-under, int(interval[0]+peak-width), int(interval[0]+peak+width))
+    return calibrate_peak(spec-under, int(interval[0]+peak-width), int(interval[0]+peak+width), ret_sigma=True, save=save)
+
+area = SecondaryValue('sqrt(2*p)*s*A+O', defaults=dict(p=np.pi))
+
+def find_rates(spec, null, t, mu, sigma):
+    "3 sigma"
+    mu = int(np.round(mu))
+    sigma = int(np.round(sigma))
+
+    N = np.sum(spec[mu - 3*sigma:mu + 3*sigma])
+    N0 = np.sum(null[mu - 3*sigma:mu + 3*sigma])
+    N_f = (N - N0)/t
+    d_N_f = 2*np.sqrt(np.sum((np.sqrt([N, N0])/t)**2))
+    return N_f, d_N_f
+
 
 import numpy as np
 from scipy import sparse
