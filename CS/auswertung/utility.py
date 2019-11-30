@@ -6,6 +6,11 @@ from scipy.optimize import curve_fit
 from scipy.signal import find_peaks
 import scipy.sparse as sparse
 import matplotlib.ticker as ticker
+import matplotlib
+
+import os
+
+
 mu = SecondaryValue('cos(theta)')
 kappa = SecondaryValue('E_in/er', defaults=dict(er=510.99895000))
 E = SecondaryValue('E_in/(1+kappa*(1-mu))',
@@ -14,7 +19,15 @@ E = SecondaryValue('E_in/(1+kappa*(1-mu))',
 t_opt = SecondaryValue('(N_g + N_0)/(prec^2*(N_g-N_0)^2)')
 d_t_opt = SecondaryValue('sqrt((N_g+3*N_0)^2*N_g/t+(3*N_g+N_0)^2*N_0/t)/(prec^2*(N_g-N_0)^2)')
 
-def load_spectrum(path, absolute=False):
+matplotlib.use("pgf")
+matplotlib.rcParams.update({
+    "pgf.texsystem": "pdflatex",
+    'font.family': 'serif',
+    'text.usetex': True,
+    'pgf.rcfonts': False,
+})
+
+def load_spectrum(path, absolute=True):
     """Parses the characteristic curve data from the data logs.
 
     :param path: path to the log
@@ -28,19 +41,19 @@ def channels(spec):
     return np.arange(1, len(spec) + 1)
 
 
-def pinmp_ticks(axis):
-    axis.set_major_locator(plt.LinearLocator(numticks=10))
-    axis.set_minor_locator(plt.LinearLocator(numticks=100))
+def pinmp_ticks(axis, ticks):
+    axis.set_major_locator(ticker.MaxNLocator(ticks))
+    axis.set_minor_locator(ticker.MaxNLocator(ticks*10))
     return axis
 
 
-def plot_spec(spec, is_relative=False, offset=0, **pyplot_args):
+def plot_spec(spec, is_relative=False, offset=0, ticks=10, save=None, **pyplot_args):
     fig = plt.figure()
     ax = fig.add_subplot(111)
     chans = channels(spec) + offset
 
-    pinmp_ticks(ax.xaxis)
-    pinmp_ticks(ax.yaxis)
+    pinmp_ticks(ax.xaxis, ticks)
+    pinmp_ticks(ax.yaxis, ticks)
 
     ax.tick_params(top=True, right=True, which='both')
     ax.step(chans, spec, **pyplot_args)
@@ -53,29 +66,49 @@ def plot_spec(spec, is_relative=False, offset=0, **pyplot_args):
     ax.set_ylim(spec.min(), spec.max())
     fig.tight_layout()
 
+    if save:
+        save_fig(fig, *save)
+
     return fig, ax
 
 def gauss(x, mu, sigma):
     return np.exp(-(x-mu)**2/(2*sigma**2))
 
-def calibrate_peak(spec, start, end):
+def gauss_offset(x, mu, sigma, A, O):
+    return np.exp(-(x-mu)**2/(2*sigma**2))*A + O
+
+def calibrate_peak(spec, start, end, save=None):
     slc = spec[start:end]
     slc = slc-slc.min()
     slc = slc/slc.max()
     chan = channels(spec)[start:end]
-    opt, d_opt = curve_fit(gauss, chan,
-                           slc, p0=((start+end)/2, (end-start)/2),
-                           sigma=1/2*np.ones_like(chan), absolute_sigma=True)
+    opt, d_opt = curve_fit(gauss_offset, chan,
+                           slc, p0=((start+end)/2, (end-start)/2, 1, 0),
+                           sigma=1/2*np.ones_like(chan), absolute_sigma=True,
+                           bounds=([start, -np.inf, 1/2, 0], [end, np.inf, 1, 1/2]))
     d_opt = np.sqrt(np.diag(d_opt))
 
 
     fig, ax = plot_spec(slc, is_relative=True, offset=start, label='Gemessen')
-    ax.plot(chan, gauss(chan, *opt), label='Fit')
+    ax.plot(chan, gauss_offset(chan, *opt), label='Peak Fit', linestyle='--')
     ax.legend()
-    fig.show()
+
+    if save:
+        save_fig(fig, *save)
     return opt[0], d_opt[0]
 
+def save_fig(fig, title, folder='unsorted', size=(5, 4)):
+    fig.set_size_inches(*size)
+    fig.tight_layout()
+    try:
+        os.makedirs(f'./figs/{folder}/')
+    except OSError as exc:
+        pass
+    fig.savefig(f'./figs/{folder}/{title}.pdf')
+    fig.savefig(f'./figs/{folder}/{title}.pgf')
+
 def find_peak(spec, under, interval, width, height=.5, distance=100):
+    "Find the peak roughly and fit a gauss curve."
     corrected = (spec - under)[interval[0]:interval[1]]
     corrected = corrected/corrected.max()
     peak = find_peaks(corrected, height=height, distance=distance)[0]
