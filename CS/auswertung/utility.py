@@ -26,7 +26,9 @@ matplotlib.rcParams.update({
     'text.usetex': True,
     'pgf.rcfonts': False,
 })
-
+def klein_nisha(mu, E_in):
+    kappa = E_in/510.99895000
+    return const.physical_constants['classical electron radius'][0]**2/2*(1/(1+kappa*(1-mu)))**2*(kappa*(1-mu)+1/(1+kappa*(1-mu))+mu**2)
 def load_spectrum(path, absolute=True):
     """Parses the characteristic curve data from the data logs.
 
