@@ -60,7 +60,7 @@ def plot_spec(spec, is_relative=False, offset=0, ticks=10, save=None, **pyplot_a
     ax.grid(which='minor', alpha=.3)
     ax.grid(which='major', alpha=.8)
     ax.set_xlabel('Kanal')
-    ax.set_ylabel(('Normierte' if is_relative else '') + 'Zaehlrate')
+    ax.set_ylabel(('Normierte' if is_relative else '') + 'Ereignisszahl')
 
     ax.set_xlim(chans[0], chans[-1])
     ax.set_ylim(spec.min(), spec.max())
@@ -79,17 +79,16 @@ def gauss_offset(x, mu, sigma, A, O):
 
 def calibrate_peak(spec, start, end, save=None):
     slc = spec[start:end]
-    slc = slc-slc.min()
-    slc = slc/slc.max()
+
     chan = channels(spec)[start:end]
     opt, d_opt = curve_fit(gauss_offset, chan,
-                           slc, p0=((start+end)/2, (end-start)/2, 1, 0),
+                           slc, p0=((start+end)/2, (end-start)/2, 1*slc.max(), 0),
                            sigma=1/2*np.ones_like(chan), absolute_sigma=True,
-                           bounds=([start, -np.inf, 1/2, 0], [end, np.inf, 1, 1/2]))
+                           bounds=([start, -np.inf, 1/2*slc.max(), 0], [end, np.inf, 1*slc.max(), 1/2*slc.max()]))
     d_opt = np.sqrt(np.diag(d_opt))
 
 
-    fig, ax = plot_spec(slc, is_relative=True, offset=start, label='Gemessen')
+    fig, ax = plot_spec(slc, offset=start, label='Gemessen')
     ax.plot(chan, gauss_offset(chan, *opt), label='Peak Fit', linestyle='--')
     ax.legend()
 
