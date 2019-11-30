@@ -173,14 +173,167 @@ in~\ref{fig:versuchsaufbau}) abgelesen. Der Streuwinkel konnte variiert und mitt
 Goniometers (2), das aller \(5^\circ\) einen Strich hatte, auf \(\approx 2^\circ\) genau
 eingestellt werden. In den Probenhalter (5) wurden für die Kalibrierung des Detektors drei
 verschiedene Probenscheiben in die zum Detektor zeigende Seite eingesetzt und dieser so nah wie
-möglich an den Detektor herangeschoben, um für eine, am Anfang auf \(\SI{20}{\min}\) festgesetzte,
-Messzeit, möglichst viele Ereignisse zu zählen.
+möglich an den Detektor herangeschoben, um für eine möglichst kurze Messzeit, möglichst viele Ereignisse zu zählen.
 
 \subsection{Kalibrierung des Detektors}
 \label{sec:kalib}
 
 Für die Detektorkalibrierung wurden drei verschiedene Probenscheiben aus \(^{137}\)Cs, 
 \(^{133}\)Ba und \(^{152}\)Eu sowie die eigentliche \(^{241}\)Am-Probe verwendet.
+Für alle Quellen wurden Histogramme aufgenommen und mit Hilfe der Website \emph{"Nudat 2"}
+die Energien der Peaks den Kanalnummern zugeordnet, um herauszufinden, welcher Kanal, welcher
+Energie entspricht.
+
+Den Energiepeaks in den jeweiligen Histogrammen konnten folgende Energien zugeordnet werden:
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{S|S}
+		\toprule
+		{E [\(\si{\kilo\electronvolt}\)]} & {Intensität [\(\si{\percent}\)]} \\ 
+		\midrule
+		31.817                            & 1.99                            \\
+		32.194                            & 3.64                            \\
+		36.304                            & 0.348                           \\
+		36.378                            & 0.672                           \\
+		37.255                            & 0.213
+	\end{tabular}
+\caption{Werte für \(^{137}\)Cs.}
+\label{tab:cspeaks}
+\end{table}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{S|S}
+		\toprule
+		{E [\(\si{\kilo\electronvolt}\)]} & {Intensität [\(\si{\percent}\)]} \\
+		\midrule
+		30,625                          & 33,9                          \\
+		30,973                          & 62,2                          \\
+		53,1622                         & 2,14                          \\
+		79,6142                         & 2,65                          \\
+		80,9979                         & 32,9
+	\end{tabular}
+\caption{Werte für \(^{133}\)Ba.}
+\label{tab:bapeaks}
+\end{table}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{S|S}
+		\toprule
+		{E [\(\si{\kilo\electronvolt}\)]} & {Intensität [\(\si{\percent}\)]} \\ 
+		\midrule
+		26,3446                           & 2,27                            \\
+		59,5409                           & 35,9
+	\end{tabular}
+\caption{Werte für \(^{241}\)Am.}
+\label{tab:ampeaks}
+\end{table}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{S|S}
+		\toprule
+		{E [\(\si{\kilo\electronvolt}\)]} & {Intensität [\(\si{\percent}\)]} \\ 
+		\midrule
+		5,64                              & 14                               \\
+		6,06                              & 0,174                            \\
+		39,522                            & 21                               \\
+		40,118                            & 37,7
+	\end{tabular}
+	\caption{Werte für \(^{152}\)Eu.}
+	\label{tab:eupeaks}
+\end{table}
+
+\subsection{Histogrammaufnahme}
+\label{sec:histogramm}
+
+Zur Aufnahme dieses Histogramms wurde die \(^{241}\)Am-Quelle mit Kollimator mit einer
+Aktivität von \(\SI{0,5}{\giga\becquerel}\) in die entsprechende Halterung (1) eingespannt, auf
+einen Streuwinkel von \(\vartheta = 90^\circ\) und eine Distanz vom Aluminiumstreustab, der einen
+Durchmesser von \(\SI{6}{\milli\metre}\) hatte, von \(\SI{3}{\centi\metre}\) eingestellt.
+Danach wurde für ca. \(\SI{20}{\min}\) ein Histogramm aufgezeichnet. Dies wurde für die
+Hintergrundmessung ohne Streustab wiederholt.
+
+\subsection{Messzeitoptimierung}
+\label{sec:topt}
+
+\subsection{Photonenenergiebestimmung in Abhängigkeit des Streuwinkels}
+\label{sec:energwinkel}
+
+Zur graphischen Darstellung von \(E(\mu)\) wurden mit der in~\ref{sec:topt} ermittelten
+optimalen Messzeit Histogramme für sieben verschiedene Streuwinkel zwischen \(30^\circ\) und
+\(130^\circ\) aufgenommen. Die verwendeten Winkel sowie die ermittelten Energien sind in
+~\ref{tab:energwinkel} aufgelistet. Pro Winkel musste natürlich auch der Hintergrund gemessen
+werden, um diesen später in der Auswertung abziehen zu können.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{S|S}
+		\toprule
+		{\(\vartheta\) [\(^\circ\)]} & {E [\(\si{\kilo\electronvolt}\)]} \\ 
+		\midrule
+		30                           &                                   \\
+		45                           &                                   \\
+		60                           &                                   \\
+		75                           &                                   \\
+		90                           &                                   \\
+		105                          &                                   \\
+		120                          &
+	\end{tabular}
+	\caption{Energien \(E\) pro Winkel \(\vartheta\).}
+	\label{tab:energwinkel}
+\end{table}
+
+\subsection{Bestimmung des Wirkungsquerschnitts}
+\label{sec:wirkquer}
+
+\subsection{Einfluss des Streukörperdurchmessers}
+\label{sec:durchmesser}
+
+Zur Bestimmung des Einflusses des Streukörperdurchmessers auf die Zählrate \(\dot{N}\) wurden
+bei \(\vartheta = 60^\circ\) Aluminiumstäbe mit fünf verschiedenen Durchmessern genommen.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{S|S}
+		\toprule
+		{\(d\) [\(\si{\milli\metre}\)]} & {\(\dot{N}\) [\(\si{\per\second}\)]} \\ 
+		\midrule
+		2,3                         &                                      \\
+		4,4                         &                                      \\
+		6,6                         &                                      \\
+		10,2                        &                                      \\
+		20,4                        &
+	\end{tabular}
+	\caption{Zählrate \(\dot{N}\) pro Durchmesser \(d\).}
+	\label{tab:ratedurch}
+\end{table}
+
+\subsection{Abstandseinfluss zwischen Quelle und Streukörper}
+\label{sec:abstand}
+
+Um den Einfluss des Abstandes zwischen Quelle und Streukörper zu ermitteln, wurden Histogramme
+für fünf verschiedene Abstände zwischen \(l = \SI{3}{\centi\metre}\) und 
+\(l = \SI{12}{\centi\metre}\) sowie jeweils die Hintergrundstrahlung aufgenommen.
+In diesem Versuchsteil war der Winkel erneut \(\vartheta = 60^\circ\) und der 
+Streukörperdurchmesser \(d = \SI{6}{\milli\metre}\).\\
+
+Folgende Abstände wurden vermessen:
+\begin{table}[H]
+	\centering
+	\begin{tabular}{S|S}
+		\toprule
+		{\(l\) [\(\si{\centi\metre}\)]} & {\(\dot{N}\) [\(\si{\per\second}\)]} \\ 
+		\midrule
+		3                               &                                      \\
+		5                               &                                      \\
+		7                               &                                      \\
+		9                               &                                      \\
+		12                              &
+	\end{tabular}
+	\caption{Zählrate \(\dot{N}\) pro Anstand Quelle-Streukörper \(l\).}
+	\label{tab:abstand}
+\end{table}
+
 
 \section{Verzeichnisse}
 
