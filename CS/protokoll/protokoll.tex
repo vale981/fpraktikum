@@ -1,0 +1,109 @@
+\documentclass[slug=CS, room=Andreas-Schubert-Bau\,\ Labor\ 406,
+supervisor=Juliane\ Volkmer, coursedate=29.\ 11.\ 2019]{../../Lab_Report_LaTeX/lab_report}
+
+\title{Comptonstreuung}
+\author{Oliver Matthes, Valentin Boettcher}
+\usepackage[version=4]{mhchem}
+\usepackage{todonotes}
+\graphicspath{ {figs/} }
+\newcommand{\cs}{\emph{Comptonstreuung }}
+\usepackage{circuitikz}
+\usepackage{subcaption}
+\usepackage{ amssymb }
+\usepackage{tabularx}
+\usepackage{pgf}
+\sisetup{math-celsius = {}^{\circ}\kern-\scriptspace C}
+\usepackage[ngerman]{babel}
+
+% bib
+\addbibresource{protokoll.bib}
+
+\begin{document}
+\maketitle
+
+\section{Einleitung}
+\label{sec:einl}
+
+\cs ist in einem Energiebereich von hundert Kiloelektronenvolt bis hin zu wenigen
+Megaelektronenvolt der Wechselwirkungsprozess zwischen Photonen und Materie, der am
+ wahrscheinlichsten auftritt und deswegen in vielen physikalischen Bereichen beachtet werden muss.
+Neben \cs gibt es natürlich auch noch andere Wechselwirkungsprozesse wie der
+Photoeffekt, der vor allem bei geringen Photonenenergien auftritt oder die Paarbildung bei
+der man Energien von mindestens zwei Elektronenmassen braucht, um ein Elektron-Positron-Paar
+zu erzeugen. Diese Prozesse werden in diesem Versuch allerdings nicht betrachtet.\\
+
+Um Aussagen über die Wahrscheinlichkeit, dass ein Photon mit einem Elektron wechselwirkt,
+treffen zu können, definiert man den Wirkungsquerschnitt:
+
+\begin{equation}\label{eq:wirkquer}
+	\sigma = \frac{N}{\Phi}
+\end{equation}
+
+\begin{tabular}{llll}
+	 & \(N\)    & ... & mittlere Wechselwirkungsanzahl eines Teilchens mit einem atomaren Target \\
+	 & \(\Phi\) & ... & Teilchenfluenz, dem das Target ausgesetzt ist
+\end{tabular}\\
+
+Der Wechselwirkungsquerschnitt der inkohärenten Streuung und damit des Comptoneffekts ist
+proportional zur Ordnungszahl des Atoms (\(\sigma_i \propto\) Z).\\
+
+\subsection{Inkohärente Streuung}
+\label{sec:inkostreu}
+
+Wichtig, um \cs beschreiben zu können, ist der Prozess der \emph{inkohärenten Streuung}.
+Dabei überträgt das Photon bei der Wechselwirkung mit einem an einem Atomkern gebundenen
+Elektron einen Teil seiner Energie auf dieses, so dass es den gebundenen Zustand verlassen kann.
+Vernachlässigt man bei diesem Prozess die Bindungsenergie des Elektrons, nennt man diesen \cs,
+da Arthur Holly Compton 1922 diese Annahme traf, um diesen Effekt zu beschreiben.\\
+
+\subsubsection{Comptonstreuung}
+\label{sec:cs}
+
+Um \cs zu beschreiben, geht man, wie oben schon erwähnt, von quasi freien Elektronen aus.
+Diese Annahme trifft besonders gut auf Metalle zu (im Experiment werden wir mit einem Aluminiumtarget arbeiten).
+Wird ein Photon an einem Elektron gestreut, ändert sich seine Energie sowie seine 
+Bewegungsrichtung um einen polaren Streuwinkel \(\theta\). Nutzt man den Energie-
+und den Impulserhaltungssatz aus und setzt den Photonenimpuls \(p = E/c\) ein, so erhält man
+einen Ausdruck für die Energie des Wechselwirkungsphotons nach der Interaktion:
+
+\begin{gather}
+	E(\mu) = \frac{E'}{1 + \kappa(1 - \mu)} \label{eq:photoenergie}\\
+	\kappa = \frac{E'}{m_0c^2}\\
+	\mu = \cos\theta
+\end{gather}
+
+\begin{tabular}{llll}
+	& \(E'\)    & ... & Photonenenergie vor dem Stoß
+\end{tabular}\\
+
+Die Ruheenergie des Elektrons beträgt:
+
+\begin{equation}\label{key}
+	E_{e^-} = m_0c^2 = \SI{511}{\kilo\electronvolt}
+\end{equation}\\
+
+Die maximal mögliche Energie, die ein Photon nach der Streuung haben kann, ist also dessen
+Ausgangsenergie. Bei einem Streuwinkel von \(\theta = 0^\circ\) (Vorwärtsstreuung) folgt
+\(\mu \rightarrow 1 \implies E(\mu) \rightarrow E'\).
+Die Minimalenergie wird bei \(\mu = -1\), also bei \(\theta = 180^\circ\), erreicht, da
+hier gilt:
+
+\begin{equation}\label{eq:emax}
+	E(\mu) = \frac{E'}{1 + 2\kappa}
+\end{equation}
+
+Je größer der polare Streuwinkel \(\theta\) des Photons ist, desto mehr Energie wird beim Stoß
+an das Elektron übertragen. Je größer außerdem die Ausgangsenergie des Photons, desto größer ist
+der Energieverlust bei der Streuung und desto höher ist zudem die Winkelabhängigkeit des
+Energieverlustes.\\
+
+\section{Verzeichnisse}
+
+\label{sec:literatur}
+
+\listoffigures
+
+\listoftables
+
+\printbibliography
+\end{document}
