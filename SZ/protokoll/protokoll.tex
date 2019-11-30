@@ -576,7 +576,7 @@ Um den Einfluss der Temperatur auf die Solarzellen zu messen, wurde zu erst die 
 wieder auf eine Sonne kalibriert. Zur Steigerung der Temperatur wurde die Lüfterleistung
 nach und nach reduziert. Die Leerlaufspannung wurde dabei in Abständen von \(\SI{5}{\kelvin}\)
 aufgenommen. Nach Aufnahme des letzten Messwertes wurde sofort die Beleuchtung deaktiviert
-sowie die Lüfter auf volle Leistung gestellt, um das Setup so schnell wie möglich wieder
+sowie die Lüfter auf volle Leistung gestellt, um den Aufbau so schnell wie möglich wieder
 herunterzukühlen.\footnote{Dr. D\"orr macht den besten Kartoffelsalat.}
 
 \subsection{Einfallswinkelabhängigkeit des Lichtes}
@@ -752,7 +752,7 @@ Der Wirkungsgrad von Siliziumsolarzellen liegt im Bereich von wenigen 20 \(\si{\
 und die bei A8 gemessene \(\voc\) bei \(\approx \SI{0,55}{\volt}\). Auch die Schätzung des
 Füllfaktors ist nicht schlecht wie sich in~\ref{tab:diodano} zeigen wird.
 Deswegen kann man durchaus einen Kurzschlussstrom von
-\(\jsc\approx\SI{0,076}{\ampere\per\centi\meter\squared}\) erwarten.
+\(\jsc\approx\SI{0,076}{\ampere\per\centi\meter\squared}\) erwarten. \cite{wikipedia_solcell}
 
 \begin{table}[H]\centering
         \label{tab:jsco1}
@@ -819,15 +819,15 @@ durch lineare Interpolation und einfacher numerischer Optimierung
 
 Wie zu erwarten war, liegt der Wirkungsgrad der organischen Zelle
 unter dem der anorganischen. Alle Zellen haben \"ahnliche
-F\"ullfaktoren, wobei interessanter Weise die Organische Zelle O1
-vorne liegt.
-Der Stromdichte ist bei den organischen Zellen wesentlich geringer.
-Die Wirkungsgrade liegen allesamt weit unter den f\"ur die Formulierung
+F\"ullfaktoren (in der Umgebung des Erwarteten Wertes), wobei
+interessanter Weise die Organische Zelle O1 vorne liegt.  Der
+Stromdichte ist bei den organischen Zellen wesentlich geringer.  Die
+Wirkungsgrade liegen allesamt weit unter den f\"ur die Formulierung
 der Erwartungen verwendeten. Dadurch weichen auch alle anderen Werte
-mehr oder weniger stark von den Erwartungen ab.
-Bei der Folienzelle wird klar, dass bei ung\"unstiger Lage von
-\(\voc, \jsc\) selbst ein besserer F\"ullfaktor wenig Einfluss auf
-\(\eta\) hat. Eventuell lag bei der Folienzelle auch ein Defekt vor.
+mehr oder weniger stark von den Erwartungen ab.  Bei der Folienzelle
+wird klar, dass bei ung\"unstiger Lage von \(\voc, \jsc\) selbst ein
+besserer F\"ullfaktor wenig Einfluss auf \(\eta\) hat. Eventuell lag
+bei der Folienzelle auch ein Defekt vor.
 
 
 
@@ -1119,31 +1119,62 @@ und damit auch die Elektron-Loch-Erzeugungsrate nicht \"andert.
 \begin{figure}[H]\centering
         \input{figs/python/E/relativ.pgf}
         \caption{Winkelabhängigkeit des Stromflusses vom einfallenden
-          Licht. Relativer Kurzschlussstrom. Siehe auch~\ref{tab:messe}}
+          Licht. Relativer Kurzschlussstrom. \(Theta\)  ist der Winkel
+          zur Horizontalen. Siehe auch~\ref{tab:messe}}
         \label{fig:winkel}
 \end{figure}
 
 Wie in~\ref{fig:winkel} erkennbar gibt es zwischen dem Winkel des
 einfallenden Lichtes und dem Stromfluss eine Sinus-Abhängigkeit,
 welche die effektive Gr\"o\ss{}e der beleuchteten Fl\"ache
-widerspiegelt. (Der Winkel wurde um \(\frac{pi}{2}\)) zur
+widerspiegelt. (Der Winkel wurde um \(\frac{\pi}{2}\)) zur
 Fl\"achennormale verschoben gemessen.)
 
+Man kann die Abweichung der in~\ref{fig:winkel} gezeigten Linien von
+der Diagonalen als Reaktion auf den Einstrahlungswinkel an sich und
+nicht der verringerten effektiven Fl\"ache deuten.
+
 Dabei flie\ss{}t bei Lichteinfall parallel zu den Zellen
-\(\Theta=0^\circ\) so gut wie kein Strom mehr fließt.
+\(\Theta=0^\circ\), entsprechend der geringen effektiven Fl\"ache, der
+geringste Strom.
 In~\ref{fig:winkel} ist bei \(\sin(\theta) = 0\) zwar noch ein
 Stromfluss erkennbar, dieser liegt aber daran, dass das Modul in
 Richtung der Fenster gedreht wurde und somit, auch wenn das Wetter am
 Versuchstag bewölkt war, immer noch genügend Licht auf die beiden
 Solarzellen fallen konnte, um einen Stromfluss zu ermöglichen.
 
-Die Organische Solarzelle scheint der anorganischen etwas \"uberlegen
-zu sein, was eventuell mit dem gr\"o\ss{}eren Absorptionskoeffizient
-dieser Zelle begr\"undet werden kann. Ma\ss{}geblich sind diese
-Unterschiede aber nicht.
+Die Organische Solarzelle scheint der anorganischen ab
+\(\sin(\Theta)\) etwas \"uberlegen
+zu sein, absorbiert also unter einem Winkel einfallende Strahlung
+effektiver.
 
-Ist der Anteil von diffusem Licht hoch so sinkt der Stromertrag und
-auch die Effizienz einer Solarzelle.
+Um eine Aussage \"uber den Einfluss von Diffusem Licht auf die
+Effizienz machen zu k\"onnen, h\"atten die St\"orfaktoren (Fenster,
+Raumbeleuchtung) verringert werden m\"ussen, sodass man eventuell
+Werte unterhalb der Diagonalen in~\ref{fig:winkel} erhalten
+h\"atte.  Es l\"asst sich hier nur erkennen, dass die organsche
+Solarzelle diffuses Licht effizienter wandelt.
+
+\section{Fazit}
+\label{sec:fazit}
+
+Der Versuch f\"uhrte in die Funktionsweise und die Charakteristiken
+von anorganischen und auch organschen Solarzellen ein. Bei der
+untersuchung der Dunkelkennlinie der anorganischen Solarzelle konnten
+realistische Werte gewonnen werden. Bei dem vergleich der
+Hellkennlinien liegen die Wirkungsgrade allesamt unter den
+Erwartungen, wenngleich die F\"ullfaktoren im Bereich des erwarteten
+lagen. Die bei verschiednen Beleuchtungsintensitäten beobachteten
+Ph\"anomene lassen sich mit den theoretischen Erwartungen in Einklang
+bringen, wenn auch die Unsicherheiten durch die geringe Anzahl an
+Messungen groß ist. Die Versuche an realistischen Verschaltungen
+zeigten, dass die Werte im Ersatzschaltbild (\ref{sec:ersatz}) auch
+effektiv durch \"au\ss{}ere Einfl\"usse modifiziert werden k\"onnen
+und dass die abgreifbare Leistung auch von den Charakteristiken des
+Verbrauchers abh\"angt. Betrachtet man die Winkelabhängigkeit des
+Kurzschlussstromes so erkennt man die zu erwartende trigonometrische
+Ab\"angigkeit und eine Leichte \"Uberlegenheit der organischen
+Solarzelle.
 
 \section{Anhang}
 Auf die hier aufgef\"uhrten Plots und Tabellen wird i.A. nicht weiter
