@@ -8,7 +8,7 @@ supervisor=Juliane\ Volkmer, coursedate=29.\ 11.\ 2019]{../../Lab_Report_LaTeX/l
 \graphicspath{ {figs/} }
 \newcommand{\cs}{\emph{Comptonstreuung }}
 \newcommand{\am}{\ce{^241Am}}
-\newcommand{\kev}{\SI{#1}{\kilo\electronvolt}}
+\newcommand{\kev}[1]{\SI{#1}{\kilo\electronvolt}}
 \usepackage{circuitikz}
 \usepackage{subcaption}
 \usepackage{ amssymb }
@@ -262,7 +262,7 @@ Ereignisszahl angesetzt.
 
 Für \ce{^{137}Cs} ist das Resultat in~\ref{fig:calfitcs} dargestellt.
 \begin{figure}[h]\centering
-  \input{./figs/python/calibrate/cs.pgf}
+  \input{../auswertung/figs/calibrate/cs.pgf}
   \caption{Fit f\"ur \ce{^{137}Cs}}
   \label{fig:calfitcs}
 \end{figure}
@@ -296,7 +296,7 @@ Es ergibt sich f\"ur die Parameter:
 
 
 \begin{figure}[h]\centering
-  \input{./figs/python/calibrate/energy_fit.pgf}
+  \input{../auswertung/figs/calibrate/energy_fit.pgf}
   \caption{Kanallage \"uber Energie zur Kalibrierung.}
   \label{fig:energyfit}
 \end{figure}
@@ -313,12 +313,12 @@ Hintergrundmessung ohne Streustab wiederholt. Die aufgenommen
 Histogramme sind in~\ref{fig:am20hist} und~\ref{fig:am20histnull} dargestellt.
 
 \begin{figure}[h]\centering
-  \input{./figs/python/hists/am_90.pgf}
+  \input{../auswertung/figs/hists/am_90.pgf}
   \caption{Histogramm f\"ur \am{} bei \(\vartheta = 90^\circ\) mit Target.}
   \label{fig:am20hist}
 \end{figure}
 \begin{figure}[h]\centering
-  \input{./figs/python/hists/am_90_0.pgf}
+  \input{../auswertung/figs/hists/am_90_0.pgf}
   \caption{Histogramm f\"ur \am{} bei \(\vartheta = 90^\circ\) ohne
     Target. Nullmessung.}
   \label{fig:am20histnull}
@@ -413,43 +413,43 @@ Folgende Abstände wurden vermessen:
 
 
 \begin{figure}[H]\centering
-  \input{./figs/python/calibrate/cs.pgf}
+  \input{../auswertung/figs/calibrate/cs.pgf}
   \caption{}
   \label{fig:}
 \end{figure}
 
 \begin{figure}[H]\centering
-  \input{./figs/python/calibrate/ba_1.pgf}
+  \input{../auswertung/figs/calibrate/ba_1.pgf}
   \caption{}
   \label{fig:}
 \end{figure}
 
 \begin{figure}[H]\centering
-  \input{./figs/python/calibrate/ba_2.pgf}
+  \input{../auswertung/figs/calibrate/ba_2.pgf}
   \caption{}
   \label{fig:}
 \end{figure}
 
 \begin{figure}[H]\centering
-  \input{./figs/python/calibrate/ba_3.pgf}
+  \input{../auswertung/figs/calibrate/ba_3.pgf}
   \caption{}
   \label{fig:}
 \end{figure}
 
 \begin{figure}[H]\centering
-  \input{./figs/python/calibrate/am_1.pgf}
+  \input{../auswertung/figs/calibrate/am_1.pgf}
   \caption{}
   \label{fig:}
 \end{figure}
 
 \begin{figure}[H]\centering
-  \input{./figs/python/calibrate/am_2.pgf}
+  \input{../auswertung/figs/calibrate/am_2.pgf}
   \caption{}
   \label{fig:}
 \end{figure}
 
 \begin{figure}[H]\centering
-  \input{./figs/python/calibrate/eu_1.pgf}
+  \input{../auswertung/figs/calibrate/eu_1.pgf}
   \caption{}
   \label{fig:}
 \end{figure}

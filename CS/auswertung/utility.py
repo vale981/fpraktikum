@@ -150,7 +150,7 @@ def save_fig(fig, title, folder='unsorted', size=(5, 4)):
     with open('./out/figlist.txt', 'a') as f:
         f.write(r'''
 \begin{figure}[H]\centering
-  \input{./figs/python/'''
+  \input{../auswertung/figs/'''
   + f'{folder}/{title}.pgf' +
   r'''}
   \caption{}
