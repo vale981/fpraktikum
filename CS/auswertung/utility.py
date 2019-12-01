@@ -121,9 +121,10 @@ def calibrate_peak(spec, start, end, save=None, ret_sigma=False):
                            bounds=([start, 0, 1/2*slc.max(), 0], [end, np.inf, 1*slc.max(), 1/2*slc.max()]))
     d_opt = np.sqrt(np.diag(d_opt))
 
-
+    opt[0] = np.round(opt[0])
     fig, ax = plot_spec(slc, offset=start, label='Gemessen')
     ax.plot(chan, gauss_offset(chan, *opt), label='Peak Fit', linestyle='--')
+    plt.axvline(opt[0], linestyle='-.', color='green', label='$Peak$')
     if ret_sigma:
         ax.axvspan(opt[0]-3*opt[1], opt[0]+3*opt[1], alpha=.2,
                    label='$3\cdot\sigma$', color='gray', zorder=-10)
@@ -145,6 +146,17 @@ def save_fig(fig, title, folder='unsorted', size=(5, 4)):
         pass
     fig.savefig(f'./figs/{folder}/{title}.pdf')
     fig.savefig(f'./figs/{folder}/{title}.pgf')
+
+    with open('./out/figlist.txt', 'a') as f:
+        f.write(r'''
+\begin{figure}[H]\centering
+  \input{./figs/python/'''
+  + f'{folder}/{title}.pgf' +
+  r'''}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    ''')
 
 def find_peak(spec, under, interval, width, height=.5, distance=100, save=None):
     "Find the peak roughly and fit a gauss curve."

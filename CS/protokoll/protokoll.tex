@@ -1,4 +1,4 @@
-\documentclass[slug=CS, room=Andreas-Schubert-Bau\,\ Labor\ 406,
+\documentclass[draft, slug=CS, room=Andreas-Schubert-Bau\,\ Labor\ 406,
 supervisor=Juliane\ Volkmer, coursedate=29.\ 11.\ 2019]{../../Lab_Report_LaTeX/lab_report}
 
 \title{Comptonstreuung}
@@ -7,11 +7,14 @@ supervisor=Juliane\ Volkmer, coursedate=29.\ 11.\ 2019]{../../Lab_Report_LaTeX/l
 \usepackage{todonotes}
 \graphicspath{ {figs/} }
 \newcommand{\cs}{\emph{Comptonstreuung }}
+\newcommand{\am}{\ce{^241Am}}
+\newcommand{\kev}{\SI{#1}{\kilo\electronvolt}}
 \usepackage{circuitikz}
 \usepackage{subcaption}
 \usepackage{ amssymb }
 \usepackage{tabularx}
 \usepackage{pgf}
+\usepackage[version=4]{mhchem}
 \sisetup{math-celsius = {}^{\circ}\kern-\scriptspace C}
 \usepackage[ngerman]{babel}
 
@@ -36,12 +39,12 @@ Um Aussagen über die Wahrscheinlichkeit, dass ein Photon mit einem Elektron wec
 treffen zu können, definiert man den Wirkungsquerschnitt:
 
 \begin{equation}\label{eq:wirkquer}
-	\sigma = \frac{N}{\Phi}
+        \sigma = \frac{N}{\Phi}
 \end{equation}
 
 \begin{conditions}
-	N & mittlere Wechselwirkungsanzahl eines Teilchens mit einem atomaren Target \\
-	\Phi & Teilchenfluenz, dem das Target ausgesetzt ist
+        N & mittlere Wechselwirkungsanzahl eines Teilchens mit einem atomaren Target \\
+        \Phi & Teilchenfluenz, dem das Target ausgesetzt ist
 \end{conditions}
 
 Der Wechselwirkungsquerschnitt der inkohärenten Streuung und damit des Comptoneffekts ist
@@ -61,25 +64,25 @@ da Arthur Holly Compton 1922 diese Annahme traf, um diesen Effekt zu beschreiben
 
 Um \cs zu beschreiben, geht man, wie oben schon erwähnt, von quasi freien Elektronen aus.
 Diese Annahme trifft besonders gut auf Metalle zu (im Experiment werden wir mit einem Aluminiumtarget arbeiten).
-Wird ein Photon an einem Elektron gestreut, ändert sich seine Energie sowie seine 
+Wird ein Photon an einem Elektron gestreut, ändert sich seine Energie sowie seine
 Bewegungsrichtung um einen polaren Streuwinkel \(\vartheta\). Nutzt man den Energie-
 und den Impulserhaltungssatz aus und setzt den Photonenimpuls \(p = E/c\) ein, so erhält man
 einen Ausdruck für die Energie des Wechselwirkungsphotons nach der Interaktion:
 
 \begin{gather}
-	E(\mu) = \frac{E'}{1 + \kappa(1 - \mu)} \label{eq:photoenergie}\\
-	\kappa = \frac{E'}{m_0c^2}\\
-	\mu = \cos\vartheta
+        E(\mu) = \frac{E'}{1 + \kappa(1 - \mu)} \label{eq:photoenergie}\\
+        \kappa = \frac{E'}{m_0c^2}\\
+        \mu = \cos\vartheta
 \end{gather}
 
 \begin{conditions}
-	E' & Photonenenergie vor dem Stoß
+        E' & Photonenenergie vor dem Stoß
 \end{conditions}
 
 Die Ruheenergie des Elektrons beträgt:
 
 \begin{equation}\label{key}
-	E_{e^-} = m_0c^2 = \SI{511}{\kilo\electronvolt}
+        E_{e^-} = m_0c^2 = \SI{511}{\kilo\electronvolt}
 \end{equation}\\
 
 Die maximal mögliche Energie, die ein Photon nach der Streuung haben kann, ist also dessen
@@ -89,7 +92,7 @@ Die Minimalenergie wird bei \(\mu = -1\), also bei \(\vartheta = 180^\circ\), er
 hier gilt:
 
 \begin{equation}\label{eq:emax}
-	E(\mu) = \frac{E'}{1 + 2\kappa}
+        E(\mu) = \frac{E'}{1 + 2\kappa}
 \end{equation}
 
 Je größer der polare Streuwinkel \(\vartheta\) des Photons ist, desto mehr Energie wird beim Stoß
@@ -98,10 +101,10 @@ der Energieverlust bei der Streuung und desto höher ist zudem die Winkelabhäng
 Energieverlustes (vgl.~\ref{fig:evontheta}).\\
 
 \begin{figure}[H]\centering
-	\includegraphics[width=.5\columnwidth]{./pictures/evontheta.png}
-	\caption{Abhängigkeit der Energien vor und nach dem Stoß \(E'\) und \(E\) vom Streuwinkel
-	\(\vartheta\).}
-	\label{fig:evontheta}
+        \includegraphics[width=.5\columnwidth]{./pictures/evontheta.png}
+        \caption{Abhängigkeit der Energien vor und nach dem Stoß \(E'\) und \(E\) vom Streuwinkel
+        \(\vartheta\).}
+        \label{fig:evontheta}
 \end{figure}
 
 Um eine Aussage zur Wahrscheinlichkeit zu treffen, mit der ein Photon in einem Raumwinkelelement
@@ -110,20 +113,20 @@ Um eine Aussage zur Wahrscheinlichkeit zu treffen, mit der ein Photon in einem R
 hergeleitet:
 
 \begin{equation}\label{eq:kn}
-	\sigma^{\text{KN}}_\Omega(\mu) = \frac{d\sigma}{d\Omega} = \frac{r_e^2}{2} \cdot \qty(\frac{1}{1 + \kappa(1 - \mu)})^2 \cdot \qty(\kappa(1 - \mu) + \frac{1}{1 + \kappa(1 - \mu)} + \mu^2)
+        \sigma^{\text{KN}}_\Omega(\mu) = \frac{d\sigma}{d\Omega} = \frac{r_e^2}{2} \cdot \qty(\frac{1}{1 + \kappa(1 - \mu)})^2 \cdot \qty(\kappa(1 - \mu) + \frac{1}{1 + \kappa(1 - \mu)} + \mu^2)
 \end{equation}
 
 Mit \(r_e = \SI{2,818e-15}{\metre}\) als klassischen Elektronenradius.\\
 
 Für \(\mu = 1\), also Vorwärtsstreuung folgt:
 \begin{equation}\label{key}
-	\sigma^{\text{KN}}_\Omega(\mu = 1) = r_e^2 = \SI{79,4}{\milli\barn}
+        \sigma^{\text{KN}}_\Omega(\mu = 1) = r_e^2 = \SI{79,4}{\milli\barn}
 \end{equation}
 
 \begin{figure}[H]\centering
-	\includegraphics[width=.5\columnwidth]{./pictures/sigma_kn.png}
-	\caption{\(\sigma^{\text{KN}}_\Omega(\mu)\) für verschiedene \(E'\).}
-	\label{fig:sigmakn}
+        \includegraphics[width=.5\columnwidth]{./pictures/sigma_kn.png}
+        \caption{\(\sigma^{\text{KN}}_\Omega(\mu)\) für verschiedene \(E'\).}
+        \label{fig:sigmakn}
 \end{figure}
 
 \subsubsection{Korrektur für inkohärente Streuung}
@@ -134,10 +137,10 @@ Korrektur des differentiellen Wirkungsquerschnitts an die \textsc{Klein}-\textsc
 eine inkohärente Streufunktion \(S(E', \mu, Z)\) dran:
 
 \begin{equation}\label{eq:knkorrektur}
-	\sigma^{i}_\Omega(E', \mu, Z) = \sigma^{\text{KN}}_\Omega(E', Z) \cdot S(E', \mu, Z)
+        \sigma^{i}_\Omega(E', \mu, Z) = \sigma^{\text{KN}}_\Omega(E', Z) \cdot S(E', \mu, Z)
 \end{equation}
 
-Es gilt, dass \(\sigma^{i}_\Omega < \sigma^{\text{KN}}_\Omega\). Insbesondere geht 
+Es gilt, dass \(\sigma^{i}_\Omega < \sigma^{\text{KN}}_\Omega\). Insbesondere geht
 \(\sigma^{i}_\Omega\) bei \(\vartheta \rightarrow 0\) ebenfalls gegen Null, was man damit erklären
 kann, dass bei \(\vartheta \rightarrow 0\) die vom Photon auf das Elektron übertragene Energie
 gegen Null konvergiert, sodass diese irgendwann die Elektronenbindungsenergie unterschreitet,
@@ -145,10 +148,10 @@ das Elektron also auch nach der Interaktion mit dem Photon gebunden bleibt und s
 inkohärente Streuung mehr vorliegt (vgl.~\ref{fig:sigmaknkorrigiert}).
 
 \begin{figure}[H]\centering
-	\includegraphics[width=.5\columnwidth]{./pictures/sigma_kn_korrigiert.png}
-	\caption{Gegenüberstellung von \(\sigma^{i}_\Omega\) und \(\sigma^{\text{KN}}_\Omega\) für
-	Aluminium und verschiedene \(E'\).}
-	\label{fig:sigmaknkorrigiert}
+        \includegraphics[width=.5\columnwidth]{./pictures/sigma_kn_korrigiert.png}
+        \caption{Gegenüberstellung von \(\sigma^{i}_\Omega\) und \(\sigma^{\text{KN}}_\Omega\) für
+        Aluminium und verschiedene \(E'\).}
+        \label{fig:sigmaknkorrigiert}
 \end{figure}
 
 \section{Durchführung und Auswertung}
@@ -159,14 +162,14 @@ stets gen Wand. Außerdem wurde ein Szintillationsdetektor statt, wie in~\ref{fi
 zu sehen, eines Halbleiterdetektors verwendet.
 
 \begin{figure}[H]\centering
-	\includegraphics[width=.7\columnwidth]{./pictures/versuchsaufbau.png}
-	\caption{Ähnlicher Versuchsaufbau, da ein ähnlich aussehender Szintillationsdetektor anstelle 
-		des hier abgebildeten Halbleiterdetektors (4) verwendet wurde.}
-	\label{fig:versuchsaufbau}
+        \includegraphics[width=.7\columnwidth]{./pictures/versuchsaufbau.png}
+        \caption{Ähnlicher Versuchsaufbau, da ein ähnlich aussehender Szintillationsdetektor anstelle
+                des hier abgebildeten Halbleiterdetektors (4) verwendet wurde.}
+        \label{fig:versuchsaufbau}
 \end{figure}
 
 Der in~\ref{fig:versuchsaufbau} dargestellte Versuchsaufbau bestand aus folgenden Komponenten:
-(1) Halterung für die kollimierte \(^{241}\)Am-Probe, dessen Abstand zum Aluminiumprobenstab (3)
+(1) Halterung für die kollimierte \am{}-Probe, dessen Abstand zum Aluminiumprobenstab (3)
 variiert und mit Hilfe eines angebrachten Maßstabes zu \(\approx \SI{2}{\milli\metre}\)
 Genauigkeit abgelesen werden konnte. Der Abstand wurde an der unteren rechten Seite (roter Strich
 in~\ref{fig:versuchsaufbau}) abgelesen. Der Streuwinkel konnte variiert und mittels eines
@@ -178,80 +181,149 @@ möglich an den Detektor herangeschoben, um für eine möglichst kurze Messzeit,
 \subsection{Kalibrierung des Detektors}
 \label{sec:kalib}
 
-Für die Detektorkalibrierung wurden drei verschiedene Probenscheiben aus \(^{137}\)Cs, 
-\(^{133}\)Ba und \(^{152}\)Eu sowie die eigentliche \(^{241}\)Am-Probe verwendet.
-Für alle Quellen wurden Histogramme aufgenommen und mit Hilfe der Website \emph{"Nudat 2"}
+Für die Detektorkalibrierung wurden drei verschiedene Probenscheiben aus \ce{^{137}Cs},
+\ce{^{133}Ba} und \ce{^{152}Eu} sowie die eigentliche \am{}-Probe verwendet.
+Für alle Quellen wurden Histogramme aufgenommen und mit Hilfe der Website \emph{''Nudat 2''}~\cite{nudat}
 die Energien der Peaks den Kanalnummern zugeordnet, um herauszufinden, welcher Kanal, welcher
 Energie entspricht.
 
-Den Energiepeaks in den jeweiligen Histogrammen konnten folgende Energien zugeordnet werden:
+Die folgenden Tabellen listen die \(\gamma\) \"Uberg\"ange der
+einzelnen Kalibierproben auf. Die jeweils in gleichen Farben
+hinterlegten Energien wurden gewichtet gemmitelt zur Kalibrierung genutzt.
 
 \begin{table}[H]
-	\centering
-	\begin{tabular}{S|S}
-		\toprule
-		{E [\(\si{\kilo\electronvolt}\)]} & {Intensität [\(\si{\percent}\)]} \\ 
-		\midrule
-		31.817                            & 1.99                            \\
-		32.194                            & 3.64                            \\
-		36.304                            & 0.348                           \\
-		36.378                            & 0.672                           \\
-		37.255                            & 0.213
-	\end{tabular}
-\caption{Energiepeaks und deren Intensität für \(^{137}\)Cs.}
-\label{tab:cspeaks}
+  \centering
+  \begin{tabular}{S|S}
+    \toprule
+    {E [\(\si{\kilo\electronvolt}\)]} & {Intensität [\(\si{\percent}\)]} \\
+    \midrule
+    \rowcolor{green!20} 31.817                            & 1.99                            \\
+    \rowcolor{green!20} 32.194                            & 3.64                            \\
+    36.304                            & 0.348                           \\
+    36.378                            & 0.672                           \\
+    37.255                            & 0.213
+  \end{tabular}
+  \caption{Energiepeaks und deren Intensität für \ce{^{137}Cs}.}
+  \label{tab:cspeaks}
 \end{table}
 \begin{table}[H]
-	\centering
-	\begin{tabular}{S|S}
-		\toprule
-		{E [\(\si{\kilo\electronvolt}\)]} & {Intensität [\(\si{\percent}\)]} \\
-		\midrule
-		30,625                          & 33,9                          \\
-		30,973                          & 62,2                          \\
-		53,1622                         & 2,14                          \\
-		79,6142                         & 2,65                          \\
-		80,9979                         & 32,9
-	\end{tabular}
-\caption{Energiepeaks und deren Intensität für \(^{133}\)Ba.}
-\label{tab:bapeaks}
+  \centering
+  \begin{tabular}{S|S}
+    \toprule
+    {E [\(\si{\kilo\electronvolt}\)]} & {Intensität [\(\si{\percent}\)]} \\
+    \midrule
+    \rowcolor{green!20} 30,625                          & 33,9                          \\
+    \rowcolor{green!20} 30,973                          & 62,2                          \\
+    53,1622                         & 2,14                          \\
+    \rowcolor{blue!20} 79,6142                         & 2,65                          \\
+    \rowcolor{blue!20} 80,9979                         & 32,9
+  \end{tabular}
+  \caption{Energiepeaks und deren Intensität für \ce{^{133}Ba}.}
+  \label{tab:bapeaks}
 \end{table}
 \begin{table}[H]
-	\centering
-	\begin{tabular}{S|S}
-		\toprule
-		{E [\(\si{\kilo\electronvolt}\)]} & {Intensität [\(\si{\percent}\)]} \\ 
-		\midrule
-		26,3446                           & 2,27                            \\
-		59,5409                           & 35,9
-	\end{tabular}
-\caption{Werte für \(^{241}\)Am.}
-\label{tab:ampeaks}
+  \centering
+  \begin{tabular}{S|S}
+    \toprule
+    {E [\(\si{\kilo\electronvolt}\)]} & {Intensität [\(\si{\percent}\)]} \\
+    \midrule
+    \rowcolor{green!20} 26,3446                           & 2,27                            \\
+    \rowcolor{blue!20} 59,5409                           & 35,9
+  \end{tabular}
+  \caption{Energiepeaks und deren Intensität für \am{}.}
+  \label{tab:ampeaks}
 \end{table}
 \begin{table}[H]
-	\centering
-	\begin{tabular}{S|S}
-		\toprule
-		{E [\(\si{\kilo\electronvolt}\)]} & {Intensität [\(\si{\percent}\)]} \\ 
-		\midrule
-		5,64                              & 14                               \\
-		6,06                              & 0,174                            \\
-		39,522                            & 21                               \\
-		40,118                            & 37,7
-	\end{tabular}
-	\caption{Energiepeaks und deren Intensität für \(^{152}\)Eu.}
-	\label{tab:eupeaks}
+  \centering
+  \begin{tabular}{S|S}
+    \toprule
+    {E [\(\si{\kilo\electronvolt}\)]} & {Intensität [\(\si{\percent}\)]} \\
+    \midrule
+    \rowcolor{green!20} 5,64                              & 14                               \\
+    6,06                              & 0,174                            \\
+    39,522                            & 21                               \\
+    40,118                            & 37,7
+  \end{tabular}
+  \caption{Energiepeaks und deren Intensität für \ce{^{152}Eu}.}
+  \label{tab:eupeaks}
 \end{table}
 
-\subsection{Histogrammaufnahme}
+Um die Kanallage der Peaks zu bestimmen wird eine Gausskurve der Form
+\begin{equation}
+  \label{eq:gaussfit}
+  A\cdot\exp(-\frac{(x-\mu)^2}{2\sigma}) + O
+\end{equation}
+
+\"uber die aufgenommenen Histogramme gefittet. Dabei gibt nun \(\mu\)
+die Kanallage. Die unsicherheit der Kanallage ergibt sich aus der
+unsicherheit im fit. Für die Unsicherheit der einzelenen
+Histogrammwerte wurde gem\"a\ss{} der Poissonverteilng die Wurzel der
+Ereignisszahl angesetzt.
+
+Für \ce{^{137}Cs} ist das Resultat in~\ref{fig:calfitcs} dargestellt.
+\begin{figure}[h]\centering
+  \input{./figs/python/calibrate/cs.pgf}
+  \caption{Fit f\"ur \ce{^{137}Cs}}
+  \label{fig:calfitcs}
+\end{figure}
+
+Die restlichen Plots sind \"ahnlicher Natur und werden allesamt
+in~\ref{sec:ancalplot} aufgelistet.
+
+Ein Linearer Fit der Form
+\begin{equation}
+  \label{eq:linclafit}
+  K(E) = \frac{E-a}{b}
+\end{equation}
+
+ergibt die Kalibierungsparameter (in dieser Form, da \(K\) mit
+Unsicherheit behaftet). Daraus erhält man durch Umstellen
+einen Zusammenhang
+\begin{equation}
+  \label{eq:linclafit}
+  E(K) = a + K\cdot b
+\end{equation}
+
+In~\ref{fig:energyfit} werden die Kanallagen \"uber der Energie
+aufgetragen und der fit durchgef\"uhrt.
+
+Es ergibt sich f\"ur die Parameter:
+
+\begin{align}
+  a &= \SI{-5.76\pm 0.10}{\kilo\electronvolt} \\
+  b &= \SI{0.083\pm 0.002}{\kilo\electronvolt} \\
+\end{align}
+
+
+\begin{figure}[h]\centering
+  \input{./figs/python/calibrate/energy_fit.pgf}
+  \caption{Kanallage \"uber Energie zur Kalibrierung.}
+  \label{fig:energyfit}
+\end{figure}
+
+\subsection{Aufnahme eines Histogramms}
 \label{sec:histogramm}
 
-Zur Aufnahme dieses Histogramms wurde die \(^{241}\)Am-Quelle mit Kollimator mit einer
+Zur Aufnahme dieses Histogramms wurde die \am{}-Quelle mit Kollimator mit einer
 Aktivität von \(\SI{0,5}{\giga\becquerel}\) in die entsprechende Halterung (1) eingespannt, auf
 einen Streuwinkel von \(\vartheta = 90^\circ\) und eine Distanz vom Aluminiumstreustab, der einen
 Durchmesser von \(\SI{6}{\milli\metre}\) hatte, von \(\SI{3}{\centi\metre}\) eingestellt.
 Danach wurde für ca. \(\SI{20}{\min}\) ein Histogramm aufgezeichnet. Dies wurde für die
-Hintergrundmessung ohne Streustab wiederholt.
+Hintergrundmessung ohne Streustab wiederholt. Die aufgenommen
+Histogramme sind in~\ref{fig:am20hist} und~\ref{fig:am20histnull} dargestellt.
+
+\begin{figure}[h]\centering
+  \input{./figs/python/hists/am_90.pgf}
+  \caption{Histogramm f\"ur \am{} bei \(\vartheta = 90^\circ\) mit Target.}
+  \label{fig:am20hist}
+\end{figure}
+\begin{figure}[h]\centering
+  \input{./figs/python/hists/am_90_0.pgf}
+  \caption{Histogramm f\"ur \am{} bei \(\vartheta = 90^\circ\) ohne
+    Target. Nullmessung.}
+  \label{fig:am20histnull}
+\end{figure}
+
 
 \subsection{Messzeitoptimierung}
 \label{sec:topt}
@@ -266,21 +338,21 @@ optimalen Messzeit Histogramme für sieben verschiedene Streuwinkel zwischen \(3
 werden, um diesen später in der Auswertung abziehen zu können.
 
 \begin{table}[H]
-	\centering
-	\begin{tabular}{S|S}
-		\toprule
-		{\(\vartheta\) [\(^\circ\)]} & {E [\(\si{\kilo\electronvolt}\)]} \\ 
-		\midrule
-		30                           &                                   \\
-		45                           &                                   \\
-		60                           &                                   \\
-		75                           &                                   \\
-		90                           &                                   \\
-		105                          &                                   \\
-		120                          &
-	\end{tabular}
-	\caption{Energien \(E\) pro Winkel \(\vartheta\).}
-	\label{tab:energwinkel}
+        \centering
+        \begin{tabular}{S|S}
+                \toprule
+                {\(\vartheta\) [\(^\circ\)]} & {E [\(\si{\kilo\electronvolt}\)]} \\
+                \midrule
+                30                           &                                   \\
+                45                           &                                   \\
+                60                           &                                   \\
+                75                           &                                   \\
+                90                           &                                   \\
+                105                          &                                   \\
+                120                          &
+        \end{tabular}
+        \caption{Energien \(E\) pro Winkel \(\vartheta\).}
+        \label{tab:energwinkel}
 \end{table}
 
 \subsection{Bestimmung des Wirkungsquerschnitts}
@@ -293,47 +365,94 @@ Zur Bestimmung des Einflusses des Streukörperdurchmessers auf die Zählrate \(\
 bei \(\vartheta = 60^\circ\) Aluminiumstäbe mit fünf verschiedenen Durchmessern genommen.
 
 \begin{table}[H]
-	\centering
-	\begin{tabular}{S|S}
-		\toprule
-		{\(d\) [\(\si{\milli\metre}\)]} & {\(\dot{N}\) [\(\si{\per\second}\)]} \\ 
-		\midrule
-		2,3                         &                                      \\
-		4,4                         &                                      \\
-		6,6                         &                                      \\
-		10,2                        &                                      \\
-		20,4                        &
-	\end{tabular}
-	\caption{Zählrate \(\dot{N}\) pro Durchmesser \(d\).}
-	\label{tab:ratedurch}
+        \centering
+        \begin{tabular}{S|S}
+                \toprule
+                {\(d\) [\(\si{\milli\metre}\)]} & {\(\dot{N}\) [\(\si{\per\second}\)]} \\
+                \midrule
+                2,3                         &                                      \\
+                4,4                         &                                      \\
+                6,6                         &                                      \\
+                10,2                        &                                      \\
+                20,4                        &
+        \end{tabular}
+        \caption{Zählrate \(\dot{N}\) pro Durchmesser \(d\).}
+        \label{tab:ratedurch}
 \end{table}
 
 \subsection{Abstandseinfluss zwischen Quelle und Streukörper}
 \label{sec:abstand}
 
 Um den Einfluss des Abstandes zwischen Quelle und Streukörper zu ermitteln, wurden Histogramme
-für fünf verschiedene Abstände zwischen \(l = \SI{3}{\centi\metre}\) und 
+für fünf verschiedene Abstände zwischen \(l = \SI{3}{\centi\metre}\) und
 \(l = \SI{12}{\centi\metre}\) sowie jeweils die Hintergrundstrahlung aufgenommen.
-In diesem Versuchsteil war der Winkel erneut \(\vartheta = 60^\circ\) und der 
+In diesem Versuchsteil war der Winkel erneut \(\vartheta = 60^\circ\) und der
 Streukörperdurchmesser \(d = \SI{6}{\milli\metre}\).\\
 
 Folgende Abstände wurden vermessen:
 \begin{table}[H]
-	\centering
-	\begin{tabular}{S|S}
-		\toprule
-		{\(l\) [\(\si{\centi\metre}\)]} & {\(\dot{N}\) [\(\si{\per\second}\)]} \\ 
-		\midrule
-		3                               &                                      \\
-		5                               &                                      \\
-		7                               &                                      \\
-		9                               &                                      \\
-		12                              &
-	\end{tabular}
-	\caption{Zählrate \(\dot{N}\) pro Anstand Quelle-Streukörper \(l\).}
-	\label{tab:abstand}
+        \centering
+        \begin{tabular}{S|S}
+                \toprule
+                {\(l\) [\(\si{\centi\metre}\)]} & {\(\dot{N}\) [\(\si{\per\second}\)]} \\
+                \midrule
+                3                               &                                      \\
+                5                               &                                      \\
+                7                               &                                      \\
+                9                               &                                      \\
+                12                              &
+        \end{tabular}
+        \caption{Zählrate \(\dot{N}\) pro Anstand Quelle-Streukörper \(l\).}
+        \label{tab:abstand}
 \end{table}
+\section{Anhang}
+\label{sec:anshang}
 
+\subsection{Plots zur Kalibrierung der Kanalenergien}
+\label{sec:ancalplot}
+
+
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/cs.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/ba_1.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/ba_2.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/ba_3.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/am_1.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/am_2.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/eu_1.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
 
 \section{Verzeichnisse}
 

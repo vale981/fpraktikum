@@ -1,0 +1,187 @@
+
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/energy_fit.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/energy_fit.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/cs.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/ba_1.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/ba_2.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/ba_3.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/am_1.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/am_2.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/eu_1.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/energy_fit.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/energy_fit.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/energy_fit.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/winkelmessung/30.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/winkelmessung/45.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/winkelmessung/60.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/winkelmessung/75.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/winkelmessung/90.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/winkelmessung/105.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/winkelmessung/120.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/winkelmessung/energycurve.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/cs.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/ba_1.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/ba_2.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/ba_3.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/am_1.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/am_2.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/eu_1.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/calibrate/energy_fit.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/hists/am_90.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/hists/am_90.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/hists/am_90_0.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
