@@ -430,16 +430,17 @@ warscheinlich aufgrund der wenigen Kalibriermessungen im Bereich um
 
 \subsection{Bestimmung des Wirkungsquerschnitts}
 \label{sec:wirkquer}
-Die Zählraten wurden jeweils durch Summierung der Z\"ahlzahlen in
-einem Bereich von \(\pm 3\sigma\) um die in~\ref{sec:energwinkel}
-ermittelten peaks ermittelt.  Der Prozess wird widerum durch die Plots
-in~\ref{sec:anangplotq} veranschaulicht.
+Die Zählraten (Gesamt und Nulleffekt) werden jeweils separat durch
+Summierung der Z\"ahlzahlen in einem Bereich von \(\pm 3\sigma\) um
+die in~\ref{sec:energwinkel} ermittelten peaks berechnet.  Der Prozess
+wird widerum durch die Plots in~\ref{sec:anangplot} veranschaulicht.
 
-Die Messabweichung ergeben sich gem\"a\ss{}:
+Die Messabweichung ergeben sich gem\"a\ss{}~\ref{eq:countrate} zu:
 
-\begin{equation}
-  \Delta\dot{N}
-\end{equation}
+\begin{align}
+  \Delta\dot{N} &= \sqrt{\qty(\pdv{\dot{N}}{\dot{N_g}}\cdot\Delta\dot{N_g})^2 + \qty(\pdv{\dot{N}}{\dot{N_0}}\cdot\Delta\dot{N_0})^2} \\
+                &= \frac{1}{t}\sqrt{N_g + N_0} \\
+\end{align}
 
 Die ermittelten Zählraten sind in~\ref{fig:countrates}
 aufgetragen. Normiert man diese und auch die theoretische Kurve
@@ -447,7 +448,8 @@ nach~\ref{eq:kn} so ergibt sich~\ref{fig:rel_countrates}. Man erkennt
 wiederum eine Prinzipielle \"Ubereinstimmung, wobei sich Abweichungen
 wie in~\ref{fig:sigmaknkorrigiert} ergeben. Der dritte Messpunkt ist
 von sehr schlechter Qualit\"at, da die Messung ungew\"ohnlich stark
-rauschte und liegt desswegen weitab der Theoriekurve. (Siehe auch)
+rauschte und liegt desswegen weitab der Theoriekurve. (Siehe auch~)
+
 
 \begin{figure}[h]\centering
   \input{../auswertung/figs/crossec/countrates.pgf}
