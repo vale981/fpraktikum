@@ -263,3 +263,51 @@
   \label{fig:rel_countrates}
 \end{figure}
     
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/winkelmessung/energycurve.pgf}
+  \caption{}
+  \label{fig:energycurve}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/winkelmessung/30.pgf}
+  \caption{}
+  \label{fig:30}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/winkelmessung/45.pgf}
+  \caption{}
+  \label{fig:45}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/winkelmessung/60.pgf}
+  \caption{}
+  \label{fig:60}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/winkelmessung/75.pgf}
+  \caption{}
+  \label{fig:75}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/winkelmessung/90.pgf}
+  \caption{}
+  \label{fig:90}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/winkelmessung/105.pgf}
+  \caption{}
+  \label{fig:105}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/winkelmessung/120.pgf}
+  \caption{}
+  \label{fig:120}
+\end{figure}
+    
