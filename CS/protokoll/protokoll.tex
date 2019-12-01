@@ -7,7 +7,7 @@ supervisor=Juliane\ Volkmer, coursedate=29.\ 11.\ 2019]{../../Lab_Report_LaTeX/l
 \usepackage{todonotes}
 \graphicspath{ {figs/} }
 \newcommand{\cs}{\emph{Comptonstreuung }}
-\newcommand{\am}{\ce{^241Am}}
+\newcommand{\am}{\ce{^241Am} }
 \newcommand{\kev}[1]{\SI{#1}{\kilo\electronvolt}}
 \usepackage{circuitikz}
 \usepackage{subcaption}
@@ -410,19 +410,19 @@ finden sich in~\ref{sec:anangplot}.
     105                          &  49.8 & 2.0 \\
     120                          &  48.5 & 2.0
   \end{tabular}
-  \caption{Energien \(E\) pro Winkel \(\vartheta\).}
+  \caption{Energien \(E\) in Abhängigkeit des Winkels \(\vartheta\).}
   \label{tab:energwinkel}
 \end{table}
 
 \ref{fig:energycurve} zeigt die Energien im Vergleich mit den
 theoretischen Erwartungen nach~\ref{eq:photoenergie}. Zu erkennen ist
-eine prinzipielle \"Ubereinstimmung im verlauf. Die Kalibrierung
+eine prinzipielle \"Ubereinstimmung im Verlauf. Die Kalibrierung
 scheint aber im hier betrachteten Bereich nicht optimal zu sein,
-warscheinlich aufgrund der wenigen Kalibriermessungen im Bereich um
+wahrscheinlich aufgrund der wenigen Kalibriermessungen im Bereich um
 \kev{60}.
 
 \begin{figure}[H]\centering
-  \input{./figs/python/winkelmessung/energycurve.pgf}
+  \input{../auswertung/figs/winkelmessung/energycurve.pgf}
   \caption{Energie der gestreuten Photonen in Abhängigkeit von \(\mu\)
   und Theoretische Erwartung.}
   \label{fig:energycurve}
@@ -444,12 +444,11 @@ Die Messabweichung ergeben sich gem\"a\ss{}~\ref{eq:countrate} zu:
 
 Die ermittelten Zählraten sind in~\ref{fig:countrates}
 aufgetragen. Normiert man diese und auch die theoretische Kurve
-nach~\ref{eq:kn} so ergibt sich~\ref{fig:rel_countrates}. Man erkennt
-wiederum eine Prinzipielle \"Ubereinstimmung, wobei sich Abweichungen
+nach~\ref{eq:kn}, so ergibt sich~\ref{fig:rel_countrates}. Man erkennt
+wiederum eine prinzipielle \"Ubereinstimmung, wobei sich Abweichungen
 wie in~\ref{fig:sigmaknkorrigiert} ergeben. Der dritte Messpunkt ist
 von sehr schlechter Qualit\"at, da die Messung ungew\"ohnlich stark
-rauschte und liegt desswegen weitab der Theoriekurve. (Siehe auch~)
-
+rauschte und liegt deswegen weitab der Theoriekurve. (Siehe auch)
 
 \begin{figure}[h]\centering
   \input{../auswertung/figs/crossec/countrates.pgf}
@@ -458,7 +457,7 @@ rauschte und liegt desswegen weitab der Theoriekurve. (Siehe auch~)
 \end{figure}
 \begin{figure}[h]\centering
   \input{../auswertung/figs/crossec/rel_countrates.pgf}
-  \caption{Normierte Zählraten in Abhängigkeit von \(mu\) inklusive Theoriekurve.}
+  \caption{Normierte Zählraten in Abhängigkeit von \(\mu\) inklusive Theoriekurve.}
   \label{fig:rel_countrates}
 \end{figure}
 \subsection{Einfluss des Streukörperdurchmessers}
@@ -556,43 +555,43 @@ Folgende Abstände wurden vermessen:
 
 \begin{figure}[H]\centering
   \input{../auswertung/figs/winkelmessung/30.pgf}
-  \caption{}
+  \caption{Energiepeak mit Fit bei einem Streuwinkel von \(\vartheta = 30^\circ\).}
   \label{fig:30}
 \end{figure}
 
 \begin{figure}[H]\centering
   \input{../auswertung/figs/winkelmessung/45.pgf}
-  \caption{}
+  \caption{Energiepeak mit Fit bei einem Streuwinkel von \(\vartheta = 45^\circ\).}
   \label{fig:45}
 \end{figure}
 
 \begin{figure}[H]\centering
   \input{../auswertung/figs/winkelmessung/60.pgf}
-  \caption{}
+  \caption{Energiepeak mit Fit bei einem Streuwinkel von \(\vartheta = 60^\circ\).}
   \label{fig:60}
 \end{figure}
 
 \begin{figure}[H]\centering
   \input{../auswertung/figs/winkelmessung/75.pgf}
-  \caption{}
+  \caption{Energiepeak mit Fit bei einem Streuwinkel von \(\vartheta = 75^\circ\).}
   \label{fig:75}
 \end{figure}
 
 \begin{figure}[H]\centering
   \input{../auswertung/figs/winkelmessung/90.pgf}
-  \caption{}
+  \caption{Energiepeak mit Fit bei einem Streuwinkel von \(\vartheta = 90^\circ\).}
   \label{fig:90}
 \end{figure}
 
 \begin{figure}[H]\centering
   \input{../auswertung/figs/winkelmessung/105.pgf}
-  \caption{}
+  \caption{Energiepeak mit Fit bei einem Streuwinkel von \(\vartheta = 105^\circ\).}
   \label{fig:105}
 \end{figure}
 
 \begin{figure}[H]\centering
   \input{../auswertung/figs/winkelmessung/120.pgf}
-  \caption{}
+  \caption{Energiepeak mit Fit bei einem Streuwinkel von \(\vartheta = 120^\circ\).}
   \label{fig:120}
 \end{figure}
 \section{Verzeichnisse}
