@@ -328,6 +328,55 @@ Histogramme sind in~\ref{fig:am20hist} und~\ref{fig:am20histnull} dargestellt.
 \subsection{Messzeitoptimierung}
 \label{sec:topt}
 
+Die effektive Zählrate ergibt sich wie folgt:
+\begin{align}
+  \label{eq:countrate}
+  \dot{N} &= \frac{N_g-N_0}{t} \\
+  \Delta N_i &= \sqrt{N_i}\qq{(Poissonverteilng)}
+\end{align}
+\begin{conditions}
+  N_g & Gesamtzählrate \\
+  N_0 & Dunkelzählrate \\
+  t   & Messzeit
+\end{conditions}
+
+Aus der Gau\ss{}chen Fehlerfortpflanzung folgt f\"ur die minimale
+Messzeit bei forderung einer Maximalen Unsicherheit
+\(\Delta\dot{N}/\dot{N}\):
+
+\begin{align}
+  \label{eq:mtime}
+  t_{opt} & \geq\frac{\dot{N_g} +
+            \dot{N_0}}{(\Delta\dot{N}/\dot{N})^2\cdot (\dot{N_g} -
+            \dot{N_0})^2} \\
+  \Delta t_{opt} &=\frac{\sqrt{(\dot{N_g} +
+                   3\cdot\dot{N_0})^2\cdot\frac{\dot{N_g}}{t}
+                   + (3\cdot\dot{N_g} + \dot{N_0})^2\cdot\frac{\dot{N_0}}{t}}}{(\Delta\dot{N}/\dot{N})^2\cdot (\dot{N_g} -
+            \dot{N_0})^3}
+\end{align}
+
+In unserem fall gilt nun
+\begin{align}
+  t &=\SI{1183}{\second} \\
+  \dot{N_g} &=\SI{7.96\pm.08}{\per\second} \\
+  \dot{N_0} &=\SI{4.68\pm.06}{\per\second} \\
+  \Delta\dot{N}/\dot{N} &\overset{!}{=}\SI{5}{\percent} \\
+  t_{opt} &=\SI{7.8}{\min} \\
+  \Delta t_{opt} &=\SI{1.6}{\min}
+\end{align}
+
+Die Gesamtereginszahl wurde jeweils durch aufsummierung der
+Ereignisszahlen der Kan\"ale \(530\) bis \(780\) ermittelt.
+
+Im Idealfall werden nun \(t_{opt}\) und \(\Delta t_{opt}\) addiert,
+aus Zeitgr\"unden wurde die Messzeit in den folgenden Versuchsteilen
+aber auf
+
+\begin{equation}
+  \label{eq:fmtime}
+  t_{mess} = \SI{7}{\min}
+\end{equation}
+
 \subsection{Photonenenergiebestimmung in Abhängigkeit des Streuwinkels}
 \label{sec:energwinkel}
 
