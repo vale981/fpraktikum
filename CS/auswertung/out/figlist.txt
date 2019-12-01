@@ -401,3 +401,369 @@
   \label{fig:dicke-countrate}
 \end{figure}
     
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/5.pgf}
+  \caption{}
+  \label{fig:dists-5}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/7.pgf}
+  \caption{}
+  \label{fig:dists-7}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/9.pgf}
+  \caption{}
+  \label{fig:dists-9}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/12.pgf}
+  \caption{}
+  \label{fig:dists-12}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/3.pgf}
+  \caption{}
+  \label{fig:dists-3}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/5.pgf}
+  \caption{}
+  \label{fig:dists-5}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/7.pgf}
+  \caption{}
+  \label{fig:dists-7}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/9.pgf}
+  \caption{}
+  \label{fig:dists-9}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/12.pgf}
+  \caption{}
+  \label{fig:dists-12}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/3.pgf}
+  \caption{}
+  \label{fig:dists-3}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/5.pgf}
+  \caption{}
+  \label{fig:dists-5}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/7.pgf}
+  \caption{}
+  \label{fig:dists-7}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/9.pgf}
+  \caption{}
+  \label{fig:dists-9}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/12.pgf}
+  \caption{}
+  \label{fig:dists-12}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/3.pgf}
+  \caption{}
+  \label{fig:dists-3}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/7.pgf}
+  \caption{}
+  \label{fig:dists-7}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/9.pgf}
+  \caption{}
+  \label{fig:dists-9}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/12.pgf}
+  \caption{}
+  \label{fig:dists-12}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/countrates.pgf}
+  \caption{}
+  \label{fig:dists-countrates}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/countrates.pgf}
+  \caption{}
+  \label{fig:dists-countrates}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/7.pgf}
+  \caption{}
+  \label{fig:dists-7}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/9.pgf}
+  \caption{}
+  \label{fig:dists-9}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/12.pgf}
+  \caption{}
+  \label{fig:dists-12}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/countrates.pgf}
+  \caption{}
+  \label{fig:dists-countrates}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/widths.pgf}
+  \caption{}
+  \label{fig:dists-widths}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/7.pgf}
+  \caption{}
+  \label{fig:dists-7}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/9.pgf}
+  \caption{}
+  \label{fig:dists-9}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/12.pgf}
+  \caption{}
+  \label{fig:dists-12}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/countrates.pgf}
+  \caption{}
+  \label{fig:dists-countrates}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/widths.pgf}
+  \caption{}
+  \label{fig:dists-widths}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibrate/cs.pgf}
+  \caption{}
+  \label{fig:calibrate-cs}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibrate/ba_1.pgf}
+  \caption{}
+  \label{fig:calibrate-ba_1}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibrate/ba_2.pgf}
+  \caption{}
+  \label{fig:calibrate-ba_2}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibrate/ba_3.pgf}
+  \caption{}
+  \label{fig:calibrate-ba_3}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibrate/am_1.pgf}
+  \caption{}
+  \label{fig:calibrate-am_1}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibrate/am_2.pgf}
+  \caption{}
+  \label{fig:calibrate-am_2}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibrate/eu_1.pgf}
+  \caption{}
+  \label{fig:calibrate-eu_1}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibrate/energy_fit.pgf}
+  \caption{}
+  \label{fig:calibrate-energy_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/hists/am_90.pgf}
+  \caption{}
+  \label{fig:hists-am_90}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/hists/am_90_0.pgf}
+  \caption{}
+  \label{fig:hists-am_90_0}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/winkelmessung/30.pgf}
+  \caption{}
+  \label{fig:winkelmessung-30}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/winkelmessung/45.pgf}
+  \caption{}
+  \label{fig:winkelmessung-45}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/winkelmessung/60.pgf}
+  \caption{}
+  \label{fig:winkelmessung-60}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/winkelmessung/75.pgf}
+  \caption{}
+  \label{fig:winkelmessung-75}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/winkelmessung/90.pgf}
+  \caption{}
+  \label{fig:winkelmessung-90}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/winkelmessung/105.pgf}
+  \caption{}
+  \label{fig:winkelmessung-105}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/winkelmessung/120.pgf}
+  \caption{}
+  \label{fig:winkelmessung-120}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/winkelmessung/energycurve.pgf}
+  \caption{}
+  \label{fig:winkelmessung-energycurve}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/crossec/countrates.pgf}
+  \caption{}
+  \label{fig:crossec-countrates}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/crossec/rel_countrates.pgf}
+  \caption{}
+  \label{fig:crossec-rel_countrates}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dicke/2.pgf}
+  \caption{}
+  \label{fig:dicke-2}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dicke/4.pgf}
+  \caption{}
+  \label{fig:dicke-4}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dicke/6.pgf}
+  \caption{}
+  \label{fig:dicke-6}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dicke/10.pgf}
+  \caption{}
+  \label{fig:dicke-10}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dicke/20.pgf}
+  \caption{}
+  \label{fig:dicke-20}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dicke/countrate.pgf}
+  \caption{}
+  \label{fig:dicke-countrate}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/7.pgf}
+  \caption{}
+  \label{fig:dists-7}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/9.pgf}
+  \caption{}
+  \label{fig:dists-9}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/12.pgf}
+  \caption{}
+  \label{fig:dists-12}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/countrates.pgf}
+  \caption{}
+  \label{fig:dists-countrates}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dists/widths.pgf}
+  \caption{}
+  \label{fig:dists-widths}
+\end{figure}
+    

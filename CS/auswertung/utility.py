@@ -176,7 +176,7 @@ def find_rates(spec, null, t, mu, sigma):
     N = np.sum(spec[mu - 3*sigma:mu + 3*sigma])
     N0 = np.sum(null[mu - 3*sigma:mu + 3*sigma])
     N_f = (N - N0)/t
-    d_N_f = 2*np.sqrt(np.sum((np.sqrt([N, N0])/t)**2))
+    d_N_f = np.sqrt(np.sum((np.sqrt([N, N0])/t)**2))
     return N_f, d_N_f
 
 
