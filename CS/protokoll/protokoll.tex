@@ -280,7 +280,7 @@ ergibt die Kalibrierungsparameter (in dieser Form, da \(K\) mit
 Unsicherheit behaftet). Daraus erhält man durch Umstellen
 einen Zusammenhang
 \begin{equation}
-  \label{eq:linclafit}
+  \label{eq:eofk}
   E(K) = a + K\cdot b
 \end{equation}
 
@@ -380,33 +380,77 @@ aber auf
 \subsection{Photonenenergiebestimmung in Abhängigkeit des Streuwinkels}
 \label{sec:energwinkel}
 
-Zur graphischen Darstellung von \(E(\mu)\) wurden mit der in~\ref{sec:topt} ermittelten
-optimalen Messzeit Histogramme für sieben verschiedene Streuwinkel zwischen \(30^\circ\) und
-\(130^\circ\) aufgenommen. Die verwendeten Winkel sowie die ermittelten Energien sind in
-~\ref{tab:energwinkel} aufgelistet. Pro Winkel musste natürlich auch der Hintergrund gemessen
-werden, um diesen später in der Auswertung abziehen zu können.
+Zur graphischen Darstellung von \(E(\mu)\) wurden mit der
+in~\ref{sec:topt} ermittelten optimalen Messzeit Histogramme für
+sieben verschiedene Streuwinkel zwischen \(30^\circ\) und
+\(130^\circ\) aufgenommen. Die verwendeten Winkel sowie die
+ermittelten Energien sind in ~\ref{tab:energwinkel} aufgelistet. Pro
+Winkel musste natürlich auch der Hintergrund gemessen werden, um
+diesen später in der Auswertung abziehen zu können. Durch ein
+\"ahnliches Verfahren wie in~\ref{sec:kalib} wurden die Kanallagen des
+Peaks um \kev{60} nach Abzug der Nullmessungen bestimmt und
+mit~\ref{eq:eofk} in Energien umgerechnet. Die dazugeh\"origen Plots
+finden sich in~\ref{sec:anangplot}.
 
 \begin{table}[H]
-        \centering
-        \begin{tabular}{S|S}
-                \toprule
-                {\(\vartheta\) [\(^\circ\)]} & {E [\(\si{\kilo\electronvolt}\)]} \\
-                \midrule
-                30                           &                                   \\
-                45                           &                                   \\
-                60                           &                                   \\
-                75                           &                                   \\
-                90                           &                                   \\
-                105                          &                                   \\
-                120                          &
-        \end{tabular}
-        \caption{Energien \(E\) pro Winkel \(\vartheta\).}
-        \label{tab:energwinkel}
+  \centering
+  \begin{tabular}{S|SS}
+    \toprule
+    {\(\vartheta\) [\(^\circ\)]} & {\(E\)
+                                   [\(\si{\kilo\electronvolt}\)]}
+    & {\(\Delta E\) [\(\si{\kilo\electronvolt}\)]}\\
+    \midrule
+    30                           &  57.3 & 2.2 \\
+    45                           &  56.0 & 2.1 \\
+    60                           &  54.1 & 2.1 \\
+    75                           &  52.4 & 2.1 \\
+    90                           &  50.3 & 2.1 \\
+    105                          &  49.8 & 2.0 \\
+    120                          &  48.5 & 2.0
+  \end{tabular}
+  \caption{Energien \(E\) pro Winkel \(\vartheta\).}
+  \label{tab:energwinkel}
 \end{table}
+
+\ref{fig:energycurve} zeigt die Energien im Vergleich mit den
+theoretischen Erwartungen nach~\ref{eq:photoenergie}. Zu erkennen ist
+eine prinzipielle \"Ubereinstimmung im verlauf. Die Kalibrierung
+scheint aber im hier betrachteten Bereich nicht optimal zu sein,
+warscheinlich aufgrund der wenigen Kalibriermessungen im Bereich um
+\kev{60}.
+
+\begin{figure}[H]\centering
+  \input{./figs/python/winkelmessung/energycurve.pgf}
+  \caption{Energie der gestreuten Photonen in Abhängigkeit von \(\mu\)
+  und Theoretische Erwartung.}
+  \label{fig:energycurve}
+\end{figure}
 
 \subsection{Bestimmung des Wirkungsquerschnitts}
 \label{sec:wirkquer}
+Die Zählraten wurden jeweils durch Summierung der Z\"ahlzahlen in
+einem Bereich von \(\pm 3\sigma\) um die in~\ref{sec:energwinkel}
+ermittelten peaks ermittelt.  Der Prozess wird widerum durch die Plots
+in~\ref{sec:anangplotq} veranschaulicht.
 
+Die ermittelten Zählraten sind in~\ref{fig:countrates}
+aufgetragen. Normiert man diese und auch die theoretische Kurve
+nach~\ref{eq:kn} so ergibt sich~\ref{fig:rel_countrates}. Man erkennt
+wiederum eine Prinzipielle \"Ubereinstimmung, wobei sich Abweichungen
+wie in~\ref{fig:sigmaknkorrigiert} ergeben. Der dritte Messpunkt ist
+von sehr schlechter Qualit\"at, da die Messung ungew\"ohnlich stark
+rauschte und liegt desswegen weitab der Theoriekurve. (Siehe auch)
+
+\begin{figure}[h]\centering
+  \input{../auswertung/figs/crossec/countrates.pgf}
+  \caption{Zählraten in Abhängigkeit von \(mu\).}
+  \label{fig:countrates}
+\end{figure}
+\begin{figure}[h]\centering
+  \input{../auswertung/figs/crossec/rel_countrates.pgf}
+  \caption{Normierte Zählraten in Abhängigkeit von \(mu\) inklusive Theoriekurve.}
+  \label{fig:rel_countrates}
+\end{figure}
 \subsection{Einfluss des Streukörperdurchmessers}
 \label{sec:durchmesser}
 
@@ -495,6 +539,51 @@ Folgende Abstände wurden vermessen:
 \begin{figure}[H]\centering
   \input{../auswertung/figs/calibrate/eu_1.pgf}
   \caption{Fit f\"ur \ce{^{154}Eu} bei \(E \approx \kev{5,6}\).}
+\end{figure}
+
+\subsection{Plots zur Winkelabh\"angigkeit}
+\label{sec:anangplot}
+
+\begin{figure}[H]\centering
+  \input{./figs/python/winkelmessung/30.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \input{./figs/python/winkelmessung/45.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \input{./figs/python/winkelmessung/60.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \input{./figs/python/winkelmessung/75.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \input{./figs/python/winkelmessung/90.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \input{./figs/python/winkelmessung/105.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \input{./figs/python/winkelmessung/120.pgf}
+  \caption{}
+  \label{fig:}
 \end{figure}
 
 \section{Verzeichnisse}

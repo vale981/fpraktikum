@@ -185,3 +185,81 @@
   \label{fig:}
 \end{figure}
     
+\begin{figure}[H]\centering
+  \input{./figs/python/winkelmessung/30.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/winkelmessung/45.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/winkelmessung/60.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/winkelmessung/75.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/winkelmessung/90.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/winkelmessung/105.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/winkelmessung/120.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{./figs/python/winkelmessung/energycurve.pgf}
+  \caption{}
+  \label{fig:}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/winkelmessung/energycurve.pgf}
+  \caption{}
+  \label{fig:energycurve}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/crossec/countrates.pgf}
+  \caption{}
+  \label{fig:countrates}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/crossec/rel_countrates.pgf}
+  \caption{}
+  \label{fig:rel_countrates}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/crossec/rel_countrates.pgf}
+  \caption{}
+  \label{fig:rel_countrates}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/crossec/rel_countrates.pgf}
+  \caption{}
+  \label{fig:rel_countrates}
+\end{figure}
+    
