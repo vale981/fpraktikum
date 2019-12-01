@@ -188,8 +188,8 @@ die Energien der Peaks den Kanalnummern zugeordnet, um herauszufinden, welcher K
 Energie entspricht.
 
 Die folgenden Tabellen listen die \(\gamma\) \"Uberg\"ange der
-einzelnen Kalibierproben auf. Die jeweils in gleichen Farben
-hinterlegten Energien wurden gewichtet gemmitelt zur Kalibrierung genutzt.
+einzelnen Kalibrierproben auf. Die jeweils in gleichen Farben
+hinterlegten Energien wurden gewichtet gemittelt zur Kalibrierung genutzt.
 
 \begin{table}[H]
   \centering
@@ -214,7 +214,7 @@ hinterlegten Energien wurden gewichtet gemmitelt zur Kalibrierung genutzt.
     \midrule
     \rowcolor{green!20} 30,625                          & 33,9                          \\
     \rowcolor{green!20} 30,973                          & 62,2                          \\
-    53,1622                         & 2,14                          \\
+    \rowcolor{orange!20} 53,1622                         & 2,14                          \\
     \rowcolor{blue!20} 79,6142                         & 2,65                          \\
     \rowcolor{blue!20} 80,9979                         & 32,9
   \end{tabular}
@@ -248,17 +248,17 @@ hinterlegten Energien wurden gewichtet gemmitelt zur Kalibrierung genutzt.
   \label{tab:eupeaks}
 \end{table}
 
-Um die Kanallage der Peaks zu bestimmen wird eine Gausskurve der Form
+Um die Kanallage der Peaks zu bestimmen wird eine Gaußkurve der Form
 \begin{equation}
   \label{eq:gaussfit}
   A\cdot\exp(-\frac{(x-\mu)^2}{2\sigma}) + O
 \end{equation}
 
 \"uber die aufgenommenen Histogramme gefittet. Dabei gibt nun \(\mu\)
-die Kanallage. Die unsicherheit der Kanallage ergibt sich aus der
-unsicherheit im fit. Für die Unsicherheit der einzelenen
-Histogrammwerte wurde gem\"a\ss{} der Poissonverteilng die Wurzel der
-Ereignisszahl angesetzt.
+die Kanallage. Die Unsicherheit der Kanallage ergibt sich aus der
+Unsicherheit im Fit. Für die Unsicherheit der einzelnen
+Histogrammwerte wurde gem\"a\ss{} der Poissonverteilung die Wurzel der
+Ereigniszahl angesetzt.
 
 Für \ce{^{137}Cs} ist das Resultat in~\ref{fig:calfitcs} dargestellt.
 \begin{figure}[h]\centering
@@ -276,7 +276,7 @@ Ein Linearer Fit der Form
   K(E) = \frac{E-a}{b}
 \end{equation}
 
-ergibt die Kalibierungsparameter (in dieser Form, da \(K\) mit
+ergibt die Kalibrierungsparameter (in dieser Form, da \(K\) mit
 Unsicherheit behaftet). Daraus erhält man durch Umstellen
 einen Zusammenhang
 \begin{equation}
@@ -285,7 +285,7 @@ einen Zusammenhang
 \end{equation}
 
 In~\ref{fig:energyfit} werden die Kanallagen \"uber der Energie
-aufgetragen und der fit durchgef\"uhrt.
+aufgetragen und der Fit durchgef\"uhrt.
 
 Es ergibt sich f\"ur die Parameter:
 
@@ -405,53 +405,47 @@ Folgende Abstände wurden vermessen:
         \caption{Zählrate \(\dot{N}\) pro Anstand Quelle-Streukörper \(l\).}
         \label{tab:abstand}
 \end{table}
+
+
 \section{Anhang}
 \label{sec:anshang}
 
 \subsection{Plots zur Kalibrierung der Kanalenergien}
 \label{sec:ancalplot}
 
-
 \begin{figure}[H]\centering
   \input{../auswertung/figs/calibrate/cs.pgf}
-  \caption{}
-  \label{fig:}
+  \caption{Fit f\"ur \ce{^{137}Cs} bei \(E \approx \kev{32}\)}
 \end{figure}
 
 \begin{figure}[H]\centering
   \input{../auswertung/figs/calibrate/ba_1.pgf}
-  \caption{}
-  \label{fig:}
+  \caption{Fit f\"ur \ce{^{133}Ba} bei \(E \approx \kev{31}\).}
 \end{figure}
 
 \begin{figure}[H]\centering
   \input{../auswertung/figs/calibrate/ba_2.pgf}
-  \caption{}
-  \label{fig:}
+  \caption{Fit f\"ur \ce{^{133}Ba} bei \(E \approx \kev{53}\).}
 \end{figure}
 
 \begin{figure}[H]\centering
   \input{../auswertung/figs/calibrate/ba_3.pgf}
-  \caption{}
-  \label{fig:}
+  \caption{Fit f\"ur \ce{^{133}Ba} bei \(E \approx \kev{80}\).}
 \end{figure}
 
 \begin{figure}[H]\centering
   \input{../auswertung/figs/calibrate/am_1.pgf}
-  \caption{}
-  \label{fig:}
+  \caption{Fit f\"ur \am bei \(E \approx \kev{26}\).}
 \end{figure}
 
 \begin{figure}[H]\centering
   \input{../auswertung/figs/calibrate/am_2.pgf}
-  \caption{}
-  \label{fig:}
+  \caption{Fit f\"ur \am bei \(E = \kev{59,54}\).}
 \end{figure}
 
 \begin{figure}[H]\centering
   \input{../auswertung/figs/calibrate/eu_1.pgf}
-  \caption{}
-  \label{fig:}
+  \caption{Fit f\"ur \ce{^{154}Eu} bei \(E \approx \kev{5,6}\).}
 \end{figure}
 
 \section{Verzeichnisse}
