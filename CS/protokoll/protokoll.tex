@@ -448,11 +448,11 @@ nach~\ref{eq:kn}, so ergibt sich~\ref{fig:rel_countrates}. Man erkennt
 wiederum eine prinzipielle \"Ubereinstimmung, wobei sich Abweichungen
 wie in~\ref{fig:sigmaknkorrigiert} ergeben. Der dritte Messpunkt ist
 von sehr schlechter Qualit\"at, da die Messung ungew\"ohnlich stark
-rauschte und liegt deswegen weitab der Theoriekurve. (Siehe auch)
+rauschte und liegt deswegen weitab der Theoriekurve. (Siehe auch~\ref{fig:90})
 
 \begin{figure}[h]\centering
   \input{../auswertung/figs/crossec/countrates.pgf}
-  \caption{Zählraten in Abhängigkeit von \(mu\).}
+  \caption{Zählraten in Abhängigkeit von \(\mu\).}
   \label{fig:countrates}
 \end{figure}
 \begin{figure}[h]\centering
@@ -464,23 +464,47 @@ rauschte und liegt deswegen weitab der Theoriekurve. (Siehe auch)
 \label{sec:durchmesser}
 
 Zur Bestimmung des Einflusses des Streukörperdurchmessers auf die Zählrate \(\dot{N}\) wurden
-bei \(\vartheta = 60^\circ\) Aluminiumstäbe mit fünf verschiedenen Durchmessern genommen.
+bei \(\vartheta = 60^\circ\) Aluminiumstäbe mit fünf verschiedenen
+Durchmessern genommen. Es ergeben sich analog zu~\ref{sec:wirkquer}
+die Zählraten in~\ref{tab:ratedurch}. Diese sind zur \"ubersicht auch
+in~\ref{fig:dicke-countrate} aufgetragen.
 
 \begin{table}[H]
         \centering
-        \begin{tabular}{S|S}
+        \begin{tabular}{S|SS}
                 \toprule
-                {\(d\) [\(\si{\milli\metre}\)]} & {\(\dot{N}\) [\(\si{\per\second}\)]} \\
+                {\(d\) [\(\si{\milli\metre}\)]} & {\(\dot{N}\)
+                                                  [\(\si{\per\second}\)]}
+          & {\(\Delta\dot{N}\) [\(\si{\per\second}\)]}\\
                 \midrule
-                2,3                         &                                      \\
-                4,4                         &                                      \\
-                6,6                         &                                      \\
-                10,2                        &                                      \\
-                20,4                        &
+                2,3                         &     .63  & .17                                \\
+                4,4                         &     3.43 & .29                                 \\
+                6,6                         &     5.11 & .33                                 \\
+                10,2                        &     9.88 & .40                                 \\
+                20,4                        &     8.13 & .38
         \end{tabular}
         \caption{Zählrate \(\dot{N}\) pro Durchmesser \(d\).}
         \label{tab:ratedurch}
 \end{table}
+
+Aufgrund starken rauschens ergibt sich
+aus~\ref{fig:dicke-2} bei \SI{2}{\milli\meter} eine sehr kleine
+Zählrate.
+
+Generell ist zu erkennen, dass die Zählrate ann\"ahernd linear vom
+Streukörperdurchmesser abhängt, da auch die bestrahlte
+Querschnittsfl\"ache (Rechteck) und damit die Anzahl der Streuatome
+linear mit dem Durchmesser skaliert. Das sinken der Zählrate bei
+\SI{20}{\milli\meter} k\"onnte durch die Blockade mancher gestreuter
+Photonen durch das Target selbs erklärt werden. Die Qualit\"at der
+Messung scheint in diesem Falle ad\"aquat zu sein
+(siehe~\ref{fig:dicke-20}).
+
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dicke/countrate.pgf}
+  \caption{Zählrate in Abhängigkeit des Targetdurchmessers.}
+  \label{fig:dicke-countrate}
+\end{figure}
 
 \subsection{Abstandseinfluss zwischen Quelle und Streukörper}
 \label{sec:abstand}
@@ -594,6 +618,40 @@ Folgende Abstände wurden vermessen:
   \caption{Energiepeak mit Fit bei einem Streuwinkel von \(\vartheta = 120^\circ\).}
   \label{fig:120}
 \end{figure}
+
+\subsection{Plots zum Targetdurchmesser}
+\label{sec:andiplot}
+
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dicke/2.pgf}
+  \caption{}
+  \label{fig:dicke-2}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dicke/4.pgf}
+  \caption{}
+  \label{fig:dicke-4}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dicke/6.pgf}
+  \caption{}
+  \label{fig:dicke-6}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dicke/10.pgf}
+  \caption{}
+  \label{fig:dicke-10}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dicke/20.pgf}
+  \caption{}
+  \label{fig:dicke-20}
+\end{figure}
+
 \section{Verzeichnisse}
 
 \label{sec:literatur}

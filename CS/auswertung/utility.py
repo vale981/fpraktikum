@@ -154,7 +154,7 @@ def save_fig(fig, title, folder='unsorted', size=(5, 4)):
   + f'{folder}/{title}.pgf' +
   r'''}
   \caption{}
-  \label{fig:''' + title + '''}
+  \label{fig:''' + folder + '-' + title + '''}
 \end{figure}
     ''')
 

@@ -311,3 +311,93 @@
   \label{fig:120}
 \end{figure}
     
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/winkelmessung/energycurve.pgf}
+  \caption{}
+  \label{fig:energycurve}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/crossec/countrates.pgf}
+  \caption{}
+  \label{fig:countrates}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/crossec/rel_countrates.pgf}
+  \caption{}
+  \label{fig:rel_countrates}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dicke/2.pgf}
+  \caption{}
+  \label{fig:2}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dicke/4.pgf}
+  \caption{}
+  \label{fig:4}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dicke/6.pgf}
+  \caption{}
+  \label{fig:6}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dicke/10.pgf}
+  \caption{}
+  \label{fig:10}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dicke/20.pgf}
+  \caption{}
+  \label{fig:20}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dicke/2.pgf}
+  \caption{}
+  \label{fig:dicke-2}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dicke/4.pgf}
+  \caption{}
+  \label{fig:dicke-4}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dicke/6.pgf}
+  \caption{}
+  \label{fig:dicke-6}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dicke/10.pgf}
+  \caption{}
+  \label{fig:dicke-10}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dicke/20.pgf}
+  \caption{}
+  \label{fig:dicke-20}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dicke/countrate.pgf}
+  \caption{}
+  \label{fig:dicke-countrate}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/dicke/countrate.pgf}
+  \caption{}
+  \label{fig:dicke-countrate}
+\end{figure}
+    
