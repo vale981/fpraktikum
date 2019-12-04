@@ -42,7 +42,7 @@ treffen zu können, definiert man den Wirkungsquerschnitt:
 \end{conditions}
 
 Der Wechselwirkungsquerschnitt der inkohärenten Streuung und damit des Comptoneffekts ist
-proportional zur Ordnungszahl des Atoms (\(\sigma_i \propto\) Z).\\
+proportional zur Ordnungszahl des Atoms (\(\sigma_i \propto\) Z).\cite[2]{iktp19}\\
 
 \subsection{Inkohärente Streuung}
 \label{sec:inkostreu}
@@ -51,7 +51,7 @@ Wichtig, um \cs beschreiben zu können, ist der Prozess der \emph{inkohärenten 
 Dabei überträgt das Photon bei der Wechselwirkung mit einem an einem Atomkern gebundenen
 Elektron einen Teil seiner Energie auf dieses, so dass es den gebundenen Zustand verlassen kann.
 Vernachlässigt man bei diesem Prozess die Bindungsenergie des Elektrons, nennt man diesen \cs,
-da Arthur Holly Compton 1922 diese Annahme traf, um diesen Effekt zu beschreiben.\\
+da Arthur Holly Compton 1922 diese Annahme traf, um diesen Effekt zu beschreiben.~\cite[3]{iktp19}\\
 
 \subsubsection{Comptonstreuung}
 \label{sec:cs}
@@ -104,7 +104,7 @@ Energieverlustes (vgl.~\ref{fig:evontheta}).\\
 Um eine Aussage zur Wahrscheinlichkeit zu treffen, mit der ein Photon in einem Raumwinkelelement
 \(d\Omega = \sin\vartheta d\vartheta d\phi\) gestreut wird, haben \textsc{O. Klein} und
 \textsc{Y. Nishina} 1929 einen analytischen Ausdruck für den differentiellen Wirkungsquerschnitt
-hergeleitet:
+hergeleitet \cite{kn29}:
 
 \begin{equation}\label{eq:kn}
         \sigma^{\text{KN}}_\Omega(\mu) = \frac{d\sigma}{d\Omega} = \frac{r_e^2}{2} \cdot \qty(\frac{1}{1 + \kappa(1 - \mu)})^2 \cdot \qty(\kappa(1 - \mu) + \frac{1}{1 + \kappa(1 - \mu)} + \mu^2)
@@ -123,12 +123,14 @@ Für \(\mu = 1\), also Vorwärtsstreuung folgt:
         \label{fig:sigmakn}
 \end{figure}
 
+Die Grafiken und Formeln entstammen eigener Rechnung und~\cite[3-5]{iktp19}.
+
 \subsubsection{Korrektur für inkohärente Streuung}
 \label{sec:cskorrektur}
 
-Wenn man die Bindungsenergie der Elektronen nicht vernachlässigt, multipliziert man zur
+Wenn man die Bindungsenergie der Elektronen nicht vernachlässigt, multipliziert man eine
 Korrektur des differentiellen Wirkungsquerschnitts an die \textsc{Klein}-\textsc{Nishina}-Formel
-eine inkohärente Streufunktion \(S(E', \mu, Z)\) dran:
+eine inkohärente Streufunktion \(S(E', \mu, Z)\)~\cite[5-6]{iktp19}:
 
 \begin{equation}\label{eq:knkorrektur}
         \sigma^{i}_\Omega(E', \mu, Z) = \sigma^{\text{KN}}_\Omega(E', Z) \cdot S(E', \mu, Z)
@@ -449,7 +451,7 @@ rauschte und liegt deswegen weitab der Theoriekurve. (Siehe auch~\ref{fig:90})
   \centering
   \begin{tabular}{S|SS}
     \toprule
-    {\(d\) [\(\si{\milli\metre}\)]} & {\(\dot{N}\)
+    {\(\vartheta\) [\(^\circ\)]} & {\(\dot{N}\)
                                       [\(\si{\per\second}\)]}
     & {\(\Delta\dot{N}\) [\(\si{\per\second}\)]}\\
     \midrule
@@ -461,7 +463,7 @@ rauschte und liegt deswegen weitab der Theoriekurve. (Siehe auch~\ref{fig:90})
     105                          & 3.77  & .13 \\
     120                          & 4.04  & .13
   \end{tabular}
-  \caption{Zählrate \(\dot{N}\) Abhängigkeit vom Winkel.}
+  \caption{Zählrate \(\dot{N}\) in Abhängigkeit vom Winkel.}
   \label{tab:ratedurch}
 \end{table}
 
