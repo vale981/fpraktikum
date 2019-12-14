@@ -11,6 +11,9 @@ import matplotlib.pyplot as plt
 from scipy.optimize import minimize_scalar, root_scalar
 import matplotlib.ticker as ticker
 from typing import Dict, Tuple, Sequence
+from scipy.stats import binned_statistic
+import os
+from scipy.optimize import curve_fit
 
 ###############################################################################
 #                                  Auxiliary                                  #
@@ -51,6 +54,45 @@ def chan_to_time(channel, tick=41.67, center=False, offset=0):
     """
 
     return (channel + offset) * tick + (tick/2 if center else 0)
+
+def calculate_peak_uncertainty(peak):
+    """Gives the uncertainty of the peak measurements with the osciloscope.
+
+    :param peak: peak value
+    :returns: uncertainty
+    """
+
+    uncertainties = np.ones_like(peak) * 0.01
+    uncertainties[peak > 1] = 0.1
+    return uncertainties
+
+###############################################################################
+#                                   Binning                                   #
+###############################################################################
+
+def calculate_bins(peaks):
+    return int(np.log2(peaks.size) + 1) + 1
+
+def plot_hist(peaks, bins, save=None):
+    fig, ax = set_up_plot()
+    ax.hist(peaks, bins, density=True, label='Peakhoehenhistogram')
+
+    hist, edges = np.histogram(peaks, bins, density=True)
+    mids = (edges[:-1] + edges[1:])/2
+    popt, _ = curve_fit(boltzmann, mids, hist)
+
+    points = np.linspace(0, edges[-1], 100)
+    ax.plot(points, boltzmann(points, *popt), label=fr'Schwarzkorperstralung $a={popt[0]:.1f}$')
+    ax.legend()
+    ax.set_ylabel('Relative Haefigkeit')
+    ax.set_xlabel('Peakhoehe [Volt]')
+    if save:
+        save_fig(fig, *save)
+    return fig, ax
+
+
+def boltzmann(x, a):
+    return np.sqrt(2/np.pi)*x**2*np.exp(-x**2/(2*a**2))/a**3
 
 ###############################################################################
 #                                  Plot Porn                                  #
