@@ -1,11 +1,14 @@
 """
 Units:
   * Time: nanosec
+
+Conventions:
+  * Channels have a zero based index: i.e. Channel 1 = Channel 0 here
 """
 
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.optimize import root_scalar
+from scipy.optimize import minimize_scalar, root_scalar
 import matplotlib.ticker as ticker
 from typing import Dict, Tuple, Sequence
 
@@ -98,7 +101,7 @@ def binned_likelihood(counts, interval):
     :param tuple interval: the interval of the time spectrum used
         (inclusive, exclusive)
 
-    :returns: poisson, gauss likelihood funcions
+    :returns: poisson, gauss likelihood funcions, total N
     """
 
     cts = counts[interval[0]:interval[1]][:, None]  # constrained counts
@@ -125,7 +128,37 @@ def binned_likelihood(counts, interval):
         fi = f(tau)
         return np.sum((cts-fi)**2/fi, axis=0)
 
-    return ln_poisson_likelihood, ln_gauss_likelihood
+    return ln_poisson_likelihood, ln_gauss_likelihood, N
+
+def maximize_likelihood(likelihood, tau_range, epsilon=1e-5):
+    """Minizizes the -2ln(likelihood) function thus maximizing the
+    likelihood.
+
+    :param likelihood: the -2*ln(likelihood) function
+    :param tau_range: the range in which to look for the lifetime
+    :param epsilon: the desired precision
+
+    :returns: tau, (sigma minus, sigma plus), -2*ln(likelihood) at minimum
+
+    :rtype:
+    """
+    result = minimize_scalar(likelihood, bounds=tau_range, bracket=tau_range,
+                             tol=epsilon)
+    tau = result.x[0]
+    l = likelihood(tau)[0]
+
+    # one should check for errors here, but this is a one-off, so i
+    # dont bother
+
+    def find_sigma(right=False):
+        return np.abs(tau - root_scalar(lambda t: likelihood(t) - (l + 1),
+                                 bracket=[tau, tau_range[1]] \
+                                 if right else [tau_range[0], tau],
+                                 x0=tau,
+                                 x1=tau + 100 if right else tau - 100).root)
+    sigma_minus = find_sigma()
+    sigma_plus = find_sigma(right=True)
+    return tau, (sigma_minus, sigma_plus), l
 
 
 ###############################################################################
