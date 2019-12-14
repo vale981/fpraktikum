@@ -1,0 +1,18 @@
+* Kennlinien PM3
+ - verkabeln, spannung einstellen
+ - Zeit bei T=140s
+ - delta voltage 1V
+ - skalen (1v, 5v, 10v)
+ - 10mv, 1.0v
+ - p12=2400, P3=2300V
+
+
+
+* Auswertung
+ - einleitung: maschine und mathematik
+ - Messabweichungen!@!@111
+ - diskussion Einfluss (Zeit, etc. Umwelt, erdrotation)
+ - Methoden: 1,2,3 methoden
+   - 1. T0 vom ersten Kanal, T/N angeben
+   - 2. 3. Plot und rechenen, Kanalecken (links), N0 angeben, abweichung
+   - spektrum beeinflusst? 3.1 Abgabe
