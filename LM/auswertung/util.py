@@ -202,9 +202,8 @@ def maximize_likelihood(likelihood, tau_range, epsilon=1e-5):
     :param epsilon: the desired precision
 
     :returns: tau, (sigma minus, sigma plus), -2*ln(likelihood) at minimum
-
-    :rtype:
     """
+
     result = minimize_scalar(likelihood, bounds=tau_range, bracket=tau_range,
                              tol=epsilon)
     tau = result.x[0]
@@ -222,3 +221,47 @@ def maximize_likelihood(likelihood, tau_range, epsilon=1e-5):
     sigma_minus = find_sigma()
     sigma_plus = find_sigma(right=True)
     return tau, (sigma_minus, sigma_plus), l
+
+
+# i could just use *args **kwargs for this wrapper, but i won't for
+# the sake of clarity
+def maximize_and_plot_likelihood(likelihood, tau_range, epsilon=1e-5, save=None):
+    """Minizizes the -2ln(likelihood) function thus maximizing the
+    likelihood.
+
+    :param likelihood: the -2*ln(likelihood) function
+    :param tau_range: the range in which to look for the lifetime
+    :param epsilon: the desired precision
+
+    :returns: (fig, ax), tau, (sigma minus, sigma plus),
+              -2*ln(likelihood) at minimum
+    """
+
+    tau, sigma, l = maximize_likelihood(likelihood,
+                                                          tau_range, epsilon)
+
+    rng = np.max(sigma) * 3
+    taus = np.linspace(tau - rng, tau + rng, 1000)
+    fig, ax = set_up_plot()
+
+    ax.plot(taus, likelihood(taus), label='$-2\ln(L)$')
+    ax.plot([(tau - sigma[0]), (tau + sigma[1])], [(l + 1), (l + 1)],
+            linestyle='dotted', color='gray', label='Deviation from +1 Unit')
+    ax.plot([(tau - sigma[0]), (tau - sigma[0])], [(l + 1), l],
+            linestyle='dotted', color='gray')
+    ax.plot([(tau + sigma[1]), (tau + sigma[1])], [(l + 1), l],
+            linestyle='dotted', color='gray')
+
+    ax.set_xlim((taus[0], taus[-1]))
+    ax.axvline(tau, linestyle='--', color='black', label=r'$\tau$')
+    ax.errorbar(tau, l, marker='x', markersize=10, xerr=np.array([sigma]).T,
+                label='Minimum', capsize=10)
+
+    ax.set_xlabel(r'$\tau$ [ns]')
+    ax.set_ylabel(r'$-2\ln($Likelihood$)$')
+    ax.legend()
+
+
+    if save:
+        save_fig(*save)
+    return (fig, ax), tau, sigma, l
