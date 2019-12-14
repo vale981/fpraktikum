@@ -52,7 +52,16 @@ def chan_to_time(channel, tick=41.67, offset=0):
 ###############################################################################
 
 def continous(counts, interval, epsilon=1e-9):
-    """"""
+    """FIXME! briefly describe function
+
+    :param counts:
+    :param interval:
+    :param epsilon:
+    :returns:
+    :rtype:
+
+    """
+
     cts = counts[interval[0]:interval[1]]  # constrained counts
     channels = np.arange(0, interval[1] - interval[0])  # channel indices
     times = chan_to_time(channels)  # mean time of channels
