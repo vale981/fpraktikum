@@ -52,6 +52,69 @@ def chan_to_time(channel, tick=41.67, center=False, offset=0):
 
     return (channel + offset) * tick + (tick/2 if center else 0)
 
+###############################################################################
+#                                  Plot Porn                                  #
+###############################################################################
+
+def pinmp_ticks(axis, ticks):
+    axis.set_major_locator(ticker.MaxNLocator(ticks))
+    axis.set_minor_locator(ticker.MaxNLocator(ticks*10))
+    return axis
+
+def set_up_plot(ticks=10, pimp_top=False):
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+
+    pinmp_ticks(ax.xaxis, ticks)
+    pinmp_ticks(ax.yaxis, ticks)
+
+    ax.grid(which='minor', alpha=.3)
+    ax.grid(which='major', alpha=.8)
+
+
+    if pimp_top:
+        ax.tick_params(right=True, top=True, which='both')
+    else:
+        ax.tick_params(right=True, which='both')
+
+    return fig, ax
+
+def save_fig(fig, title, folder='unsorted', size=(5, 4)):
+    fig.set_size_inches(*size)
+    fig.tight_layout()
+    try:
+        os.makedirs(f'./figs/{folder}/')
+    except OSError as exc:
+        pass
+    fig.savefig(f'./figs/{folder}/{title}.pdf')
+    fig.savefig(f'./figs/{folder}/{title}.pgf')
+
+    with open('./out/figlist.txt', 'a') as f:
+        f.write(r'''
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/'''
+  + f'{folder}/{title}.pgf' +
+  r'''}
+  \caption{}
+  \label{fig:''' + folder + '-' + title + '''}
+\end{figure}
+    ''')
+
+def plot_spectrum(counts, offset=1, save=None, **pyplot_args):
+    fig, ax = set_up_plot()
+
+    channels = np.arange(0, counts.size) + offset
+    ax.step(channels, counts, **pyplot_args)
+
+    ax.set_xlabel('Kanal')
+    ax.set_ylabel('Counts')
+    ax.set_xlim([channels[0], channels[-1]])
+    ax.set_ylim(0)
+
+    if save:
+        save_fig(fig, *save)
+
+    return fig, ax
 
 ###############################################################################
 #                              Maximum Likelihood                             #
@@ -159,68 +222,3 @@ def maximize_likelihood(likelihood, tau_range, epsilon=1e-5):
     sigma_minus = find_sigma()
     sigma_plus = find_sigma(right=True)
     return tau, (sigma_minus, sigma_plus), l
-
-
-###############################################################################
-#                                  Plot Porn                                  #
-###############################################################################
-
-def pinmp_ticks(axis, ticks):
-    axis.set_major_locator(ticker.MaxNLocator(ticks))
-    axis.set_minor_locator(ticker.MaxNLocator(ticks*10))
-    return axis
-
-def set_up_plot(ticks=10, pimp_top=False):
-    fig = plt.figure()
-    ax = fig.add_subplot(111)
-
-    pinmp_ticks(ax.xaxis, ticks)
-    pinmp_ticks(ax.yaxis, ticks)
-
-    ax.grid(which='minor', alpha=.3)
-    ax.grid(which='major', alpha=.8)
-
-
-    if pimp_top:
-        ax.tick_params(right=True, top=True, which='both')
-    else:
-        ax.tick_params(right=True, which='both')
-
-    return fig, ax
-
-def save_fig(fig, title, folder='unsorted', size=(5, 4)):
-    fig.set_size_inches(*size)
-    fig.tight_layout()
-    try:
-        os.makedirs(f'./figs/{folder}/')
-    except OSError as exc:
-        pass
-    fig.savefig(f'./figs/{folder}/{title}.pdf')
-    fig.savefig(f'./figs/{folder}/{title}.pgf')
-
-    with open('./out/figlist.txt', 'a') as f:
-        f.write(r'''
-\begin{figure}[H]\centering
-  \input{../auswertung/figs/'''
-  + f'{folder}/{title}.pgf' +
-  r'''}
-  \caption{}
-  \label{fig:''' + folder + '-' + title + '''}
-\end{figure}
-    ''')
-
-def plot_spectrum(counts, offset=1, save=None, **pyplot_args):
-    fig, ax = set_up_plot()
-
-    channels = np.arange(0, counts.size) + offset
-    ax.step(channels, counts, **pyplot_args)
-
-    ax.set_xlabel('Kanal')
-    ax.set_ylabel('Counts')
-    ax.set_xlim([channels[0], channels[-1]])
-    ax.set_ylim(0)
-
-    if save:
-        save_fig(fig, *save)
-
-    return fig, ax
