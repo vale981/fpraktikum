@@ -7,7 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import root_scalar
 import matplotlib.ticker as ticker
-
+from typing import Dict, Tuple, Sequence
 
 ###############################################################################
 #                                  Auxiliary                                  #
@@ -51,15 +51,18 @@ def chan_to_time(channel, tick=41.67, offset=0):
 #                              Maximum Likelihood                             #
 ###############################################################################
 
-def continous(counts, interval, epsilon=1e-9):
-    """FIXME! briefly describe function
+def continous(counts: np.ndarray, interval: Tuple[float, float], epsilon: float=1e-9) \
+  -> (float, float, int, float):
+    """Maximizes the likelihood for the continous propability model.
+    (Method 1)
 
-    :param counts:
-    :param interval:
-    :param epsilon:
-    :returns:
-    :rtype:
+    :param array counts: the time-spectrum
+    :param tuple interval: the interval of the time spectrum used
+        (inclusive, exclusive)
+    :param float epsilon: the desired precision
 
+    :returns: the lifetime, the deviation of the same, total counts,
+              total time
     """
 
     cts = counts[interval[0]:interval[1]]  # constrained counts
@@ -69,6 +72,7 @@ def continous(counts, interval, epsilon=1e-9):
     T = times[-1] - times[0]  # time interval
     N = cts.sum()  # total count
     tau_0 = np.sum(cts*times)/N  # initial guess
+    delta_tau = np.sqrt(np.sum(cts*times**2))/N
 
     def model(tau):
         return tau_0 + T/(np.exp(T/tau) - 1)
@@ -80,7 +84,7 @@ def continous(counts, interval, epsilon=1e-9):
             return next_tau
         return optimize(next_tau)
 
-    return optimize(tau_0), N, T
+    return optimize(tau_0), delta_tau, N, T
 
 
 ###############################################################################
