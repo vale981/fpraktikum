@@ -34,17 +34,20 @@ def load_counts(path):
 
 
 
-def chan_to_time(channel, tick=41.67, offset=0):
+def chan_to_time(channel, tick=41.67, center=False, offset=0):
     """Convert channel number to time.
 
     :param channel: channel Number
     :param tick: width of the channels
+    :param center: wether to take the time at the channel center
     :param offset: start channel
+
     :returns: mean time of channel (center)
+
     :rtype: float
     """
 
-    return (channel + offset) * tick + tick/2
+    return (channel + offset) * tick + (tick/2 if center else 0)
 
 
 ###############################################################################
@@ -67,7 +70,7 @@ def continous(counts: np.ndarray, interval: Tuple[float, float], epsilon: float=
 
     cts = counts[interval[0]:interval[1]]  # constrained counts
     channels = np.arange(0, interval[1] - interval[0])  # channel indices
-    times = chan_to_time(channels)  # mean time of channels
+    times = chan_to_time(channels, center=True)  # mean time of channels
 
     T = times[-1] - times[0]  # time interval
     N = cts.sum()  # total count
@@ -85,6 +88,44 @@ def continous(counts: np.ndarray, interval: Tuple[float, float], epsilon: float=
         return optimize(next_tau)
 
     return optimize(tau_0), delta_tau, N, T
+
+
+def binned_likelihood(counts, interval):
+    """Generates the -2*ln(likelihood) functions as closures under the
+    assumption of poisson and gaussian statistics.
+
+    :param array counts: the time-spectrum
+    :param tuple interval: the interval of the time spectrum used
+        (inclusive, exclusive)
+
+    :returns: poisson, gauss likelihood funcions
+    """
+
+    cts = counts[interval[0]:interval[1]][:, None]  # constrained counts
+    channels = np.arange(interval[0], interval[1])  # channel indices
+    times = chan_to_time(channels)[:, None]
+    tick = times[1][0] - times[0][0]
+    N = cts.sum()
+
+    def N_0(tau):
+        return N/(np.exp(-1*times[0][0]/tau) - np.exp(-1*(times[-1][0] + tick)/tau))
+
+    def f(tau):
+        return N_0(tau)/tau*np.exp(-(times + tick/2)/tau)*tick
+
+    def convert_tau(tau):
+        return tau[None,:] if isinstance(tau, np.ndarray) else np.array([[tau]])
+
+    def ln_poisson_likelihood(tau):
+        tau = convert_tau(tau)
+        return -2*np.sum(cts*np.log(f(tau)), axis=0)
+
+    def ln_gauss_likelihood(tau):
+        tau = convert_tau(tau)
+        fi = f(tau)
+        return np.sum((cts-fi)**2/fi, axis=0)
+
+    return ln_poisson_likelihood, ln_gauss_likelihood
 
 
 ###############################################################################
