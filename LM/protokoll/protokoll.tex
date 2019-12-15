@@ -254,14 +254,46 @@ die Wahrscheinlichkeitsdichteverteilung zu:
 Analog zur Poissonverteilung folgt für die logarithmierte Likelihoodfunktion:
 
 \begin{equation}\label{key}
- -2\ln L = \sum_{i}\ln ()
+ -2\ln L = \sum_{i}\ln (2\pi\sigma_i^2) + \sum_{i} \frac{(N_i - f_i)^2}{\sigma_i^2}
 \end{equation}
+
+Da der erste Summenterm durch die Näherung \(\sigma_i(f_i) = \sqrt{f_i} \approx \sqrt{N_i}\) nicht
+von \(\tau\) abhängt, kann dieser bei der Bestimmung von \(\hat{\tau}\) vernachlässigt und nur
+der zweite Term betrachtet werden, der eine \(\chi^2\)-Verteilung beschreibt.
+
+\begin{equation}\label{eq:chi}
+ \chi^2 = \sum_{i} \frac{(N_i - f_i)^2}{\sigma_i^2}
+\end{equation}
+
+Die \(\chi^2\)-Funktion beschreibt wie stark eine gemessene Häufigkeit von der erwarteten abweicht.
+Diese quadratische Abweichung wird durch die Varianz normiert, damit Werte mit einer hohen
+Ungenauigkeit weniger stark in die Gesamtsumme einfließen. Idealerweise sollte der \(\chi^2\)-Wert
+also möglichst klein werden, allerdings auch nicht zu klein, da sonst die Möglichkeit besteht, die
+Ungenauigkeiten überschätzt zu haben.\\
+
+Entsprechend wird bei dieser Methode der wahrscheinlichste oder beste Wert für \(\hat\tau\) durch
+Minimierung der \(\chi^2\)-Funktion bestimmt.
 
 \section{Durchf\"uhrung und Auswertung}
 \label{sec:durchaus}
 
 \subsection{Vorversuch}
 \label{sec:vorvers}
+
+\subsubsection{Messung von Myon-Pulsen}
+\label{sec:pulse}
+
+Zuerst wurden die drei PM-Signale gemeinsam mit dem Koinzidenzsignal (123) für die ungestoppten
+Myonen auf je einen Oszilloskopkanal. Die Spannungen der PMs wurden anschließend auf
+\(U_{1,HV} = \SI{2300}{\volt}\), \(U_{2,HV} = \SI{2300}{\volt}\) und \(U_{3,HV} = \SI{2100}{\volt}\) eingestellt.
+
+Das Oszilloskop wurde nun mit dem Koinzidenzsignal getriggert, damit es "weiß", wann es eine
+Messung aufnehmen soll.
+Danach wurde die Anzeige des Oszilloskops so eingestellt, dass die Peaks deutlich zu erkennen
+waren, um die Höhe jedes der drei PM-Peaks zu messen. Dazu wurde mit Hilfe der Start-/Stopptaste
+des Oszilloskops nach wenigen Sekunden das Bild eingefroren. Dabei wurde es vermieden auf den
+Bildschirm zu sehen, um eine mögliche Beeinflussung und damit Verzerrung der Messergebnisse zu
+verhindern. Mit Hilfe der ... wurde nun die Höhe von je 50 Peaks vermessen.
 
 \subsubsection{Aufnahme der Kennlinie f\"ur PM3}
 \label{sec:pm3kenn}
