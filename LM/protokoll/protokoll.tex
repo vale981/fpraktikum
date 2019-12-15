@@ -1,5 +1,4 @@
-\documentclass[slug=LM, room=Andreas-Schubert-Bau\,\ K\ 1A,
-supervisor=Anne-Sophie\ Berthold, coursedate=13.\ 12.\ 2019]{../../Lab_Report_LaTeX/lab_report}
+\documentclass[slug=LM, room=Andreas-Schubert-Bau\,\ K\ 1A, supervisor=Anne-Sophie\ Berthold, coursedate=13.\ 12.\ 2019]{../../Lab_Report_LaTeX/lab_report}
 
 \title{Lebensdauer von Myonen}
 \author{Oliver Matthes, Valentin Boettcher}
@@ -202,7 +201,7 @@ werden. Jeder Messwert ist mit einer statistischen Messungenauigkeit \(\sqrt{N_i
 Unter Berücksichtigung dieser Besonderheiten folgt für \(\hat\tau\):
 
 \begin{equation}\label{key}
- \hat\tau = \frac{1}{N} \sum_{k=1}^{K}N_k\cdot t_k + Korrektur
+ \hat\tau = \frac{1}{N} \sum_{k=1}^{K}N_k\cdot t_k + \text{Korrektur}
 \end{equation}
 
 Für die Standardabweichung ergibt sich aus der Fehlerfortpflanzung:
@@ -283,25 +282,68 @@ Minimierung der \(\chi^2\)-Funktion bestimmt.
 \subsubsection{Messung von Myon-Pulsen}
 \label{sec:pulse}
 
-Zuerst wurden die drei PM-Signale gemeinsam mit dem Koinzidenzsignal (123) für die ungestoppten
-Myonen auf je einen Oszilloskopkanal. Die Spannungen der PMs wurden anschließend auf
-\(U_{1,HV} = \SI{2300}{\volt}\), \(U_{2,HV} = \SI{2300}{\volt}\) und \(U_{3,HV} = \SI{2100}{\volt}\) eingestellt.
+Zuerst wurden die drei PM-Signale gemeinsam mit dem Koinzidenzsignal
+(123) für die ungestoppten Myonen auf je einen Oszilloskopkanal. Die
+Spannungen der PMs wurden anschließend auf
+\(U_{1,HV} = \SI{2300}{\volt}\), \(U_{2,HV} = \SI{2300}{\volt}\) und
+\(U_{3,HV} = \SI{2100}{\volt}\) eingestellt.
 
-Das Oszilloskop wurde nun mit dem Koinzidenzsignal getriggert, damit es "weiß", wann es eine
-Messung aufnehmen soll.
-Danach wurde die Anzeige des Oszilloskops so eingestellt, dass die Peaks deutlich zu erkennen
-waren, um die Höhe jedes der drei PM-Peaks zu messen. Dazu wurde mit Hilfe der Start-/Stopptaste
-des Oszilloskops nach wenigen Sekunden das Bild eingefroren. Dabei wurde es vermieden auf den
-Bildschirm zu sehen, um eine mögliche Beeinflussung und damit Verzerrung der Messergebnisse zu
-verhindern. Mit Hilfe der ... wurde nun die Höhe von je 50 Peaks vermessen.
+Das Oszilloskop wurde nun mit dem Koinzidenzsignal getriggert, damit
+es "weiß", wann es eine Messung aufnehmen soll.  Danach wurde die
+Anzeige des Oszilloskops so eingestellt, dass die Peaks deutlich zu
+erkennen waren, um die Höhe jedes der drei PM-Peaks zu messen. Dazu
+wurde mit Hilfe der Start-/Stopptaste des Oszilloskops nach wenigen
+Sekunden das Bild eingefroren. Dabei wurde es vermieden auf den
+Bildschirm zu sehen, um eine mögliche Beeinflussung und damit
+Verzerrung der Messergebnisse zu verhindern. Mit Hilfe der ... wurde
+nun die Höhe von je 50 Peaks vermessen.
 
 \subsubsection{Aufnahme der Kennlinie f\"ur PM3}
 \label{sec:pm3kenn}
 
-Nachdem die Hochspannungen an den Photomultipliern auf
-\(U_{1,HV}=\SI{2400}{\volt}\) (PM1)
+Das Koninzidenzsignal (\textit{123}) und das Signal des
+Photomultiplier PM3 wurden mit der Z\"ahleinheit verbunden.  Nach der
+Einstellung der Hochspannungen an den Photomultipliern auf
+\SI{2400}{\volt} (PM1, PM2) und \SI{2100}{\volt}, wurde die Messzeit
+mit \SI{140}{\second} so bemessen, dass die Anzahl der Ereignisse
+\(N\) ausreichte, um eine relative ungenauigkeit von
+\(\eta \leq \SI{3}{\percent})\) zu erreichen (Poisson-Verteilung).
 
+\begin{align}
+  \label{eq:mtime}
+  \frac{\Delta N}{N} &= \frac{1}{\sqrt{N}} \geq \eta \\
+  \implies N &\geq \frac{1}{\eta^2} = 1111
+\end{align}
 
+Da bei geringeren Spannungen an PM3 die Z\"ahlraten sinken, ergeben
+sich dort auch gr\"o\ss{}ere Abweichungen.  Anschliessend wurde die
+Spannung an PM2 in \SI{50}{\volt} Schritten im Bereich
+\SIrange{1800-2400}{\volt} variiert.
+Die dabei gemmesenen Z\"ahlraten
+sind in~\ref{fig:vorversuch-kennlinie_123} und
+\ref{fig:vorversuch-kennlinie_pm3} aufgetragen.
+
+\begin{figure}[h]\centering
+  \input{../auswertung/figs/vorversuch/kennlinie_123.pgf}
+  \caption{Koinzidenzz\"ahlrate in Abh\"angigkeit der Spannung an PM3.}
+  \label{fig:vorversuch-kennlinie_123}
+\end{figure}
+
+\begin{figure}[h]\centering
+  \input{../auswertung/figs/vorversuch/kennlinie_pm3.pgf}
+  \caption{Z\"ahlrate von PM3 in Abh\"angigkeit der Spannung an PM3.}
+  \label{fig:vorversuch-kennlinie_pm3}
+\end{figure}
+
+Zu erkennen ist, dass sich in der Z\"ahlrate f\"ur \textit{123}
+Signale ab ca. \SI{2250}{\volt} in ein Plateau \"ubergeht, wobei die
+Z\"ahlrate des PM3 exponentiell anw\"achst, da mit steigender Spannung
+nun auch immer mehr Rauschereignisse gez\"ahlt werden. Das Plateau
+bildet sich in~\ref{fig:vorversuch-kennlinie_123} aus, da ab der oben
+genannten Spannung PM3 nun auf alle zu \textit{123} Koinzidenzen
+geh\"origen Ereignisse anspricht und somit auch eine Steigerung der
+PM3 Z\"ahlrate \"uber dieses Ma\ss{} hinaus keine h\"ohere Z\"ahlraten
+bewirkt.
 \section{Verzeichnisse}
 
 \label{sec:literatur}
