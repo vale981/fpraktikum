@@ -82,7 +82,8 @@ def plot_hist(peaks, bins, save=None):
     popt, _ = curve_fit(boltzmann, mids, hist)
 
     points = np.linspace(0, edges[-1], 100)
-    ax.plot(points, boltzmann(points, *popt), label=fr'Schwarzkorperstralung $a={popt[0]:.1f}$')
+    ax.plot(points, boltzmann(points, *popt),
+            label=fr'Schwarzkorperstralung $a={popt[0]:.1f}$')
     ax.legend()
     ax.set_ylabel('Relative Haefigkeit')
     ax.set_xlabel('Peakhoehe [Volt]')
