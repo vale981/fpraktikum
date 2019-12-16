@@ -14,6 +14,7 @@ from typing import Dict, Tuple, Sequence
 from scipy.stats import binned_statistic
 import os
 from scipy.optimize import curve_fit
+import pylandau
 
 ###############################################################################
 #                                  Auxiliary                                  #
@@ -73,27 +74,28 @@ def calculate_peak_uncertainty(peak):
 def calculate_bins(peaks):
     return int(np.log2(peaks.size) + 1) + 1
 
-def plot_hist(peaks, bins, save=None):
+def plot_hist(peaks, bins, scale=1, save=None):
     fig, ax = set_up_plot()
+    peaks = peaks*scale
     ax.hist(peaks, bins, density=True, label='Peakhoehenhistogram')
 
     hist, edges = np.histogram(peaks, bins, density=True)
     mids = (edges[:-1] + edges[1:])/2
-    popt, _ = curve_fit(boltzmann, mids, hist)
+    popt, _ = curve_fit(boltzmann, mids, hist, bounds=([1, .2], np.inf))
 
     points = np.linspace(0, edges[-1], 100)
     ax.plot(points, boltzmann(points, *popt),
-            label=fr'Schwarzkorperstralung $a={popt[0]:.1f}$')
+            label=fr'Landauverteilung $\mu={popt[1]:.1f},\; \eta={popt[0]:.1f}$')
     ax.legend()
-    ax.set_ylabel('Relative Haefigkeit')
-    ax.set_xlabel('Peakhoehe [Volt]')
+    ax.set_ylabel('Warscheinlichkeitsdichte')
+    ax.set_xlabel(fr'Peakhoehe [Volt$\cdot {scale}$]')
     if save:
         save_fig(fig, *save)
     return fig, ax
 
 
-def boltzmann(x, a):
-    return np.sqrt(2/np.pi)*x**2*np.exp(-x**2/(2*a**2))/a**3
+def boltzmann(x, c, mu):
+    return pylandau.landau_pdf(x, mu=mu, eta=c)
 
 ###############################################################################
 #                                  Plot Porn                                  #
