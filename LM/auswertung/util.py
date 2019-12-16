@@ -14,6 +14,7 @@ from typing import Dict, Tuple, Sequence
 from scipy.stats import binned_statistic
 import os
 from scipy.optimize import curve_fit
+import pylandau
 
 ###############################################################################
 #                                  Auxiliary                                  #
@@ -92,7 +93,8 @@ def plot_hist(peaks, bins, save=None):
     return fig, ax
 
 
-def boltzmann(x, a):
+def boltzmann(x, a, b):
+    return pylandau.landau_pdf(x, a, b)
     return np.sqrt(2/np.pi)*x**2*np.exp(-x**2/(2*a**2))/a**3
 
 ###############################################################################
