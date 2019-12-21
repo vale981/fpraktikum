@@ -102,9 +102,7 @@ def boltzmann(x, c, mu):
 #                                  Plot Porn                                  #
 ###############################################################################
 
-matplotlib.use("pgf")
 matplotlib.rcParams.update({
-    "pgf.texsystem": "pdflatex",
     'font.family': 'serif',
     'text.usetex': False,
     'pgf.rcfonts': False,
@@ -197,14 +195,16 @@ def continous(counts: np.ndarray, interval: Tuple[float, float], epsilon: float=
     def model(tau):
         return tau_0 + T/(np.exp(T/tau) - 1)
 
+    taus = [tau_0]
     def optimize(tau):
         next_tau = model(tau)
+        taus.append(next_tau)
 
         if np.abs(tau - next_tau) < epsilon:
             return next_tau
         return optimize(next_tau)
 
-    return optimize(tau_0), delta_tau, N, T
+    return optimize(tau_0), delta_tau, N, T, taus
 
 
 def binned_likelihood(counts, interval):
@@ -314,5 +314,5 @@ def maximize_and_plot_likelihood(likelihood, tau_range, epsilon=1e-5, save=None)
 
 
     if save:
-        save_fig(*save)
+        save_fig(fig, *save)
     return (fig, ax), tau, sigma, l
