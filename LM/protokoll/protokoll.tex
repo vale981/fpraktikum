@@ -72,7 +72,7 @@ elektromagnetischen Wechselwirkung eingefangen und erreicht in diesem nach nicht
 Wellenfunktionen des Atomkerns und des Myons miteinander. Durch diese Überlappung kann es dazu
 kommen, dass das Myon von Kern absorbiert wird (\(\mu^- + p \rightarrow n + \nu_\mu\)), sodass 
 dieser Prozess mit dem des freien Zerfalls in Konkurrenz tritt und sich die effektive Lebensdauer 
-des negativ geladenen Myons verkürzt.
+des negativ geladenen Myons verkürzt (in Kupfer zum Beispiel um \(\SI{0,1636 \pm 0,0008}{\micro\second}\)).
 
 \begin{equation}\label{eq:efflebenszeit}
 	\frac{1}{\tau} = \frac{1}{\tau_0} + \frac{1}{\tau_c}
@@ -85,10 +85,10 @@ des negativ geladenen Myons verkürzt.
 \subsection{Messaufbau und Detektorfunktionsweise}
 \label{sec:aufbau}
 
-Eine Skizze der im Versuch verwendeten Messanordnung ist in~\ref*{fig:aufbau} zu sehen.
+Eine Skizze der im Versuch verwendeten Messanordnung ist in~\ref{fig:aufbau} zu sehen.
 Sie besteht aus drei Photomultipliern und Szintillatoren sowie zwei Kupferplatten, die je
 \(\SI{1}{\centi\metre}\) dick sind. Zwei der Szintillatoren befinden sich oberhalb der Kupferplatten
-und entsprechend eine unterhalb.
+und entsprechend eine unterhalb. Sie haben eine Fläche von \(\SI{0,6}{\metre} \times \SI{0,36}{\metre}\).
 Wenn ein Myon im Kupfer gestoppt wird geben PM1 und PM2 ein Signal aus, nicht jedoch PM3. Wird ein
 solches Ereignis gemessen wird die Zeitmessung gestartet und gestoppt, wenn entweder 
 \(\SI{10}{\micro\second}\) vergangen sind, um zufällige Koinzidenzen, die beispielsweise durch
@@ -109,12 +109,18 @@ zum Schluss von einem an den Aufbau angeschlossenen PC verarbeitet.
 \label{sec:szinti}
 
 Wenn in das Szintillatormaterial, das organischer oder anorganischer Natur sein kann, ionisierende
-Strahlung eintritt, wie in diesem Versuch hauptsächlich Myonenstrahlung sowie Strahlung aus 
-Elektronen und Positronen, entstehen bei Stoßprozessen innerhalb des Materials Elektronen, Löcher
-oder Elektron-Loch-Paare (so genannte Exzitonen). Diese diffundieren durch das Detektormaterial
-bis sie auf einen Aktivator treffen, bei dem diese Ladungsträger rekombinieren und dadurch
-Photonen emittieren. Diese Photonen haben nun eine Wellenlänge, die sich im Bereich sichtbaren
-Lichts befindet, und gelangen durch den Szintillator zum angeschlossenen Photomultiplier.
+Strahlung eintritt, die in diesem Versuch hauptsächlich Myonenstrahlung sowie Strahlung 
+aus Elektronen und Positronen besteht, entstehen bei Stoßprozessen innerhalb des Materials Elektronen, 
+Löcher oder Elektron-Loch-Paare (so genannte Exzitonen). 
+In anorganischen Szintillatoren diffundieren sie durch das 
+Detektormaterial bis sie auf einen Aktivator treffen, der dadurch angeregt wird. Regt dieser sich
+wieder ab, emittiert er Photonen. Diese Photonen haben nun eine Wellenlänge, die sich im Bereich 
+sichtbaren Lichts befindet, und gelangen durch den Szintillator zum angeschlossenen 
+Photomultiplier.
+Im Versuch wurden Plastikszintillatoren verwendet. Diese gehören zu den organischen Szintillatoren.
+In solchen werden in einem Fluoreszenzstoff Molekülzustände angeregt, die bei Abregung Photonen
+im UV-Bereich emittieren. Da UV-Licht in vielen Materialien allerdings nur eine geringe
+Reichweite hat, muss diesen Materialien noch ein so genannter Wellenlängenschieber zugefügt werden.
 
 \subsubsection{Photomultiplier}
 \label{sec:photomulti}
@@ -191,7 +197,7 @@ Daraus folgt:
 
 und
 
-\begin{equation}\label{key}
+\begin{equation}\label{eq:tau2}
  \hat\tau = \frac{1}{N} \sum t_i + \frac{T e^{-\frac{T}{\tau}}}{1-e^{-\frac{T}{\tau}}}
 \end{equation}
 
@@ -200,7 +206,7 @@ unterschiedliche Zeiten, sondern \(K\) Kanäle mit \(N_i\) Counts im \(i\)-ten K
 werden. Jeder Messwert ist mit einer statistischen Messungenauigkeit \(\sqrt{N_i}\) behaftet.
 Unter Berücksichtigung dieser Besonderheiten folgt für \(\hat\tau\):
 
-\begin{equation}\label{key}
+\begin{equation}\label{eq:tau1}
  \hat\tau = \frac{1}{N} \sum_{k=1}^{K}N_k\cdot t_k + \text{Korrektur}
 \end{equation}
 
@@ -209,6 +215,9 @@ Für die Standardabweichung ergibt sich aus der Fehlerfortpflanzung:
 \begin{equation}\label{key}
  \sigma_{\hat\tau} = \frac{1}{N} \sqrt{\sum N_k \cdot t_k^2}
 \end{equation}
+
+Durch wiederholtes Einsetzen von~\ref{eq:tau1} in~\ref{eq:tau2} wird durch Iteration \(\hat\tau\)
+bestimmt.
 
 \subsubsection{Max-Likelihood-Methode und die Poissonverteilung}
 \label{sec:likepoisson}
@@ -223,7 +232,7 @@ beschrieben:
  P(N_i,f_i) = \frac{f_i^{N_i} \cdot e^{-f_i}}{N_i !}
 \end{equation}
 
-Mit der Varianz um für \(N_i\) um den entsprechenden Mittelwert \(f_i\):
+Mit der Varianz für \(N_i\) um den entsprechenden Mittelwert \(f_i\):
 
 \begin{equation}\label{key}
  \sigma_i^2 = f_i
@@ -279,6 +288,71 @@ Minimierung der \(\chi^2\)-Funktion bestimmt.
 \subsection{Vorversuch}
 \label{sec:vorvers}
 
+\subsubsection{Aufnahme der Kennlinie f\"ur PM3}
+\label{sec:pm3kenn}
+
+Das Koninzidenzsignal (\textit{123}) und das Signal des
+Photomultiplier PM3 wurden mit der Z\"ahleinheit verbunden.  Nach der
+Einstellung der Hochspannungen an den Photomultipliern auf
+\SI{2400}{\volt} (PM1, PM2) und \SI{2100}{\volt}, wurde die Messzeit
+mit \SI{140}{\second} so bemessen, dass die Anzahl der Ereignisse
+\(N\) ausreichte, um eine relative ungenauigkeit von
+\(\eta \leq \SI{3}{\percent})\) zu erreichen (Poisson-Verteilung).
+
+\begin{align}
+\label{eq:mtime}
+\frac{\Delta N}{N} &= \frac{1}{\sqrt{N}} \geq \eta \\
+\implies N &\geq \frac{1}{\eta^2} = 1111
+\end{align}
+
+Da bei geringeren Spannungen an PM3 die Z\"ahlraten sinken, ergeben
+sich dort auch gr\"o\ss{}ere Abweichungen.  Anschliessend wurde die
+Spannung an PM2 in \SI{50}{\volt} Schritten im Bereich
+%\SIrange{1800-2400}{\volt} variiert.
+Die dabei gemmesenen Z\"ahlraten
+sind in~\ref{fig:vorversuch-kennlinie_123} und
+\ref{fig:vorversuch-kennlinie_pm3} aufgetragen.
+
+%\begin{figure}[h]\centering
+%  \input{../auswertung/figs/vorversuch/kennlinie_123.pgf}
+%  \caption{Koinzidenzz\"ahlrate in Abh\"angigkeit der Spannung an PM3.}
+%  \label{fig:vorversuch-kennlinie_123}
+%\end{figure}
+
+%\begin{figure}[h]\centering
+%  \input{../auswertung/figs/vorversuch/kennlinie_pm3.pgf}
+%  \caption{Z\"ahlrate von PM3 in Abh\"angigkeit der Spannung an PM3.}
+%  \label{fig:vorversuch-kennlinie_pm3}
+%\end{figure}
+
+\begin{table}[h]
+	\begin{tabular}{SSSSS}
+		1800 & 260   & 68   & 16.12  & 8.25  \\
+		1850 & 793   & 268  & 28.16  & 16.37 \\
+		1900 & 1431  & 462  & 37.83  & 21.49 \\
+		1950 & 2160  & 609  & 46.48  & 24.68 \\
+		2000 & 3193  & 817  & 56.51  & 28.58 \\
+		2050 & 4530  & 1005 & 67.31  & 31.70 \\
+		2100 & 6085  & 1148 & 78.01  & 33.88 \\
+		2151 & 8121  & 1276 & 90.12  & 35.72 \\
+		2200 & 10410 & 1293 & 102.03 & 35.96 \\
+		2250 & 13283 & 1425 & 115.25 & 37.75 \\
+		2300 & 17455 & 1440 & 132.12 & 37.95 \\
+		2350 & 23974 & 1431 & 154.84 & 37.83 \\
+		2400 & 33735 & 1481 & 183.67 & 38.48
+	\end{tabular}
+\end{table}
+
+Zu erkennen ist, dass sich in der Z\"ahlrate f\"ur \textit{123}
+Signale ab ca. \SI{2250}{\volt} in ein Plateau \"ubergeht, wobei die
+Z\"ahlrate des PM3 exponentiell anw\"achst, da mit steigender Spannung
+nun auch immer mehr Rauschereignisse gez\"ahlt werden. Das Plateau
+bildet sich in~\ref{fig:vorversuch-kennlinie_123} aus, da ab der oben
+genannten Spannung PM3 nun auf alle zu \textit{123} Koinzidenzen
+geh\"origen Ereignisse anspricht und somit auch eine Steigerung der
+PM3 Z\"ahlrate \"uber dieses Ma\ss{} hinaus keine h\"ohere Z\"ahlraten
+bewirkt.
+
 \subsubsection{Messung von Myon-Pulsen}
 \label{sec:pulse}
 
@@ -295,74 +369,8 @@ erkennen waren, um die Höhe jedes der drei PM-Peaks zu messen. Dazu
 wurde mit Hilfe der Start-/Stopptaste des Oszilloskops nach wenigen
 Sekunden das Bild eingefroren. Dabei wurde es vermieden auf den
 Bildschirm zu sehen, um eine mögliche Beeinflussung und damit
-Verzerrung der Messergebnisse zu verhindern. Mit Hilfe der ... wurde
+Verzerrung der Messergebnisse zu verhindern. Mit Hilfe der Cursor wurde
 nun die Höhe von je 50 Peaks vermessen.
-
-\subsubsection{Aufnahme der Kennlinie f\"ur PM3}
-\label{sec:pm3kenn}
-
-Das Koninzidenzsignal (\textit{123}) und das Signal des
-Photomultiplier PM3 wurden mit der Z\"ahleinheit verbunden.  Nach der
-Einstellung der Hochspannungen an den Photomultipliern auf
-\SI{2400}{\volt} (PM1, PM2) und \SI{2100}{\volt}, wurde die Messzeit
-mit \SI{140}{\second} so bemessen, dass die Anzahl der Ereignisse
-\(N\) ausreichte, um eine relative ungenauigkeit von
-\(\eta \leq \SI{3}{\percent})\) zu erreichen (Poisson-Verteilung).
-
-\begin{align}
-  \label{eq:mtime}
-  \frac{\Delta N}{N} &= \frac{1}{\sqrt{N}} \geq \eta \\
-  \implies N &\geq \frac{1}{\eta^2} = 1111
-\end{align}
-
-Da bei geringeren Spannungen an PM3 die Z\"ahlraten sinken, ergeben
-sich dort auch gr\"o\ss{}ere Abweichungen.  Anschliessend wurde die
-Spannung an PM2 in \SI{50}{\volt} Schritten im Bereich
-\SIrange{1800-2400}{\volt} variiert.
-Die dabei gemmesenen Z\"ahlraten
-sind in~\ref{fig:vorversuch-kennlinie_123} und
-\ref{fig:vorversuch-kennlinie_pm3} aufgetragen.
-
-\begin{figure}[h]\centering
-  \input{../auswertung/figs/vorversuch/kennlinie_123.pgf}
-  \caption{Koinzidenzz\"ahlrate in Abh\"angigkeit der Spannung an PM3.}
-  \label{fig:vorversuch-kennlinie_123}
-\end{figure}
-
-\begin{figure}[h]\centering
-  \input{../auswertung/figs/vorversuch/kennlinie_pm3.pgf}
-  \caption{Z\"ahlrate von PM3 in Abh\"angigkeit der Spannung an PM3.}
-  \label{fig:vorversuch-kennlinie_pm3}
-\end{figure}
-
-\begin{table}[h]
-  \begin{tabular}{}
-    
-    1800 & 260   & 68   & 16.12  & 8.25  \\
-    1850 & 793   & 268  & 28.16  & 16.37 \\
-    1900 & 1431  & 462  & 37.83  & 21.49 \\
-    1950 & 2160  & 609  & 46.48  & 24.68 \\
-    2000 & 3193  & 817  & 56.51  & 28.58 \\
-    2050 & 4530  & 1005 & 67.31  & 31.70 \\
-    2100 & 6085  & 1148 & 78.01  & 33.88 \\
-    2151 & 8121  & 1276 & 90.12  & 35.72 \\
-    2200 & 10410 & 1293 & 102.03 & 35.96 \\
-    2250 & 13283 & 1425 & 115.25 & 37.75 \\
-    2300 & 17455 & 1440 & 132.12 & 37.95 \\
-    2350 & 23974 & 1431 & 154.84 & 37.83 \\
-    2400 & 33735 & 1481 & 183.67 & 38.48
-  \end{tabular}
-\end{table}
-
-Zu erkennen ist, dass sich in der Z\"ahlrate f\"ur \textit{123}
-Signale ab ca. \SI{2250}{\volt} in ein Plateau \"ubergeht, wobei die
-Z\"ahlrate des PM3 exponentiell anw\"achst, da mit steigender Spannung
-nun auch immer mehr Rauschereignisse gez\"ahlt werden. Das Plateau
-bildet sich in~\ref{fig:vorversuch-kennlinie_123} aus, da ab der oben
-genannten Spannung PM3 nun auf alle zu \textit{123} Koinzidenzen
-geh\"origen Ereignisse anspricht und somit auch eine Steigerung der
-PM3 Z\"ahlrate \"uber dieses Ma\ss{} hinaus keine h\"ohere Z\"ahlraten
-bewirkt.
 
 
 \section{Verzeichnisse}
