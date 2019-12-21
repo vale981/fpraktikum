@@ -15,6 +15,7 @@ from scipy.stats import binned_statistic
 import os
 from scipy.optimize import curve_fit
 import pylandau
+import matplotlib
 
 ###############################################################################
 #                                  Auxiliary                                  #
@@ -101,12 +102,20 @@ def boltzmann(x, c, mu):
 #                                  Plot Porn                                  #
 ###############################################################################
 
+matplotlib.use("pgf")
+matplotlib.rcParams.update({
+    "pgf.texsystem": "pdflatex",
+    'font.family': 'serif',
+    'text.usetex': False,
+    'pgf.rcfonts': False,
+})
+
 def pinmp_ticks(axis, ticks):
     axis.set_major_locator(ticker.MaxNLocator(ticks))
     axis.set_minor_locator(ticker.MaxNLocator(ticks*10))
     return axis
 
-def set_up_plot(ticks=10, pimp_top=False):
+def set_up_plot(ticks=10):
     fig = plt.figure()
     ax = fig.add_subplot(111)
 
@@ -117,10 +126,7 @@ def set_up_plot(ticks=10, pimp_top=False):
     ax.grid(which='major', alpha=.8)
 
 
-    if pimp_top:
-        ax.tick_params(right=True, top=True, which='both')
-    else:
-        ax.tick_params(right=True, which='both')
+    ax.tick_params(right=True, top=True, which='both')
 
     return fig, ax
 
