@@ -1,6 +1,6 @@
 \documentclass[slug=LM, room=Andreas-Schubert-Bau\,\ K\ 1A, supervisor=Anne-Sophie\ Berthold, coursedate=13.\ 12.\ 2019]{../../Lab_Report_LaTeX/lab_report}
 
-\title{Lebensdauer Myonen}
+\title{Lebensdauer von Myonen}
 \author{Oliver Matthes, Valentin Boettcher}
 \usepackage{todonotes}
 \graphicspath{ {figs/} }
@@ -18,7 +18,7 @@
 \begin{document}
 \maketitle
 
-\section{Einleitung}
+\section{Vorbetrachtungen}
 \label{sec:einl}
 
 \subsection{Myonenentstehung durch primäre Höhenstrahlung}
@@ -192,8 +192,8 @@ für Zeiten bis maximal \(T\) normiert werden:
 
 Daraus folgt:
 
-\begin{equation}\label{key}
- \ln L = \sum (-\frac{t_i}{\tau} - \ln\tau - \ln(1-e^{-T/\tau}))
+\begin{equation}\label{eq:delta-tau}
+ \ln L = \sum_i \qty(-\frac{t_i}{\tau} - \ln\tau - \ln(1-e^{-T/\tau}))
 \end{equation}
 
 und
@@ -402,11 +402,11 @@ zugrundeliegende Verteilung an allen drei Photomultipliern hin.
   \centering
   \begin{tabular}{l|S|S|S|S|S|S}
     \toprule
-    & {Min [\si{\volt}]} & {Max [\si{\volt}]} & {Mittelwert
+    & {Min [\si{\volt}]} & {Max [\si{\volt}]} & {Mittelwert \(\bar{U}\)
                                                 [\si{\volt}]} &
                                                                 {Median
                                                                 [\si{\volt}]}
-    & {Stdabw. rel. zu Mittlwert}\\
+    & {\(\sigma/\bar{U}\)}\\
     \midrule
     P1 & 0.20 & 3.00 & 0.72 & 0.60 & 1.31 \\
     P2 & 0.20 & 11.40 & 4.44 & 3.60 & 1.89 \\
@@ -501,7 +501,8 @@ Energieabgabe zu erkl\"aren (dagegen wiederum spr\"ache die
 
 \begin{figure}[H]\centering
   \includegraphics[width=\columnwidth]{./muon_stopp.png}
-  \caption{Ionisationsverlust des \(\mu^{+}\) durch Ionisation in
+  \caption[Ionisationsverlust des \(\mu^{+}\)]{Ionisationsverlust des
+    \(\mu^{+}\) durch Ionisation in
     Kupfer\cite{GROOM2001183}. Qualitativ ist diese Darstellung auch
     auf andere Materialien anzuwenden wobei sich die Achse des
     Energieverlusts (vertikal) umskaliert}
@@ -527,9 +528,95 @@ Bildschirm zu sehen, um eine mögliche Beeinflussung und damit
 Verzerrung der Messergebnisse zu verhindern. Mit Hilfe der Cursor wurde
 nun die Höhe von je 50 Peaks vermessen.
 
+\subsection{Hauptversuch}
+\label{sec:hauptversuch}
 
+F\"ur den Hauptversuch wurden auf Grundlage des
+Vorversuchs~\ref{sec:pm3kenn} und den Vorversuchen der anderen Gruppen
+die Betriebsspannungen der PM 1 und 2 auf \(\SI{2100}{\volt}\) und der
+PM3 auf \(\SI{2300}{\volt}\) eingestellt. Anschließend wurden
+\(\textit{12}\bar{\textit{3}}\) koinzidenzen \"uber einen Zeitraum von
+\SI{502051}{\second} aufezeichnet.
+
+Insgesammt wurden
+\begin{equation}
+  \label{eq:totalcount}
+  N=14788
+\end{equation}
+Ereignisse in den zur Auswertung genutzten Kan\"alen 23 bis 150
+gemessen.
+
+Das entspricht einem Zeitinterval der Breite (center to center):
+\begin{equation}
+  \label{eq:totalwidth}
+  T = \SI{5292.09}{\nano\second}
+\end{equation}
+
+Das gemessene Spektrum ist
+in~\ref{fig:haupt-spectrum_overview} dargestellt. In der
+Detailsansicht in~\ref{fig:haupt-spectrum_detail} ist deutlich die
+Charakteristische exponentielle Form des
+Zerfallsgesetzes~\ref{eq:zerfall} zu erkennen.
+Die Ereignisse im Peak vor kanal 23 sind warscheinlich kurzlebigeren
+Reaktionen wie zum beispiel dem \(\mu^{-}\) Einfang zuzuschreiben. Die
+Beschr\"ankung des Auswertungsbereichs nach oben ist der zunehmenden
+Verrauschung der Messung bei geringen Z\"ahlraten geschuldet (\(\Delta
+N/N=1/\sqrt{N}\)).
+
+\begin{figure}[h]\centering
+  \input{../auswertung/figs/haupt/spectrum_overview.pgf}
+  \caption[Gemessenes Summenspektrum Hauptversuch]{Gemessenes Summenspektrum. Die Kanalbreite betr\"agt
+    \SI{41.67}{\nano\second}. Die vertikalen linien kennzeichenen den
+    zur Auswertung genutzten bereich.}
+  \label{fig:haupt-spectrum_overview}
+\end{figure}
+\begin{figure}[h]\centering
+  \input{../auswertung/figs/haupt/spectrum_detail.pgf}
+  \caption[Detailsansicht des gemessenen Spektrums]{Zur Auswertung
+    herangezogener Ausschnitt des Spektrums
+    aus~\ref{fig:haupt-spectrum_overview}. Die abweichungen nach
+    Poissonstatistik wurden stellenweise aufgetragen.}
+  \label{fig:haupt-spectrum_detail}
+\end{figure}
+
+\subsubsection{Auswertung mit dem exponentiellen Zerfallsgesetz}
+\label{sec:auswertung-mit-dem-1}
+
+%\todo{discuss mu+}
+Wie in~\ref{eq:likezerfall} diskutiert wird die likelihood
+halbanalytisch maximiert und damit ein Sch\"atzter f\"ur die
+Lebensdauer des Myons gewonnen.
+
+Der fixpunktsatz von Banach garantiert hier die Konvergenz der
+iterativen Methode und erm\"oglicht sogar ohne Kentniss der
+Lipschitzkonstante (sie muss lediglich \(< 1\) sein). Wenn dann der
+Abstand zweier aufeinanderfolgender Iterationsresultate kleiner als
+die gewollte Pr\"azision ist, so gilt dies auch f\"ur den Abstand zum
+gesuchten Fixpunkt. Somit limitiert hier nur noch die Numerische
+genauigkeitsgrenze die Bestimmung der L\"osung von~\ref{eq:tau1}.
+
+\begin{figure}[h]\centering
+  \input{../auswertung/figs/haupt/continous.pgf}
+  \caption{Konvergenzprozess von \ref{eq:tau1}.}
+  \label{fig:haupt-continous}
+\end{figure}
+
+Numerisch wurde mit Nanosekunden gerechnet und die gew\"unschte
+Pr\"azision auf \SI{1e-3}{\nano\second} gesetzt. Der Konvergenzprozess
+ist in~\ref{fig:haupt-continous} dargestellt und ben\"otigte \(28\)
+iterationen. Die abweichungen der mit dieser methode gewonnenen
+Lebensdauer wird dominiert durch die Unsicherheit der Eingangsdaten
+gegeben durch die Poissonstatistik und berechnet
+nach~\ref{eq:delta-tau}.
+
+Es ergibt sich f\"ur die Lebensdauer:
+\begin{equation}
+  \label{eq:result-exponential}
+  \tau = \SI{2235\pm 18}{\nano\second}
+\end{equation}
+
+\newpage
 \section{Verzeichnisse}
-
 \label{sec:literatur}
 
 \listoffigures

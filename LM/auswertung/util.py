@@ -149,11 +149,15 @@ def save_fig(fig, title, folder='unsorted', size=(5, 4)):
 \end{figure}
     ''')
 
-def plot_spectrum(counts, offset=1, save=None, **pyplot_args):
+def plot_spectrum(counts, offset=1, errorevery=False, save=None, **pyplot_args):
     fig, ax = set_up_plot()
 
     channels = np.arange(0, counts.size) + offset
     ax.step(channels, counts, **pyplot_args)
+
+    if errorevery:
+        ax.errorbar(channels, counts, yerr=np.sqrt(counts), linestyle='None',
+                    errorevery=errorevery)
 
     ax.set_xlabel('Kanal')
     ax.set_ylabel('Counts')
@@ -169,7 +173,7 @@ def plot_spectrum(counts, offset=1, save=None, **pyplot_args):
 #                              Maximum Likelihood                             #
 ###############################################################################
 
-def continous(counts: np.ndarray, interval: Tuple[float, float], epsilon: float=1e-9) \
+def continous(counts: np.ndarray, interval: Tuple[float, float], epsilon: float=1e-3) \
   -> (float, float, int, float):
     """Maximizes the likelihood for the continous propability model.
     (Method 1)
