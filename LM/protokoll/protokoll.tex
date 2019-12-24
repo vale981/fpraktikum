@@ -61,7 +61,7 @@ Durch Bestimmung der Lebensdauer der Myonen kann man die Kopplungskonstante der 
 Wechselwirkung bestimmen:
 
 \begin{equation} \label{eq:kopplkonst}
-        \tau_\mu^-1 = G_F^2 \cdot \frac{m_\mu^5}{192 \pi^3}
+        \tau_\mu^{-1} = G_F^2 \cdot \frac{m_\mu^5}{192 \pi^3}
 \end{equation}
 
 \(\mu^+\) und \(\mu^-\) haben ziemlich genau die gleichen Lebensdauern.
@@ -246,7 +246,12 @@ Es ergibt sich für die logarithmierte Likelihood-Funktion:
 \end{equation}
 
 Da der Term \(2N +2\sum_{i} \ln(N_i!)\) nicht von der gesuchten Größe \(\tau\) abhängt, reicht es
-aus \(-2\sum_{i} N_i \ln f_i\) über \(\tau\) aufzutragen.
+aus
+\begin{equation}
+  \label{eq:finalpoisson}
+  -2\sum_{i} N_i \ln f_i
+\end{equation}
+über \(\tau\) aufzutragen.
 
 \subsubsection{Max-Log-Likelihood-Methode und Gaußverteilung}
 \label{sec:likegauss}
@@ -497,7 +502,9 @@ Bereich um \(\beta\gamma = 1\) befindet. Solch eine geringe Energie
 durch vorherige starke Abbremsung der Myonen im Geb\"aude zu
 erkl\"aren oder eine nicht~\ref{fig:muonbbloch} entsprechende
 Energieabgabe zu erkl\"aren (dagegen wiederum spr\"ache die
-\"Ubereinstimmung mit Landau).
+\"Ubereinstimmung mit Landau). Eine Impuls im bereich des Minimums
+von~\ref{fig:muonbbloch} w\"urde allerdings das Durchdringen des
+Kupferblocks beg\"unstige.
 
 \begin{figure}[H]\centering
   \includegraphics[width=\columnwidth]{./muon_stopp.png}
@@ -541,7 +548,7 @@ PM3 auf \(\SI{2300}{\volt}\) eingestellt. Anschließend wurden
 Insgesammt wurden
 \begin{equation}
   \label{eq:totalcount}
-  N=14788
+  N=15565
 \end{equation}
 Ereignisse in den zur Auswertung genutzten Kan\"alen 23 bis 150
 gemessen.
@@ -602,7 +609,8 @@ genauigkeitsgrenze die Bestimmung der L\"osung von~\ref{eq:tau1}.
 \end{figure}
 
 Numerisch wurde mit Nanosekunden gerechnet und die gew\"unschte
-Pr\"azision auf \SI{1e-3}{\nano\second} gesetzt. Der Konvergenzprozess
+Pr\"azision auf \SI{1e-3}{\nano\second} gesetzt (weit unter der
+Statistischen Abweichung). Der Konvergenzprozess
 ist in~\ref{fig:haupt-continous} dargestellt und ben\"otigte \(28\)
 iterationen. Die abweichungen der mit dieser methode gewonnenen
 Lebensdauer wird dominiert durch die Unsicherheit der Eingangsdaten
@@ -615,6 +623,157 @@ Es ergibt sich f\"ur die Lebensdauer:
   \tau = \SI{2235\pm 18}{\nano\second}
 \end{equation}
 
+\subsubsection{Auswertung mit der Poissonverteilung}
+\label{sec:auw-poisson}
+
+Es wird nun die in~\ref{sec:likepoisson} beschriebene variante der
+Maximum-Likelihood Methode auf Basis der Poissonverteilung angewendet.
+
+Die Likelihoodfunktion in der Form~\ref{eq:finalpoisson} wird
+numerisch (\verb|scipy.minimize_scalar|) mit einer soll-pr\"azision
+von \SI{1e-3}{\nano\second} (wiederum weit unter der statistischen
+Abweichung) minimiert (und damit die Likelihood maximiert). Die
+statistische Abweichung ergibt sich durch auffinden der Schnittpunkte
+einer horizontalen eine Einheit \"uber dem Minimum. Die rechts und
+linksseitige Abweichung stimmen innerhalb der \"ublichen
+Rundungsregeln bis auf eine \si{\nano\second} \"uberein und es wird
+die gr\"o\ss{}ere der beiden angegeben. Dieser Umstand deutet auf eine
+ausweichende Anzahl an Messungen hin.
+
+Es ergibt sich f\"ur die Lebensdauer:
+\begin{equation}
+  \label{eq:result-poisson}
+  \tau = \SI{2216\pm 30}{\nano\second}
+\end{equation}
+
+Die \(-2\ln{L}\) Funktion ist um ihr Minimum
+in~\ref{fig:haupt-poisson} dargestellt.
+
+\begin{figure}[h]\centering
+  \input{../auswertung/figs/haupt/poisson.pgf}
+  \caption{Das Mininum der \(-2\ln{L}\) Funktion der
+    Poissonverteilung. Aufgetragen ist auch eine Horizontale eine
+    Einheit \"uber dem Minimum.}
+  \label{fig:haupt-poisson}
+\end{figure}
+
+\subsubsection{Auswertung mit der Gaussverteilung}
+\label{sec:auw-gauss}
+
+Die in~\ref{sec:likegauss} beschriebene Auswertung auf Basis der
+Gausschen Normalverteilung verl\"auft numerisch analog
+zu~\ref{sec:auw-poisson}. Ach hier stimmen die rechts und
+linksseitigen Abweichung nach Rundung \"uberein.
+
+Es ergibt sich f\"ur die Lebensdauer:
+\begin{equation}
+  \label{eq:result-poisson}
+  \tau = \SI{2221\pm 28}{\nano\second}
+\end{equation}
+
+Die \(-2\ln{L}\) Funktion ist um ihr Minimum
+in~\ref{fig:haupt-poisson} dargestellt.
+
+\begin{figure}[h]\centering
+  \input{../auswertung/figs/haupt/gauss.pgf}
+  \caption{Das Mininum der \(-2\ln{L}\) Funktion der
+    Gaussverteilung. Aufgetragen ist auch eine Horizontale eine
+    Einheit \"uber dem Minimum.}
+  \label{fig:haupt-poisson}
+\end{figure}
+
+Desweiteren ergibt sich im Minimum ein \(\chi^2=243\). Bei \(n=128\)
+Kan\"alen und einem Freiheitsgrad liegt dieser \(\chi^2\) Wert
+innerhalb einer Standardabweichung und ist damit Akzeptabel.
+
+
+\subsubsection{Zusammenstellung und Diskussion der Ergebnisse}
+\label{sec:disk}
+
+Wie in~\ref{sec:myonenenst} beschrieben kann
+\"uber~\ref{eq:kopplkonst} die Kopplungskonstante der schwachen
+Wechselwirkung bestimmt werden.
+
+In nat\"urlichen einheiten mit
+\(m_\mu = \SI{105.6583745\pm
+  0000024}{\mega\electronvolt}\)~\cite{codata} gilt:
+
+\begin{align}
+  \label{eq:couplingconstant}
+  G_F &= \sqrt{\frac{192\pi^3}{m_\mu^5\tau_\mu}} \\
+  \Delta G_F &=
+  \frac{1}{2}\sqrt{\frac{192\pi^3}{m_\mu^5\tau_\mu^3}}\cdot \Delta \tau
+\end{align}
+
+Die Ergebnisse der statistischen Auswertung der Langzeitmessung und
+die daraus gewonnen  sind
+in~\ref{tab:summary} aufgelistet.
+\begin{table}[H]
+  \centering
+  \begin{tabular}{l|S|S|S|S}
+    \toprule
+    & {\(\tau\) [\si{\nano\second}]} & {\(\Delta\tau\) [\si{\nano\second}]} & {\(G_F\)
+                                                                              [\SI{1e-5}{\giga\electronvolt^{-2}}]}
+    & {\(\Delta G_F\)
+                                                                              [\SI{1e-8}{\giga\electronvolt^{-2}}]}
+
+    \\
+    \midrule
+    Exp. Zerf. & 2235 & 18 & 1.154 & 5 \\
+    Poissonvert. & 2216 & 30 & 1.159 & 8 \\
+    Normalvert. & 2221 & 28 & 1.158 & 8 \\
+    Literatur\cite{codata}\cite{pdg} & 2196.9811 & 0.0022 &
+                                                            1.1663787
+    & 0.0006
+  \end{tabular}
+  \caption[Zusammenfassung der Ergebnisse]{Zusammenfassung der
+    Ergebnisse der statistischen Auswertung und Berechnung der
+    Fermikonstante.}
+  \label{tab:summary}
+\end{table}
+
+Die in diesem Experiment gewonnen Werte stimmen innerhalb einer oder
+zwei Standardabweichungen miteinander \"uberein. Die durch die
+Poisson- und Gaussverteilung gewonnen Werte f\"ur Lebensdauer und
+\(G_F\) stimmen innerhalb der Abweichungsgrenzen mit der Literatur
+\"uberein. Die Werte aus der Poisson Verteilung und der
+Gaussverteilung liegen dicht beieinander, wobei der Wert aus der
+Poissonverteilung dichter an der Literatur liegt.
+
+
+Die rundung der Zeitwerte zu den Kanalmitten hin entstandenen
+Abweichungen in der Gr\"o\ss{}enordnung von \SI{20}{\nano\second}
+wurden in der Diskussion der Abweichung vernachlässigt, da sich bei
+gro\ss{}en Ereignisszahlen herausmitteln sollten. Rechnet man naiv mit
+der gausschen Fehlerfortpflanzung ohne korrelation mit einer
+pauschalen Zeitunsicherheit von \SI{20}{\nano\second} so ergibt sich
+nur ein zu vernachlässigende zus\"atzliche Abweichung
+\(<\SI{1}{\nano\second}\).  Auch der diskreten Natur der Ereignisse
+wird im Exponentiellen Zerfallsgesetz nicht Rechnung getragen, welche
+aber bei vielen Ereignissen in den Hintergrund treten sollten. Auch
+ist die direkte Auswertung nach dem exponentiellen Zerfallsgesetz
+anf\"alliger f\"ur Verzerrungen der Zerfallskurve durch andere
+Prozesse, da hier Abweichungen von dieser bei kleinen Zeiten st\"arker
+ins gewicht fallen (kurve steiler).
+
+Die Ergebnisse aus der Gaussverteilung liegen nahe denen aus der
+Poissonverteilung, so wie auch deren Unsicherheiten. Dies ist zu
+erwarten, da die Gaussverteilung ein Grenzfall der Poissonverteilung
+f\"ur gro\ss{}e Erwartungswerte ist. Unter vernachl\"assigung
+systematischer Faktoren ist zu Vermuten, dass sich durch l\"angere
+Messung kleinere Unsicherheiten und weitere Ann\"aherung an den
+Literaturwert m\"oglich ist. Die modellierung in diesen F\"allen ist
+also der ersten Methode \"uberlegen.
+
+Da nach testweiser Modifikation des betrachteten Kanalintervals alle
+drei Auswertungsmethoden starke Abweichung zeigen, liegt es nahe, zu
+vermuten, dass die Beinflussung anderer Zerfallsprozesse (besonders
+bei kleinen Zeiten) ausserhalb des f\"ur den Myonenzerfall typischen
+Zeitraums sehr gro\ss{} wird. Um eine hohe pr\"azision wie in den
+Literturwerten zu gew\"ahrleisten, m\"ussen diese auch betrachtet
+werden.
+
+TODO: Literatur ansehen!
 \newpage
 \section{Verzeichnisse}
 \label{sec:literatur}

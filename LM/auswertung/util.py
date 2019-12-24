@@ -9,6 +9,7 @@ Conventions:
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import minimize_scalar, root_scalar
+from SecondaryValue import SecondaryValue
 import matplotlib.ticker as ticker
 from typing import Dict, Tuple, Sequence
 from scipy.stats import binned_statistic
@@ -16,6 +17,7 @@ import os
 from scipy.optimize import curve_fit
 import pylandau
 import matplotlib
+from scipy import constants
 
 ###############################################################################
 #                                  Auxiliary                                  #
@@ -42,7 +44,7 @@ def load_counts(path):
 
 
 
-def chan_to_time(channel, tick=41.67, center=False, offset=0):
+def chan_to_time(channel, tick=1000/24, center=False, offset=0):
     """Convert channel number to time.
 
     :param channel: channel Number
@@ -67,6 +69,12 @@ def calculate_peak_uncertainty(peak):
     uncertainties = np.ones_like(peak) * 0.01
     uncertainties[peak > 1] = 0.1
     return uncertainties
+
+m_mu, _, d_m_mu = constants.physical_constants['muon mass energy equivalent in MeV']
+h, _, d_h = constants.physical_constants['Planck constant over 2 pi in eV s']
+weak_constant = SecondaryValue('sqrt(192*pi^3/((1e-9*tau/(h*1e-9))*(1e-3*m)^5))',
+                               defaults=dict(pi=np.pi, h=(h, d_h),
+                    m=(m_mu, d_m_mu)))
 
 ###############################################################################
 #                                   Binning                                   #
@@ -235,6 +243,7 @@ def binned_likelihood(counts, interval):
         return N_0(tau)/tau*np.exp(-(times + tick/2)/tau)*tick
 
     def convert_tau(tau):
+        """Move tau to the second first dimension."""
         return tau[None,:] if isinstance(tau, np.ndarray) else np.array([[tau]])
 
     def ln_poisson_likelihood(tau):
@@ -248,7 +257,7 @@ def binned_likelihood(counts, interval):
 
     return ln_poisson_likelihood, ln_gauss_likelihood, N
 
-def maximize_likelihood(likelihood, tau_range, epsilon=1e-5):
+def maximize_likelihood(likelihood, tau_range, epsilon=1e-3):
     """Minizizes the -2ln(likelihood) function thus maximizing the
     likelihood.
 
@@ -256,7 +265,8 @@ def maximize_likelihood(likelihood, tau_range, epsilon=1e-5):
     :param tau_range: the range in which to look for the lifetime
     :param epsilon: the desired precision
 
-    :returns: tau, (sigma minus, sigma plus), -2*ln(likelihood) at minimum
+    :returns: tau, (sigma minus, sigma plus), -2*ln(likelihood) at minimum,
+              (gf, delta_gf)
     """
 
     result = minimize_scalar(likelihood, bounds=tau_range, bracket=tau_range,
@@ -275,7 +285,8 @@ def maximize_likelihood(likelihood, tau_range, epsilon=1e-5):
                                  x1=tau + 100 if right else tau - 100).root)
     sigma_minus = find_sigma()
     sigma_plus = find_sigma(right=True)
-    return tau, (sigma_minus, sigma_plus), l
+    max_sigma = np.max([sigma_plus, sigma_minus])
+    return tau, (sigma_minus, sigma_plus), l, weak_constant(tau=(tau, max_sigma))
 
 
 # i could just use *args **kwargs for this wrapper, but i won't for
@@ -289,11 +300,11 @@ def maximize_and_plot_likelihood(likelihood, tau_range, epsilon=1e-5, save=None)
     :param epsilon: the desired precision
 
     :returns: (fig, ax), tau, (sigma minus, sigma plus),
-              -2*ln(likelihood) at minimum
+              -2*ln(likelihood) at minimum, (gf, delta_gf)
     """
 
-    tau, sigma, l = maximize_likelihood(likelihood,
-                                                          tau_range, epsilon)
+    tau, sigma, l, gf = maximize_likelihood(likelihood,
+                                      tau_range, epsilon)
 
     rng = np.max(sigma) * 3
     taus = np.linspace(tau - rng, tau + rng, 1000)
@@ -313,10 +324,10 @@ def maximize_and_plot_likelihood(likelihood, tau_range, epsilon=1e-5, save=None)
                 label='Minimum', capsize=10)
 
     ax.set_xlabel(r'$\tau$ [ns]')
-    ax.set_ylabel(r'$-2\ln($Likelihood$)$')
+    ax.set_ylabel(r'$-2\ln(L)$')
     ax.legend()
 
 
     if save:
         save_fig(fig, *save)
-    return (fig, ax), tau, sigma, l
+    return (fig, ax), tau, sigma, l, gf
