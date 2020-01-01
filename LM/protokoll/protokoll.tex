@@ -90,13 +90,16 @@ Eine Skizze der im Versuch verwendeten Messanordnung ist in~\ref{fig:aufbau} zu 
 Sie besteht aus drei Photomultipliern und Szintillatoren sowie zwei Kupferplatten, die je
 \(\SI{1}{\centi\metre}\) dick sind. Zwei der Szintillatoren befinden sich oberhalb der Kupferplatten
 und entsprechend eine unterhalb. Sie haben eine Fläche von \(\SI{0,6}{\metre} \times \SI{0,36}{\metre}\).
-Wenn ein Myon im Kupfer gestoppt wird geben PM1 und PM2 ein Signal aus, nicht jedoch PM3. Wird ein
+Wenn ein Myon im Kupfer gestoppt wird geben PM1 und PM2 ein Signal aus, nicht jedoch PM3.
+Dieses Signal wird deswegen mit \(\textit{12}\bar{\textit{3}}\) bezeichnet. Wird ein
 solches Ereignis gemessen wird die Zeitmessung gestartet und gestoppt, wenn entweder
 \(\SI{10}{\micro\second}\) vergangen sind, um zufällige Koinzidenzen, die beispielsweise durch
 den niederenergetischen Anteil der Höhenstrahlung auftreten können, zum größten Teil
 herausfiltern zu können, oder
-ein nach oben emittiertes Positron von PM2 gemessen wird bzw. ein nach unten emittiertes in
-PM3 detektiert wird. Ein Diskriminator wandelt anschließend noch die PM-Signale in Signale mit der
+ein nach oben emittiertes Positron von PM2 (Signal \(\textit{2}\bar{\textit{3}}\)) gemessen wird 
+bzw. ein nach unten emittiertes in
+PM3 (Signal \(\bar{\textit{2}}\textit{3}\)) detektiert wird. Ein Diskriminator wandelt anschließend 
+noch die PM-Signale in Signale mit der
 gleichen Ausgangsbreite von \(\SI{41,7}{\nano\second}\) um. Alle gemessenen Ereignisse werden
 zum Schluss von einem an den Aufbau angeschlossenen PC verarbeitet.
 
@@ -233,6 +236,18 @@ beschrieben:
  P(N_i,f_i) = \frac{f_i^{N_i} \cdot e^{-f_i}}{N_i !}
 \end{equation}
 
+Mit
+
+\begin{equation}\label{eq:fipoisson}
+ f_i(t_i,\Delta t, \tau, N_0) = \int_{t=t_i}^{t_i+\Delta t} \frac{N_0}{\tau} \cdot \exp[-\frac{1}{\tau}] dt \approx \frac{N_0}{\tau} \cdot \exp[-\frac{t_i+\frac{\Delta t}{2}}{\tau}] \cdot \Delta t
+\end{equation}
+
+und
+
+\begin{equation}\label{eq:N0poisson}
+	N_0(\tau) = \frac{N}{\exp[-\frac{t_1}{\tau}]-\exp[-\frac{t_K+\Delta t}{\tau}]}
+\end{equation}
+
 Mit der Varianz für \(N_i\) um den entsprechenden Mittelwert \(f_i\):
 
 \begin{equation}\label{key}
@@ -271,6 +286,8 @@ Analog zur Poissonverteilung folgt für die logarithmierte Likelihoodfunktion:
  -2\ln L = \sum_{i}\ln (2\pi\sigma_i^2) + \sum_{i} \frac{(N_i - f_i)^2}{\sigma_i^2}
 \end{equation}
 
+Mit \(f_i\) und \(N_0\) wie unter~\ref{sec:likepoisson}. \\
+
 Da der erste Summenterm durch die Näherung \(\sigma_i(f_i) = \sqrt{f_i} \approx \sqrt{N_i}\) nicht
 von \(\tau\) abhängt, kann dieser bei der Bestimmung von \(\hat{\tau}\) vernachlässigt und nur
 der zweite Term betrachtet werden, der eine \(\chi^2\)-Verteilung beschreibt.
@@ -296,12 +313,12 @@ Minimierung der \(\chi^2\)-Funktion bestimmt.
 \subsubsection{Aufnahme der Kennlinie f\"ur PM3}
 \label{sec:pm3kenn}
 
-Das Koninzidenzsignal (\textit{123}) und das Signal des
+Das Koinzidenzsignal (\textit{123}) und das Signal des
 Photomultiplier PM3 wurden mit der Z\"ahleinheit verbunden.  Nach der
 Einstellung der Hochspannungen an den Photomultipliern auf
 \SI{2400}{\volt} (PM1, PM2) und \SI{2100}{\volt}, wurde die Messzeit
 mit \SI{140}{\second} so bemessen, dass die Anzahl der Ereignisse
-\(N\) ausreichte, um eine relative ungenauigkeit von
+\(N\) ausreichte, um eine relative Ungenauigkeit von
 \(\eta \leq \SI{3}{\percent})\) zu erreichen (Poisson-Verteilung).
 
 \begin{align}
@@ -311,24 +328,24 @@ mit \SI{140}{\second} so bemessen, dass die Anzahl der Ereignisse
 \end{align}
 
 Da bei geringeren Spannungen an PM3 die Z\"ahlraten sinken, ergeben
-sich dort auch gr\"o\ss{}ere Abweichungen.  Anschliessend wurde die
+sich dort auch gr\"o\ss{}ere Abweichungen.  Anschließend wurde die
 Spannung an PM2 in \SI{50}{\volt} Schritten im Bereich
-\SIrange{1800}{2400}{\volt} variiert.  Die dabei gemmesenen
+\SIrange{1800}{2400}{\volt} variiert.  Die dabei gemessenen
 Z\"ahlraten sind in~\ref{fig:vorversuch-kennlinie_123}
 und~\ref{fig:vorversuch-kennlinie_pm3} aufgetragen und
 in~\ref{tab:counts3123} aufgelistet.
 
-%\begin{figure}[h]\centering
-%  \input{../auswertung/figs/vorversuch/kennlinie_123.pgf}
-%  \caption{Koinzidenzz\"ahlrate in Abh\"angigkeit der Spannung an PM3.}
-%  \label{fig:vorversuch-kennlinie_123}
-%\end{figure}
+\begin{figure}[h]\centering
+  \input{../auswertung/figs/vorversuch/kennlinie_123.pgf}
+  \caption{Koinzidenzz\"ahlrate in Abh\"angigkeit der Spannung an PM3.}
+  \label{fig:vorversuch-kennlinie_123}
+\end{figure}
 
-%\begin{figure}[h]\centering
-%  \input{../auswertung/figs/vorversuch/kennlinie_pm3.pgf}
-%  \caption{Z\"ahlrate von PM3 in Abh\"angigkeit der Spannung an PM3.}
-%  \label{fig:vorversuch-kennlinie_pm3}
-%\end{figure}
+\begin{figure}[h]\centering
+  \input{../auswertung/figs/vorversuch/kennlinie_pm3.pgf}
+  \caption{Z\"ahlrate von PM3 in Abh\"angigkeit der Spannung an PM3.}
+  \label{fig:vorversuch-kennlinie_pm3}
+\end{figure}
 
 \begin{table}[h]
   \centering
@@ -356,7 +373,7 @@ in~\ref{tab:counts3123} aufgelistet.
     2400 & 240.96 & 10.58 & 15.52 & 3.25
   \end{tabular}
   \caption{Z\"ahlraten f\"ur PM3 und \textit{123} Koinzidenzen in
-    abh\"angigkeit der Spannung an PM3. Messabweichungen aus
+    Abh\"angigkeit der Spannung an PM3. Messabweichungen aus
     Poissonverteilung: \(\Delta \dot{N} = \frac{\sqrt{N}}{T}\)}
   \label{tab:counts3123}
 \end{table}
@@ -382,7 +399,7 @@ festgelegt.
 \label{sec:pulse}
 
 Zu begin wurden die drei PM-Signale gemeinsam mit dem Koinzidenzsignal
-(\textit{123}, Durchfliegenden Myon) für die ungestoppten Myonen auf je einen
+(\textit{123}, durchfliegendes Myon) für die ungestoppten Myonen auf je einen
 Oszilloskopkanal gelegt und die Spannungen der PMs anschließend auf
 \(U_{1,HV} = \SI{2300}{\volt}\), \(U_{2,HV} = \SI{2300}{\volt}\) und
 \(U_{3,HV} = \SI{2100}{\volt}\) eingestellt.
@@ -396,11 +413,11 @@ betrachten, um eine unbewusste Selektion und damit Verzerrung der
 Messergebnisse zu verhindern. Mit Hilfe der ``Difference'' Funktion
 des Oszilloskops wurde die Höhe von je 50 Peaks vermessen.
 
-Es ergeben sich die Grundlegenden in~\ref{tab:statpeaks} angegebenen
-Statistischen Gr\"o\ss{}en. Grob zu erkennen ist, dass mit dem Index
-der Photomultiplier die Mittelwerte/Mediane sowie die Maximalen
+Es ergeben sich die grundlegenden in~\ref{tab:statpeaks} angegebenen
+statistischen Gr\"o\ss{}en. Grob zu erkennen ist, dass mit dem Index
+der Photomultiplier die Mittelwerte/Mediane sowie die maximalen
 Peakspannungen steigen. Die relativen Standardabweichungen sind dabei
-aber relativ \"ahnlich. Das deutet auf eine \"ahnliche
+aber recht \"ahnlich. Das deutet auf eine \"ahnliche
 zugrundeliegende Verteilung an allen drei Photomultipliern hin.
 
 \begin{table}[h]
@@ -422,14 +439,14 @@ zugrundeliegende Verteilung an allen drei Photomultipliern hin.
   \label{tab:statpeaks}
 \end{table}
 
-Zeichnet man auf warscheinlichkeitsdichte skallierte Histogramme
-(Abb.~\ref{fig:histos}) so l\"asst sich diese Vermutung best\"tigen.
+Zeichnet man auf Wahrscheinlichkeitsdichte skalierte Histogramme
+(Abb.~\ref{fig:histos}), so l\"asst sich diese Vermutung best\"atigen.
 Da die \textit{123} Signale zum gr\"o\ss{}ten Teil von durchfliegenden
 Myonen erzeugt werden (nur diese durchdringen den Kupferblock), kann
 angenommen werden, dass die Energie dieser Myonen ann\"ahernd konstant
 ist und die Fluktuationen in den Peakh\"ohen der Photomultiplier von
 den Fluktuationen in der Energieabgabe der Myonen in den
-Szintillatoren um den durch die Bethe-Bloch gegebenen Mittelwert
+Szintillatoren um den durch die Bethe-Bloch-Formel gegebenen Mittelwert
 herr\"uhrt.
 
 \begin{figure}[h]
@@ -459,17 +476,17 @@ herr\"uhrt.
   \end{subfigure}
 
   \caption[Peak Histogramme PM1-3]{Histogramme der
-    Peakh\"ohenverteilung bei durchfliegenden Myonen. Die anzahl der
+    Peakh\"ohenverteilung bei durchfliegenden Myonen. Die Anzahl der
     Bins wurde so gew\"ahlt, dass die Form der Verteilung ohne allzu
     gro\ss{}e Fluktuationen zu erkennen ist.}
   \label{fig:histos}
 \end{figure}
 
-Die statistik der Energieabgabe durch Ionisation ist gegeben duch die
+Die Statistik der Energieabgabe durch Ionisation ist gegeben durch die
 Landauverteilung (siehe~\ref{eq:landau}).\cite{Landau:216256} Dabei
-zeichnet sich ein relativ scharfes maximum ab (Bethe-Bloch), welches
-dann in einen sehr langen schwanz \"ubergeht. Die verteilung ist
-normierbar, jedoch lassen sich aufgrund ihrer gro\ss{}en breite keine
+zeichnet sich ein relativ scharfes Maximum ab (Bethe-Bloch), welches
+dann in einen sehr langen Schwanz \"ubergeht. Die Verteilung ist
+normierbar, jedoch lassen sich aufgrund ihrer gro\ss{}en Breite keine
 Momente definieren.
 
 \begin{equation}
@@ -479,11 +496,11 @@ Momente definieren.
 
 Passt man~\ref{eq:landau} mit dem Verschiebungsparameter \(\mu\) und
 der Skalierungskonstante \(\eta\) an die Histogramme an, so ergibt
-sich eine gute \"ubereinstimmung (siehe~\ref{fig:histos}). Die
-Physikalische bedeutung dieser Parameter wird hier mangels
-Kalibrierung nicht weiter betrachtet. Die numerische implementierung
+sich eine gute Übereinstimmung (siehe~\ref{fig:histos}). Die
+physikalische Bedeutung dieser Parameter wird hier mangels
+Kalibrierung nicht weiter betrachtet. Die numerische Implementierung
 von~\ref{eq:landau} machte eine Skalierung der Spannungsachse
-notwendig. Der Lange schwanz der Landauverteilung ist in der
+notwendig. Der Lange Schwanz der Landauverteilung ist in der
 Realit\"at durch die Teilchenenergie begrenzt und begr\"undet sich
 durch sehr seltene Prozesse wie z.B. die Entstehung von
 sog. \(\Delta\)-Strahlen durch einen sehr hohen Energie\"ubertrag
@@ -494,17 +511,17 @@ Da die Photomultiplier nicht auf Energie kalibriert wurden, kann die
 Verschiebung des Mittelwerts der Peakh\"ohen nicht klar gedeutet
 werden. Nimmt man an, dass sich die PM bei gleichen Spannungen
 \"ahnlich verhalten, so w\"urde die Verschiebung eine
-Vergr\"o\ss{}erung des energieverlustes in Aufeinanderfolgenden
-Szintilatorschichten bedeuten (PM3 sogar nach Kupfer). Dies wiederum
+Vergr\"o\ss{}erung des Energieverlustes in aufeinanderfolgenden
+Szintillatorschichten bedeuten (PM3 sogar nach Kupfer). Dies wiederum
 w\"urde darauf hindeuten, dass man sich in~\ref{fig:muonbbloch} im
 Bereich um \(\beta\gamma = 1\) befindet. Solch eine geringe Energie
-(\(<\SI{1}{\giga\electronvolt}\), \(E\approx p\cdot c\)) w\"ahre nur
-durch vorherige starke Abbremsung der Myonen im Geb\"aude zu
-erkl\"aren oder eine nicht~\ref{fig:muonbbloch} entsprechende
+(\(<\SI{1}{\giga\electronvolt}\), \(E\approx p\cdot c\)) w\"are nur
+durch vorherige starke Abbremsung der Myonen im Geb\"aude
+oder eine nicht~\ref{fig:muonbbloch} entsprechende
 Energieabgabe zu erkl\"aren (dagegen wiederum spr\"ache die
-\"Ubereinstimmung mit Landau). Eine Impuls im bereich des Minimums
+\"Ubereinstimmung mit Landau). Eine Impuls im Bereich des Minimums
 von~\ref{fig:muonbbloch} w\"urde allerdings das Durchdringen des
-Kupferblocks beg\"unstige.
+Kupferblocks beg\"unstigen.
 
 \begin{figure}[H]\centering
   \includegraphics[width=\columnwidth]{./muon_stopp.png}
@@ -512,7 +529,7 @@ Kupferblocks beg\"unstige.
     \(\mu^{+}\) durch Ionisation in
     Kupfer\cite{GROOM2001183}. Qualitativ ist diese Darstellung auch
     auf andere Materialien anzuwenden wobei sich die Achse des
-    Energieverlusts (vertikal) umskaliert}
+    Energieverlusts (vertikal) umskaliert.}
   \label{fig:muonbbloch}
 \end{figure}
 
@@ -542,10 +559,10 @@ F\"ur den Hauptversuch wurden auf Grundlage des
 Vorversuchs~\ref{sec:pm3kenn} und den Vorversuchen der anderen Gruppen
 die Betriebsspannungen der PM 1 und 2 auf \(\SI{2100}{\volt}\) und der
 PM3 auf \(\SI{2300}{\volt}\) eingestellt. Anschließend wurden
-\(\textit{12}\bar{\textit{3}}\) koinzidenzen \"uber einen Zeitraum von
-\SI{502051}{\second} aufezeichnet.
+\(\textit{12}\bar{\textit{3}}\) Koinzidenzen \"uber einen Zeitraum von
+\SI{502051}{\second} aufgezeichnet.
 
-Insgesammt wurden
+Insgesamt wurden
 \begin{equation}
   \label{eq:totalcount}
   N=15565
@@ -553,7 +570,7 @@ Insgesammt wurden
 Ereignisse in den zur Auswertung genutzten Kan\"alen 23 bis 150
 gemessen.
 
-Das entspricht einem Zeitinterval der Breite (center to center):
+Das entspricht einem Zeitintervall der Breite (center to center):
 \begin{equation}
   \label{eq:totalwidth}
   T = \SI{5292.09}{\nano\second}
@@ -561,11 +578,11 @@ Das entspricht einem Zeitinterval der Breite (center to center):
 
 Das gemessene Spektrum ist
 in~\ref{fig:haupt-spectrum_overview} dargestellt. In der
-Detailsansicht in~\ref{fig:haupt-spectrum_detail} ist deutlich die
-Charakteristische exponentielle Form des
+Detailansicht in~\ref{fig:haupt-spectrum_detail}, ist deutlich die
+charakteristische exponentielle Form des
 Zerfallsgesetzes~\ref{eq:zerfall} zu erkennen.
-Die Ereignisse im Peak vor kanal 23 sind warscheinlich kurzlebigeren
-Reaktionen wie zum beispiel dem \(\mu^{-}\) Einfang zuzuschreiben. Die
+Die Ereignisse im Peak vor Kanal 23 sind wahrscheinlich kurzlebigeren
+Reaktionen wie zum Beispiel dem \(\mu^{-}\)-Einfang zuzuschreiben. Die
 Beschr\"ankung des Auswertungsbereichs nach oben ist der zunehmenden
 Verrauschung der Messung bei geringen Z\"ahlraten geschuldet (\(\Delta
 N/N=1/\sqrt{N}\)).
@@ -573,15 +590,15 @@ N/N=1/\sqrt{N}\)).
 \begin{figure}[h]\centering
   \input{../auswertung/figs/haupt/spectrum_overview.pgf}
   \caption[Gemessenes Summenspektrum Hauptversuch]{Gemessenes Summenspektrum. Die Kanalbreite betr\"agt
-    \SI{41.67}{\nano\second}. Die vertikalen linien kennzeichenen den
-    zur Auswertung genutzten bereich.}
+    \SI{41.67}{\nano\second}. Die vertikalen Linien kennzeichnen den
+    zur Auswertung genutzten Bereich.}
   \label{fig:haupt-spectrum_overview}
 \end{figure}
 \begin{figure}[h]\centering
   \input{../auswertung/figs/haupt/spectrum_detail.pgf}
-  \caption[Detailsansicht des gemessenen Spektrums]{Zur Auswertung
+  \caption[Detailansicht des gemessenen Spektrums]{Zur Auswertung
     herangezogener Ausschnitt des Spektrums
-    aus~\ref{fig:haupt-spectrum_overview}. Die abweichungen nach
+    aus~\ref{fig:haupt-spectrum_overview}. Die Abweichungen nach
     Poissonstatistik wurden stellenweise aufgetragen.}
   \label{fig:haupt-spectrum_detail}
 \end{figure}
@@ -590,17 +607,17 @@ N/N=1/\sqrt{N}\)).
 \label{sec:auswertung-mit-dem-1}
 
 %\todo{discuss mu+}
-Wie in~\ref{eq:likezerfall} diskutiert wird die likelihood
-halbanalytisch maximiert und damit ein Sch\"atzter f\"ur die
+Wie in~\ref{eq:likezerfall} diskutiert wird die Likelihood-Funktion
+halbanalytisch maximiert und damit ein Sch\"atzer f\"ur die
 Lebensdauer des Myons gewonnen.
 
-Der fixpunktsatz von Banach garantiert hier die Konvergenz der
-iterativen Methode und erm\"oglicht sogar ohne Kentniss der
+Der Fixpunktsatz von Banach garantiert hier die Konvergenz der
+iterativen Methode und erm\"oglicht sogar ohne Kenntnis der
 Lipschitzkonstante (sie muss lediglich \(< 1\) sein). Wenn dann der
 Abstand zweier aufeinanderfolgender Iterationsresultate kleiner als
 die gewollte Pr\"azision ist, so gilt dies auch f\"ur den Abstand zum
-gesuchten Fixpunkt. Somit limitiert hier nur noch die Numerische
-genauigkeitsgrenze die Bestimmung der L\"osung von~\ref{eq:tau1}.
+gesuchten Fixpunkt. Somit limitiert hier nur noch die numerische
+Genauigkeitsgrenze die Bestimmung der L\"osung von~\ref{eq:tau1}.
 
 \begin{figure}[h]\centering
   \input{../auswertung/figs/haupt/continous.pgf}
@@ -610,9 +627,9 @@ genauigkeitsgrenze die Bestimmung der L\"osung von~\ref{eq:tau1}.
 
 Numerisch wurde mit Nanosekunden gerechnet und die gew\"unschte
 Pr\"azision auf \SI{1e-3}{\nano\second} gesetzt (weit unter der
-Statistischen Abweichung). Der Konvergenzprozess
+statistischen Abweichung). Der Konvergenzprozess
 ist in~\ref{fig:haupt-continous} dargestellt und ben\"otigte \(28\)
-iterationen. Die abweichungen der mit dieser methode gewonnenen
+Iterationen. Die Abweichungen der mit dieser Methode gewonnenen
 Lebensdauer wird dominiert durch die Unsicherheit der Eingangsdaten
 gegeben durch die Poissonstatistik und berechnet
 nach~\ref{eq:delta-tau}.
@@ -626,15 +643,15 @@ Es ergibt sich f\"ur die Lebensdauer:
 \subsubsection{Auswertung mit der Poissonverteilung}
 \label{sec:auw-poisson}
 
-Es wird nun die in~\ref{sec:likepoisson} beschriebene variante der
+Es wird nun die in~\ref{sec:likepoisson} beschriebene Variante der
 Maximum-Likelihood Methode auf Basis der Poissonverteilung angewendet.
 
-Die Likelihoodfunktion in der Form~\ref{eq:finalpoisson} wird
-numerisch (\verb|scipy.minimize_scalar|) mit einer soll-pr\"azision
+Die Likelihood-Funktion in der Form~\ref{eq:finalpoisson} wird
+numerisch (\verb|scipy.minimize_scalar|) mit einer Soll-Pr\"azision
 von \SI{1e-3}{\nano\second} (wiederum weit unter der statistischen
-Abweichung) minimiert (und damit die Likelihood maximiert). Die
-statistische Abweichung ergibt sich durch auffinden der Schnittpunkte
-einer horizontalen eine Einheit \"uber dem Minimum. Die rechts und
+Abweichung) minimiert (und damit die Likelihood-Funktion maximiert). Die
+statistische Abweichung ergibt sich durch Auffinden der Schnittpunkte
+einer Horizontalen eine Einheit \"uber dem Minimum. Die rechts und
 linksseitige Abweichung stimmen innerhalb der \"ublichen
 Rundungsregeln bis auf eine \si{\nano\second} \"uberein und es wird
 die gr\"o\ss{}ere der beiden angegeben. Dieser Umstand deutet auf eine
@@ -651,7 +668,7 @@ in~\ref{fig:haupt-poisson} dargestellt.
 
 \begin{figure}[h]\centering
   \input{../auswertung/figs/haupt/poisson.pgf}
-  \caption{Das Mininum der \(-2\ln{L}\) Funktion der
+  \caption{Das Mininum der \(-2\ln{L}\)-Funktion der
     Poissonverteilung. Aufgetragen ist auch eine Horizontale eine
     Einheit \"uber dem Minimum.}
   \label{fig:haupt-poisson}
@@ -661,8 +678,8 @@ in~\ref{fig:haupt-poisson} dargestellt.
 \label{sec:auw-gauss}
 
 Die in~\ref{sec:likegauss} beschriebene Auswertung auf Basis der
-Gausschen Normalverteilung verl\"auft numerisch analog
-zu~\ref{sec:auw-poisson}. Ach hier stimmen die rechts und
+Gauß'schen Normalverteilung verl\"auft numerisch analog
+zu~\ref{sec:auw-poisson}. Auch hier stimmen die rechts und
 linksseitigen Abweichung nach Rundung \"uberein.
 
 Es ergibt sich f\"ur die Lebensdauer:
@@ -676,15 +693,15 @@ in~\ref{fig:haupt-poisson} dargestellt.
 
 \begin{figure}[h]\centering
   \input{../auswertung/figs/haupt/gauss.pgf}
-  \caption{Das Mininum der \(-2\ln{L}\) Funktion der
-    Gaussverteilung. Aufgetragen ist auch eine Horizontale eine
+  \caption{Das Mininum der \(-2\ln{L}\)-Funktion der
+    Gaußverteilung. Aufgetragen ist auch eine Horizontale eine
     Einheit \"uber dem Minimum.}
   \label{fig:haupt-poisson}
 \end{figure}
 
-Desweiteren ergibt sich im Minimum ein \(\chi^2=243\). Bei \(n=128\)
+Des Weiteren ergibt sich im Minimum ein \(\chi^2=243\). Bei \(n=128\)
 Kan\"alen und einem Freiheitsgrad liegt dieser \(\chi^2\) Wert
-innerhalb einer Standardabweichung und ist damit Akzeptabel.
+innerhalb einer Standardabweichung und ist damit akzeptabel.
 
 
 \subsubsection{Zusammenstellung und Diskussion der Ergebnisse}
@@ -694,7 +711,7 @@ Wie in~\ref{sec:myonenenst} beschrieben kann
 \"uber~\ref{eq:kopplkonst} die Kopplungskonstante der schwachen
 Wechselwirkung bestimmt werden.
 
-In nat\"urlichen einheiten mit
+In nat\"urlichen Einheiten mit
 \(m_\mu = \SI{105.6583745\pm
   0000024}{\mega\electronvolt}\)~\cite{codata} gilt:
 
@@ -706,7 +723,7 @@ In nat\"urlichen einheiten mit
 \end{align}
 
 Die Ergebnisse der statistischen Auswertung der Langzeitmessung und
-die daraus gewonnen  sind
+die daraus gewonnen Ungenauigkeiten sind
 in~\ref{tab:summary} aufgelistet.
 \begin{table}[H]
   \centering
@@ -734,43 +751,43 @@ in~\ref{tab:summary} aufgelistet.
 
 Die in diesem Experiment gewonnen Werte stimmen innerhalb einer oder
 zwei Standardabweichungen miteinander \"uberein. Die durch die
-Poisson- und Gaussverteilung gewonnen Werte f\"ur Lebensdauer und
+Poisson- und Gaußverteilung gewonnen Werte f\"ur Lebensdauer und
 \(G_F\) stimmen innerhalb der Abweichungsgrenzen mit der Literatur
-\"uberein. Die Werte aus der Poisson Verteilung und der
-Gaussverteilung liegen dicht beieinander, wobei der Wert aus der
+\"uberein. Die Werte aus der Poissonverteilung und der
+Gaußverteilung liegen dicht beieinander, wobei der Wert aus der
 Poissonverteilung dichter an der Literatur liegt.
 
 
-Die rundung der Zeitwerte zu den Kanalmitten hin entstandenen
+Die Rundung der Zeitwerte zu den Kanalmitten hin entstandenen
 Abweichungen in der Gr\"o\ss{}enordnung von \SI{20}{\nano\second}
 wurden in der Diskussion der Abweichung vernachlässigt, da sich bei
-gro\ss{}en Ereignisszahlen herausmitteln sollten. Rechnet man naiv mit
-der gausschen Fehlerfortpflanzung ohne korrelation mit einer
+gro\ss{}en Ereigniszahlen herausmitteln sollten. Rechnet man naiv mit
+der Gauß'schen Fehlerfortpflanzung ohne Korrelation mit einer
 pauschalen Zeitunsicherheit von \SI{20}{\nano\second} so ergibt sich
 nur ein zu vernachlässigende zus\"atzliche Abweichung
 \(<\SI{1}{\nano\second}\).  Auch der diskreten Natur der Ereignisse
-wird im Exponentiellen Zerfallsgesetz nicht Rechnung getragen, welche
-aber bei vielen Ereignissen in den Hintergrund treten sollten. Auch
+wird im exponentiellen Zerfallsgesetz nicht Rechnung getragen, welche
+aber bei vielen Ereignissen in den Hintergrund treten sollten. Zudem
 ist die direkte Auswertung nach dem exponentiellen Zerfallsgesetz
 anf\"alliger f\"ur Verzerrungen der Zerfallskurve durch andere
 Prozesse, da hier Abweichungen von dieser bei kleinen Zeiten st\"arker
-ins gewicht fallen (kurve steiler).
+ins Gewicht fallen (kurve steiler).
 
-Die Ergebnisse aus der Gaussverteilung liegen nahe denen aus der
+Die Ergebnisse aus der Gaußverteilung liegen nahe denen aus der
 Poissonverteilung, so wie auch deren Unsicherheiten. Dies ist zu
-erwarten, da die Gaussverteilung ein Grenzfall der Poissonverteilung
-f\"ur gro\ss{}e Erwartungswerte ist. Unter vernachl\"assigung
-systematischer Faktoren ist zu Vermuten, dass sich durch l\"angere
+erwarten, da die Gaußverteilung ein Grenzfall der Poissonverteilung
+f\"ur gro\ss{}e Erwartungswerte ist. Unter Vernachl\"assigung
+systematischer Faktoren ist zu vermuten, dass sich durch l\"angere
 Messung kleinere Unsicherheiten und weitere Ann\"aherung an den
-Literaturwert m\"oglich ist. Die modellierung in diesen F\"allen ist
+Literaturwert m\"oglich ist. Die Modellierung in diesen F\"allen ist
 also der ersten Methode \"uberlegen.
 
-Da nach testweiser Modifikation des betrachteten Kanalintervals alle
+Da nach testweiser Modifikation des betrachteten Kanalintervalls alle
 drei Auswertungsmethoden starke Abweichung zeigen, liegt es nahe, zu
-vermuten, dass die Beinflussung anderer Zerfallsprozesse (besonders
-bei kleinen Zeiten) ausserhalb des f\"ur den Myonenzerfall typischen
-Zeitraums sehr gro\ss{} wird. Um eine hohe pr\"azision wie in den
-Literturwerten zu gew\"ahrleisten, m\"ussen diese auch betrachtet
+vermuten, dass die Beeinflussung anderer Zerfallsprozesse (besonders
+bei kleinen Zeiten) außerhalb des f\"ur den Myonenzerfall typischen
+Zeitraums sehr gro\ss{} wird. Um eine hohe Pr\"azision wie in den
+Literaturwerten zu gew\"ahrleisten, m\"ussen diese auch betrachtet
 werden.
 
 TODO: Literatur ansehen!
