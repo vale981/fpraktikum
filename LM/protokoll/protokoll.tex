@@ -45,7 +45,7 @@ Jedes dieser Pionen wiederum zerfällt mittels der schwachen Wechselwirkung inne
 \end{align}
 
 Diese bei dem Pionenzerfall entstandenen Myonen zerfallen nach einer mittleren Lebensdauer von
-\(\tau_\mu = \SI{2,19703\pm0,00004e-6}{\second}\) weiter:
+\(\tau_\mu = \SI{2,19703\pm0,00004e-6}{\second}\)\cite{pdg} weiter:
 
 \begin{align}
         \mu^+ \rightarrow e^+ + \nu_e + \bar\nu_\mu \\
@@ -80,7 +80,8 @@ des negativ geladenen Myons verkürzt (in Kupfer zum Beispiel um \(\SI{0,1636 \p
 \end{equation}
 
 \begin{conditions}
-        \tau_c & \(\mu^-\) Lebensdauer bei Einfang
+  \tau_c & \(\mu^-\) Lebensdauer bei Einfang \\
+  \tau_0 & Urspr\"ungliche Lebensdaurer
 \end{conditions}
 
 \subsection{Messaufbau und Detektorfunktionsweise}
@@ -90,7 +91,16 @@ Eine Skizze der im Versuch verwendeten Messanordnung ist in~\ref{fig:aufbau} zu 
 Sie besteht aus drei Photomultipliern und Szintillatoren sowie zwei Kupferplatten, die je
 \(\SI{1}{\centi\metre}\) dick sind. Zwei der Szintillatoren befinden sich oberhalb der Kupferplatten
 und entsprechend eine unterhalb. Sie haben eine Fläche von \(\SI{0,6}{\metre} \times \SI{0,36}{\metre}\).
-Wenn ein Myon im Kupfer gestoppt wird geben PM1 und PM2 ein Signal aus, nicht jedoch PM3.
+Ereignisse in Szintilatoren (siehe~\ref{sec:szinti}) werden durch
+Photomultiplier ausgelesen (siehe~\ref{sec:photomulti}) deren Signale
+wiederum von Diskriminator in einheitliche Signale umgewandlet werden
+um in einer elektronischen Koinzidenzeinheit klassifiziert zu werden
+(z.B. gleichzeitige Ansprache on PM1 und PM2). Der Diskriminator
+unterdr\"uckt zuden Signale unter \SI{100}{\milli\volt}. Zeitdifferenzen
+zwischen verschiedenen Koinzidenzen k\"onnen mit einem \emph{Time to
+  Digital Converter} (TDC) in Kan\"ale der Breite
+\SI{41.67}{\nano\second} einsortiert werden.
+Wenn ein Myon im Kupfer gestoppt wird, geben PM1 und PM2 ein Signal aus, nicht jedoch PM3.
 Dieses Signal wird deswegen mit \(\textit{12}\bar{\textit{3}}\) bezeichnet. Wird ein
 solches Ereignis gemessen wird die Zeitmessung gestartet und gestoppt, wenn entweder
 \(\SI{10}{\micro\second}\) vergangen sind, um zufällige Koinzidenzen, die beispielsweise durch
@@ -98,10 +108,8 @@ den niederenergetischen Anteil der Höhenstrahlung auftreten können, zum größ
 herausfiltern zu können, oder
 ein nach oben emittiertes Positron von PM2 (Signal \(\textit{2}\bar{\textit{3}}\)) gemessen wird 
 bzw. ein nach unten emittiertes in
-PM3 (Signal \(\bar{\textit{2}}\textit{3}\)) detektiert wird. Ein Diskriminator wandelt anschließend 
-noch die PM-Signale in Signale mit der
-gleichen Ausgangsbreite von \(\SI{41,7}{\nano\second}\) um. Alle gemessenen Ereignisse werden
-zum Schluss von einem an den Aufbau angeschlossenen PC verarbeitet.
+PM3 (Signal \(\bar{\textit{2}}\textit{3}\)) detektiert wird. Alle gemessenen Ereignisse werden
+zum Schluss von einem an den Aufbau angeschlossenen PC gez\"ahlt.
 
 \begin{figure}[H]\centering
         \includegraphics[width=.5\columnwidth]{./Versuchsaufbau.png}
@@ -140,30 +148,35 @@ Die Elektronenanzahl, die am Ende gemessen wird, hängt dabei erstens von der An
 ab, die eingangs auf die Photodiode getroffen sind, aber auch von der Hochspannung, weswegen diese
 genau eingestellt werden muss.
 
-\subsection{Likelihood-Methode}
+\subsection{Maximum-Likelihood-Methode}
 \label{sec:likemeth}
 
-Die so genannte Maximum-Likelihood-Methode ist eine Methode mit der man aus zuvor gemessenen Daten
-eine gesuchte, aber natürlich unbekannte, Größe abschätzt. Man bestimmt also den Wert, für den
-es am wahrscheinlichsten ist, die zuvor gemessenen Daten zu messen.\\
+Die so genannte Maximum-Likelihood-Methode dient zur Auffindung eines
+Sch\"atzers f\"ur einen gesuchten, aber unbekannten, Parameter in
+einem Warscheinlichkeitsmodell. Der Sch\"atzer ist der Wert des
+Paramaters, für den
+es am wahrscheinlichsten ist, die zuvor gemessenen Daten zu
+messen. Diese Methode ist \emph{Plausibel}, muss aber nicht immer den
+besten Sch\"atzer liefern\cite{Barlow}.\\
 
 Um diese Methode anwenden zu können, muss die Wahrscheinlichkeitsdichteverteilung \(P(\vec{x},\tau)\)
 der gemessenen Werte in Abhängigkeit der unbekannten, also gesuchten Größe
 \(\tau\) bekannt sein (\(\vec{x}\) meint hier die Gesamtheit der Messdaten).
-Mit Hilfe dieser Verteilungen ergibt sich die Likelihood-Funktion \(L\)
-dann aus dem Produkt über all dieser.
+Mit Hilfe dieser Verteilungen ergibt sich die Likelihood-Funktion \(L\), als
+Gesamtwarscheinlichkeit dann aus dem Produkt all der Einzelwarscheinlichkeiten.
 
 \begin{equation}\label{eq:likefkt}
  L(\vec{x},\tau) = \prod_{i=1}^{N} P(x_i,\tau)
 \end{equation}
 
-Um nun aus~\ref{eq:likefkt} den wahrscheinlichsten Wert herauszufinden, muss diese Funktion
-maximiert werden. Praktisch maximiert man allerdings den Logarithmus der Funktion, da dies
+Um nun den wahrscheinlichsten Wert wert f\"ur den Parameter \(\tau\) zu finden, muss diese Funktion
+maximiert werden. Praktisch maximiert man allerdings den Logarithmus
+(\"aquivalent da streng monoton) der Funktion, da dies
 einfacher ist, weil sich das Produkt dadurch in eine Summe umwandelt. Es muss also gelten
 (\(\hat\tau\) meint hier den wahrscheinlichsten Wert):
 
 \begin{equation}\label{eq:likediff}
- \frac{d \ln L}{d a} \mid_{\tau = \hat{\tau}} = 0
+ \dv{\ln{L}}{\tau} \mid_{\tau = \hat{\tau}} = 0
 \end{equation}
 
 In diesem Versuch gibt es drei verschiedene Möglichkeiten, die Maximum-Likelihood-Methode
@@ -236,6 +249,13 @@ beschrieben:
  P(N_i,f_i) = \frac{f_i^{N_i} \cdot e^{-f_i}}{N_i !}
 \end{equation}
 
+
+Mit der Varianz für \(N_i\) um den entsprechenden Mittelwert \(f_i\):
+
+\begin{equation}\label{key}
+ \sigma_i^2 = f_i
+\end{equation}
+
 Mit
 
 \begin{equation}\label{eq:fipoisson}
@@ -248,11 +268,15 @@ und
 	N_0(\tau) = \frac{N}{\exp[-\frac{t_1}{\tau}]-\exp[-\frac{t_K+\Delta t}{\tau}]}
 \end{equation}
 
-Mit der Varianz für \(N_i\) um den entsprechenden Mittelwert \(f_i\):
+\begin{conditions}
+  N & Gesamtanzahl der Ereignisse \\
+  K & Anzahl der Kan\"ale \\
+  \Delta t & Kanalbreite
+\end{conditions}
 
-\begin{equation}\label{key}
- \sigma_i^2 = f_i
-\end{equation}
+
+\(N_0\) ergibt sich als Normierung auf \(N\) ereignisse im Zeitraum
+\(t_1\) bis \(t_K\).
 
 Es ergibt sich für die logarithmierte Likelihood-Funktion:
 
@@ -267,6 +291,11 @@ aus
   -2\sum_{i} N_i \ln f_i
 \end{equation}
 über \(\tau\) aufzutragen.
+
+Es wird mit \(-2\) multipliziert, da dann die Abweichung des
+Sch\"atzers durch die Schnittpunkte mit einer Horizontalen zwei
+Einheiten \"uber dem Minimum gegeben ist\cite{Barlow}. Dieser Umstand
+gilt auch in~\ref{sec:likegauss}.
 
 \subsubsection{Max-Log-Likelihood-Methode und Gaußverteilung}
 \label{sec:likegauss}
@@ -303,7 +332,11 @@ also möglichst klein werden, allerdings auch nicht zu klein, da sonst die Mögl
 Ungenauigkeiten überschätzt zu haben.\\
 
 Entsprechend wird bei dieser Methode der wahrscheinlichste oder beste Wert für \(\hat\tau\) durch
-Minimierung der \(\chi^2\)-Funktion bestimmt.
+Minimierung der \(\chi^2\)-Funktion bestimmt. Der Wert des Minimus
+folgt wiederum einer Warcheinlichkeitsverteilung (\(\Chi^2\)
+Verteilung) mit der Varianz \(n-r\) wobei \(n\) gleich der Anzahl der
+Summanden in~\ref{eq:chi} ist und \(r\) gleich der Anzahl der freihen
+Parameter im Modell.
 
 \section{Durchf\"uhrung und Auswertung}
 \label{sec:durchaus}
@@ -606,7 +639,6 @@ N/N=1/\sqrt{N}\)).
 \subsubsection{Auswertung mit dem exponentiellen Zerfallsgesetz}
 \label{sec:auswertung-mit-dem-1}
 
-%\todo{discuss mu+}
 Wie in~\ref{eq:likezerfall} diskutiert wird die Likelihood-Funktion
 halbanalytisch maximiert und damit ein Sch\"atzer f\"ur die
 Lebensdauer des Myons gewonnen.
@@ -788,9 +820,10 @@ vermuten, dass die Beeinflussung anderer Zerfallsprozesse (besonders
 bei kleinen Zeiten) außerhalb des f\"ur den Myonenzerfall typischen
 Zeitraums sehr gro\ss{} wird. Um eine hohe Pr\"azision wie in den
 Literaturwerten zu gew\"ahrleisten, m\"ussen diese auch betrachtet
-werden.
+werden. Auch werden in modernen Experimenten mehrere Myonenzerf\"alle
+pro Koinzidenzinterval Analysiert um mehr Daten zu erhalten. Der dabei
+entstehende \"Uberlapp muss dann ber\"ucksichtigt werden. \cite{fast}
 
-TODO: Literatur ansehen!
 \newpage
 \section{Verzeichnisse}
 \label{sec:literatur}
