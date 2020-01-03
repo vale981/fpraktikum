@@ -81,7 +81,7 @@ des negativ geladenen Myons verkürzt (in Kupfer zum Beispiel um \(\SI{0,1636 \p
 
 \begin{conditions}
   \tau_c & \(\mu^-\) Lebensdauer bei Einfang \\
-  \tau_0 & Urspr\"ungliche Lebensdaurer
+  \tau_0 & Urspr\"ungliche Lebensdauer
 \end{conditions}
 
 \subsection{Messaufbau und Detektorfunktionsweise}
@@ -91,12 +91,12 @@ Eine Skizze der im Versuch verwendeten Messanordnung ist in~\ref{fig:aufbau} zu 
 Sie besteht aus drei Photomultipliern und Szintillatoren sowie zwei Kupferplatten, die je
 \(\SI{1}{\centi\metre}\) dick sind. Zwei der Szintillatoren befinden sich oberhalb der Kupferplatten
 und entsprechend eine unterhalb. Sie haben eine Fläche von \(\SI{0,6}{\metre} \times \SI{0,36}{\metre}\).
-Ereignisse in Szintilatoren (siehe~\ref{sec:szinti}) werden durch
+Ereignisse in Szintillatoren (siehe~\ref{sec:szinti}) werden durch
 Photomultiplier ausgelesen (siehe~\ref{sec:photomulti}) deren Signale
-wiederum von Diskriminator in einheitliche Signale umgewandlet werden
+wiederum von Diskriminator in einheitliche Signale umgewandelt werden,
 um in einer elektronischen Koinzidenzeinheit klassifiziert zu werden
 (z.B. gleichzeitige Ansprache on PM1 und PM2). Der Diskriminator
-unterdr\"uckt zuden Signale unter \SI{100}{\milli\volt}. Zeitdifferenzen
+unterdr\"uckt zudem Signale unter \SI{100}{\milli\volt}. Zeitdifferenzen
 zwischen verschiedenen Koinzidenzen k\"onnen mit einem \emph{Time to
   Digital Converter} (TDC) in Kan\"ale der Breite
 \SI{41.67}{\nano\second} einsortiert werden.
@@ -153,8 +153,8 @@ genau eingestellt werden muss.
 
 Die so genannte Maximum-Likelihood-Methode dient zur Auffindung eines
 Sch\"atzers f\"ur einen gesuchten, aber unbekannten, Parameter in
-einem Warscheinlichkeitsmodell. Der Sch\"atzer ist der Wert des
-Paramaters, für den
+einem Wahrscheinlichkeitsmodell. Der Sch\"atzer ist der Wert des
+Parameters, für den
 es am wahrscheinlichsten ist, die zuvor gemessenen Daten zu
 messen. Diese Methode ist \emph{Plausibel}, muss aber nicht immer den
 besten Sch\"atzer liefern\cite{Barlow}.\\
@@ -163,13 +163,13 @@ Um diese Methode anwenden zu können, muss die Wahrscheinlichkeitsdichteverteilu
 der gemessenen Werte in Abhängigkeit der unbekannten, also gesuchten Größe
 \(\tau\) bekannt sein (\(\vec{x}\) meint hier die Gesamtheit der Messdaten).
 Mit Hilfe dieser Verteilungen ergibt sich die Likelihood-Funktion \(L\), als
-Gesamtwarscheinlichkeit dann aus dem Produkt all der Einzelwarscheinlichkeiten.
+Gesamtwahrscheinlichkeit dann aus dem Produkt all der Einzelwahrscheinlichkeiten.
 
 \begin{equation}\label{eq:likefkt}
  L(\vec{x},\tau) = \prod_{i=1}^{N} P(x_i,\tau)
 \end{equation}
 
-Um nun den wahrscheinlichsten Wert wert f\"ur den Parameter \(\tau\) zu finden, muss diese Funktion
+Um nun den wahrscheinlichsten Wert f\"ur den Parameter \(\tau\) zu finden, muss diese Funktion
 maximiert werden. Praktisch maximiert man allerdings den Logarithmus
 (\"aquivalent da streng monoton) der Funktion, da dies
 einfacher ist, weil sich das Produkt dadurch in eine Summe umwandelt. Es muss also gelten
@@ -333,9 +333,9 @@ Ungenauigkeiten überschätzt zu haben.\\
 
 Entsprechend wird bei dieser Methode der wahrscheinlichste oder beste Wert für \(\hat\tau\) durch
 Minimierung der \(\chi^2\)-Funktion bestimmt. Der Wert des Minimus
-folgt wiederum einer Warcheinlichkeitsverteilung (\(\Chi^2\)
+folgt wiederum einer Wahrscheinlichkeitsverteilung \(\chi^2\)
 Verteilung) mit der Varianz \(n-r\) wobei \(n\) gleich der Anzahl der
-Summanden in~\ref{eq:chi} ist und \(r\) gleich der Anzahl der freihen
+Summanden in~\ref{eq:chi} ist und \(r\) gleich der Anzahl der freien
 Parameter im Modell.
 
 \section{Durchf\"uhrung und Auswertung}
@@ -566,24 +566,24 @@ Kupferblocks beg\"unstigen.
   \label{fig:muonbbloch}
 \end{figure}
 
-\subsubsection{Messung von Myon-Pulsen}
-\label{sec:pulse}
-
-Zuerst wurden die drei PM-Signale gemeinsam mit dem Koinzidenzsignal
-(123) für die ungestoppten Myonen auf je einen Oszilloskopkanal. Die
-Spannungen der PMs wurden anschließend auf
-\(U_{1,HV} = \SI{2300}{\volt}\), \(U_{2,HV} = \SI{2300}{\volt}\) und
-\(U_{3,HV} = \SI{2100}{\volt}\) eingestellt.
-
-Das Oszilloskop wurde nun mit dem Koinzidenzsignal getriggert, damit
-es "weiß", wann es eine Messung aufnehmen soll.  Danach wurde die
-Anzeige des Oszilloskops so eingestellt, dass die Peaks deutlich zu
-erkennen waren, um die Höhe jedes der drei PM-Peaks zu messen. Dazu
-wurde mit Hilfe der Start-/Stopptaste des Oszilloskops nach wenigen
-Sekunden das Bild eingefroren. Dabei wurde es vermieden auf den
-Bildschirm zu sehen, um eine mögliche Beeinflussung und damit
-Verzerrung der Messergebnisse zu verhindern. Mit Hilfe der Cursor wurde
-nun die Höhe von je 50 Peaks vermessen.
+%\subsubsection{Messung von Myon-Pulsen}
+%\label{sec:pulse}
+%
+%Zuerst wurden die drei PM-Signale gemeinsam mit dem Koinzidenzsignal
+%(123) für die ungestoppten Myonen auf je einen Oszilloskopkanal. Die
+%Spannungen der PMs wurden anschließend auf
+%\(U_{1,HV} = \SI{2300}{\volt}\), \(U_{2,HV} = \SI{2300}{\volt}\) und
+%\(U_{3,HV} = \SI{2100}{\volt}\) eingestellt.
+%
+%Das Oszilloskop wurde nun mit dem Koinzidenzsignal getriggert, damit
+%es "weiß", wann es eine Messung aufnehmen soll.  Danach wurde die
+%Anzeige des Oszilloskops so eingestellt, dass die Peaks deutlich zu
+%erkennen waren, um die Höhe jedes der drei PM-Peaks zu messen. Dazu
+%wurde mit Hilfe der Start-/Stopptaste des Oszilloskops nach wenigen
+%Sekunden das Bild eingefroren. Dabei wurde es vermieden auf den
+%Bildschirm zu sehen, um eine mögliche Beeinflussung und damit
+%Verzerrung der Messergebnisse zu verhindern. Mit Hilfe der Cursor wurde
+%nun die Höhe von je 50 Peaks vermessen.
 
 \subsection{Hauptversuch}
 \label{sec:hauptversuch}
@@ -706,7 +706,7 @@ in~\ref{fig:haupt-poisson} dargestellt.
   \label{fig:haupt-poisson}
 \end{figure}
 
-\subsubsection{Auswertung mit der Gaussverteilung}
+\subsubsection{Auswertung mit der Gaußverteilung}
 \label{sec:auw-gauss}
 
 Die in~\ref{sec:likegauss} beschriebene Auswertung auf Basis der
@@ -725,7 +725,7 @@ in~\ref{fig:haupt-poisson} dargestellt.
 
 \begin{figure}[h]\centering
   \input{../auswertung/figs/haupt/gauss.pgf}
-  \caption{Das Mininum der \(-2\ln{L}\)-Funktion der
+  \caption{Das Minimum der \(-2\ln{L}\)-Funktion der
     Gaußverteilung. Aufgetragen ist auch eine Horizontale eine
     Einheit \"uber dem Minimum.}
   \label{fig:haupt-poisson}
