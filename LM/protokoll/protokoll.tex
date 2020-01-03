@@ -157,7 +157,7 @@ einem Wahrscheinlichkeitsmodell. Der Sch\"atzer ist der Wert des
 Parameters, für den
 es am wahrscheinlichsten ist, die zuvor gemessenen Daten zu
 messen. Diese Methode ist \emph{Plausibel}, muss aber nicht immer den
-besten Sch\"atzer liefern\cite{Barlow}.\\
+besten Sch\"atzer liefern\cite[89]{Barlow}.\\
 
 Um diese Methode anwenden zu können, muss die Wahrscheinlichkeitsdichteverteilung \(P(\vec{x},\tau)\)
 der gemessenen Werte in Abhängigkeit der unbekannten, also gesuchten Größe
@@ -218,10 +218,12 @@ und
  \hat\tau = \frac{1}{N} \sum t_i + \frac{T e^{-\frac{T}{\tau}}}{1-e^{-\frac{T}{\tau}}}
 \end{equation}
 
-Bei dieser Methode muss in diesem Experiment allerdings beachtet werden, dass keine \(N\)
-unterschiedliche Zeiten, sondern \(K\) Kanäle mit \(N_i\) Counts im \(i\)-ten Kanal gemessen
-werden. Jeder Messwert ist mit einer statistischen Messungenauigkeit \(\sqrt{N_i}\) behaftet.
-Unter Berücksichtigung dieser Besonderheiten folgt für \(\hat\tau\):
+Bei dieser Methode muss in diesem Experiment allerdings beachtet
+werden, dass keine \(N\) unterschiedliche Zeiten, sondern \(K\) Kanäle
+mit \(N_i\) Counts im \(i\)-ten Kanal gemessen werden. Jeder Messwert
+ist mit einer statistischen Messungenauigkeit \(\sqrt{N_i}\) behaftet
+(Poissonverteilt).  Unter Berücksichtigung dieser Besonderheiten folgt
+für \(\hat\tau\):
 
 \begin{equation}\label{eq:tau1}
  \hat\tau = \frac{1}{N} \sum_{k=1}^{K}N_k\cdot t_k + \text{Korrektur}
@@ -229,8 +231,17 @@ Unter Berücksichtigung dieser Besonderheiten folgt für \(\hat\tau\):
 
 Für die Standardabweichung ergibt sich aus der Fehlerfortpflanzung:
 
-\begin{equation}\label{key}
- \sigma_{\hat\tau} = \frac{1}{N} \sqrt{\sum N_k \cdot t_k^2}
+\begin{gather}
+  \pdv{\tau}{N_k} = \frac{t_k}{N} + \qty[\frac{T}{\qty(e^{\frac{T}{\tau}} -
+    1)\cdot \tau}]^2e^{\frac{T}{\tau}}\pdv{\tau}{N_k} \\
+  \implies \pdv{\tau}{N_k} = \frac{t_k}{N\cdot\qty[1 - \qty(\frac{T}{\qty(e^{\frac{T}{\tau}} -
+    1)\cdot \tau})^2e^{\frac{T}{\tau}}]}
+\end{gather}
+
+Und damit:
+\begin{equation}\label{eq:delta-tau-exp}
+  \Delta \hat\tau = \frac{\sqrt{\sum N_k \cdot t_k^2}}{N\cdot\underbrace{\qty[1 - \qty(\frac{T}{\qty(e^{\frac{T}{\tau}} -
+      1)\cdot \tau})^2e^{\frac{T}{\tau}}]}_{\kappa^{-1}}}
 \end{equation}
 
 Durch wiederholtes Einsetzen von~\ref{eq:tau1} in~\ref{eq:tau2} wird durch Iteration \(\hat\tau\)
@@ -322,7 +333,7 @@ von \(\tau\) abhängt, kann dieser bei der Bestimmung von \(\hat{\tau}\) vernach
 der zweite Term betrachtet werden, der eine \(\chi^2\)-Verteilung beschreibt.
 
 \begin{equation}\label{eq:chi}
- \chi^2 = \sum_{i} \frac{(N_i - f_i)^2}{\sigma_i^2}
+ \chi^2 = \sum_{i} \frac{\qty(N_i - f_i)^2}{\sigma_i^2}
 \end{equation}
 
 Die \(\chi^2\)-Funktion beschreibt wie stark eine gemessene Häufigkeit von der erwarteten abweicht.
@@ -603,10 +614,11 @@ Insgesamt wurden
 Ereignisse in den zur Auswertung genutzten Kan\"alen 23 bis 150
 gemessen.
 
-Das entspricht einem Zeitintervall der Breite (center to center):
+Das entspricht einem Zeitintervall der Breite (left edge to right
+edge):
 \begin{equation}
   \label{eq:totalwidth}
-  T = \SI{5292.09}{\nano\second}
+  T = \SI{5333.3}{\nano\second}
 \end{equation}
 
 Das gemessene Spektrum ist
@@ -664,13 +676,55 @@ ist in~\ref{fig:haupt-continous} dargestellt und ben\"otigte \(28\)
 Iterationen. Die Abweichungen der mit dieser Methode gewonnenen
 Lebensdauer wird dominiert durch die Unsicherheit der Eingangsdaten
 gegeben durch die Poissonstatistik und berechnet
-nach~\ref{eq:delta-tau}.
+nach~\ref{eq:delta-tau-exp}. Der gegen\"uber der Versuchanleitung
+hinzugekommene Faktor ist dabei ma\ss{}geblich.
 
 Es ergibt sich f\"ur die Lebensdauer:
 \begin{equation}
   \label{eq:result-exponential}
-  \tau = \SI{2235\pm 18}{\nano\second}
+  \tau = \SI{2220\pm 50}{\nano\second}
 \end{equation}
+
+Falls man den Faktor \(\kappa^{-1} \approx 2.7\)
+aus~\ref{eq:delta-tau-exp} gleich \(1\) setzt (wie in der
+Versuchsanleitung), so erh\"alt man eine Abweichung von
+\(\Delta\tau = \SI{18}{\nano\second}\), eine Untersch\"atzung der
+Abweichung. Sch\"atzt man die Abweichung aus der Likelihoodfunktion ab
+(siehe~\ref{fig:haupt-exp}) so ergibt sich eine Abweichung von
+\(\Delta\tau = \SI{30}{\nano\second}\). Diese drei werte liegen
+jeweils um mehr als \SI{10}{\nano\second} auseinander und es stellt
+sich die Frage welcher sch\"atzer hier der Richtige ist.
+
+Da das Ergebnis analytisch erhalten wurde, kann man die Gaussche
+Fehlerfortpflanzung guten gewissens anwenden. Dennoch gillt die hier
+angewendete Formel eigentlich nur f\"ur kleine Abweichungen (und keine
+Korellation) und es treten hier Abweichungen von
+\SIrange{10}{20}{\percent} auf. Die Absch\"atzung der Abweichungen aus
+der Likelihoodfunktion beruht auf dem zentralen Grenzwertsatz. Durch
+die invarianz des Maximums der Likelihoodfunktion unter
+Parametertransformationen gilt die Absch\"atzung auch f\"ur kleinere
+Werte. Es wird hier an der Fehlerabsch\"atzung
+nach~\ref{eq:delta-tau-exp} festgehalten, da diese einen direkteren
+Zugang darstellt.
+
+
+\begin{figure}[h]\centering
+  \input{../auswertung/figs/haupt/exp.pgf}
+  \caption{Das Mininum der \(-2\ln{L}\)-Funktion des Modells des
+    exponentiellen Zerfalls. Aufgetragen ist auch eine Horizontale
+    eine Einheit \"uber dem Minimum.}
+  \label{fig:haupt-exp}
+\end{figure}
+
+\begin{itshape}
+  Durch einen Fehler in der Auswertung (Messung von \(T\)
+  center-to-center statt left-to-right-edge) unterschied sich der
+  Exp. Zerfall zuerst deutlich von den Ergebnissen der anderen
+  Methoden. Da aber \(T\) die Normierung des unterliegen Modells ist
+  und nich von der Wahl der Bins abh\"angen sollte ist die Messung
+  center-to-center falsch.
+\end{itshape}
+
 
 \subsubsection{Auswertung mit der Poissonverteilung}
 \label{sec:auw-poisson}
@@ -706,8 +760,35 @@ in~\ref{fig:haupt-poisson} dargestellt.
   \label{fig:haupt-poisson}
 \end{figure}
 
+
 \subsubsection{Auswertung mit der Gaußverteilung}
 \label{sec:auw-gauss}
+
+Das hier gewonnene Ergebnis stimmt vor der Rundung mit dem
+aus~\ref{sec:auswertung-mit-dem-1} auf mehrerer Nachkommastellen
+\"uberein. Die Likelihood-Funktionen unterscheiden sich nur um eine
+Konstante. 
+\begin{align*}
+  \ln(f_i) &= \ln(N_0) - \ln(\tau) + \ln(\Delta t) - \frac{(t_i  + \Delta t/2)}{\tau}
+  \\
+  &= \ln(N) - \ln(\exp[-\frac{t_1}{\tau}]-\exp[-\frac{t_K+\Delta
+    t}{\tau}]) - \ln(\tau) + \ln(\Delta t) - \frac{(t_i  + \Delta t/2)}{\tau} \\
+  &= \ln(N) + \ln(\Delta t) - \ln(\exp(-\frac{t_1}{\tau})\qty(1-\exp[-\frac{t_K-t_1+\Delta
+    t}{\tau}])) - \ln(\tau) - \frac{(t_i  + \Delta t/2)}{\tau} \\
+  &= \ln(N) + \ln(\Delta t) + \frac{t_1}{\tau} - \ln(1-\exp[-\frac{t_K-t_1+\Delta
+    t}{\tau}]) - \ln(\tau) - \frac{(t_i  + \Delta t/2)}{\tau} \\
+  &= \ln(N) + \ln(\Delta t) - \ln(1-\exp[-\frac{t_K-t_1+\Delta
+    t}{\tau}]) - \ln(\tau) - \frac{(t_i - t_1  + \Delta t/2)}{\tau} \\
+  &= \text{const.} - \ln(1-\exp[-\frac{T}{\tau}]) - \ln(\tau) -
+  \frac{\overbrace{(t_i - t_1  + \Delta t/2)}^{\text{Kanalmitten von 0
+      an}}}{\tau} \\
+\end{align*}
+
+Wenn man dies mit~\ref{eq:finalpoisson} und~\ref{eq:delta-tau}
+vergleicht so kann man die Gleichheit erkennen. Die Äquivalenz ist
+aus der N\"aherung des Integrals in~\ref{eq:fipoisson}
+entstanden. Die beiden Methoden sind mit dieser N\"aherung also
+\"aquivalent.
 
 Die in~\ref{sec:likegauss} beschriebene Auswertung auf Basis der
 Gauß'schen Normalverteilung verl\"auft numerisch analog
@@ -768,7 +849,7 @@ in~\ref{tab:summary} aufgelistet.
 
     \\
     \midrule
-    Exp. Zerf. & 2235 & 18 & 1.154 & 5 \\
+    Exp. Zerf. & 2220 & 50 & 1.159 & 12 \\
     Poissonvert. & 2216 & 30 & 1.159 & 8 \\
     Normalvert. & 2221 & 28 & 1.158 & 8 \\
     Literatur\cite{codata}\cite{pdg} & 2196.9811 & 0.0022 &
@@ -781,48 +862,86 @@ in~\ref{tab:summary} aufgelistet.
   \label{tab:summary}
 \end{table}
 
-Die in diesem Experiment gewonnen Werte stimmen innerhalb einer oder
-zwei Standardabweichungen miteinander \"uberein. Die durch die
-Poisson- und Gaußverteilung gewonnen Werte f\"ur Lebensdauer und
-\(G_F\) stimmen innerhalb der Abweichungsgrenzen mit der Literatur
-\"uberein. Die Werte aus der Poissonverteilung und der
-Gaußverteilung liegen dicht beieinander, wobei der Wert aus der
-Poissonverteilung dichter an der Literatur liegt.
+Die in diesem Experiment gewonnen Werte stimmen innerhalb der
+Abweichungsgrenzen miteinander und mit der Literatur\"uberein,
+wenngleich die Zentralwerte einen bias nach oben zu haben
+scheinen. Ein bias ist nach~\cite[84]{Barlow} aber bei der Maximum
+Likelihood Methode inh\"arent, verschwindet aber bei gro\ss{}en
+Stichproben. (Siehe z.B. auch die asymetrische \(\chi^2\) Verteilung.)
 
+Die durch die Poisson- und Gaußverteilung gewonnen Werte f\"ur
+Lebensdauer und \(G_F\) stimmen innerhalb der Abweichungsgrenzen mit
+der Literatur \"uberein.
 
-Die Rundung der Zeitwerte zu den Kanalmitten hin entstandenen
-Abweichungen in der Gr\"o\ss{}enordnung von \SI{20}{\nano\second}
-wurden in der Diskussion der Abweichung vernachlässigt, da sich bei
-gro\ss{}en Ereigniszahlen herausmitteln sollten. Rechnet man naiv mit
-der Gauß'schen Fehlerfortpflanzung ohne Korrelation mit einer
-pauschalen Zeitunsicherheit von \SI{20}{\nano\second} so ergibt sich
-nur ein zu vernachlässigende zus\"atzliche Abweichung
-\(<\SI{1}{\nano\second}\).  Auch der diskreten Natur der Ereignisse
-wird im exponentiellen Zerfallsgesetz nicht Rechnung getragen, welche
-aber bei vielen Ereignissen in den Hintergrund treten sollten. Zudem
-ist die direkte Auswertung nach dem exponentiellen Zerfallsgesetz
-anf\"alliger f\"ur Verzerrungen der Zerfallskurve durch andere
-Prozesse, da hier Abweichungen von dieser bei kleinen Zeiten st\"arker
-ins Gewicht fallen (kurve steiler).
+Da die Methoden der Poissonverteilung und des Exp. Zerfalls hier
+\"ubereinstimmen, sollten demnach auch die Abweichungen gleich
+sein. Die wahre Abweichung wird Warscheinlich zwischen den beiden
+angegeben Werten liegen, wobei gegen\"uber der Gausschen
+Fehlerfortpflanzung die bereits erw\"ahnten Reservierungen
+gelten. Die Angabe von zwei getrennten Ergebnissen mit
+unterschiedlicher Rundung ist hier also strenggenommen falsch, wird
+aber zur Illustration des Einflusses der Abweichung auf die Rundung so
+belassen. Als Folge ist hier warscheinlich auch die Abweichung des
+Wertes aus der Gaussverteilung untersch\"atzt.
+
+%% Obsolete
+% Die Werte aus der Poissonverteilung und dem
+% Exp. Zerfall w\"urden \"ubereinstimmen, wenn nicht die gro\ss{}e
+% Abweichung des Ergebnisses aus dem Exp. Zerfall eine andere
+% Rundungsgenauigkeit bedingen w\"urde. So aber sind die Werte nicht
+% direkt vergleichbar, da sich ihre Abweichungen ma\ss{}geblich
+% unterscheiden. Es kann aber generell der Schluss gezogen werden, dass
+% die Genauigkeit der beiden anderen Methoden eine ma\ss{}gebliche
+% Verbesserung gegen\"uber der Methode nach dem Exp.  Zerfallsgesetz
+% darstellen. Die eingebaute Diskretisierung scheint dort
+% ausschlaggebend zu sein.
+
+%% OBSOLETE
+% Die Rundung der Zeitwerte zu den Kanalmitten hin entstandenen
+% Abweichungen in der Gr\"o\ss{}enordnung von \SI{20}{\nano\second}
+% wurden in der Diskussion der Abweichung vernachlässigt, da sich bei
+% gro\ss{}en Ereigniszahlen herausmitteln sollten. Rechnet man naiv mit
+% der Gauß'schen Fehlerfortpflanzung ohne Korrelation mit einer
+% pauschalen Zeitunsicherheit von \SI{20}{\nano\second} so ergibt sich
+% nur ein zu vernachlässigende zus\"atzliche Abweichung
+% \(<\SI{1}{\nano\second}\).  Auch der diskreten Natur der Ereignisse
+% wird im exponentiellen Zerfallsgesetz nicht Rechnung getragen, welche
+% aber bei vielen Ereignissen in den Hintergrund treten sollten. Zudem
+% ist die direkte Auswertung nach dem exponentiellen Zerfallsgesetz
+% anf\"alliger f\"ur Verzerrungen der Zerfallskurve durch andere
+% Prozesse, da hier Abweichungen von dieser bei kleinen Zeiten st\"arker
+% ins Gewicht fallen (kurve steiler).
 
 Die Ergebnisse aus der Gaußverteilung liegen nahe denen aus der
 Poissonverteilung, so wie auch deren Unsicherheiten. Dies ist zu
 erwarten, da die Gaußverteilung ein Grenzfall der Poissonverteilung
-f\"ur gro\ss{}e Erwartungswerte ist. Unter Vernachl\"assigung
-systematischer Faktoren ist zu vermuten, dass sich durch l\"angere
-Messung kleinere Unsicherheiten und weitere Ann\"aherung an den
-Literaturwert m\"oglich ist. Die Modellierung in diesen F\"allen ist
-also der ersten Methode \"uberlegen.
+f\"ur gro\ss{}e Erwartungswerte, die hier vorliegen, ist. Unter
+Vernachl\"assigung systematischer Faktoren ist zu vermuten, dass sich
+durch l\"angere Messung kleinere Unsicherheiten und weitere
+Ann\"aherung an den Literaturwert m\"oglich ist.
 
 Da nach testweiser Modifikation des betrachteten Kanalintervalls alle
-drei Auswertungsmethoden starke Abweichung zeigen, liegt es nahe, zu
-vermuten, dass die Beeinflussung anderer Zerfallsprozesse (besonders
+drei Auswertungsmethoden starke Abweichung zeigen, scheint die
+Beeinflussung duch andere Prozesse als den Myonenzerfall (besonders
 bei kleinen Zeiten) außerhalb des f\"ur den Myonenzerfall typischen
-Zeitraums sehr gro\ss{} wird. Um eine hohe Pr\"azision wie in den
+Zeitraums sehr gro\ss{} zu werden (besondes bei kleinen Zeiten, da das
+Myon relativ langlebig ist).  Um eine hohe Pr\"azision wie in den
 Literaturwerten zu gew\"ahrleisten, m\"ussen diese auch betrachtet
 werden. Auch werden in modernen Experimenten mehrere Myonenzerf\"alle
-pro Koinzidenzinterval Analysiert um mehr Daten zu erhalten. Der dabei
-entstehende \"Uberlapp muss dann ber\"ucksichtigt werden. \cite{fast}
+pro Koinzidenzinterval Analysiert um die gewonnene Datenmenge zu
+vergr\"o\ss{}ern. Der dabei entstehende \"Uberlapp von Ereignissen
+muss dann ber\"ucksichtigt werden.~\cite{fast} Bei der in diesem
+Experiment vorliegenden mittleren Ereignisrate von
+\(\SI{52791/502051}{\per\second} \approx \SI{.1}{\per\second}\ll\tau\)
+ist aber die Warscheinlichkeit f\"ur Gleichzeitige Koinzidenzen sehr
+gering. Da PM3 bei der gew\"ahlten Spannung bereits \"uber \(100\)
+Ereignisse pro Minute z\"ahlt (und damit PM1 und PM2 \"ahnliche
+Z\"ahlraten aufweisen sollten) kann es eventuell vorkommen, dass eine
+Koinzidenz genau in der Totzeit eines Detektors ertrinkt. Es wurde
+w\"ahrend des Versuch leider vers\"aumt die Totzeiten oder Pulsbreiten
+der Photomultiplier zu ermitteln und somit kann dieser Effekt nicht
+abgesch\"atzt werden, es wird aber vermutet, dass auch dieser effekt
+eine kleinere Rolle spielt.
 
 \newpage
 \section{Verzeichnisse}
