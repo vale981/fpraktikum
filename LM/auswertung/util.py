@@ -199,10 +199,9 @@ def continous(counts: np.ndarray, interval: Tuple[float, float], epsilon: float=
     channels = np.arange(0, interval[1] - interval[0])  # channel indices
     times = chan_to_time(channels, center=True)  # mean time of channels
 
-    T = times[-1] - times[0]  # time interval
+    T = (times[1] - times[0])*len(cts)  # time interval
     N = cts.sum()  # total count
     tau_0 = np.sum(cts*times)/N  # initial guess
-    delta_tau = np.sqrt(np.sum(cts*times**2))/N
 
     def model(tau):
         return tau_0 + T/(np.exp(T/tau) - 1)
@@ -216,7 +215,12 @@ def continous(counts: np.ndarray, interval: Tuple[float, float], epsilon: float=
             return next_tau
         return optimize(next_tau)
 
-    return optimize(tau_0), delta_tau, N, T, taus
+    tau = optimize(tau_0)
+
+    correction_factor = 1/(1-(T/((np.exp(T/tau)-1)*tau))**2*np.exp(T/tau))
+    delta_tau = np.sqrt(np.sum(cts*times**2))/N*correction_factor
+
+    return tau, delta_tau, N, T, taus, correction_factor
 
 
 def binned_likelihood(counts, interval):
@@ -255,7 +259,14 @@ def binned_likelihood(counts, interval):
         fi = f(tau)
         return np.sum((cts-fi)**2/fi, axis=0)
 
-    return ln_poisson_likelihood, ln_gauss_likelihood, N
+    # for cross checking
+    def ln_exp_likelihood(tau):
+        tau = convert_tau(tau)
+        mod_times = times - times[0][0] + tick/2
+        T = tick * len(cts)
+        return 2*np.sum(cts*(mod_times/tau+np.log(tau)+np.log(1-np.exp(-T/tau))), axis=0)
+
+    return ln_poisson_likelihood, ln_gauss_likelihood, ln_exp_likelihood, N, N_0
 
 def maximize_likelihood(likelihood, tau_range, epsilon=1e-3):
     """Minizizes the -2ln(likelihood) function thus maximizing the
