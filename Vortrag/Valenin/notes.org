@@ -1,0 +1,35 @@
+* Experiment
+  - Ziel des Versuches
+    Jusierung, Inbetriebname und Untersuchung
+    eines HeNe Lasers.
+  - Eqipment
+    - Spiegel :: Nummeriert von 1 bis 10.
+    - Laser :: Kommerzieller \hne{} und gr\"uner Justagelaser.
+    - Laserr\"ohre :: \hne{} Laserr\"ohre
+    - Blenden :: Als Justagehilfe und zum Ausblenden von unerw\"unschten Moden.
+    - Linsen und Filter :: Zur Untersuchung der Strahleigenschaften. (Sammellinse, Polfilter, Graufilter)
+    - Fabry Perot Interferometer :: Festaufbau, Konfokal
+    - Leistungsmessger\"at :: Zur Leistungsmessung und als Justagehilfe.
+    - Faserspektrometer :: \textsc{Ocean Optics HR2000+} als Referenzmessger\"at.
+
+
+* Theoretische Grundlagen
+
+
+** Begrifflichkeit
+   - Begriff
+     - Light Amplification by Stimulated Emission of Radiation.
+   - Facts
+     - eine L\"osung die nach einem Problem sucht
+     - Erfindung in den 60ern, first Theodore H. Maiman 60
+     - kohar, fok licht
+     - breite anwendung, barcode, cd, Optische Telekommunikationstechnik, Erzeugung tiefer Temperaturen, Schockwellen, gro\ss{}en
+        Energiedichten, Holographie, Interferometrie, Teilchenbeschleuniger
+** Bes inv
+   - h nu formel
+   - prozesse
+     - Absorb
+       - Photon wird von einem Atom absorbiert
+       - H\"aufigkeit proportional zu spektraler Energiedichte
+     - Spont
+       - unabh\"angig von der umgebenden spektralen Energiedichte.
