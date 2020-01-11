@@ -1,8 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import root_scalar
+import matplotlib
 import matplotlib.ticker as ticker
 import os
+from SecondaryValue import SecondaryValue
+from scipy.optimize import curve_fit
 
 ###############################################################################
 #                                  Auxiliary                                  #
@@ -30,17 +33,25 @@ def energy_b(channel):
     """Channel to Energy, one based index."""
     return 100 + .220*channel
 
-
+channel_to_time_val = SecondaryValue('a + b*(k-1/2)', defaults=dict(a=(-.014, .0192), b=(.0483, 2e-5)))
+def channel_to_time(channel, d=0):
+    return channel_to_time_val(k=(channel, d))
 ###############################################################################
 #                                  Plot Porn                                  #
 ###############################################################################
+
+matplotlib.rcParams.update({
+    'font.family': 'serif',
+    'text.usetex': False,
+    'pgf.rcfonts': False,
+})
 
 def pinmp_ticks(axis, ticks):
     axis.set_major_locator(ticker.MaxNLocator(ticks))
     axis.set_minor_locator(ticker.MaxNLocator(ticks*10))
     return axis
 
-def set_up_plot(ticks=10, pimp_top=False):
+def set_up_plot(ticks=10, pimp_top=True):
     fig = plt.figure()
     ax = fig.add_subplot(111)
 
@@ -86,7 +97,7 @@ def plot_spectrum(counts, offset=1, save=None, **pyplot_args):
     ax.step(channels, counts, **pyplot_args)
 
     ax.set_xlabel('Kanal')
-    ax.set_ylabel('Counts')
+    ax.set_ylabel('Ereignisszahl')
     ax.set_xlim([channels[0], channels[-1]])
     ax.set_ylim(0)
 
@@ -95,6 +106,26 @@ def plot_spectrum(counts, offset=1, save=None, **pyplot_args):
 
     return fig, ax
 
+###############################################################################
+#                           Time of Flight Analysiss                          #
+###############################################################################
+
+def gauss(x, a, mu, sigma):
+    return a*np.exp(-(x-mu)**2/(2*sigma**2))
+
+def find_and_plot_peak(counts, ax, label):
+    channels = np.arange(0, counts.size) + 1
+    counts = counts.copy()/counts.max()
+    times, d_times = channel_to_time(channels)
+
+    splot = ax.step(times, counts, label=label, alpha=.4)
+    opt, cov = curve_fit(gauss, channels, counts, p0=(1, counts.argmax(), 100))
+    cov = np.sqrt(np.diag(cov))
+    gplot = ax.plot(times, gauss(channels,*opt), label=f"Fit {label}", color=splot[0].get_color())
+    ax.axvline(channel_to_time(opt[1])[0], color=gplot[0].get_color())
+    t, dt = channel_to_time(opt[1], opt[2]/10)
+    ax.axvspan(t-dt, t+dt, alpha=.2, color=gplot[0].get_color())
+    return channel_to_time(opt[1], opt[2]/10)
 
 
 ###############################################################################
