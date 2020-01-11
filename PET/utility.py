@@ -118,7 +118,6 @@ def calc_projection_matrix(source, weights):
     proj[3,:] = np.flip([np.sum(source.diagonal(n)) for n in range(-N//2 - 1, N//2 + 3)] @ weights)
     return proj
 
-
 def convolute_projection(proj):
     filt = np.array([-.1, .25, -.1])
     conv = np.zeros_like(proj)
@@ -128,16 +127,6 @@ def convolute_projection(proj):
 
 def reconstruct_diags(proj, weights):
    return proj[1] @ weights, proj[3] @ weights
-
-def reproject_straight(row):
-    d = row.size
-    rep = np.empty((d, d))
-
-    for i, elem in enumerate(row):
-        rep[:, i] = elem
-    return rep
-
-
 
 def reproject_diagonal(diag):
     N = diag.size
@@ -154,11 +143,31 @@ def reproject_diagonal(diag):
 
     return rep
 
+def reproject_straight(row):
+    d = row.size
+    rep = np.empty((d, d))
+
+    for i, elem in enumerate(row):
+        rep[:, i] = elem
+    return rep
+
 def reconstruct(proj, backweights):
     p0, p90 = proj[0], proj[2]  # uuuugly
     p45, p135 = reconstruct_diags(proj, backweights)
-    return reproject_straight(p0) +  np.flip(reproject_straight(p90).T) \
-        + (reproject_diagonal(p45) + np.flip(reproject_diagonal(p135).T, 1))/2
+    print('Reconstructed Diagonals')
+    print('45', bmatrix(p45))
+    print('135', bmatrix(p135))
+
+    r0 = reproject_straight(p0)
+    r90 = np.flip(reproject_straight(p90).T)
+    r45 = reproject_diagonal(p45)
+    r135 = np.flip(reproject_diagonal(p135).T, 1)
+
+    print('0', bmatrix(r0))
+    print('45', bmatrix(r45))
+    print('90', bmatrix(r90))
+    print('135', bmatrix(r135))
+    return r0 + r90 + 1/2*(r45 + r135)
 
 def bmatrix(a, prec=3):
     """Returns a LaTeX bmatrix
@@ -174,3 +183,17 @@ def bmatrix(a, prec=3):
         rv += ['  ' + ' & '.join(l.split()) + r'\\' for l in lines]
         rv +=  [r'\end{pmatrix}']
         return '\n'.join(rv)
+
+def create_matrix_image(mat, show_latex=True, save=None):
+    fig, ax = plt.subplots()
+    ax.matshow(mat, cmap='Greys')
+
+    name = None
+    if save:
+        name = save[0]
+        save_fig(fig, *save, size=(2,2))
+
+    if show_latex:
+        print(name, bmatrix(mat))
+
+    return fig, ax
