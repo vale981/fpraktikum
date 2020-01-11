@@ -1,0 +1,7 @@
+
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/mid_over_energy.pgf}
+  \caption{}
+  \label{fig:calibration-mid_over_energy}
+\end{figure}
+    
