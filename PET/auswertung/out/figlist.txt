@@ -647,3 +647,483 @@
   \label{fig:calibration-all_times}
 \end{figure}
     
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/mid_over_energy.pgf}
+  \caption{}
+  \label{fig:calibration-mid_over_energy}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/mid_over_channel.pgf}
+  \caption{}
+  \label{fig:calibration-mid_over_channel}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/time_range.pgf}
+  \caption{}
+  \label{fig:calibration-time_range}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/all_times.pgf}
+  \caption{}
+  \label{fig:calibration-all_times}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/lenght_det.pgf}
+  \caption{}
+  \label{fig:calibration-lenght_det}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/mid_over_energy.pgf}
+  \caption{}
+  \label{fig:calibration-mid_over_energy}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/mid_over_channel.pgf}
+  \caption{}
+  \label{fig:calibration-mid_over_channel}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/time_range.pgf}
+  \caption{}
+  \label{fig:calibration-time_range}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/all_times.pgf}
+  \caption{}
+  \label{fig:calibration-all_times}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/lenght_det.pgf}
+  \caption{}
+  \label{fig:calibration-lenght_det}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/mid_over_energy.pgf}
+  \caption{}
+  \label{fig:calibration-mid_over_energy}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/mid_over_energy.pgf}
+  \caption{}
+  \label{fig:calibration-mid_over_energy}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/mid_over_energy.pgf}
+  \caption{}
+  \label{fig:calibration-mid_over_energy}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/mid_over_energy.pgf}
+  \caption{}
+  \label{fig:calibration-mid_over_energy}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/mid_over_energy.pgf}
+  \caption{}
+  \label{fig:calibration-mid_over_energy}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/mid_over_energy.pgf}
+  \caption{}
+  \label{fig:calibration-mid_over_energy}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/mid_over_energy.pgf}
+  \caption{}
+  \label{fig:calibration-mid_over_energy}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/mid_over_energy.pgf}
+  \caption{}
+  \label{fig:calibration-mid_over_energy}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/mid_over_channel.pgf}
+  \caption{}
+  \label{fig:calibration-mid_over_channel}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/time_range.pgf}
+  \caption{}
+  \label{fig:calibration-time_range}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/time_range.pgf}
+  \caption{}
+  \label{fig:calibration-time_range}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/mid_over_energy.pgf}
+  \caption{}
+  \label{fig:calibration-mid_over_energy}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/mid_over_channel.pgf}
+  \caption{}
+  \label{fig:calibration-mid_over_channel}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/time_range.pgf}
+  \caption{}
+  \label{fig:calibration-time_range}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/all_times.pgf}
+  \caption{}
+  \label{fig:calibration-all_times}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/lenght_det.pgf}
+  \caption{}
+  \label{fig:calibration-lenght_det}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/all_times.pgf}
+  \caption{}
+  \label{fig:calibration-all_times}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/lenght_det.pgf}
+  \caption{}
+  \label{fig:calibration-lenght_det}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/lenght_det.pgf}
+  \caption{}
+  \label{fig:calibration-lenght_det}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/lenght_det.pgf}
+  \caption{}
+  \label{fig:calibration-lenght_det}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/lenght_det.pgf}
+  \caption{}
+  \label{fig:calibration-lenght_det}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/lenght_det.pgf}
+  \caption{}
+  \label{fig:calibration-lenght_det}
+\end{figure}
+    

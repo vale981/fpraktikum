@@ -52,9 +52,10 @@ def pinmp_ticks(axis, ticks):
     axis.set_minor_locator(ticker.MaxNLocator(ticks*10))
     return axis
 
-def set_up_plot(ticks=10, pimp_top=True):
-    fig = plt.figure()
-    ax = fig.add_subplot(111)
+def set_up_plot(ticks=10, pimp_top=True, subplot=111, fig=None):
+    if fig is None:
+        fig = plt.figure()
+    ax = fig.add_subplot(subplot)
 
     pinmp_ticks(ax.xaxis, ticks)
     pinmp_ticks(ax.yaxis, ticks)
@@ -90,6 +91,10 @@ def save_fig(fig, title, folder='unsorted', size=(5, 4)):
   \label{fig:''' + folder + '-' + title + '''}
 \end{figure}
     ''')
+def plot_all(axes, counts, label):
+    axt, axa, axb = axes
+    c_t, c_a, c_b = counts
+
 
 def plot_spectrum(counts, offset=1, save=None, **pyplot_args):
     fig, ax = set_up_plot()
@@ -120,7 +125,8 @@ def find_and_plot_peak(counts, ax, label):
     times, d_times = channel_to_time(channels)
 
     splot = ax.step(times, counts, label=label, alpha=.4)
-    opt, cov = curve_fit(gauss, channels, counts, p0=(1, counts.argmax(), 100))
+    opt, cov = curve_fit(gauss, channels, counts,
+                         p0=(1, counts.argmax(), 100))
     cov = np.sqrt(np.diag(cov))
     gplot = ax.plot(times, gauss(channels,*opt), label=f"Fit {label}", color=splot[0].get_color())
     ax.axvline(channel_to_time(opt[1])[0], color=gplot[0].get_color())
