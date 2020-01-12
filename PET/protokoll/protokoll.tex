@@ -31,25 +31,25 @@ Wie der Name des Verfahrens besagt, benötigt es für dieses Positronen. Diese w
 erwähnten \(\beta^+\) - Zerfall erzeugt:
 
 \begin{equation}\label{eq:betazerf}
-	p^+ \rightarrow n + e^+ + \nu_e
+        p^+ \rightarrow n + e^+ + \nu_e
 \end{equation}
 
-Wie die Zerfallsgleichung~\ref{eq:betazerf} zeigt, zerfällt beim \(\beta^+\) - Zerfall ein Proton
+Wie die Zerfallsgleichung~\eqref{eq:betazerf} zeigt, zerfällt beim \(\beta^+\) - Zerfall ein Proton
 in ein Neutron, das für die PET wichtige Positron und ein Elektron-Neutrino. Weswegen die
 Tracer-Materialien einen Protonenüberschuss im Kern haben.
 Neutrinos interagieren nur sehr selten mit Materie, weshalb die beim Zerfall entstehenden einfach
 durch den Körper durchgehen und somit hier nicht interessant sind. Das Neutron verbleibt im Kern
-und das Positron propagiert durch das Gewebe des Körpers mit einer Reichweite von wenigen 
-Millimetern und annihiliert dann mit einem Elektron aus der Hülle eines Atoms zu zwei Photonen. 
-Je besser die Auflösung dieses Verfahrens sein soll, desto kürzer darf die Reichweite der 
+und das Positron propagiert durch das Gewebe des Körpers mit einer Reichweite von wenigen
+Millimetern und annihiliert dann mit einem Elektron aus der Hülle eines Atoms zu zwei Photonen.
+Je besser die Auflösung dieses Verfahrens sein soll, desto kürzer darf die Reichweite der
 Positronen sein, das heißt: Je näher sie am Entstehungsort annihilieren, desto besser.
 
 \begin{equation}\label{eq:annihi}
-	e^+ + e^- \rightarrow \gamma + \gamma
+        e^+ + e^- \rightarrow \gamma + \gamma
 \end{equation}
 
 Die entstehenden Photonen haben stets die gleiche Energie. Die Ruhemasse von Elektron und Positron
-beträgt \(\SI{1022}{\kilo\electronvolt}\) und teilt sich bei der Paarvernichtung gleichmäßig auf 
+beträgt \(\SI{1022}{\kilo\electronvolt}\) und teilt sich bei der Paarvernichtung gleichmäßig auf
 die Photonen auf, sodass diese ergo eine Energie von \(E_\gamma = \SI{511}{\kilo\electronvolt}\).
 Da die Annihilation in Ruhe stattfindet und Energie und Impulserhaltung gilt, schließen die beiden
 Photonen einen Winkel von \(180^\circ\) ein, bewegen sich also antiparallel.\\
@@ -68,14 +68,14 @@ innerhalb des PET erzeugt wurden.\\
 Die Zählrate der wahren Koinzidenzen, also der für uns interessanten ergibt sich folgendermaßen:
 
 \begin{equation}\label{eq:wahrkoinz}
-	\dot N_K = \qty(\frac{\Omega_{min}}{2 \pi}) \cdot P_\beta A \cdot \epsilon_1 \epsilon_2
+        \dot N_K = \qty(\frac{\Omega_{min}}{2 \pi}) \cdot P_\beta A \cdot \epsilon_1 \epsilon_2
 \end{equation}
 
 \begin{conditions}
-	\Omega_{min} & Raumwinkelelement des von der Quelle am weitesten entfernten Detektors\\
-	P_\beta & Zerfallswahrscheinlichkeit des Nuklids für \(\beta^+\) - Zerfall\\
-	A & Aktivität der Quelle\\
-	\epsilon_1/\epsilon_2 & intrinsische Nachweiseffektivitäten der Detektoren
+        \Omega_{min} & Raumwinkelelement des von der Quelle am weitesten entfernten Detektors\\
+        P_\beta & Zerfallswahrscheinlichkeit des Nuklids für \(\beta^+\) - Zerfall\\
+        A & Aktivität der Quelle\\
+        \epsilon_1/\epsilon_2 & intrinsische Nachweiseffektivitäten der Detektoren
 \end{conditions}
 
 Die Detektoren, die für die PET verwendet werden, sind Szintillationsdetektoren. Einfach
@@ -84,7 +84,7 @@ mit einer anderen Wellenlänge, die meist im sichtbaren oder ultravioletten Bere
 Dabei dient das Szintillatormaterial, das in diesem Versuch aus Kristallen besteht (es gibt
 aber auch weitere Szintillatortypen, beispielsweise organische, die mit Plastik als Material
 arbeiten) auch als Lichtleiter.
-Hinter dem Kristall befindet sich eine Photokathode, die die eintreffenden Photonen über den 
+Hinter dem Kristall befindet sich eine Photokathode, die die eintreffenden Photonen über den
 Photoelektrischen Effekt in Elektronen umwandeln. Da die durch die Photonen herausgelösten
 Elektronen sehr wenige sein können, zu wenige, um ein Signal zu messen, ist nun noch ein
 Photomultiplier angeschlossen, der die Elektronen mittels Hochspannung beschleunigt und die
@@ -100,8 +100,8 @@ Die so aufgenommenen Amplituden sind aufsummiert proportional zu der Energie, di
 Photonen im Detektor deponiert wurde. Bildet man den Schwerpunkt der Amplituden kann man
 den Ort, an dem die Photonen mit dem Kristall wechselwirkten, bestimmen.\\
 
-Bei diesem Verfahren wird also eine zweidimensionale Abbildung, eine Quellverteilung, die man 
-untersuchen will, auf eine eindimensionale Funktion, die eine Intensitätsverteilung beschreibt, 
+Bei diesem Verfahren wird also eine zweidimensionale Abbildung, eine Quellverteilung, die man
+untersuchen will, auf eine eindimensionale Funktion, die eine Intensitätsverteilung beschreibt,
 projiziert.
 Dieser Vorgang wird mathematisch durch die Radon-Transformation beschrieben. Diese Transformation
 projiziert eine zweidimensionale Funktion auf eine Gerade \(s\), die durch den Koordinatenursprung
@@ -110,16 +110,16 @@ Die Projektion ordnet dabei den auf der Projektionsgeraden \(s\) befindlichen Pu
 Linienintegral \(p(s, \vartheta)\) zu:
 
 \begin{equation}\label{eq:linienint}
-	p(s, \vartheta) = \int_{-R_I}^{+R_I} f_I(s \cdot \cos \vartheta - t \cdot \sin \vartheta, s \cdot \sin\vartheta + t \cdot \cos\vartheta)
+        p(s, \vartheta) = \int_{-R_I}^{+R_I} f_I(s \cdot \cos \vartheta - t \cdot \sin \vartheta, s \cdot \sin\vartheta + t \cdot \cos\vartheta)
 \end{equation}
 
 Wobei folgende Beziehungen genutzt wurden:
 
 \begin{align}
-	s = x \cdot \cos\vartheta + y \cdot \sin\vartheta \\
-	x = s \cdot \cos \vartheta - t \cdot \sin \vartheta \\
-	y = s \cdot \sin\vartheta + t \cdot \cos\vartheta \\
-	R_I = \sqrt{x^2 + y^2}
+        s = x \cdot \cos\vartheta + y \cdot \sin\vartheta \\
+        x = s \cdot \cos \vartheta - t \cdot \sin \vartheta \\
+        y = s \cdot \sin\vartheta + t \cdot \cos\vartheta \\
+        R_I = \sqrt{x^2 + y^2}
 \end{align}
 
 Stellt man die Funktion \(p(s, \vartheta)\) zweidimensional dar, erhält man ein so genanntes
