@@ -110,7 +110,7 @@ Die Projektion ordnet dabei den auf der Projektionsgeraden \(s\) befindlichen Pu
 Linienintegral \(p(s, \vartheta)\) zu:
 
 \begin{equation}\label{eq:linienint}
-        p(s, \vartheta) = \int_{-R_I}^{+R_I} f_I(s \cdot \cos \vartheta - t \cdot \sin \vartheta, s \cdot \sin\vartheta + t \cdot \cos\vartheta)
+        p(s, \vartheta) = \int_{-R_I}^{+R_I} f_I(s \cdot \cos \vartheta - t \cdot \sin \vartheta, s \cdot \sin\vartheta + t \cdot \cos\vartheta) dt
 \end{equation}
 
 Wobei folgende Beziehungen genutzt wurden:
@@ -125,12 +125,250 @@ Wobei folgende Beziehungen genutzt wurden:
 Stellt man die Funktion \(p(s, \vartheta)\) zweidimensional dar, erhält man ein so genanntes
 \emph{Sinogramm}.
 
+Die Rückprojektion erfolgt mit Hilfe einer zweidimensionalen inversen Fourier-Transformation im
+Frequenzraum. Nach Verwendung des Projektionssatzes und Übergang von den kartesischen \(k_x, k_y\)
+zu Zylinderkoordinaten \(S, \vartheta\) folgt:
+
+\begin{equation}\label{eq:invradon}
+	f_I(x,y) = \int_{0}^{\pi} d\vartheta \int_{-\infty}^{+\infty} P(S, \vartheta) \cdot |S| \cdot \exp[2\pi i S(x \cdot \cos\vartheta + y \cdot \sin\vartheta)] dS
+\end{equation}
+
+~\eqref{eq:invradon} entspricht der inversen Radon-Transformation, die allerdings keine Lösung
+hat, da das Integral über \(dS\) divergiert.
+Um dennoch eine Lösung anzunähern, führt man eine Filterfunktion \(H(S)\) ein, die als Produkt der
+Betragsfunktion \(|S| = \sqrt{k_x^2+k_y^2}\) und einer Fensterfunktion \(A(S)\) definiert ist.
+
+\begin{equation}\label{eq:filterfkt}
+	H(S) = A(S) \cdot |S|
+\end{equation}
+
+Mit
+
+\begin{equation}\label{eq:filterkern}
+	h(s) = \int_{-\infty}^{+\infty} A(S) \cdot |S| \cdot \exp[2\pi i Ss] dS
+\end{equation}
+
+und
+
+\begin{equation}\label{eq:gefltdaten}
+	p_F(s, \vartheta) = p(s, \vartheta) \cdot h(s) = \int_{0}^{s'_{max}} p(s', \vartheta) \cdot h(s-s') ds'
+\end{equation}
+
+ergibt sich die Rückprojektion
+
+\begin{equation}\label{eq:rücktrafo}
+	f_I(x,y) \approxeq \int_{0}^{\pi} p_F(s,\vartheta) d\vartheta .
+\end{equation}
+
+\section{Durchführung und Auswertung}
+\label{sec:durch}
+
+\subsection{Schwerpunktsdiagramme}
+\label{sec:schwpkt}
+
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{0.32\textwidth}
+		\centering
+		\includegraphics[width=.9\textwidth]{../messungen/kalib/vergleich_mitte_nah_NAH.png}
+		\caption{Quelle nah.}
+	\end{subfigure}
+	\begin{subfigure}{0.32\textwidth}
+		\centering
+		\includegraphics[width=.9\textwidth]{../messungen/kalib/vergleich_mitte_nah_MITTE.png}
+		\caption{Quelle in Mitte der Detektoren.}
+	\end{subfigure}
+	\begin{subfigure}{0.32\textwidth}
+		\centering
+		\includegraphics[width=.9\textwidth]{../messungen/kalib/vergleich_mitte_fern_FERN.png}
+		\caption{Quelle fern.}
+	\end{subfigure}
+	\caption{Vergleich der Detektorsignale bei verschiedenen Quellabständen von Detektor A.}
+	\label{fig:abstand}
+\end{figure}
+
+Die Quelle lag bei den Messungen stets auf einem Tisch aus Plexiglas. Dadurch erwartet man eine
+Abschwächung des Signals durch Reflexionen und Brechungen des Lichtes am unteren Detektorrand.
+Wie man allerdings deutlich in~\ref{fig:abstand} (c) erkennen kann ist das Signal im unteren
+Teil des Bildes deutlich stärker als im oberen. Dies lässt darauf schließen, dass die vom
+Detektor kommenden Bilder horizontal invertiert sind.
+Auch kann man die Kristallstruktur anhand der 8x8-Matrix artigen Anordnung der Dichteverteilung
+der Messpunkte erkennen.
+Die Dichte der Messpunkte ist in (a) deutlich im Zentrum der Aufnahme
+konzentriert sowie die am Rand liegenden Bereiche höherer Messpunktdichte stark verzerrt. Daraus
+wurde der Schluss, dass (a) eine Messung zeigt, bei der die Quelle nah am Detektor lag.
+Die Unterschiede und Gründe für die Entscheidung zwischen mittleren (b) und fernen Quellabstand 
+(c) sind zum einen die Helligkeit der einzelnen Bereiche höherer Messpunktdichte zum anderen
+müssten die äußeren Bereiche bei fernem Abstand weniger stark verzerrt sein, was 
+in~\ref{fig:abstand} allerdings nicht zu erkennen ist, da die Unterschiede zu marginal sind.
+
+\subsection{Tomographische Messungen}
+\label{sec:tom}
+
+\subsubsection{Isotrope Dichteverteilung}
+\label{sec:tom1}
+
+Es wurde eine vorgegebene, aber unbekannte Quellkonfiguration innerhalb eines aus Wachs 
+bestehenden Phantoms vermessen und mit Hilfe dieser Messungen auf die Gestalt der
+Quellkonfiguration geschlossen.\\
+
+Gemessen wurde mit einer Geschwindigkeit von \(\SI{12}{\milli\metre\per\second}\), dem 
+Mittelfilter und neun Filterdimensionen.
+
+\begin{figure}
+   \begin{subfigure}{0.5\textwidth}
+	   	\centering
+   		\includegraphics[width=.4\textwidth]{../messungen/oliTOM1/1_einfach.png}
+		\includegraphics[width=.4\textwidth]{../messungen/oliTOM1/1_gefiltert.png}
+		\caption{Messung bei \(7^\circ\).}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\centering
+		\includegraphics[width=.4\textwidth]{../messungen/oliTOM1/3_einfach.png}
+		\includegraphics[width=.4\textwidth]{../messungen/oliTOM1/3_gefiltert.png}
+		\caption{Messung bei \(18^\circ\).}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\centering
+		\includegraphics[width=.4\textwidth]{../messungen/oliTOM1/3_einfach.png}
+		\includegraphics[width=.4\textwidth]{../messungen/oliTOM1/3_gefiltert.png}
+		\caption{Messung bei \(18^\circ\).}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\centering
+		\includegraphics[width=.4\textwidth]{../messungen/oliTOM1/5_einfach.png}
+		\includegraphics[width=.4\textwidth]{../messungen/oliTOM1/5_gefiltert.png}
+		\caption{Messung bei \(36^\circ\).}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\centering
+		\includegraphics[width=.4\textwidth]{../messungen/oliTOM1/9_einfach.png}
+		\includegraphics[width=.4\textwidth]{../messungen/oliTOM1/9_gefiltert.png}
+		\caption{Messung bei \(90^\circ\).}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\centering
+		\includegraphics[width=.4\textwidth]{../messungen/oliTOM1/13_einfach.png}
+		\includegraphics[width=.4\textwidth]{../messungen/oliTOM1/13_gefiltert.png}
+		\caption{Messung bei \(150^\circ\).}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\centering
+		\includegraphics[width=.4\textwidth]{../messungen/oliTOM1/15_einfach.png}
+		\includegraphics[width=.4\textwidth]{../messungen/oliTOM1/15_gefiltert.png}
+		\caption{Messung bei \(178^\circ\).}
+	\end{subfigure}
+	\caption{Verlauf der Bilderstellung mit Gegenüberstellung von ungefilterter (links) und gefilterter (rechts) Projektion.}
+	\label{fig:tom1}
+\end{figure}
+
+\subsubsection{Anisotrope Dichteverteilung}
+\label{sec:tom2}
+
+Nun wurde wieder eine Dichteverteilung innerhalb des Phantoms gegeben. Nur das diesmal nur in der
+Mitte des Phantoms eine Quelle lag und darum auf unbekannte Art und Weise Bleimünzen, der selben
+Form und Größe wie die der Quelle verteilt waren. Deren Anordnung gilt es mit Hilfe der
+aufgenommenen Messdaten, insbesondere der Form des Sinogramms, herauszufinden.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.3\textwidth, angle=90]{../messungen/tom2/tom2_Sinogramm.png}
+	\caption{Aufgenommenes Sinogramm bei Vermessung einer anisotropen Quelldichteverteilung.}
+	\label{fig:tom2}
+\end{figure}
+
+\subsection{Einfluss verschiedener Filter}
+\label{sec:filter}
+
+Zuletzt wurde noch der Einfluss verschiedener Filter auf die gefilterte Rückprojektion
+untersucht. Dazu wurden die Messdaten aus~\ref{sec:tom1} verwendet.
+
+\begin{figure}[h]
+	\centering
+	\subfloat[Hanning-Filter.]{\includegraphics[width=.4\textwidth]{../messungen/olifilter/hanningweight9_gefiltert.png}}
+	\subfloat[Ramp-Filter.]{\includegraphics[width=.4\textwidth]{../messungen/olifilter/ramp9_gefiltert.png}}\\
+	\subfloat[Shepp-Filter.]{\includegraphics[width=.4\textwidth]{../messungen/olifilter/shepp9_gefiltert.png}}
+	\subfloat[Rauschfilter.]{\includegraphics[width=.4\textwidth]{../messungen/olifilter/rauschfilter_gefiltert.png}}
+	\caption{Gegenüberstellung verschiedener Filter mit einer Dimension von je \(9\).}
+	\label{fig:filter}
+\end{figure}
+
+Wie man in~\ref{fig:filter} erkennen kann, sehen sich die gefilterten Rückprojektionen mit dem
+Hannig-Filter und dem Rauschfilter sowie jene mit Ramp-Filter und Shepp-Filter recht ähnlich.
+Auf den Bildern (a) und (d) kann man die Quellverteilung obwohl sie im Vergleich zu (b) und (c)
+unschärfer wirken besser erkennen, da störende Signale herausgefiltert werden.\\
+
+%\begin{figure}[h]
+%	\centering
+%	\begin{subfigure}[t]{0.5\textwidth}
+%		\centering
+%		\includegraphics[width=.3\textwidth]{../messungen/olifilter/hanningweight9_gefiltert.png}
+%		\caption{Hanning-Filter.}
+%	\end{subfigure}
+%	\begin{subfigure}[t]{0.5\textwidth}
+%		\centering
+%		\includegraphics[width=.3\textwidth]{../messungen/olifilter/ramp9_gefiltert.png}
+%		\caption{Ramp-Filter.}
+%	\end{subfigure}
+%	\begin{subfigure}[t]{0.5\textwidth}
+%		\centering
+%		\includegraphics[width=.3\textwidth]{../messungen/olifilter/shepp9_gefiltert.png}
+%		\caption{Shepp-Filter.}
+%	\end{subfigure}
+%	\begin{subfigure}[t]{0.5\textwidth}
+%		\centering
+%		\includegraphics[width=.3\textwidth]{../messungen/olifilter/rauschfilter_gefiltert.png}
+%		\caption{Rausch-Filter.}
+%	\end{subfigure}
+%\caption{Gegenüberstellung verschiedener Filter mit einer Dimension von je \(9\).}
+%\label{fig:filter}
+%\end{figure}
+
+Der Rauschfilter wurde außerdem mit Dimensionseinstellungen getestet.
+
+\begin{figure}[h!]
+	\centering
+	\subfloat[Dimension \(= 5\).]{\includegraphics[width=.3\textwidth]{../messungen/olifilter/rausch_5_gefiltert.png}}
+	\subfloat[Dimension \(= 9\).]{\includegraphics[width=.3\textwidth]{../messungen/olifilter/rauschfilter_gefiltert.png}}
+	\subfloat[Dimension \(= 12\).]{\includegraphics[width=.3\textwidth]{../messungen/olifilter/rausch12_gefiltert.png}}
+	\caption{Rauschfilter mit verschiedenen Dimensionen.}
+	\label{fig:rausch}
+\end{figure}
+
+In~\ref{fig:rausch} erscheint (a) am unschärfsten und undeutlichsten, wenngleich man auch die 
+Intensität der einzelnen Quellen qualitativ abschätzen kann. In (b) und (c) hingegen ist die
+Lage der Quellen besser auszumachen, da diese schärfer im Vergleich zu (a) sind. Es ist allerdings
+kein wirklicher Unterschied zwischen (b) und (c) zu erkennen.
+
+%\begin{figure}[h!]
+% \centering
+%	\begin{subfigure}[t]{0.5\textwidth}
+%	\centering
+%	\includegraphics[width=.6\textwidth]{../messungen/olifilter/rausch_5_gefiltert.png}
+%	\caption{Dimension \(= 5\).}	
+%	\end{subfigure}
+%	\begin{subfigure}[t]{0.5\textwidth}
+%	\centering
+%	\includegraphics[width=.6\textwidth]{../messungen/olifilter/rauschfilter_gefiltert.png}
+%	\caption{Dimension \(= 9\).}	
+%	\end{subfigure}
+%	\begin{subfigure}[t]{0.5\textwidth}
+%	\centering
+%	\includegraphics[width=.6\textwidth]{../messungen/olifilter/rausch12_gefiltert.png}
+%	\caption{Dimension \(= 12\).}	
+%	\end{subfigure}
+% \caption{Rauschfilter mit verschiedenen Dimensionen.}
+% \label{fig:rausch}
+%\end{figure}
+
+
+
 \section{Auswertung}
 \label{sec:ausw}
 
 \subsection{Theoriebeispiel}
 \label{sec:theobei}
-Zur Verbesserung des verst\"andnisses der Projektions- und
+Zur Verbesserung des Verst\"andnisses der Projektions- und
 Rekonstruktionsprozesse, werden diese hier anhand eines einfachen
 Beispiels nachvollzogen.
 
@@ -197,7 +435,7 @@ berechenet. Dabei wurden die diagonalen entsprechend gewichtet.
     \end{array}\right) = \mathfrak{P}_0
 \end{equation}
 
-Ein gefiltertes Sinogram~\ref{fig:theory-convoluted} ergibt sich durch
+Ein gefiltertes Sinogramm~\ref{fig:theory-convoluted} ergibt sich durch
 Faltung der Zeilen von \(\mathfrak{M}_0\) mit
 \(F = \mqty(-.1 & .25 & -.1)\).
 
@@ -212,7 +450,7 @@ Faltung der Zeilen von \(\mathfrak{M}_0\) mit
   \end{pmatrix}
 \end{equation}
 
-Die R\"uckprojektion des Einfachen sinogramms
+Die R\"uckprojektion des einfachen Sinogramms
 ergib~\ref{fig:theory-rec_simple}.
 
 {\footnotesize
@@ -254,7 +492,7 @@ ergib~\ref{fig:theory-rec_simple}.
   \end{pmatrix} = \mathfrak{M}_1
 \end{align}}
 
-Aus dem gefilterten Sinogram ergibt sich auf \"ahnliche
+Aus dem gefilterten Sinogramm ergibt sich auf \"ahnliche
 Weise~\ref{fig:theory-rec_filtered}
 {\footnotesize
 \setlength{\arraycolsep}{2.5pt}
@@ -297,11 +535,11 @@ Weise~\ref{fig:theory-rec_filtered}
 \end{align}
 }
 
-Es ist zu erkennen, das in beiden rekonstruktionen die starken Signale
-\((1,1),\,(3,1),\,(3,3)\) klar zu identifizerien, wenngleich die
-Unterschiede in der signalst\"arke nicht im urspr\"unglichen
-Verh\"altniss stehen. Die gefilterte R\"uckprojektion weist in den
-Randfeldern und im Mittleren Feld einen h\"oheren Kontrast auf,
+Es ist zu erkennen, das in beiden Rekonstruktionen die starken Signale
+\((1,1),\,(3,1),\,(3,3)\) klar zu identifizieren, wenngleich die
+Unterschiede in der Signalst\"arke nicht im urspr\"unglichen
+Verh\"altnis stehen. Die gefilterte R\"uckprojektion weist in den
+Randfeldern und im mittleren Feld einen h\"oheren Kontrast auf,
 erzeugt aber dennoch nur ein geringf\"ugig besseres und in manchen
 Bereichen (Ecken) sogar ein schlechteres Bild. Das schwache Signal
 \((0,4)\) wurde in beiden F\"allen nicht rekonstruiert. F\"uhrt man
