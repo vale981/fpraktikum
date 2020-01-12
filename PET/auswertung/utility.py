@@ -36,6 +36,7 @@ def energy_b(channel):
 channel_to_time_val = SecondaryValue('a + b*(k-1/2)', defaults=dict(a=(-.014, .0192), b=(.0483, 2e-5)))
 def channel_to_time(channel, d=0):
     return channel_to_time_val(k=(channel, d))
+
 ###############################################################################
 #                                  Plot Porn                                  #
 ###############################################################################
