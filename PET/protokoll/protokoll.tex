@@ -1,4 +1,4 @@
-\documentclass[slug=PET, room=Andreas-Schubert-Bau\,\ K\ 1A, supervisor=Anne-Sophie\ Berthold, coursedate=13.\ 12.\ 2019]{../../Lab_Report_LaTeX/lab_report}
+\documentclass[slug=PET, room=Andreas-Schubert-Bau\,\ 424A, supervisor=Carsten\ Bittrich, coursedate=10.\ 01.\ 2020]{../../Lab_Report_LaTeX/lab_report}
 
 \title{Postitronenemissionstomographie}
 \author{Oliver Matthes, Valentin Boettcher}
@@ -16,6 +16,114 @@
 
 \begin{document}
 \maketitle
+
+\section{Einleitung}
+\label{sec:einl}
+
+Dieser Versuch beschäftigt sich mit der Positronen-Emissions-Tomographie (PET), die ein
+wichtiges bildgebendes Verfahren in der Medizin darstellt, um beispielsweise einen Tumore oder
+allgemein Stoffwechselvorgänge sichtbar zu machen.
+Dazu muss der Patient einen so genannten Tracer aufnehmen. Dabei handelt es sich um eine
+radioaktive Substanz mit einer Halbwertszeit von mehreren Minuten oder Stunden, die sich an
+bestimmte Geweberegionen im Körper anlagert. Bei dieser radioaktiven Substanz handelt es sich
+um ein Material, das überwiegend über den \(\beta^+\) - Zerfall zerfällt.
+Wie der Name des Verfahrens besagt, benötigt es für dieses Positronen. Diese werden durch eben
+erwähnten \(\beta^+\) - Zerfall erzeugt:
+
+\begin{equation}\label{eq:betazerf}
+	p^+ \rightarrow n + e^+ + \nu_e
+\end{equation}
+
+Wie die Zerfallsgleichung~\ref{eq:betazerf} zeigt, zerfällt beim \(\beta^+\) - Zerfall ein Proton
+in ein Neutron, das für die PET wichtige Positron und ein Elektron-Neutrino. Weswegen die
+Tracer-Materialien einen Protonenüberschuss im Kern haben.
+Neutrinos interagieren nur sehr selten mit Materie, weshalb die beim Zerfall entstehenden einfach
+durch den Körper durchgehen und somit hier nicht interessant sind. Das Neutron verbleibt im Kern
+und das Positron propagiert durch das Gewebe des Körpers mit einer Reichweite von wenigen 
+Millimetern und annihiliert dann mit einem Elektron aus der Hülle eines Atoms zu zwei Photonen. 
+Je besser die Auflösung dieses Verfahrens sein soll, desto kürzer darf die Reichweite der 
+Positronen sein, das heißt: Je näher sie am Entstehungsort annihilieren, desto besser.
+
+\begin{equation}\label{eq:annihi}
+	e^+ + e^- \rightarrow \gamma + \gamma
+\end{equation}
+
+Die entstehenden Photonen haben stets die gleiche Energie. Die Ruhemasse von Elektron und Positron
+beträgt \(\SI{1022}{\kilo\electronvolt}\) und teilt sich bei der Paarvernichtung gleichmäßig auf 
+die Photonen auf, sodass diese ergo eine Energie von \(E_\gamma = \SI{511}{\kilo\electronvolt}\).
+Da die Annihilation in Ruhe stattfindet und Energie und Impulserhaltung gilt, schließen die beiden
+Photonen einen Winkel von \(180^\circ\) ein, bewegen sich also antiparallel.\\
+
+Um den Beobachtungsort sind in einem Ring (in diesem Versuch nur zwei gegenüberliegende)
+Detektoren angebracht, die die entstandenen Photonen registrieren.
+Allerdings können zum Beispiel durch andere Zerfallsprozesse natürlich auch andere Photonen
+entstehen, die die Messungen stören. Um solche zufällige Koinzidenzen möglichst gering zu halten,
+müssen die eintreffenden Lichtquanten bestimmte Kriterien erfüllen:\\
+Wie eben beschrieben haben die Photonen immer die gleiche Energie, sodass Photonen, die nicht in
+ein Energiefenster passen, nicht berücksichtigt werden. Des Weiteren haben die Detektoren einen
+bestimmten Abstand zu einander, was bedeutet, dass die Photonen mit einer maximalen zeitlichen
+Differenz von Detektorabstand geteilt durch Lichtgeschwindigkeit eintreffen müssen, sofern sie
+innerhalb des PET erzeugt wurden.\\
+
+Die Zählrate der wahren Koinzidenzen, also der für uns interessanten ergibt sich folgendermaßen:
+
+\begin{equation}\label{eq:wahrkoinz}
+	\dot N_K = \qty(\frac{\Omega_{min}}{2 \pi}) \cdot P_\beta A \cdot \epsilon_1 \epsilon_2
+\end{equation}
+
+\begin{conditions}
+	\Omega_{min} & Raumwinkelelement des von der Quelle am weitesten entfernten Detektors\\
+	P_\beta & Zerfallswahrscheinlichkeit des Nuklids für \(\beta^+\) - Zerfall\\
+	A & Aktivität der Quelle\\
+	\epsilon_1/\epsilon_2 & intrinsische Nachweiseffektivitäten der Detektoren
+\end{conditions}
+
+Die Detektoren, die für die PET verwendet werden, sind Szintillationsdetektoren. Einfach
+beschrieben absorbiert ein Szintillator ein eintreffendes Photon und wandelt dieses in Photonen
+mit einer anderen Wellenlänge, die meist im sichtbaren oder ultravioletten Bereich liegt, um.
+Dabei dient das Szintillatormaterial, das in diesem Versuch aus Kristallen besteht (es gibt
+aber auch weitere Szintillatortypen, beispielsweise organische, die mit Plastik als Material
+arbeiten) auch als Lichtleiter.
+Hinter dem Kristall befindet sich eine Photokathode, die die eintreffenden Photonen über den 
+Photoelektrischen Effekt in Elektronen umwandeln. Da die durch die Photonen herausgelösten
+Elektronen sehr wenige sein können, zu wenige, um ein Signal zu messen, ist nun noch ein
+Photomultiplier angeschlossen, der die Elektronen mittels Hochspannung beschleunigt und die
+Anzahl der Elektronen vervielfältigt. Diese Vervielfältigung funktioniert über Dynoden. Auf diese
+prallen die Elektronen auf und lösen mehrere Sekundärelektronen heraus. Durch
+Hintereinanderreihung von mehreren Dynoden, steigt die Elektronenanzahl exponentiell an.\\
+
+Um mit Hilfe der Szintillatoren auf die Energie sowie den Ort der im Detektor erzeugten Photonen
+schließen zu können, ist ein Szintillatorkristall von vier Photomultipliern unterschiedlich tief
+eingeschnitten. Diese Art von Detektoren nennt sich Blockdetektoren. In diesem Versuch ist der
+Kristall vor den vier Photomultipliern in einer 8 x 8 - Matrix unterteilt.
+Die so aufgenommenen Amplituden sind aufsummiert proportional zu der Energie, die von den
+Photonen im Detektor deponiert wurde. Bildet man den Schwerpunkt der Amplituden kann man
+den Ort, an dem die Photonen mit dem Kristall wechselwirkten, bestimmen.\\
+
+Bei diesem Verfahren wird also eine zweidimensionale Abbildung, eine Quellverteilung, die man 
+untersuchen will, auf eine eindimensionale Funktion, die eine Intensitätsverteilung beschreibt, 
+projiziert.
+Dieser Vorgang wird mathematisch durch die Radon-Transformation beschrieben. Diese Transformation
+projiziert eine zweidimensionale Funktion auf eine Gerade \(s\), die durch den Koordinatenursprung
+läuft und einen Winkel \(\vartheta\) mit der x-Achse einschließt.
+Die Projektion ordnet dabei den auf der Projektionsgeraden \(s\) befindlichen Punkten ein
+Linienintegral \(p(s, \vartheta)\) zu:
+
+\begin{equation}\label{eq:linienint}
+	p(s, \vartheta) = \int_{-R_I}^{+R_I} f_I(s \cdot \cos \vartheta - t \cdot \sin \vartheta, s \cdot \sin\vartheta + t \cdot \cos\vartheta)
+\end{equation}
+
+Wobei folgende Beziehungen genutzt wurden:
+
+\begin{align}
+	s = x \cdot \cos\vartheta + y \cdot \sin\vartheta \\
+	x = s \cdot \cos \vartheta - t \cdot \sin \vartheta \\
+	y = s \cdot \sin\vartheta + t \cdot \cos\vartheta \\
+	R_I = \sqrt{x^2 + y^2}
+\end{align}
+
+Stellt man die Funktion \(p(s, \vartheta)\) zweidimensional dar, erhält man ein so genanntes
+\emph{Sinogramm}.
 
 \section{Auswertung}
 \label{sec:ausw}
