@@ -110,16 +110,18 @@ Die Projektion ordnet dabei den auf der Projektionsgeraden \(s\) befindlichen Pu
 Linienintegral \(p(s, \vartheta)\) zu:
 
 \begin{equation}\label{eq:linienint}
-        p(s, \vartheta) = \int_{-R_I}^{+R_I} f_I(s \cdot \cos \vartheta - t \cdot \sin \vartheta, s \cdot \sin\vartheta + t \cdot \cos\vartheta) dt
+        p(s, \vartheta) = \int_{-R_I}^{+R_I} f_I(s \cdot \cos
+        \vartheta - t \cdot \sin \vartheta, s \cdot \sin\vartheta + t
+        \cdot \cos\vartheta) \dd{t}
 \end{equation}
 
 Wobei folgende Beziehungen genutzt wurden:
 
 \begin{align}
-        s = x \cdot \cos\vartheta + y \cdot \sin\vartheta \\
-        x = s \cdot \cos \vartheta - t \cdot \sin \vartheta \\
-        y = s \cdot \sin\vartheta + t \cdot \cos\vartheta \\
-        R_I = \sqrt{x^2 + y^2}
+        s &= x \cdot \cos\vartheta + y \cdot \sin\vartheta \\
+        x &= s \cdot \cos \vartheta - t \cdot \sin \vartheta \\
+        y &= s \cdot \sin\vartheta + t \cdot \cos\vartheta \\
+        R_I &= \sqrt{x^2 + y^2}
 \end{align}
 
 Stellt man die Funktion \(p(s, \vartheta)\) zweidimensional dar, erhält man ein so genanntes
@@ -365,6 +367,192 @@ kein wirklicher Unterschied zwischen (b) und (c) zu erkennen.
 
 \section{Auswertung}
 \label{sec:ausw}
+
+\subsection{Kalibrierung}
+\label{sec:kalib}
+
+\subsubsection{Festlegung der Energie und Koinzidenzzeitfenster}
+Beschreibung Messung etc....
+Messzeit:
+
+\begin{equation}
+  \label{eq:caltime}
+  T = \SI{647\pm}{\second}
+\end{equation}
+
+\label{sec:energkozeit}
+
+Zur bestimmung der Energiefenster wurden die (normierten) Z\"ahlraten
+der beiden Detektoren f\"ur die mittige Quellposition \"uber die
+Energie aufgetragen.
+
+\begin{figure}[h]\centering
+  \input{../auswertung/figs/calibration/mid_over_energy.pgf}
+  \caption{Z\"ahlraten der beiden detektoren in Abhängigkeit der Energie.}
+  \label{fig:calibration-mid_over_energy}
+\end{figure}
+
+Die gew\"ahlten Energieintervalle sind
+in~\ref{fig:calibration-mid_over_energy} eingezeichenet und richten
+sich nach der Halbwertsbreite der prominentesten Peaks. Da in
+Detektor A ein PM ausgetauscht wurde zeigt die Energiekurve andere
+Charakteristiken als die von B. Interessanter weise liegen die beiden
+h\"ochsten Peaks nicht aufeinander (Kalibrierungsproblem/Skalierung).
+
+\begin{align}
+  R_A &= [2800, 3600] \hat{=} [582.2, 725.4]\,\si{\kilo\electronvolt}
+  \\
+  R_B &= [1600, 2300] \hat{=} [452.0, 606.0]\,\si{\kilo\electronvolt}
+\end{align}
+
+Bei der Bestimmung des Zeitintervals wurde analog durch auftragen der
+Ereignisszahl \"uber die Kan\"ale vorgegangen
+(\ref{fig:calibration-time_range}). Dabei wurde die Intervalbreite
+etwas gr\"o\ss{}er als die die Halbwertsbreite gew\"ahlt um eine gute
+Z\"ahlrate zu gew\"ahrleisten.
+
+\begin{figure}[h]\centering
+  \input{../auswertung/figs/calibration/time_range.pgf}
+  \caption{Ereignisszahl \"uber Kanal zur Bestimmung der Zeitschranken.}
+  \label{fig:calibration-time_range}
+\end{figure}
+
+\begin{align}
+  \label{eq:timeint}
+  R_T &= [970, 1140] \hat{=} [46.813\pm 0.027, 55.024\pm
+        0.030]\,\si{\nano\second} = [t_1, t_2]
+\end{align}
+
+\subsubsection{Koinzidenzaufl\"osungszeit, Anteil zuf\"alliger
+  Koinzidenze und Koinzidenznachweiseffektivit\"at}
+\label{sec:koaufl}
+
+Nimmt man die Differnz der beiden Endpunkte von~\eqref{eq:timeint} so
+ergiebt sich die Koinzidenzaufl\"osungszeit \(\tau\) zu:
+\begin{equation}
+  \label{eq:koauf}
+  \tau = t_2 - t_1 \pm \sqrt{\qty(\Delta t_1)^2 + \qty(\Delta t_2)^2}
+  = \SI{8.21\pm .04}{\nano\second}
+\end{equation}
+
+Dieser Wert liegt in der Gr\"o\ss{}enordnung der Lichtlaufzeit
+zweischen den Detektoren (ca. \SI{1}{\nano\second}).
+
+Die Koinzidenzz\"ahlrate (ohne Filterung nach Energie) ergibt sich
+durch Summierung der Ereignisszahlen (\(\Delta N = \sqrt{N}\),
+Poisson) im Zeitinterval~\eqref{eq:timeint} und der Division
+durch~\eqref{eq:caltime}.
+
+\begin{equation}
+  \label{eq:ctrate}
+  \mathfrak{R} = \frac{N}{T} \pm \sqrt{\frac{N}{T^2} +
+    \qty(\frac{N}{T^2}\cdot \Delta T)^2} = \SI{422.7\pm 1.5}{\second^{-1}}
+\end{equation}
+
+Die Aktivität der \ce{22^Na} Kalibrierungsprobe ergibt sich mit
+\(t=\SI{212198400}{\second},\, t_{1/2} = \SI{2.6027\pm .0010}{\second}\) und \(A_0
+= \SI{1.36}{\mega\becquerel}\) (1.10.2014, Abw. \SI{3}{\percent}).
+
+\begin{equation}
+  \label{eq:acttoday}
+  A = A_0\cdot \qty(\frac{1}{2})^{t/t_{1/2}} = \SI{.227\pm.007}{\mega\becquerel}
+\end{equation}
+
+Die Z\"ahlate der zuf\"alligen Koinzidenzen ergibt sich aus
+\todo{!!!!! GLEICHUNG} mit der Kantenl\"ange des Detektors
+\(a=\SI{54}{\milli\meter}\) und dem Detektorabstand
+\(D=\SI{386}{\milli\meter}\) sowie
+\(\Omega_{min} = \frac{4a^2}{D^2} = 0.078,\, P_\beta = .90382\pm
+.00021,\, \)
+
+\begin{align}
+  \label{eq:incidentalrate}
+  \mathfrak{R}_Z &= \qty[4\tau\cdot A\cdot
+  \qty(\frac{\Omega_{min}}{2\pi})]\cdot \mathfrak{R} \pm
+  \sqrt{\qty(\frac{\Delta\tau}{\tau})^2 + \qty(\frac{\Delta A}{A})^2 +
+    \qty(\frac{\Delta\Omega_{min}}{\Omega_{min}})^2 +
+                   \qty(\frac{\Delta\mathfrak{R}}{\mathfrak{R}})^2} \\
+                 &= \SI{0.0392\pm .0012}{\second^{-1}} \approx \SI{.01}{\percent}
+\end{align}
+
+Die zuf\"alligen Koinzidenzen spielen hier also nur eine
+untergeordnete Rolle und k\"onnen in guter N\"aherung vernachl\"assigt werden.
+
+Die Koinzidenznachweiseffektivit\"at bestimmt sich
+\todo{equathsitoenshtioesnht} zu:
+
+\begin{align}
+  \epsilon & = \frac{\mathfrak{R}}{P_\beta\cdot A\cdot
+  \frac{\Omega_\min}{2\pi}} \pm \sqrt{\qty(\frac{\Delta A}{A})^2 +
+  \qty(\frac{\Delta\Omega_{min}}{\Omega_{min}})^2 +
+  \qty(\frac{\Delta P_\beta}{P_\beta})^2 +
+             \qty(\frac{\Delta\mathfrak{R}}{\mathfrak{R}})^2} \\
+  & = \SI{16.6\pm 1.2}{\percent}
+\end{align}
+
+Damit ist die Effektivit\"at, wie im folgenden zu sehen, zwar
+ausreichend f\"ur einigerma\ss{}en z\"ugigie Messungen, k\"onnte aber
+optimiert werden. Der hier gefundene Wert stellt einen sch\"atzer
+f\"ur die Effektivit\"at mit bestimmten Zeit-, aber unbestimmten
+Energieintervall da.
+
+
+\subsubsection{Einfluss der Quellposition}
+\label{sec:quellpos}
+
+Die Energie und Zeitspektren f\"ur verschiedene Quellpositionen sind
+in~\ref{fig:calibration-comp} dargestellt.
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption[Vergleich der Quellpositionen]{Zeit und Energiespektren f\"ur Verschiedene
+    Quellpositionen. (Links \(=\) bei Detektor A), relevante Ausschnitte}
+  \label{fig:calibration-comp}
+\end{figure}
+
+Die Z\"ahlrate ist generell f\"ur die mittlere Quellposition am
+wenigsten breit verteilt, da die Anordnung so am symetrischsten- und
+der l\"angste Detektorabstand am geringsten ist. Im Zeitspektrum sieht
+man eine Verschiebung des Peaks entsprechend des Laufzeitunterschiedes
+der Positionen. F\"ur den Vergleich der Energiespektra eignet sich
+Detektor B am besten, da er der urspr\"unglichen konfiguration
+entspricht. So erkennt man, das sich f\"ur die Linke Position (bei
+Detektor A) entsprechend eine h\"ohere Z\"ahlrate f\"ur
+niederenergetische Ereignisse bei Detektor B ergibt (Analog bei Det. A
+f\"ur die rechte Position). Dies k\"onnte unter anderem von Streuueng
+bedingt sein. Dabei ist die Verteilung des jeweils anderen Detektors
+bei h\"oheren Energien angehoben (gleiche Gesamtereignisszahl,
+Umverteilung entsprechend h\"oherer ungestreuter Energie).  Die Peaks
+sind generell zu niedrigeren Energien verschoben.
+
+Bildet man die Differenz der Peakpositionen im Zeitspektrum f\"ur die Linke und
+die rechte Quellposition (mittlere wird bei Mittelung redundant) so
+ergibt sich die Doppelte Lichtlaufzeit zwischen den Detektoren (\(t_0
++ \mathfrak{t} - (t_0
+- \mathfrak{t}) = 2\mathfrak{t}\)).
+
+Um die Peakpositionen zu erhalten, wurden Gaussfunktionen \"uber die
+Zeitspektren gefittet. Als ma\ss{} f\"ur die Peakbreite und damit die
+(statistische) Unsicherheit wurde \(1/10\) des \(\sigma\) Parameters
+der Gaussfunktion genutzt (heuristische Absch\"atzung). Nicht explizit
+betrachtet werden hier der Endliche Quellendurchmesser
+\SI{2.5}{\centi\meter} sowie der Restabstand der Quelle zum Detektor
+(kleiner \SI{1}{\centi\meter}). Der Prozess wird
+in~\ref{fig:calibration-lenght_det} illustriert.
+
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/lenght_det.pgf}
+  \caption[Abstandsbestimmung]{Bestimmung der Peakpositionen der Zeitspektren zwecks der
+    Berechnung des Detektorabstandes. Die farbigen Intervalmarkierung
+    stellen die gesch\"atzte Abweichung dar.}
+  \label{fig:calibration-lenght_det}
+\end{figure}
+
+Entsprechend ergibt sich dann der Detektorabstand zu:
+\begin{align}
+  \label{eq:abst}
+  \mathfrak{t} &= \SI{2.2\pm .6}{\nano\second} \\
+  D &= \frac{\mathfrak{t}}{2c} = \SI{330\pm 90}{\milli\meter}
+\end{align}
 
 \subsection{Theoriebeispiel}
 \label{sec:theobei}
