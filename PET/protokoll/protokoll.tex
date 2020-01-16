@@ -68,11 +68,11 @@ innerhalb des PET erzeugt wurden.\\
 Die Zählrate der wahren Koinzidenzen, also der für uns interessanten ergibt sich folgendermaßen:
 
 \begin{equation}\label{eq:wahrkoinz}
-        \dot N_K = \qty(\frac{\Omega_{min}}{2 \pi}) \cdot P_\beta A \cdot \epsilon_1 \epsilon_2
+        \dot N_K = \qty(\frac{\Omega_{\min}}{2 \pi}) \cdot P_\beta A \cdot \epsilon_1 \epsilon_2
 \end{equation}
 
 \begin{conditions}
-        \Omega_{min} & Raumwinkelelement des von der Quelle am weitesten entfernten Detektors\\
+        \Omega_{\min} & Raumwinkelelement des von der Quelle am weitesten entfernten Detektors\\
         P_\beta & Zerfallswahrscheinlichkeit des Nuklids für \(\beta^+\) - Zerfall\\
         A & Aktivität der Quelle\\
         \epsilon_1/\epsilon_2 & intrinsische Nachweiseffektivitäten der Detektoren
@@ -260,7 +260,7 @@ Mittelfilter und neun Filterdimensionen.
 		\includegraphics[width=.4\textwidth]{../messungen/oliTOM1/15_gefiltert.png}
 		\caption{Messung bei \(178^\circ\).}
 	\end{subfigure}
-	\caption{Verlauf der Bilderstellung mit Gegenüberstellung von ungefilterter (links) und gefilterter (rechts) Projektion.}
+	\caption{Verlauf der Bildentstehung mit Gegenüberstellung von ungefilterter (links) und gefilterter (rechts) Projektion.}
 	\label{fig:tom1}
 \end{figure}
 
@@ -274,7 +274,7 @@ aufgenommenen Messdaten, insbesondere der Form des Sinogramms, herauszufinden.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=.3\textwidth, angle=90]{../messungen/tom2/tom2_Sinogramm.png}
+	\includegraphics[width=.3\textwidth, angle=90]{../messungen/Tom2/tom2_Sinogramm.PNG}
 	\caption{Aufgenommenes Sinogramm bei Vermessung einer anisotropen Quelldichteverteilung.}
 	\label{fig:tom2}
 \end{figure}
@@ -371,15 +371,41 @@ kein wirklicher Unterschied zwischen (b) und (c) zu erkennen.
 \subsection{Kalibrierung}
 \label{sec:kalib}
 
+Zur Kalibrierung des PET wurde eine relativ aktive \ce{^22Na} Quelle
+zuerst mittig zwischen bei Detektoren und dann seitlich direkt vor die
+jeweiligen Detektoren (mit abstand im Milimeterberreich)
+eingbracht. Das Steuerprogramm wurde jeweils angewiesen \(400000\)
+Ereignisse (koinzidenzen nach groben kriterien) aufzuzeichnen.
+Im folgenden wir mit der Detektor A mit der rechten Seite und der
+Dektor B mit der Linken seite bezeichet.
+Die Messzeiten f\"ur die jeweiligen Positionen wurden Manuell mit
+einer Stoppuhr vermessen und sind in~\ref{tab:caltime} dargestellt
+(abweichung grob abgesch\"atzt).
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{l|S|S}
+    \toprule
+    Position & {Messzeit \(T\) [\si{\second}]} & \(\Delta T\)
+                                                 [\si{\second}] \\
+    \midrule
+    Mitte & 648 & 2 \\
+    Links & 812 & 2 \\
+    Rechts & 806 & 2 \\
+  \end{tabular}
+  \caption[Messzeiten, Kalibrierung]{Messzeiten der Kalibrierung f\"ur
+    die jeweiligen Quellenpositionen.}
+  \label{tab:caltime}
+\end{table}
+
+Man erkennt an den L\"angeren messzeiten f\"ur die seitlichen
+Quellpositionen eine geringere Koinzidenzrate und eine abnehmende
+Detektoreffizienz.
+
+Die gewonnen histogramme f\"ur Ereignisszahlen nach Energie und
+Koinzidenzzeit pro Detektor werden im Folgenden betrachtet.
+
 \subsubsection{Festlegung der Energie und Koinzidenzzeitfenster}
-Beschreibung Messung etc....
-Messzeit:
-
-\begin{equation}
-  \label{eq:caltime}
-  T = \SI{647\pm}{\second}
-\end{equation}
-
 \label{sec:energkozeit}
 
 Zur bestimmung der Energiefenster wurden die (normierten) Z\"ahlraten
@@ -394,10 +420,12 @@ Energie aufgetragen.
 
 Die gew\"ahlten Energieintervalle sind
 in~\ref{fig:calibration-mid_over_energy} eingezeichenet und richten
-sich nach der Halbwertsbreite der prominentesten Peaks. Da in
-Detektor A ein PM ausgetauscht wurde zeigt die Energiekurve andere
-Charakteristiken als die von B. Interessanter weise liegen die beiden
-h\"ochsten Peaks nicht aufeinander (Kalibrierungsproblem/Skalierung).
+sich nach der Halbwertsbreite der prominentesten Peaks um eine
+angemessene Z\"ahlrate zu gew\"ahrleisten und dennoch eine gute
+Auflösung zu erhalten. Da in Detektor A ein PM ausgetauscht wurde
+zeigt die Energiekurve andere Charakteristiken als die von
+B. Interessanter weise liegen die beiden h\"ochsten Peaks nicht
+aufeinander (Kalibrierungsproblem/Skalierung).
 
 \begin{align}
   R_A &= [2800, 3600] \hat{=} [582.2, 725.4]\,\si{\kilo\electronvolt}
@@ -441,7 +469,7 @@ zweischen den Detektoren (ca. \SI{1}{\nano\second}).
 Die Koinzidenzz\"ahlrate (ohne Filterung nach Energie) ergibt sich
 durch Summierung der Ereignisszahlen (\(\Delta N = \sqrt{N}\),
 Poisson) im Zeitinterval~\eqref{eq:timeint} und der Division
-durch~\eqref{eq:caltime}.
+durch~\eqref{tab:caltime}.
 
 \begin{equation}
   \label{eq:ctrate}
@@ -455,36 +483,37 @@ Die Aktivität der \ce{22^Na} Kalibrierungsprobe ergibt sich mit
 
 \begin{equation}
   \label{eq:acttoday}
-  A = A_0\cdot \qty(\frac{1}{2})^{t/t_{1/2}} = \SI{.227\pm.007}{\mega\becquerel}
+  A = A_0\cdot \qty(\frac{1}{2})^{t/t_{1/2}} \pm
+  \frac{\ln{2}}{t_{1/2}}\cdot A\cdot\Delta A = \SI{.227\pm.007}{\mega\becquerel}
 \end{equation}
 
 Die Z\"ahlate der zuf\"alligen Koinzidenzen ergibt sich aus
 \todo{!!!!! GLEICHUNG} mit der Kantenl\"ange des Detektors
 \(a=\SI{54}{\milli\meter}\) und dem Detektorabstand
 \(D=\SI{386}{\milli\meter}\) sowie
-\(\Omega_{min} = \frac{4a^2}{D^2} = 0.078,\, P_\beta = .90382\pm
-.00021,\, \)
+\(\Omega_{\min} = \frac{4a^2}{D^2} = 0.078\)
 
 \begin{align}
   \label{eq:incidentalrate}
   \mathfrak{R}_Z &= \qty[4\tau\cdot A\cdot
-  \qty(\frac{\Omega_{min}}{2\pi})]\cdot \mathfrak{R} \pm
+  \qty(\frac{\Omega_{\min}}{2\pi})]\cdot \mathfrak{R} \pm
   \sqrt{\qty(\frac{\Delta\tau}{\tau})^2 + \qty(\frac{\Delta A}{A})^2 +
-    \qty(\frac{\Delta\Omega_{min}}{\Omega_{min}})^2 +
+    \qty(\frac{\Delta\Omega_{\min}}{\Omega_{\min}})^2 +
                    \qty(\frac{\Delta\mathfrak{R}}{\mathfrak{R}})^2} \\
                  &= \SI{0.0392\pm .0012}{\second^{-1}} \approx \SI{.01}{\percent}
 \end{align}
 
 Die zuf\"alligen Koinzidenzen spielen hier also nur eine
-untergeordnete Rolle und k\"onnen in guter N\"aherung vernachl\"assigt werden.
+untergeordnete Rolle und k\"onnen in guter N\"aherung vernachl\"assigt
+werden.
 
 Die Koinzidenznachweiseffektivit\"at bestimmt sich
-\todo{equathsitoenshtioesnht} zu:
+\todo{equathsitoenshtioesnht} mit \(P_\beta = 0.90382\pm 0.00021\) zu:
 
 \begin{align}
-  \epsilon & = \frac{\mathfrak{R}}{P_\beta\cdot A\cdot
-  \frac{\Omega_\min}{2\pi}} \pm \sqrt{\qty(\frac{\Delta A}{A})^2 +
-  \qty(\frac{\Delta\Omega_{min}}{\Omega_{min}})^2 +
+  \epsilon & = \frac{\mathfrak{R}}{P_\beta\cdot A \cdot
+  \frac{\Omega_{\min}}{2\pi}} \pm \sqrt{\qty(\frac{\Delta A}{A})^2 +
+  \qty(\frac{\Delta\Omega_{\min}}{\Omega_{\min}})^2 +
   \qty(\frac{\Delta P_\beta}{P_\beta})^2 +
              \qty(\frac{\Delta\mathfrak{R}}{\mathfrak{R}})^2} \\
   & = \SI{16.6\pm 1.2}{\percent}
@@ -524,11 +553,11 @@ bei h\"oheren Energien angehoben (gleiche Gesamtereignisszahl,
 Umverteilung entsprechend h\"oherer ungestreuter Energie).  Die Peaks
 sind generell zu niedrigeren Energien verschoben.
 
-Bildet man die Differenz der Peakpositionen im Zeitspektrum f\"ur die Linke und
-die rechte Quellposition (mittlere wird bei Mittelung redundant) so
-ergibt sich die Doppelte Lichtlaufzeit zwischen den Detektoren (\(t_0
-+ \mathfrak{t} - (t_0
-- \mathfrak{t}) = 2\mathfrak{t}\)).
+Bildet man die Differenz der Peakpositionen im Zeitspektrum f\"ur die
+Linke und die rechte Quellposition (mittlere wird bei Mittelung
+redundant) so ergibt sich die Doppelte Lichtlaufzeit \(\mathfrak{t}\)
+zwischen den Detektoren
+(\(t_0 + \mathfrak{t} - (t_0 - \mathfrak{t}) = 2\mathfrak{t}\)).
 
 Um die Peakpositionen zu erhalten, wurden Gaussfunktionen \"uber die
 Zeitspektren gefittet. Als ma\ss{} f\"ur die Peakbreite und damit die
