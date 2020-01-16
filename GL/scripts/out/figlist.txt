@@ -1,0 +1,25 @@
+
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/vortrag/stabdiag.pgf}
+  \caption{}
+  \label{fig:vortrag-stabdiag}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/vortrag/stabdiag.pgf}
+  \caption{}
+  \label{fig:vortrag-stabdiag}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/vortrag/stabdiag.pgf}
+  \caption{}
+  \label{fig:vortrag-stabdiag}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/vortrag/stabdiag.pgf}
+  \caption{}
+  \label{fig:vortrag-stabdiag}
+\end{figure}
+    
