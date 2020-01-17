@@ -6,6 +6,12 @@ import matplotlib.ticker as ticker
 import os
 from SecondaryValue import SecondaryValue
 from scipy.optimize import curve_fit
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
+import scipy.ndimage as ndimage
+from scipy.ndimage.measurements import label
+from scipy.ndimage.filters import maximum_filter
+from scipy.ndimage.morphology import generate_binary_structure, binary_erosion
 
 ###############################################################################
 #                                  Auxiliary                                  #
@@ -33,9 +39,45 @@ def energy_b(channel):
     """Channel to Energy, one based index."""
     return 100 + .220*channel
 
-channel_to_time_val = SecondaryValue('a + b*(k-1/2)', defaults=dict(a=(-.014, .0192), b=(.0483, 2e-5)))
+channel_to_time_val = SecondaryValue('a + b*(k-1/2)',
+                                     defaults=dict(a=(-.014, .0192), b=(.0483, 2e-5)))
 def channel_to_time(channel, d=0):
     return channel_to_time_val(k=(channel, d))
+
+
+def scientific_round(val, err):
+    """Scientifically rounds the values to the given errors."""
+    val, err = np.asarray(val), np.asarray(err)
+
+    if err.size == 1 and val.size > 1:
+        err = np.ones_like(val)*err
+
+    if val.size == 1 and err.size > 1:
+        val = np.ones_like(err)*val
+
+    i = np.floor(np.log10(err))
+    first_digit = err // 10**i
+    i = i.astype(int)
+    prec = (-i + np.ones_like(val) *  (first_digit <= 3)).astype(int)
+
+    def smart_round(value, precision):
+        value = np.round(value, precision)
+        if precision <= 0:
+            value = int(value)
+        return value
+
+
+    if val.size > 1:
+        rounded = np.empty_like(val)
+        rounded_err = np.empty_like(val)
+        for n, (value, error, precision) in enumerate(zip(val, err, prec)):
+            rounded[n] = smart_round(value, precision)
+            rounded_err[n] = smart_round(error, precision)
+
+        return rounded, rounded_err
+    else:
+        return smart_round(val, prec), smart_round(err, prec)
+
 
 ###############################################################################
 #                                  Plot Porn                                  #
@@ -235,3 +277,123 @@ def create_matrix_image(mat, show_latex=True, save=None):
         print(name, bmatrix(mat))
 
     return fig, ax
+
+###############################################################################
+#                             3D Tomography Stuff                             #
+###############################################################################
+
+def load_matrix(path):
+    """Parses the reconstructed matrix from the text format.
+
+    :param path: path to the matrix
+    :returns: matrix
+    """
+
+
+    data = np.loadtxt(path, encoding='latin1')
+
+    return data
+
+def coordinates_to_position(x, y=None, reco_raster=3.375, absolute=False):
+    pos = x*reco_raster
+    if not absolute:
+        pos += reco_raster/2
+
+    return (pos, coordinates_to_position(y, reco_raster=reco_raster,
+                                   absolute=absolute)) \
+        if y is not None else pos
+
+def coordinates_error_to_position_error(x, y=None, reco_raster=3.375):
+    err = x*reco_raster
+    return (err, coordinates_error_to_position_error(y, reco_raster=reco_raster)) \
+        if y is not None else err
+
+def plot_reconstruction(reconstruction, fig=None, subplot=111, title=None,
+                      azim=-45, elev=50, save=None, **pyplot_args):
+    fig = fig if fig else plt.figure()
+    ax = fig.add_subplot(subplot, projection='3d')
+
+    ax.view_init(azim=azim, elev=elev)
+    ax.set_xlabel('x [mm]')
+    ax.set_ylabel('y [mm]')
+
+    if title:
+        ax.set_title(title)
+
+    x, y = coordinates_to_position(x=np.arange(0, reconstruction.shape[0]),
+                                   y=np.arange(0, reconstruction.shape[1]))
+    x, y = np.meshgrid(x, y)
+
+    ax.plot_surface(x, y, reconstruction, cmap=cm.plasma,
+                    shade=True, **pyplot_args)
+    fig.tight_layout()
+
+    if save:
+        save_fig(fig, *save)
+    return fig, ax
+
+def gauss2d(xy, A, mx, my, sigma):
+    x, y = xy
+    return np.ravel(A*np.exp(-((x-mx)**2 + (y-my)**2)/(2*sigma**2)))
+
+def normalize(array):
+    tmp = array.copy()
+    tmp = tmp - tmp.min()
+    return tmp/tmp.max()
+
+
+def find_peak_positions(reconstruction, threshold=.4, save=None):
+    rec = reconstruction.copy()
+
+    # normalize
+    rec_normalized = normalize(rec)
+
+    # create grid with real coordinates
+    x, y = np.arange(0, rec.shape[0]), np.arange(0, rec.shape[1])
+    x, y = np.meshgrid(x, y)
+
+    # foodprint
+    neighborhood = generate_binary_structure(2,4)
+    local_max = maximum_filter(rec_normalized, footprint=neighborhood) > threshold
+
+    # extract peaks
+    features, num_labels = label(local_max)
+    sliced = ndimage.find_objects(features)
+
+    peaks = []
+
+    plotdim = 200 + num_labels*10
+    fig = plt.figure()
+
+    for i in range(1, num_labels + 1):
+        slc = sliced[i-1]
+
+        # mask input to only show one peak
+        masked = rec*(features == i)
+
+        # guess the peak position
+        guess = [1, (slc[1].start + slc[1].stop)/2, (slc[0].start + slc[0].stop)/2, 1]
+
+        # fit gauss
+        opt, cov = curve_fit(gauss2d, (x, y), np.ravel(masked), p0=guess)
+        cov = np.sqrt(np.diag(cov))
+
+        plot_reconstruction(gauss2d((x, y), *opt).reshape(*rec.shape),
+                            fig=fig, subplot=plotdim + i, elev=30, title=f"Fit Peak {i}")
+        plot_reconstruction(masked, fig=fig, subplot=plotdim + num_labels + i, elev=30, title=f"Peak {i}")
+
+        peaks += [([opt[0]] + list(coordinates_to_position(*opt[1:3])) + [coordinates_to_position(opt[3], absolute=True)],
+                   [cov[0]] + list(coordinates_error_to_position_error(*cov[1:3]))  + [coordinates_error_to_position_error(cov[3])])]
+
+    save_fig(fig, save[0], save[1], size=(12, 4))
+    return peaks
+
+def peaks_to_table(peaks):
+    res = ""
+    for i, (peak, err_peak) in enumerate(peaks):
+        peak, err_peak = scientific_round(peak, err_peak)
+        out = np.empty(2*np.asarray(peak).size)
+        out[::2] = peak
+        out[1::2] = err_peak
+        res += f'Peak {i} & ' + ' & '.join(out.astype(str)) + ' \\\\\n'
+    return res
