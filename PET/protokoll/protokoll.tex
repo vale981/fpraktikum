@@ -11,7 +11,9 @@
 \usepackage[ngerman]{babel}
 \usepackage{subcaption}
 \usepackage{amssymb}
-\usetikzlibrary{external}\tikzexternalize
+\usetikzlibrary{external}
+\tikzexternalize[prefix=tikz/,optimize command away=\includepdf]
+
 % bib
 \addbibresource{protokoll.bib}
 
@@ -538,6 +540,14 @@ in~\ref{fig:tom1} dargestellt und wird im Folgenden nachvollzogen.
   \label{fig:tom1}
 \end{figure}
 
+\begin{figure}[hbt]\centering
+  \input{../auswertung/figs/tom1/3dplot.pgf}
+  \caption[Rekonstruierte Quellenverteilung]{Surface Plots der
+    rekonstruierten Quellenvertilung. Die Z-Achse hat willk\"urliche
+    Einheiten. Von links nach rechts sieht man Peaks 1, 2 und 3.}
+  \label{fig:tom1-3dplot}
+\end{figure}
+
 \begin{description}
 \item[\(7^\circ\) (\ref{eq:tom1-7})] Es sind auf der horizontalen
   zwei gleich starke Signale zu unterscheiden. Vertical ist die
@@ -621,14 +631,6 @@ schnell verfaheren!)  kann man in der Rekonstruierten Quellverteilung
 klare Peaks erkennen, die die Bestimmung der Quellpositionen m\"oglich
 machen. Die Anordnung und Nummerierungskonvention f\"ur die Quellen
 ist in~\ref{fig:sourccof} einzusehen.
-
-\begin{figure}[h]\centering
-  \input{../auswertung/figs/tom1/3dplot.pgf}
-  \caption[Rekonstruierte Quellenverteilung]{Surface Plots der
-    rekonstruierten Quellenvertilung. Die Z-Achse hat willk\"urliche
-    Einheiten. Von links nach rechts sieht man Peaks 1, 2 und 3.}
-  \label{fig:tom1-3dplot}
-\end{figure}
 
 Durch istolation der Peaks und jeweils einem fit einer Gaussfunktion
 \"uber den Peak werden die Positionen und h\"ohen der Peaks bestimmt
