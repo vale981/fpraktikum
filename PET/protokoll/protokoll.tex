@@ -6,6 +6,7 @@
 \graphicspath{ {figs/} }
 \usepackage{tikz}
 \usepackage{pgf}
+\usepackage{wrapfig}
 \usepackage[version=4]{mhchem}
 \usepackage[ngerman]{babel}
 \usepackage{subcaption}
@@ -230,6 +231,7 @@ B. Interessanter weise liegen die beiden h\"ochsten Peaks nicht
 aufeinander (Kalibrierungsproblem/Skalierung).
 
 \begin{align}
+  \label{eq:fenster}
   R_A &= [2800, 3600] \hat{=} [582.2, 725.4]\,\si{\kilo\electronvolt}
   \\
   R_B &= [1600, 2300] \hat{=} [452.0, 606.0]\,\si{\kilo\electronvolt}
@@ -478,7 +480,8 @@ von \(40\) Bins (Breite \SI{3.375}{\milli\meter}) zu vermessen. Die
 Projektionen, R\"uckprojektionen und gefilterten R\"uckprojektionen
 wurden in Echtzeit durch ein Computer graphisch dargestellt. Es kam
 dabei der sog. ``Mittelfilter'' mit mit der Dimensionseinstellung
-\(9\) zur Anwendung. Der Aufnahme und Rekonstruktionsprozess ist
+\(9\) zur Anwendung, es wurde also der Filter jeweils \"uber \(9\)
+Bins gefaltet. Der Aufnahme und Rekonstruktionsprozess ist
 in~\ref{fig:tom1} dargestellt und wird im Folgenden nachvollzogen.
 
 \begin{figure}[htp]
@@ -524,8 +527,14 @@ in~\ref{fig:tom1} dargestellt und wird im Folgenden nachvollzogen.
     \caption{\(178^\circ\).}
     \label{eq:tom1-178}
   \end{subfigure}
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=.3\textwidth, angle=90]{../messungen/oliTOM1/sino.png}
+    \caption{Endg\"ultiges Sinogramm}
+    \label{fig:tom1-sino}
+  \end{subfigure}
   \caption{Verlauf der Bildentstehung mit Gegenüberstellung von
-    ungefilterter (links) und gefilterter (rechts) Projektion.}
+    ungefilterter (links) und gefilterter Projektion (rechts).}
   \label{fig:tom1}
 \end{figure}
 
@@ -586,13 +595,32 @@ in~\ref{fig:tom1} dargestellt und wird im Folgenden nachvollzogen.
   aufgel\"ost wurde.
 \end{description}
 
+\begin{wrapfigure}{r}{.5\textwidth}
+  \centering
+  \resizebox{0.2\textwidth}{!}{
+    \begin{tikzpicture}
+      \draw[black] (3,3) circle (2.7cm);
+      \draw[black] (3,4.5) circle (.6cm) node {2};
+      \draw[black] (3,1.5) circle (.6cm) node {Leer};
+      \draw[black] (1.5,3) circle (.6cm) node {1};
+      \draw[black] (4.5,3) circle (.6cm) node {3};
+      \draw (3,3) circle (.6cm) node {Leer};
+      \node[draw] at (1.5,2) {Wachs};
+    \end{tikzpicture}
+  }
+
+  \caption[Quellenkonstelation]{Quellenkonstelation}
+  \label{fig:sourccof}
+\end{wrapfigure}
+
 Die endg\"ultige rekonstuktion ist als 3D Surface Plot
 in~\ref{fig:tom1-3dplot} dargestellt. Zu erkennen ist die wesentlich
 bessere Klarheit der Peaks in der gefilterten Rekonstruktion. Trotz
 der Geringen statistik (ca. 5 Ereignisse pro Projektion, Detektor zu
 schnell verfaheren!)  kann man in der Rekonstruierten Quellverteilung
 klare Peaks erkennen, die die Bestimmung der Quellpositionen m\"oglich
-machen.
+machen. Die Anordnung und Nummerierungskonvention f\"ur die Quellen
+ist in~\ref{fig:sourccof} einzusehen.
 
 \begin{figure}[h]\centering
   \input{../auswertung/figs/tom1/3dplot.pgf}
@@ -695,38 +723,158 @@ Aktivit\"aten der beiden anderen Proben wiefolgt.
 \subsubsection{Anisotrope Dichteverteilung}
 \label{sec:tom2}
 
-Nun wurde wieder eine Dichteverteilung innerhalb des Phantoms gegeben. Nur das diesmal nur in der
-Mitte des Phantoms eine Quelle lag und darum auf unbekannte Art und Weise Bleimünzen, der selben
-Form und Größe wie die der Quelle verteilt waren. Deren Anordnung gilt es mit Hilfe der
-aufgenommenen Messdaten, insbesondere der Form des Sinogramms, herauszufinden.
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=.3\textwidth, angle=90]{../messungen/Tom2/tom2_Sinogramm.PNG}
-	\caption{Aufgenommenes Sinogramm bei Vermessung einer anisotropen Quelldichteverteilung.}
-	\label{fig:tom2}
+\begin{figure}[hb]
+  \centering \includegraphics[width=.3\textwidth,
+  angle=90]{../messungen/Tom2/tom2_Sinogramm.PNG}
+  \caption{Aufgenommenes Sinogramm bei Vermessung einer anisotropen
+    Quelldichteverteilung.}
+  \label{fig:tom2}
 \end{figure}
 
-\subsection{Einfluss verschiedener Filter}
+Analog zu~\ref{sec:tom1} wurde nun eine, von einer unbekannten
+konfiguration von Bleim\"unzen umgebene, zentrierte Quelle
+vermessen. Die gesammte Anordnung war wieredum in Wax eingebettet.
+Auf~\ref{fig:tom2-3dplot} erkennt man deutlich die Quelle als
+zentralen Peak, sowie vier mehr oder weniger tiefe \"aler an den
+R\"andern, die durch die blockierenden M\"unzen hervorgerufen werden.
+
+Anhand des einbruchs der Z\"ahlzahl im Sinogramm k\"onnen (infolge der
+Absorbtion und Steuung der Gammaphotonen durch das Blei) verschiedene
+M\"unzenkonfigurationen in klassen einegteilt und unterschieden
+werden\footnote{Details aus Platzgr\"unden ausgelassen.}. Im hier
+vorliegenden Sinogramm~\ref{fig:tom2} ergkennt man in zwei
+Winkelbereichen eine unterschiedlich starke Abschw\"achung. Der erste,
+hellere Bereich wurde also warscheinlich von nur einer M\"unze
+blockiert, der zweite, dunklere demnach von zwei M\"unzen
+(siehe~\ref{fig:munzen}). Diese breiten verdunklungen sind im
+isotropen Fall (~\ref{fig:tom1-sino}) nicht zu erkennen. Da bei diesem
+Versuch die Quelle genau mittig zwischen den Detektoren lag, ist
+in~\ref{fig:tom2} nur eine gerade Linie zu erkennen.
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}{.4\textwidth}
+    \centering
+    \resizebox{0.8\textwidth}{!}{
+      \input{../auswertung/figs/tom2/3dplot.pgf}
+    }
+    \caption{Surface Plot der (gefilterten) Rekonstruktion der Messung zur Anistropen Dichteverteilung}
+    \label{fig:tom2-3dplot}
+  \end{subfigure}
+  \begin{subfigure}{.4\textwidth}
+    \centering
+    \resizebox{0.4\textwidth}{!}{
+      \begin{tikzpicture}
+        \draw[black] (3,3) circle (2.7cm);
+        \filldraw[black] (3,4.5) circle (.6cm);
+        \draw[black] (3,1.5) circle (.6cm);
+        \filldraw[black] (1.5,3) circle (.6cm);
+        \filldraw[black] (4.5,3) circle (.6cm);
+        \draw (3,3) circle (.6cm) node {\ce{^22Na}};
+        \node[draw] at (1.5,2) {Wachs};
+      \end{tikzpicture}
+    }
+
+    \caption[M\"unzkonfiguration]{Deduzierte
+      M\"unzenkonfiguration. Gef\"ullte Kreise stellen M\"unzen
+      dar. Vertikale M\"unzen k\"onnten auch vertauscht sein.}
+    \label{fig:munzen}
+  \end{subfigure}
+\end{figure}
+
+
+Das Sinogramm aus~\ref{fig:tom2} enth\"alt redundante spalten, welche
+im Folgenden entfernt wurden (\ref{fig:tom2-raw_and_corrected}
+oben). Summiert man jeweils die Projektion f\"ur einen Winkel auf,
+erh\"alt man einen Indikator f\"ur die Gesamtereignisszahl bei diesem
+Winkel. Es wird sodann eine Schnelle Fouriertransformation (DFFT) auf
+diese Kurve angewendet, wobei nur die ersten Koeffizienten behalten
+werden.  Transformiert man diese zur\"uck, so gelangt man zu einer
+relativ simplen und glatten Anpassung \(\mathfrak{C}^{-1}\) an diese
+Kurve die jeh nach anforderungen durch erh\"ohung der
+Koeffizientenzahl verbessern l\"asst. Das (eventuell normierte)
+Reziproke von \(\mathfrak{C}^{-1}\) so erh\"alt man eine
+Korrecturfaktorfunktin \(\mathfrak{C}\). Diese ist
+in~\eqref{eq:correction} aufgef\"uhrt, wobei \(n=90\) die Anzahl der
+gemessenen Winkel bezeichet, \(K=5\) die Anzahl der mitgenommenen
+Fourierparameter ist und th\"eta der Winkel ist f\"ur den die
+Korrektur gesucht wird. Die fourierkoeffizienten \(c_i\) sind
+in~\ref{tab:coeff} aufgelistet.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{l|lllll}
+    \toprule
+    \(c_i\) & 0 & 1 & 2 & 3 & 4 \\
+    \midrule
+            & 10321 & 647.68-220.76i & -2723.6+1336.38i & 23.13-309.09i & 306.73-450.29i
+  \end{tabular}
+  \caption{Fourierkoeffizienten des Sinograms in~\ref{fig:tom2-raw_and_corrected}.}
+  \label{tab:coeff}
+\end{table}
+
+\begin{equation}
+  \label{eq:correction}
+  \mathfrak{C} = \qty[\frac{1}{n}
+  \qty(c_0 + 2\sum_{k=1}^{K-1}{\Re\qty{c_k\exp(2\pi i \frac{\theta k}{180 n})}})]^{-1}
+\end{equation}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{../auswertung/figs/tom2/raw_and_corrected.pdf}
+  \caption[Sinogramme und Korrekturfunktion]{Links: Zussamengefasstes
+    Originalsinogramm und korrigiertes Sinogram. Rechts: Z\"ahlzahl
+    (centerline, in Willk\"urlicher Skalierung), Anpassung mit wenigen
+  Fourierkoeffizienten, der darausberechnete Korrekturfaktor und die
+  Korrigierte Z\"ahlzahl. Alle Kurven sind skaliert.}
+  \label{fig:tom2-raw_and_corrected}
+\end{figure}
+
+\ref{fig:tom2-raw_and_corrected} zeigt deutlich, dass nun die
+``Belichtungsst\"arke'' wesentlich ebenm\"a\ss{}iger ist. Die
+gefundene Korrektur ist noch verbesserungsbed\"urftig, da kleine
+Ereignisszahlen (mit ihren gr\"o\ss{}en relativen Fehlern)
+\"uberm\"a\ss{}ig verst\"arkt werden (peak
+in~\ref{fig:tom2-raw_and_corrected} rechts). Auch wird der abrubten
+natur des Z\"ahlzahleinbruchs nicht wirklich Rechnung
+getragen. Allerdings kann diese methode gut automatisiert und
+generalisiert (Koeffizientenzahl) werden.\footnote{Ich habe da zuviel
+  Zeit reingesteckt, aber es hat Spa\ss{} gemacht.}
+
+\subsubsection{Einfluss verschiedener Filter}
 \label{sec:filter}
 
-Zuletzt wurde noch der Einfluss verschiedener Filter auf die gefilterte Rückprojektion
-untersucht. Dazu wurden die Messdaten aus~\ref{sec:tom1} verwendet.
+Zuletzt wird noch der Einfluss verschiedener Filter auf die gefilterte Rückprojektion
+untersucht. Dazu wurden die Messdaten aus~\ref{sec:tom1} verwendet. Es
+wurde vers\"aumt, die r\"ckprojektion ohne die Energie und Zeitfenster
+durchzuf\"uhren.
 
 \begin{figure}[h]
-	\centering
-	\subfloat[Hanning-Filter.]{\includegraphics[width=.4\textwidth]{../messungen/olifilter/hanningweight9_gefiltert.png}}
-	\subfloat[Ramp-Filter.]{\includegraphics[width=.4\textwidth]{../messungen/olifilter/ramp9_gefiltert.png}}\\
-	\subfloat[Shepp-Filter.]{\includegraphics[width=.4\textwidth]{../messungen/olifilter/shepp9_gefiltert.png}}
-	\subfloat[Rauschfilter.]{\includegraphics[width=.4\textwidth]{../messungen/olifilter/rauschfilter_gefiltert.png}}
-	\caption{Gegenüberstellung verschiedener Filter mit einer Dimension von je \(9\).}
-	\label{fig:filter}
+  \centering
+  \subfloat[Hanning-Filter.]{\includegraphics[width=.2\textwidth]{../messungen/olifilter/hanningweight9_gefiltert.png}}
+  \subfloat[Rauschfilter.]{\includegraphics[width=.2\textwidth]{../messungen/olifilter/rauschfilter_gefiltert.png}}
+  \subfloat[Ramp-Filter.]{\includegraphics[width=.2\textwidth]{../messungen/olifilter/ramp9_gefiltert.png}}
+  \subfloat[Shepp-Logan-Filter.]{\includegraphics[width=.2\textwidth]{../messungen/olifilter/shepp9_gefiltert.png}}
+  \caption{Gegenüberstellung verschiedener Filter mit einer Dimension
+    von je \(9\).}
+  \label{fig:filter}
 \end{figure}
 
-Wie man in~\ref{fig:filter} erkennen kann, sehen sich die gefilterten Rückprojektionen mit dem
-Hannig-Filter und dem Rauschfilter sowie jene mit Ramp-Filter und Shepp-Filter recht ähnlich.
-Auf den Bildern (a) und (d) kann man die Quellverteilung obwohl sie im Vergleich zu (b) und (c)
-unschärfer wirken besser erkennen, da störende Signale herausgefiltert werden.\\
+Wie man in~\ref{fig:filter} erkennen kann, sehen sich die gefilterten
+Rückprojektionen mit dem Hannig-Filter und dem Rauschfilter sowie jene
+mit Ramp-Filter und Shepp-Filter recht ähnlich. Die filter in (a) und
+(b), sowie auch der Mittelfilter aus~\ref{eq:tom1-178} scheinen
+feinere artefaktstrukturen zu gr\"o\ss{}eren, langsamer
+ver\"anderlichen zussenzufassen, wobei sie dabei auch den Kontrast von
+sehr starken Signalen (Qeullen) zu ihrer Umgebung steigern und diese
+klarer abgrenzt. Die gelingt in (b) besser als in (a) oder auch im
+Mittelfilter, wobei abei bei (a) und (b) die Rechte, obere Quelle
+verschmiert und sie in~\ref{eq:tom1-178} klar aufgel\"ost wird. In (b)
+und (c) erscheinen die Quellen als relativ helle, kleine Punkte mit
+mehr oder weniger unf\"ormigen Halos. Die rechte obere Quelle ist
+recht unkenntlich und die Artefakte sind im vergleich zur
+ungefilterten r\"uckprojektion in~\ref{eq:tom1-178} breiter bei nur
+geringf\"ugig
+veringertem Kontrast. \\
 
 %\begin{figure}[h]
 %	\centering
@@ -754,7 +902,8 @@ unschärfer wirken besser erkennen, da störende Signale herausgefiltert werden.
 %\label{fig:filter}
 %\end{figure}
 
-Der Rauschfilter wurde außerdem mit Dimensionseinstellungen getestet.
+Der Rauschfilter wurde außerdem aufgrund der guten Qualit\"at der
+entstehenden R\"uckprojektion mit mehreren Dimensionseinstellungen getestet.
 
 \begin{figure}[h!]
 	\centering
@@ -765,10 +914,17 @@ Der Rauschfilter wurde außerdem mit Dimensionseinstellungen getestet.
 	\label{fig:rausch}
 \end{figure}
 
-In~\ref{fig:rausch} erscheint (a) am unschärfsten und undeutlichsten, wenngleich man auch die 
-Intensität der einzelnen Quellen qualitativ abschätzen kann. In (b) und (c) hingegen ist die
-Lage der Quellen besser auszumachen, da diese schärfer im Vergleich zu (a) sind. Es ist allerdings
-kein wirklicher Unterschied zwischen (b) und (c) zu erkennen.
+In~\ref{fig:rausch} erscheint (a) am unschärfsten und undeutlichsten,
+wenngleich man auch die Intensität der einzelnen Quellen qualitativ
+abschätzen kann. Da der Filter bei Dimension \(=5\) sehr lokalisiert
+ist, k\"onnen gr\"o\ss{}ere Strukturen nicht besser kontrastiert
+werden. In (b) und (c) hingegen ist die Lage der Quellen besser
+auszumachen, da diese schärfer im Vergleich zu (a) sind. Es ist
+allerdings kein wirklicher Unterschied zwischen (b) und (c) zu
+erkennen. Sobald die Dimension die gr\"o\ss{}e der Relevanten
+strukturen \"uberschreitet, scheint die Sch\"arfe nicht mehr
+zuzunehmen. Es w\"are sinnvoll noch weitere Dimensionen auszuprobieren
+um diesen Trend zu best\"atigen.
 
 % \begin{figure}[h!]
 % \centering

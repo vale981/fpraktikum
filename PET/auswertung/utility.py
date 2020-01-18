@@ -1,9 +1,11 @@
+import numpy.fft as fft
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import root_scalar
 import matplotlib
 import matplotlib.ticker as ticker
 import os
+import re
 from SecondaryValue import SecondaryValue
 from scipy.optimize import curve_fit
 from mpl_toolkits.mplot3d import Axes3D
@@ -397,3 +399,61 @@ def peaks_to_table(peaks):
         out[1::2] = err_peak
         res += f'Peak {i} & ' + ' & '.join(out.astype(str)) + ' \\\\\n'
     return res
+
+###############################################################################
+#                                     Tom2                                    #
+###############################################################################
+
+def parse_sinogramm_from_ps(path):
+    """Parse a Sinogramm from the given postscript file."""
+
+    mat = []
+    dim = None
+    res_regex = \
+        re.compile(r'gsave \/picstr [0-9]+ string def .*? [0-9]+ scale ([0-9]+) ([0-9]+) [0-9]+ \[.*\]')
+
+    with open(path, 'r') as f:
+        for line in f:
+            match = res_regex.match(line)
+            if match:
+              dim = np.flip(np.array(match.groups()).astype(int))
+            if line.strip() == "{J} image":
+                break
+
+        for line in f.readlines():
+            stripped = line.strip()
+            if stripped == 'grestore':
+                break
+
+            mat += [int(digit, 16) for digit in stripped]
+
+    return np.array(mat).reshape(*dim)
+
+def correction_function(x, a, b, omega, phi, o):
+    return a*np.sin(x/180*np.pi*omega + phi) + b*np.sin(2*x/180*np.pi*omega + phi) + o
+
+
+
+def get_lowest_order_fft(line, orders=3):
+    coeff = fft.rfft(line)
+    return (coeff[:orders])
+
+def reconstruct_fft(coeff, n, m):
+    return (1/n*(coeff[0].real + np.sum([(coeff[k]*np.exp(2*np.pi*1j*m*k/n)).real*2 for k in range(1, len(coeff))], axis=0))).real
+
+def get_coeff_table(coeff):
+    out = r'\(c_i\) & ' + ' & '.join(np.arange(0, len(coeff)).astype(str)) + '\\\\\n &'
+    return out + (' & '.join(np.round(coeff, 2).astype(str))).replace('j', 'i').replace('(', '').replace(')', '')
+
+def plot_sinogram(ax, sino, title, degrange=(0, 178), transpose=True):
+    ax.imshow(sino.T if transpose else sino, interpolation='none',
+              extent=(*degrange, 0, sino.shape[1]))
+    ax.set_title(title)
+    if transpose:
+        ax.set_xlabel(r'Winkel [$\circ$]')
+        ax.set_ylabel(r'Bin')
+    else:
+        ax.set_ylabel(r'Winkel [$\circ$]')
+        ax.set_xlabel(r'Bin')
+
+    return ax

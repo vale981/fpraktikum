@@ -1127,3 +1127,687 @@
   \label{fig:calibration-lenght_det}
 \end{figure}
     
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_3d.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_3d}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/unfiltered_3d.pgf}
+  \caption{}
+  \label{fig:tom1-unfiltered_3d}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/unfiltered_3d.pgf}
+  \caption{}
+  \label{fig:tom1-unfiltered_3d}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_3d.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_3d}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_3d.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_3d}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_3d.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_3d}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_3d.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_3d}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_3d.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_3d}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/unfiltered_3d.pgf}
+  \caption{}
+  \label{fig:tom1-unfiltered_3d}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit_1.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit_1}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit_2.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit_2}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit_3.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit_3}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit_1.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit_1}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit_2.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit_2}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit_3.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit_3}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit_1.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit_1}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit_2.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit_2}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit_3.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit_3}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit_3.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit_3}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/unfiltered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-unfiltered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_3d.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_3d}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/unfiltered_3d.pgf}
+  \caption{}
+  \label{fig:tom1-unfiltered_3d}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/unfiltered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-unfiltered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/unfiltered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-unfiltered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/unfiltered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-unfiltered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/unfiltered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-unfiltered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/unfiltered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-unfiltered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/unfiltered_3d.pgf}
+  \caption{}
+  \label{fig:tom1-unfiltered_3d}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/unfiltered_3d.pgf}
+  \caption{}
+  \label{fig:tom1-unfiltered_3d}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/unfiltered_3d.pgf}
+  \caption{}
+  \label{fig:tom1-unfiltered_3d}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/unfiltered_3d.pgf}
+  \caption{}
+  \label{fig:tom1-unfiltered_3d}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/unfiltered_3d.pgf}
+  \caption{}
+  \label{fig:tom1-unfiltered_3d}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/unfiltered_3d.pgf}
+  \caption{}
+  \label{fig:tom1-unfiltered_3d}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/unfiltered_3d.pgf}
+  \caption{}
+  \label{fig:tom1-unfiltered_3d}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/unfiltered_3d.pgf}
+  \caption{}
+  \label{fig:tom1-unfiltered_3d}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/unfiltered_3d.pgf}
+  \caption{}
+  \label{fig:tom1-unfiltered_3d}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/3dplot.pgf}
+  \caption{}
+  \label{fig:tom1-3dplot}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/3dplot.pgf}
+  \caption{}
+  \label{fig:tom1-3dplot}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/3dplot.pgf}
+  \caption{}
+  \label{fig:tom1-3dplot}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/3dplot.pgf}
+  \caption{}
+  \label{fig:tom1-3dplot}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/3dplot.pgf}
+  \caption{}
+  \label{fig:tom1-3dplot}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/3dplot.pgf}
+  \caption{}
+  \label{fig:tom1-3dplot}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/3dplot.pgf}
+  \caption{}
+  \label{fig:tom1-3dplot}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/3dplot.pgf}
+  \caption{}
+  \label{fig:tom1-3dplot}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/3dplot.pgf}
+  \caption{}
+  \label{fig:tom1-3dplot}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/unfiltered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-unfiltered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/mid_over_energy.pgf}
+  \caption{}
+  \label{fig:calibration-mid_over_energy}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/mid_over_channel.pgf}
+  \caption{}
+  \label{fig:calibration-mid_over_channel}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/time_range.pgf}
+  \caption{}
+  \label{fig:calibration-time_range}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/all_times.pgf}
+  \caption{}
+  \label{fig:calibration-all_times}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/lenght_det.pgf}
+  \caption{}
+  \label{fig:calibration-lenght_det}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/correction_overview.pgf}
+  \caption{}
+  \label{fig:tom2-correction_overview}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/correction_overview.pgf}
+  \caption{}
+  \label{fig:tom2-correction_overview}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/correction_overview.pgf}
+  \caption{}
+  \label{fig:tom2-correction_overview}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/correction_overview.pgf}
+  \caption{}
+  \label{fig:tom2-correction_overview}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/correction_overview.pgf}
+  \caption{}
+  \label{fig:tom2-correction_overview}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/correction_overview.pgf}
+  \caption{}
+  \label{fig:tom2-correction_overview}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/correction_overview.pgf}
+  \caption{}
+  \label{fig:tom2-correction_overview}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/correction_overview.pgf}
+  \caption{}
+  \label{fig:tom2-correction_overview}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/raw_and_corrected.pgf}
+  \caption{}
+  \label{fig:tom2-raw_and_corrected}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/correction_overview.pgf}
+  \caption{}
+  \label{fig:tom2-correction_overview}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/correction_overview.pgf}
+  \caption{}
+  \label{fig:tom2-correction_overview}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/correction_overview.pgf}
+  \caption{}
+  \label{fig:tom2-correction_overview}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/correction_overview.pgf}
+  \caption{}
+  \label{fig:tom2-correction_overview}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/correction_overview.pgf}
+  \caption{}
+  \label{fig:tom2-correction_overview}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/correction_overview.pgf}
+  \caption{}
+  \label{fig:tom2-correction_overview}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/raw_and_corrected.pgf}
+  \caption{}
+  \label{fig:tom2-raw_and_corrected}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/correction_overview.pgf}
+  \caption{}
+  \label{fig:tom2-correction_overview}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/raw_and_corrected.pgf}
+  \caption{}
+  \label{fig:tom2-raw_and_corrected}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/raw_and_corrected.pgf}
+  \caption{}
+  \label{fig:tom2-raw_and_corrected}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/correction_overview.pgf}
+  \caption{}
+  \label{fig:tom2-correction_overview}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/raw_and_corrected.pgf}
+  \caption{}
+  \label{fig:tom2-raw_and_corrected}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/raw_and_corrected.pgf}
+  \caption{}
+  \label{fig:tom2-raw_and_corrected}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/raw_and_corrected.pgf}
+  \caption{}
+  \label{fig:tom2-raw_and_corrected}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/raw_and_corrected.pgf}
+  \caption{}
+  \label{fig:tom2-raw_and_corrected}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/raw_and_corrected.pgf}
+  \caption{}
+  \label{fig:tom2-raw_and_corrected}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/raw_and_corrected.pgf}
+  \caption{}
+  \label{fig:tom2-raw_and_corrected}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/raw_and_corrected.pgf}
+  \caption{}
+  \label{fig:tom2-raw_and_corrected}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/raw_and_corrected.pgf}
+  \caption{}
+  \label{fig:tom2-raw_and_corrected}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/raw_and_corrected.pgf}
+  \caption{}
+  \label{fig:tom2-raw_and_corrected}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/raw_and_corrected.pgf}
+  \caption{}
+  \label{fig:tom2-raw_and_corrected}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/raw_and_corrected.pgf}
+  \caption{}
+  \label{fig:tom2-raw_and_corrected}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/raw_and_corrected.pgf}
+  \caption{}
+  \label{fig:tom2-raw_and_corrected}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/raw_and_corrected.pgf}
+  \caption{}
+  \label{fig:tom2-raw_and_corrected}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/raw_and_corrected.pgf}
+  \caption{}
+  \label{fig:tom2-raw_and_corrected}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/correction_overview.pgf}
+  \caption{}
+  \label{fig:tom2-correction_overview}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/3dplot.pgf}
+  \caption{}
+  \label{fig:tom2-3dplot}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/3dplot.pgf}
+  \caption{}
+  \label{fig:tom2-3dplot}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/3dplot.pgf}
+  \caption{}
+  \label{fig:tom2-3dplot}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/3dplot.pgf}
+  \caption{}
+  \label{fig:tom2-3dplot}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/3dplot.pgf}
+  \caption{}
+  \label{fig:tom2-3dplot}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom2/3dplot.pgf}
+  \caption{}
+  \label{fig:tom2-3dplot}
+\end{figure}
+    
