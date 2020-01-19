@@ -33,7 +33,7 @@
 
 
 \title{Gaslaser}
-\subtitle{Total Laser Man!}
+\subtitle{Total Laser!}
 \author{Valentin Boettcher}
 \beamertemplatenavigationsymbolsempty
 
@@ -192,25 +192,24 @@
       siehe sp\"ater, konzentriert man verst\"arkung auf best. moden
       \"uberwiegt stim e} und Auswahl bestimmter Moden im optischen
     Resonator \note<1->[item]{ Negative Temp}
-  \item<2-> Ratengleichung mit \(\rho\) als spektraler Energiedichte,
-    \(B_{21}\) als \"ubergangwarscheilichkeit der
-    stim. Emisson\note<2->[item]{Modell der Einsteinkoeffizienten, als
+  \item<2-> Ratengleichung f\"ur Photonenzahl\note<2->[item]{Modell der Einsteinkoeffizienten, als
       Bedingung der Verst\"arkung} ergibt:
     \begin{equation}
       \label{eq:firstlaser}\tag{Erste Laserbedingung}
-      \dv{q}{t}=\rho(\nu)B_{21}(N_2-N_1) \implies
       N_2>N_1
     \end{equation}
     \(\implies\) Besetzungsinversion
-  \item<3-> Besetzungsinversion ist erst mit Vierniveausystem
+  \item<3-> Zweite Laserbedingung: Verst\"arkung \(>\) D\"ampfung
+    \note<3-> Definiert Verlustgrenze
+
+    \note<2->[item]{Besetzungsinversion ist erst mit Vierniveausystem
     realisierbar (metastabile Zust\"ande halten Grundzustand
-    lehr)\note<3->[item]{sonst grosse Pumpleistung notwendig, 2 da
+    lehr),sonst grosse Pumpleistung notwendig, 2 da
       pumpen mit emission konkurriert, 3 da unteres Niveau
       Grundzustand, vierniveau hat niveau unter unterem laser niv,
       pumpen an laser\"ubergan vorbei}
   \end{itemize}
 \end{frame}
-
 
 \begin{frame}{\hne{} System}
   \begin{columns}
@@ -227,23 +226,6 @@
     \item<4-> Lebensdauer des \(P\) Niveaus ausreichend Kurz
     \end{itemize}
   \end{columns}
-\end{frame}
-
-\begin{frame}{Zweite Laserbedingung}
-  \begin{itemize}
-  \item<1-> Betrachtung der d\"ampfung des Strahlungsfeldes im Laser
-  \item<2-> Intensität verringert sich pro doppeltem Umlauf um Faktor
-    \(e^{-\kappa}\) \note<2->[item]{Extinktiosfaktor}
-  \item<3-> Verst\"arkung muss gr\"o\ss{}er sein als Verlust
-  \item<4-> mit Wirkungsquerschnitt \note<4->[item]{Wir nehmen an dass
-      sie gilt.}  \(\sigma_{21}=B_{21}\frac{h\cdot\nu}{c}\) ergibt
-    sich:
-    \begin{equation}
-      \label{eq:zwlabe}
-      \tag{zweite Laserbedingung}
-      \sigma_{21}\cdot (N_2-N_1)\cdot 2L \geq \kappa
-    \end{equation}
-  \end{itemize}
 \end{frame}
 
 \subsection{Optischer Resonator}
@@ -286,105 +268,8 @@
     \item<3-> ergibt als Grundmode sog. \textbf{Gauss-Strahl}
       (Querschnitt ist Gaussfunktion) \note<3->[item]{h\"ohere Moden
         weiter aufgeweitet und leicht mit Blenden zu unterdr\"ucken}
-      \only<3>{
-        \begin{itemize}
-        \item charakterisiert durch Strahldicke \(w(z)\), Radius der
-          Wellenfronten \(R(z)\)
-        \item freihe Parameter: Amplitude, Strahltaille \(w(z=0)=w_0\)
-          und Wellenl\"ange
-        \end{itemize}
-      }
-    \item<4-> meist wird eine Polarisation mit einem Brewsterfenster
-      \note<4->[item]{TAFEL} ausgew\"ahlt\note<4->[item]{Auswahl und
-        Verst\"arkung erkl\"aren}
     \end{itemize}
   \end{columns}
-\end{frame}
-
-\begin{frame}{Crashkurs Matrizenoptik}
-  \begin{itemize}
-  \item<1-> Annahmen: Paraxiale Optik, alle Winkel Klein
-  \item<2-> stelle strahl als 2er Vektor da:
-    \begin{equation}
-      \mqty(d \\ \alpha) \widehat{=} \mqty(\text{Abstand zur Achse} \\
-      \text{Winkel zur Achse})
-    \end{equation}
-
-  \item<3-> optisches System dargestellt druch Matrix als Produkt der
-    Komponenten:
-    \begin{gather}
-      \label{eq:systmatrix}
-      \mathfrak{M}_{\text{System}}=\mathfrak{M}_{\text{1}}\cdot\ldots\cdot\mathfrak{M}_{n}=\mqty(A
-      & B \\ C & D) \\
-      \mqty(d' \\ \alpha') = \mathfrak{M}_{\text{System}}\cdot\mqty(d
-      \\ \alpha)
-    \end{gather}
-  \end{itemize}
-\end{frame}
-\begin{frame}{Einige Optische Komponenten}
-  \begin{table}[h!]
-    \begin{tabular}{l | c | l}
-      \textbf{Element} & \textbf{Matrix} & \textbf{Parameter} \\
-      \midrule\\
-      \addlinespace[-2ex]
-      freie Ausbreitung & \(\begin{pmatrix}
-        1 & s \\
-        0 & 1
-      \end{pmatrix}\) & Wegl\"ange \(s\) \\
-      \midrule\\
-      \addlinespace[-2ex] d\"unne Linse & \(\begin{pmatrix}
-        1 & 0 \\
-        -1/f & 1
-      \end{pmatrix}\) & Brennweite \(f\) \\
-      \midrule\\
-      \addlinespace[-2ex] sph\"arischer Spiegel & \(\begin{pmatrix}
-        1 & 0 \\
-        -2/R & 1
-      \end{pmatrix}\) & Radius \(R\) \\
-
-    \end{tabular}
-  \end{table}
-\end{frame}
-
-\begin{frame}{Gaussstrahlen und Matrizenoptik}
-  \begin{alertblock}{Achtung, High-Level}
-    Sieht komisch aus ist aber so.\note<1->[item]{Urspr\"unge ein
-      wenig erkl\"aren.}
-  \end{alertblock}
-
-  \begin{itemize}
-  \item<2-> definiere
-    \(\frac{1}{q(z)}=\frac{1}{R(z)}+i\frac{\lambda}{\pi
-      w^2(z)}=a+i\cdot b\) \note<2->[item]{ist exponent der e funktion
-      in mathem. Darstellung Gausstrahl}
-  \item<3-> mit
-    \(\mathfrak{M}_{\text{System}} = \mqty(A & B \\ C & D)\)
-    transformiert sich \(q\) wie folgt:
-    \begin{equation}
-      \label{eq:qtrans}
-      q'=\frac{Aq + B}{Cq+D}
-    \end{equation}
-    \only<4>{
-    \item f\"ur den Beamwaist im vorliegenden Resonator ergibt sich
-      mit \(R\) (Radius Spiegel):\note<5->[item]{param erklaeren}
-      \begin{equation}
-        \label{eq:konfwaist}
-        w_0^4=\qty(\frac{\lambda}{\pi})^2L(R-L)
-      \end{equation}
-    } \only<5>{
-    \item der Beamwaist des Austretenden strahls, verschoben zu Linse
-      fokussiert durch Linse mit Brennweite (A,B,C,D entsprechend
-      Tabelle):
-      \begin{equation}
-        \label{eq:qkaust}
-        b'=b\cdot\frac{AD-CB}{A^2+B^2b^2}
-      \end{equation}
-      \begin{equation}
-        \label{eq:reswaist}
-        w'=\sqrt{\frac{\lambda}{\pi\cdot b'(x)}}
-      \end{equation}
-    }
-  \end{itemize}
 \end{frame}
 
 \begin{frame}{Stabilit\"at im Resonator}
@@ -518,7 +403,7 @@
 \label{sec:stab}
 
 \begin{frame}
-  \note[item]{Vor dem Versuch} Da \(g_1(R_1=\infty)=1\) folgt mit
+  Da \(g_1(R_1=\infty)=1\) folgt mit
   \(R_2=\SI{1}{\meter}\) und \(0\leq g_2\leq 1\)
   durch~\ref{eq:stabbed}:
 
@@ -897,7 +782,7 @@
 
 \begin{frame}{Fazit}
   \begin{itemize}
-  \item<1-> spannender Versuch (aber aufwendig in der Auswertung ^^)
+  \item<1-> spannender Versuch (aber aufwendig in der Auswertung)
   \item<2-> gr\"o\ss{}tenteils vern\"unftige Ergebnisse
   \item<3-> gro\ss{}er Wissenszuwachs (Matrizenoptik, Gaussstahlen
     etc.)
@@ -907,4 +792,174 @@
 \begin{frame}[allowframebreaks]{Ausgesuchte Quellen}
   \printbibliography
 \end{frame}
+
+\subsection*{Graveyard}
+\begin{frame}{Crashkurs Matrizenoptik}
+  \begin{itemize}
+  \item<1-> Annahmen: Paraxiale Optik, alle Winkel Klein
+  \item<2-> stelle strahl als 2er Vektor da:
+    \begin{equation}
+      \mqty(d \\ \alpha) \widehat{=} \mqty(\text{Abstand zur Achse} \\
+      \text{Winkel zur Achse})
+    \end{equation}
+
+  \item<3-> optisches System dargestellt druch Matrix als Produkt der
+    Komponenten:
+    \begin{gather}
+      \label{eq:systmatrix}
+      \mathfrak{M}_{\text{System}}=\mathfrak{M}_{\text{1}}\cdot\ldots\cdot\mathfrak{M}_{n}=\mqty(A
+      & B \\ C & D) \\
+      \mqty(d' \\ \alpha') = \mathfrak{M}_{\text{System}}\cdot\mqty(d
+      \\ \alpha)
+    \end{gather}
+  \end{itemize}
+\end{frame}
+\begin{frame}{Einige Optische Komponenten}
+  \begin{table}[h!]
+    \begin{tabular}{l | c | l}
+      \textbf{Element} & \textbf{Matrix} & \textbf{Parameter} \\
+      \midrule\\
+      \addlinespace[-2ex]
+      freie Ausbreitung & \(\begin{pmatrix}
+        1 & s \\
+        0 & 1
+      \end{pmatrix}\) & Wegl\"ange \(s\) \\
+      \midrule\\
+      \addlinespace[-2ex] d\"unne Linse & \(\begin{pmatrix}
+        1 & 0 \\
+        -1/f & 1
+      \end{pmatrix}\) & Brennweite \(f\) \\
+      \midrule\\
+      \addlinespace[-2ex] sph\"arischer Spiegel & \(\begin{pmatrix}
+        1 & 0 \\
+        -2/R & 1
+      \end{pmatrix}\) & Radius \(R\) \\
+
+    \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame}{Gaussstrahlen und Matrizenoptik}
+  \begin{alertblock}{Achtung, High-Level}
+    Sieht komisch aus ist aber so.\note<1->[item]{Urspr\"unge ein
+      wenig erkl\"aren.}
+  \end{alertblock}
+
+  \begin{itemize}
+  \item<2-> definiere
+    \(\frac{1}{q(z)}=\frac{1}{R(z)}+i\frac{\lambda}{\pi
+      w^2(z)}=a+i\cdot b\) \note<2->[item]{ist exponent der e funktion
+      in mathem. Darstellung Gausstrahl}
+  \item<3-> mit
+    \(\mathfrak{M}_{\text{System}} = \mqty(A & B \\ C & D)\)
+    transformiert sich \(q\) wie folgt:
+    \begin{equation}
+      \label{eq:qtrans}
+      q'=\frac{Aq + B}{Cq+D}
+    \end{equation}
+    \only<4>{
+    \item f\"ur den Beamwaist im vorliegenden Resonator ergibt sich
+      mit \(R\) (Radius Spiegel):\note<5->[item]{param erklaeren}
+      \begin{equation}
+        \label{eq:konfwaist}
+        w_0^4=\qty(\frac{\lambda}{\pi})^2L(R-L)
+      \end{equation}
+    } \only<5>{
+    \item der Beamwaist des Austretenden strahls, verschoben zu Linse
+      fokussiert durch Linse mit Brennweite (A,B,C,D entsprechend
+      Tabelle):
+      \begin{equation}
+        \label{eq:qkaust}
+        b'=b\cdot\frac{AD-CB}{A^2+B^2b^2}
+      \end{equation}
+      \begin{equation}
+        \label{eq:reswaist}
+        w'=\sqrt{\frac{\lambda}{\pi\cdot b'(x)}}
+      \end{equation}
+    }
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Zweite Laserbedingung}
+  \begin{itemize}
+  \item<1-> Betrachtung der d\"ampfung des Strahlungsfeldes im Laser
+  \item<2-> Intensität verringert sich pro doppeltem Umlauf um Faktor
+    \(e^{-\kappa}\) \note<2->[item]{Extinktiosfaktor}
+  \item<3-> Verst\"arkung muss gr\"o\ss{}er sein als Verlust
+  \item<4-> mit Wirkungsquerschnitt \note<4->[item]{Wir nehmen an dass
+      sie gilt.}  \(\sigma_{21}=B_{21}\frac{h\cdot\nu}{c}\) ergibt
+    sich:
+    \begin{equation}
+      \label{eq:zwlabe}
+      \tag{zweite Laserbedingung}
+      \sigma_{21}\cdot (N_2-N_1)\cdot 2L \geq \kappa
+    \end{equation}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Resonanz und Modenstruktur}
+  \begin{columns}
+    \column{.5\textwidth} \only<3->{
+      \begin{figure}
+        \includegraphics[width=1\columnwidth]{gauss-strahl.png}
+      \end{figure}
+    } \column{.5\textwidth}
+    \begin{itemize}
+    \item<1-> longitudnale Resonanzbedinung:\note<1->[item]{stehende
+        Welle, in realit\"at nur ein paar moden ausgepraegt,
+        Modenkonkurrenz}
+      \begin{equation}
+        \label{eq:longmodes}
+        L=n\cdot\frac{\lambda}{2} \implies \Delta\nu = \frac{c}{2L}
+      \end{equation}
+    \item<2-> Beschreibung des gesamten Feldes durch paraxiale
+      L\"osung des Maxwell gleichungen \note<2->[item]{Vakuum,
+        anpassen der RB an Spiegel Radien}
+    \item<3-> ergibt als Grundmode sog. \textbf{Gauss-Strahl}
+      (Querschnitt ist Gaussfunktion) \note<3->[item]{h\"ohere Moden
+        weiter aufgeweitet und leicht mit Blenden zu unterdr\"ucken}
+      \only<3>{
+        \begin{itemize}
+        \item charakterisiert durch Strahldicke \(w(z)\), Radius der
+          Wellenfronten \(R(z)\)
+        \item freihe Parameter: Amplitude, Strahltaille \(w(z=0)=w_0\)
+          und Wellenl\"ange
+        \end{itemize}
+      }
+    \item<4-> meist wird eine Polarisation mit einem Brewsterfenster
+      \note<4->[item]{TAFEL} ausgew\"ahlt\note<4->[item]{Auswahl und
+        Verst\"arkung erkl\"aren}
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Besetzungsinversion}
+  \begin{itemize}
+  \item<1-> im thermischen Gleichgewicht \"uberwiegt die spontane
+    Emission gegen\"uber der Induzierten \(\implies\) Erzeugung eines
+    Ungleichgewichts durch ``Pumpen'' \note<1->[item]{im folgenden
+      Spontane Emission vernachl\"assigt, erzeugt aber neue Moden,
+      siehe sp\"ater, konzentriert man verst\"arkung auf best. moden
+      \"uberwiegt stim e} und Auswahl bestimmter Moden im optischen
+    Resonator \note<1->[item]{ Negative Temp}
+  \item<2-> Ratengleichung mit \(\rho\) als spektraler Energiedichte,
+    \(B_{21}\) als \"ubergangwarscheilichkeit der
+    stim. Emisson\note<2->[item]{Modell der Einsteinkoeffizienten, als
+      Bedingung der Verst\"arkung} ergibt:
+    \begin{equation}
+      \label{eq:firstlaser}\tag{Erste Laserbedingung}
+      \dv{q}{t}=\rho(\nu)B_{21}(N_2-N_1) \implies
+      N_2>N_1
+    \end{equation}
+    \(\implies\) Besetzungsinversion
+  \item<3-> Besetzungsinversion ist erst mit Vierniveausystem
+    realisierbar (metastabile Zust\"ande halten Grundzustand
+    lehr)\note<3->[item]{sonst grosse Pumpleistung notwendig, 2 da
+      pumpen mit emission konkurriert, 3 da unteres Niveau
+      Grundzustand, vierniveau hat niveau unter unterem laser niv,
+      pumpen an laser\"ubergan vorbei}
+    \note<3->[item]{ZWEITE LB ERW\"AHNEN}
+  \end{itemize}
+\end{frame}
+
 \end{document}
