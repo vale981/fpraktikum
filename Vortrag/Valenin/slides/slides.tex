@@ -7,8 +7,9 @@
 \usepackage{stackengine}
 \usepackage[version=4]{mhchem}
 \usepackage{physics}
-% \setbeameroption{show notes}
-\setbeamercovered{transparent}
+\usepackage{pgfpages}
+\setbeameroption{show notes on second screen=top} %
+% \setbeamercovered{transparent}
 \addbibresource{slides.bib}
 \graphicspath{ {figs/} }
 
@@ -22,10 +23,8 @@
    \end{frame}
 }
 \setbeamertemplate{footline}[frame number]
-\setbeamertemplate{note
-  page}{\begin{columns}\column{.5\textwidth}\insertslideintonotes{0.5}\column{.5\textwidth}\insertnote\end{columns}}
 
-
+\setbeamertemplate{note page}[plain]
 % \usepackage[font={scriptsize,it}]{caption}
 \usepackage{hyperref}
 \sisetup{prespace}
@@ -136,18 +135,20 @@
 \end{frame}
 
 \begin{frame}{Funktionsweise}
-  Energiepumpe erzeugt Ungleichgewichtsbesetzung von Energieniveaus im
-  aktiven Medium \(\implies\)\pause Photonen oszillieren im Resonator
-  mehrfach, werden bei jedem Durchlauf verst\"arkt \(\implies\)\pause
-  Bruchteil des Lichtes wird ausgekoppelt und genutzt
+  \begin{enumerate}
+  \item<1-> Energiepumpe erzeugt Ungleichgewichtsbesetzung von
+    Energieniveaus im aktiven Medium
+  \item<2-> Photonen oszillieren im Resonator mehrfach, werden bei
+    jedem Durchlauf verst\"arkt \(\implies\)
+  \item<3-> Bruchteil des Lichtes wird ausgekoppelt und genutzt
+  \end{enumerate}
 
 
-  \pause
-  \begin{alertblock}{Achtung}
-    Gro\ss{}e vielfalt in der Implementierung (Matrialien,
-    Energiepumpen)
+  \begin{alertblock}<4->{Achtung} Gro\ss{}e vielfalt in der
+    Implementierung (Matrialien, Energiepumpen)
   \end{alertblock}
 \end{frame}
+
 \section{Theoretische Grundlagen}
 
 \subsection{Besetzungsinversion und Laserbedingungungen}
@@ -248,7 +249,7 @@
 \subsection{Optischer Resonator}
 \label{sec:reso}
 
-\begin{frame}
+\begin{frame}{Optischer Resonator}
   \begin{columns}
     \column{.5\textwidth} \only<2->{
       \begin{figure}
@@ -284,7 +285,7 @@
         anpassen der RB an Spiegel Radien}
     \item<3-> ergibt als Grundmode sog. \textbf{Gauss-Strahl}
       (Querschnitt ist Gaussfunktion) \note<3->[item]{h\"ohere Moden
-        weiter aufgeweitet und leicht mit Blenden zu unterdr\"ucken},
+        weiter aufgeweitet und leicht mit Blenden zu unterdr\"ucken}
       \only<3>{
         \begin{itemize}
         \item charakterisiert durch Strahldicke \(w(z)\), Radius der
@@ -808,7 +809,8 @@
     \end{align}
     \begin{itemize}
     \item<3-> erscheint plausibel
-    \item<3-> Pr\"azision der L\"ange vergleichbar mit vorherigen Ergebnissen
+    \item<3-> Pr\"azision der L\"ange vergleichbar mit vorherigen
+      Ergebnissen
     \end{itemize}
   \end{itemize}
   \note<1->[item]{intersannter weise: Umkehrung der Peakh\"ohen}
@@ -833,21 +835,22 @@
   \end{columns}
 \end{frame}
 \begin{frame}{Modenstruktur des offenen Lasers}
-\begin{table}
-  \begin{tabular}{SSS}
-    \toprule
-    {\(L\) [\si{\centi\meter}]} & {\(\delta\nu\) Theorie [\si{\mega\hertz}]} & {\(\delta\nu\) experimentell [\si{\mega\hertz}]}\\
-    \midrule
-    80 & 187.4\pm 1.2 & 201\pm 14 \\
-    60 & 249.8\pm 2.1 & 279\pm 11 \\
-    \bottomrule
-  \end{tabular}
-\end{table}
-\begin{itemize}
-\item<1-> akzeptable \"Ubereinstimmung mit der Theorie \(implies\)
-  keine unaufgel\"oste Mode dazwischen
-\item<2-> bei \(L=\SI{60}{\centi\meter}\) ist die Abweichung untersch\"atzt
-\end{itemize}
+  \begin{table}
+    \begin{tabular}{SSS}
+      \toprule
+      {\(L\) [\si{\centi\meter}]} & {\(\delta\nu\) Theorie [\si{\mega\hertz}]} & {\(\delta\nu\) experimentell [\si{\mega\hertz}]}\\
+      \midrule
+      80 & 187.4\pm 1.2 & 201\pm 14 \\
+      60 & 249.8\pm 2.1 & 279\pm 11 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+  \begin{itemize}
+  \item<1-> akzeptable \"Ubereinstimmung mit der Theorie \(\implies\)
+    keine unaufgel\"oste Mode dazwischen
+  \item<2-> bei \(L=\SI{60}{\centi\meter}\) ist die Abweichung
+    untersch\"atzt
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Betrachtung der Linienverbreiterung}
@@ -858,7 +861,7 @@
     \end{figure}
     \column{.5\textwidth}
     \begin{itemize}
-    \item<1-> Dopplerverbreitung ist dominant (homogen)
+    \item<1-> Dopplerverbreitung ist dominant
     \item<2-> Einh\"ullende des Modenspektrums sollte Gausskurve
       entsprechen \(\implies\) Bestimmung der Temperatur m\"oglich
     \item<3-> Fit symtrisch angesetzt, Amplitude und Breite als freie
@@ -883,8 +886,8 @@
       fit zu
     \end{itemize}
   \end{itemize}
-  \note<1->[item]{\(\sigma\) \textbf{Fit Param}}
-  \note<2->[item]{da andere Mechanismen vernachl. eher zu hohe temp erwartet!}
+  \note<1->[item]{\(\sigma\) \textbf{Fit Param}} \note<2->[item]{da
+    andere Mechanismen vernachl. eher zu hohe temp erwartet!}
 \end{frame}
 
 
@@ -898,7 +901,7 @@
   \item<2-> gr\"o\ss{}tenteils vern\"unftige Ergebnisse
   \item<3-> gro\ss{}er Wissenszuwachs (Matrizenoptik, Gaussstahlen
     etc.)
-  \item<4-> toller Betreuer ^^
+  \item<4-> toller Betreuer
   \end{itemize}
 \end{frame}
 \begin{frame}[allowframebreaks]{Ausgesuchte Quellen}
