@@ -8,7 +8,7 @@
 \usepackage[version=4]{mhchem}
 \usepackage{physics}
 \usepackage{pgfpages}
-\setbeameroption{show notes on second screen=top} %
+\setbeameroption{show notes on second screen} %
 % \setbeamercovered{transparent}
 \addbibresource{slides.bib}
 \graphicspath{ {figs/} }
@@ -38,9 +38,15 @@
 \beamertemplatenavigationsymbolsempty
 
 \begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
 \maketitle
+\end{titlepage}
+
+\hypersetup{pageanchor=true}
+\pagenumbering{arabic}
 \begin{frame}
-  \tableofcontents[pausesections]
+  \tableofcontents
 \end{frame}
 
 \section{Allgemeines zum Versuch}
@@ -52,59 +58,32 @@
     \end{figure}
     \column{.5\textwidth} \only<1,2>{
       \begin{block}{Ziel des Versuches}
-        Jusierung, Inbetriebname und Untersuchung eines \hne{} Lasers.
+        Justierung, Inbetriebnahme und Untersuchung eines \hne{} Lasers.
       \end{block}
     } \only<2,3>{
-      \begin{block}{Zur verf\"ugung stehendes Material}
+      \begin{block}{Zur Verf\"ugung stehendes Material}
         \begin{description}
           \only<2>{
-          \item[Spiegel] Nummeriert von 1 bis 10.
-          \item[Laser] Kommerzieller \hne{} und gr\"uner Justagelaser.
+          \item[Optische Komponenten] Spiegel, Blenden, Linsen,
+            Plofilter
+          \item[Laser] kommerzieller \hne{} und gr\"uner Justagelaser
           \item[Laserr\"ohre] \hne{} Entladungsr\"ohre
-          \item[Blenden] Als Justagehilfe und zum Ausblenden von
-            unerw\"unschten Moden.  } \only<3>{
-          \item[Linsen und Filter] Zur Untersuchung der
-            Strahleigenschaften. (Sammellinse, Polfilter, Graufilter)
-          \item[Fabry Perot Interferometer] Festaufbau, Konfokal
           \item[Leistungsmessger\"at] Zur Leistungsmessung und als
-            Justagehilfe.
+            Justagehilfe.  } \only<3>{
+          \item[Fabry Perot Interferometer] Festaufbau, Konfokal
           \item[Faserspektrometer] \textsc{Ocean Optics HR2000+} als
-            Referenzmessger\"at.  }
+            Referenzmessger\"at.
+          \item[Osziloskop] Digital, mit PC
+
+          }
         \end{description}
       \end{block}
     }
   \end{columns}
 \end{frame}
 
-\subsection{Begriffskl\"arung Laser}
-\begin{frame}
-  \begin{block}{Acronym}
-    \textsc{Light Amplification by Stimulated Emission of Radiation.}
-  \end{block}
 
-  \pause
-
-  \begin{block}{Basic Facts}
-    \begin{itemize}
-    \item erster Laser um 1960 von Theodore H. Maiman
-      \begin{itemize}
-      \item bezeichnet als ``L\"osung auf der Suche nach einem
-        Problem''~\cite{2010}
-      \end{itemize}
-    \item kann sehr fokussiertes und koh\"arentes Licht erzeugen
-    \item findet Anwendung in breiten Bereichen der Technik und
-      Wissenschaft
-      \begin{itemize}
-      \item Barcode Scanner, CD-Spieler, Optische
-        Telekommunikationstechnik
-      \item Erzeugung tiefer Temperaturen, Schockwellen, gro\ss{}en
-        Energiedichten, Holographie, Interferometrie,
-        Teilchenbeschleuniger
-      \end{itemize}
-    \end{itemize}
-  \end{block}
-\end{frame}
-
+\section{Theoretische Grundlagen}
 \subsection{Grundlegender Aufbau und Funktionsweise eines Lasers}
 \label{sec:funkt}
 \begin{frame}
@@ -135,6 +114,10 @@
 \end{frame}
 
 \begin{frame}{Funktionsweise}
+  \begin{block}{Acronym}
+    \textsc{Light Amplification by Stimulated Emission of Radiation.}
+  \end{block}
+
   \begin{enumerate}
   \item<1-> Energiepumpe erzeugt Ungleichgewichtsbesetzung von
     Energieniveaus im aktiven Medium
@@ -149,22 +132,20 @@
   \end{alertblock}
 \end{frame}
 
-\section{Theoretische Grundlagen}
-
 \subsection{Besetzungsinversion und Laserbedingungungen}
 \begin{frame}
   \begin{itemize}
   \item betrachte ein Zweiniveausystem \(1,2\), Besetzungszahlen
     \(N_1, N_2\)
-  \item f\"ur Elektomagnetische atomare \"Uberg\"ange gilt:
+  \item f\"ur elektromagnetische atomare \"Uberg\"ange gilt:
     \begin{equation}
       h\nu = E_2 - E_1
     \end{equation}
   \end{itemize}
   \pause
-  \begin{block}{Absorbtions und Emissonsprozesse}
+  \begin{block}{Absorbtions und Emissionsprozesse}
     \begin{description}
-    \item<2->[Absorbtion] Absorbtion eines Photons wird von Atom
+    \item<2->[Absorption] Absorption eines Photons wird von Atom
       absorbiert, Anregung \(1\rightarrow 2\)
       \note<2>[item]{H\"aufigkeit proportional zu spektraler
         Energiedichte}
@@ -174,8 +155,8 @@
 
     \item<4->[Stimulierte Emission] Photon mit passender
       Energie\note<4>[item]{siehe obige Formel} stimuliert angeregtes
-      Atom abregung \(2\rightarrow 1\), aussendung eines Idenischen
-      photons\note<4>[item]{Phase, Polar. etc}
+      Atom zur Abregung \(2\rightarrow 1\), Aussendung eines identischen
+      Photons\note<4>[item]{Phase, Polar. etc}
       \note<4>[item]{H\"aufigkeit dieses Prozesses ist proportional
         zur spektralen Energiedichte.}
     \end{description}
@@ -189,9 +170,8 @@
     Emission gegen\"uber der Induzierten \(\implies\) Erzeugung eines
     Ungleichgewichts durch ``Pumpen'' \note<1->[item]{im folgenden
       Spontane Emission vernachl\"assigt, erzeugt aber neue Moden,
-      siehe sp\"ater, konzentriert man verst\"arkung auf best. moden
-      \"uberwiegt stim e} und Auswahl bestimmter Moden im optischen
-    Resonator \note<1->[item]{ Negative Temp}
+      siehe sp\"ater, konzentriert man verst\"arkung auf best. Moden
+      \"uberwiegt stim e}\note<1->[item]{ Negative Temp}I
   \item<2-> Ratengleichung f\"ur Photonenzahl\note<2->[item]{Modell der Einsteinkoeffizienten, als
       Bedingung der Verst\"arkung} ergibt:
     \begin{equation}
@@ -200,14 +180,14 @@
     \end{equation}
     \(\implies\) Besetzungsinversion
   \item<3-> Zweite Laserbedingung: Verst\"arkung \(>\) D\"ampfung
-    \note<3-> Definiert Verlustgrenze
+    \note<3->[item]{Definiert Verlustgrenze}
 
     \note<2->[item]{Besetzungsinversion ist erst mit Vierniveausystem
     realisierbar (metastabile Zust\"ande halten Grundzustand
     lehr),sonst grosse Pumpleistung notwendig, 2 da
       pumpen mit emission konkurriert, 3 da unteres Niveau
       Grundzustand, vierniveau hat niveau unter unterem laser niv,
-      pumpen an laser\"ubergan vorbei}
+      pumpen an laser\"ubergang vorbei}
   \end{itemize}
 \end{frame}
 
@@ -223,7 +203,7 @@
     \item<2-> Helium regt durch St\"o\ss{}e \"anlich gelegene Niveaus
       im Neon an (Zufall)
     \item<3-> Nutzung des \"Ubergangs \(5S\rightarrow 3P\) (sichtbar)
-    \item<4-> Lebensdauer des \(P\) Niveaus ausreichend Kurz
+    \item<4-> Lebensdauer des \(P\) Niveaus ausreichend kurz
     \end{itemize}
   \end{columns}
 \end{frame}
@@ -255,15 +235,15 @@
       \end{figure}
     } \column{.5\textwidth}
     \begin{itemize}
-    \item<1-> longitudnale Resonanzbedinung:\note<1->[item]{stehende
-        Welle, in realit\"at nur ein paar moden ausgepraegt,
+    \item<1-> longitudinale Resonanzbedingung:\note<1->[item]{stehende
+        Welle, in realit\"at nur ein paar Moden ausgeprägt,
         Modenkonkurrenz}
       \begin{equation}
         \label{eq:longmodes}
         L=n\cdot\frac{\lambda}{2} \implies \Delta\nu = \frac{c}{2L}
       \end{equation}
     \item<2-> Beschreibung des gesamten Feldes durch paraxiale
-      L\"osung des Maxwell gleichungen \note<2->[item]{Vakuum,
+      L\"osung der Maxwellgleichungen \note<2->[item]{Vakuum,
         anpassen der RB an Spiegel Radien}
     \item<3-> ergibt als Grundmode sog. \textbf{Gauss-Strahl}
       (Querschnitt ist Gaussfunktion) \note<3->[item]{h\"ohere Moden
@@ -301,52 +281,53 @@
   \begin{itemize}
   \item<1-> prinzipiell Verst\"arkung von allen Moden, die:
     \begin{itemize}
-    \item die Longitudinale frequenzbedinung erf\"ullen
+    \item die longitudinale Frequenzbedingungg erf\"ullen
     \item \"uber der Verlustgrenze liegen \note[item]{unbedingt
-        konkurrenz erkl\"aren}
+        Konkurrenz erkl\"aren}
     \end{itemize}
-  \item<2-> nur wenige longitdiunale und nicht-Gauss Moden werden
-    verst\"arkt (Konkurrenz, Aufweitung)~\cite[171]{Sigrist2018}
-  \item<3-> Stimulierte Emission akzeptiert aufgrund der
-    sog. \emph{Lininienverbriterung} mehrere Frequenzen
-  \item<4-> dadurch aufweichung von longitudinaler Frequenzbedinung
+  \note<1->[item]{nur wenige longitudinale und nicht-Gauss Moden werden
+    verst\"arkt (Konkurrenz, Aufweitung)~\cite[171]{Sigrist2018}}
+  \item<2-> stimulierte Emission akzeptiert aufgrund der
+    sog. \emph{Linienverbreiterung} Frequenzintervalle
+  \item<3-> dadurch Aufweichung von longitudinaler Frequenzbedingung
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Homogene Linienvebreiterung}
-  \begin{figure}
-    \includegraphics[width=.4\columnwidth]{homogen.png}
-  \end{figure}
+\begin{frame}[t]{Mechanismen Linienvebreiterung}
+  \begin{columns}
+    \column{.5\linewidth}
+    \begin{block}{Homogen}
+      \begin{figure}
+        \includegraphics[width=.4\columnwidth]{homogen.png}
+      \end{figure}
+      \begin{itemize}
+      \item<1-> wirkt auf gesamtes aktives Medium
+      \item<2-> Ursachen: Energie-Zeit Unsch\"arfe, strahlungsfreie
+        \"Uberg\"ange, elastische St\"o\ss{}e
+        (Druckverbreiterung)\note<2->[item]{unter anderem}
+      \end{itemize}
+    \end{block}
+    \column{.5\linewidth}
+    \begin{block}{Inhomogen}
+      \begin{figure}
+        \includegraphics[width=.7\columnwidth]{inhomogen.png}
+      \end{figure}
+      \begin{itemize}
+      \item<1-> wirkt nur auf bestimmte Atomgruppen
+      \item<2-> Ursachen: Dopplereffekt (Dopplerverbreiterung) beim \hne{}-Laser
+        dominant
+      \item<3-> Breite: abh\"angig von der Temperatur
 
-  \begin{itemize}
-  \item<1-> wirkt auf gesamtes aktives Medium
-  \item<2-> Ursachen: Energie-Zeit Unsch\"arfe, strahlungsfreie
-    \"Uberg\"ange, elastische St\"o\ss{}e
-    (Druckverbreiterung)\note<2->[item]{unter anderem}
-  \end{itemize}
+        \note[item]{kann sog. \emph{Hole-Burning} bewirken:
+          Besetzungsinversion auf bestimmten Atomgruppen abgebaut
+          \(\implies\) stehen nicht mehr f\"ur den Laserprozess zur
+          Verf\"ugung}
+      \end{itemize}
+    \end{block}
+  \end{columns}
 \end{frame}
 
-\begin{frame}{Inhomogene Linienvebreiterung}
-  \begin{figure}
-    \includegraphics[width=.7\columnwidth]{inhomogen.png}
-  \end{figure}
-  \begin{itemize}
-  \item wirkt nur auf Bestimmte Atomgruppen
-  \item Dopplereffekt (Dopplerverbreiterung) beim \hne{}-Laser
-    dominant
-  \item Halbwertsbreite (FWHM):
-    \begin{equation}
-      \label{eq:doppler}
-      (\Delta\nu)_{\text{Doppler}}=2\cdot \nu_0\qty(\frac{2kT\ln{2}}{mc^2})^{1/2}
-    \end{equation}
-    \note[item]{kann sog. \emph{Hole-Burning} bewirken:
-      Besetzungsinversion auf bestimmten Atomgruppen abgebaut
-      \(\implies\) stehen nicht mehr f\"ur den Laserprozess zur
-      Verf\"ugung}
-  \end{itemize}
-\end{frame}
-
-\subsection{Faby-Perot-Interferometer}
+\subsection{Fabry-Pérot-Interferometer}
 \label{sec:fpi}
 \begin{frame}
   \begin{columns}
@@ -358,12 +339,12 @@
     \column{.5\textwidth}
     \begin{itemize}
     \item<1-> Vielstrahlinterferenz durch Reflexion zwischen zwei
-      ebenen Spiegeln (Etalon)\note<1->[item]{wieder ein Resonator}
+      ebenen Spiegeln (Etalon)\note<1->[item]{\textbf{wieder ein Resonator}}
       \begin{itemize}
       \item bestimmt durch Abstand \(d\), Reflexionsverm\"ogen \(R\)
       \end{itemize}
-    \item<2-> nur f\"ur \(d=n\cdot\frac{\lambda}{2}\)
-      \SI{100}{\percent} Transmission
+     \note<2->[item]{nur f\"ur \(d=n\cdot\frac{\lambda}{2}\)
+      \SI{100}{\percent} Transmission}
     \item<3-> sehr scharfe Maxima \(\implies\) hohe Aufl\"osung
     \end{itemize}
   \end{columns}
@@ -378,7 +359,7 @@
     \column{.5\textwidth}
     \begin{block}{Charakterisierung eines FPI}
       \begin{description}
-      \item<1->[Free Spectral Range (FSR)] Abstand der Transm. Maxima,
+      \item<1->[Free Spectral Range (FSR)] Abstand der transm. Maxima,
         genutzt zur Kalibrierung \note<1->[item]{Breite
           Unterscheidbarer Frequenzen, genutzt zur }
         \begin{equation}
@@ -420,11 +401,11 @@
 \subsection{Justage und Messung der Verst\"arkung im Einfachdurchgang}
 \begin{frame}
   \begin{itemize}
-  \item<1-> Justage der beiden Justage Laser parallel zur Optischen
+  \item<1-> Justage der beiden Justagelaser parallel zur Optischen
     Achse (OA) der \hne{}-R\"ohre \note<1->[item]{Ein wenig zur
       technik...}\note<1->[item]{Reflexe an Kapillarw\"anden}
   \item<2-> Untersuchung des Verst\"arkungseffektes im
-    Einfachdurchgang mithilfe eines kommerzielen \hne{} Lasers
+    Einfachdurchgang mithilfe eines kommerziellen \hne{} Lasers
     \(\implies\) Messung der Leistung vor und Nach der R\"ohre
   \item<3-> Messzeit \SI{150}{\second} festgelegt, da Schwankung ab
     dieser Zeit annähernd konstant
@@ -445,12 +426,12 @@
         vor R\"ohre & 1319.161 & 2.0  & 1319.229 & 1329.112 \\
         \bottomrule
       \end{tabular}
-      \caption{Leistungsmessungen des Einfachdurchgangs mit
+      \caption{Leistungsmessung des Einfachdurchgangs mit
         abgezogenem Untergrund}
     \end{table}}
   \begin{itemize}
   \item<5-> Untergrund ist Vernachl\"assigbar
-  \item<6-> Aktive R\"ohre verst\"arkt nur um \SI{6}{\percent}
+  \item<6-> aktive R\"ohre verst\"arkt nur um \SI{6}{\percent}
   \end{itemize}
   \note<3->[item]{zu wenig zeit f\"ur noch laenger}
   \note<4->[item]{Syst. vernachl. fehler aus stat}
@@ -467,12 +448,12 @@
     \SI{1}{\milli\watt}
   \item<4-> Variation der Resonatorl\"ange und Leistungsmessung
     \begin{itemize}
-    \item Ableseschwierigkeiten ergeben eine gesch\"atzte Unsicherhei
+    \item Ableseschwierigkeiten ergeben eine gesch\"atzte Unsicherheit
       \(\Delta L = \SI{.5}{\centi\meter}\)
     \end{itemize}
   \end{itemize}
 
-  \note<4->[item]{Jeweils Leistungsmaximierung durch Beamwalk}
+  \note<4->[item]{Jeweils leistungsmaximierung durch Beamwalk}
 \end{frame}
 
 \begin{frame}
@@ -483,7 +464,7 @@
   \item<1-> Leistungseinbruch bei \SI{1}{\meter} deutlich zu erkennen
   \item<2-> Fr\"uhes Einsetzen des Einbruch:
     \begin{itemize}
-    \item zunhemende Ung\"ultigkeit der paraxialen N\"aherung
+    \item zunehmende Ung\"ultigkeit der paraxialen N\"aherung
     \item Justage empfindlicher: Leistungsmaximum nicht gefunden
     \end{itemize}
   \item<3-> Festlegung \(L=\SI{80}{\centi\meter}\)
@@ -511,9 +492,9 @@
   \begin{itemize}
   \item<1-> Theoretische Kurve aus
     \(I(\Theta)=I_0\cdot \cos^2{\Theta}\)
-  \item<2-> Gute \"Ubereinstimmung mit der Theorie \(\implies\) Licht
+  \item<2-> gute Übereinstimmung mit der Theorie \(\implies\) Licht
     ist linear polarisiert
-  \item<3-> Nicht richtig polarisierte Moden werden unterdr\"uckt
+  \item<3-> nicht richtig polarisierte Moden werden unterdr\"uckt
   \end{itemize}
 \end{frame}
 
@@ -545,7 +526,7 @@
     \includegraphics[width=.8\columnwidth]{figs/kaustik.pdf}
   \end{figure}
   \begin{itemize}
-  \item<1-> Fit von \(w_0\) (Initialer Beamwaist) und einem
+  \item<1-> Fit von \(w_0\) (initialer Beamwaist) und einem
     Mess-Offset \(\delta\)
     \begin{align*}
       w_0 & =\SI{396\pm 16}{\micro\meter} \\
@@ -567,10 +548,10 @@
     \includegraphics[width=1\columnwidth]{figs/faserspek.pdf}
   \end{figure}
   \begin{itemize}
-  \item<1-> als Referenz wurde das Spektrum des Lasers mit einem
-    Faserspektrometer (\textsc{Ocean Optics HR+C1743}) aufgenommen
+  \item<1-> Aufnahme des Spektrums des Lasers mit einem
+    Faserspektrometer (\textsc{Ocean Optics HR+C1743})
     \begin{itemize}
-    \item erlaubt aboslute Frequenzessung
+    \item erlaubt absolute Frequenzessung
     \end{itemize}
   \item<2-> gro\ss{}er Peak bei \(\lambda_0=\SI{631.9}{\nano\meter}\)
     \begin{itemize}
@@ -591,13 +572,13 @@
         \Delta\nu=c\cdot\frac{\Delta\lambda}{\lambda_0^2}=\SI{3.30e11}{\hertz}
       \end{equation}}
   \item<3-> aus \(L=\SI{80+-.5}{\centi\meter}\) ergibt sich
-    \note<3->[item]{ungenauigkeit war sehr klein}
+    \note<3->[item]{Ungenauigkeit war sehr klein}
     \begin{equation}
       \label{eq:moda}
       \delta\nu = \SI{1.87e8}{\hertz} < \Delta\nu
     \end{equation}
     \uncover<4->{ \(\implies\) einzelne Moden k\"onnen nicht
-      aufgel\"ost werdenn }
+      aufgel\"ost werden }
   \end{itemize}
 \end{frame}
 
@@ -616,9 +597,9 @@
         Wegunterschiedes.
       \end{alertblock}}
   \item<4-> Aufnahme des Spektrums des kommerziellen und des offenen
-    Lasers durch modulation (S\"agezahn) des Spiegelabstandes
+    Lasers durch Modulation (S\"agezahn) des Spiegelabstandes
   \end{itemize}
-  \note<2->[item]{ungenauigkeit gesch\"atzt} \note<3->[item]{da
+  \note<2->[item]{Ungenauigkeit gesch\"atzt} \note<3->[item]{da
     konfokales fpi,
     \includegraphics[width=.4\columnwidth]{mehrfach.png}}
 \end{frame}
@@ -633,7 +614,7 @@
       \label{eq:realfsr}
       \text{FSR} = \SI{2.00+-0.07}{\giga\hertz}
     \end{equation}
-  \item<2-> kalibrierung der willk\"urlichen Zeiteinheit \(u\)
+  \item<2-> Kalibrierung der willk\"urlichen Zeiteinheit \(u\)
     (\(\Delta t = \SI{1}{u}\), 1 Digit) durch Abstands der Peaks
     \begin{eqnarray}
       \label{eq:unithertz}
@@ -668,7 +649,7 @@
     \includegraphics[width=.3\columnwidth]{pol1.png}
     \includegraphics[width=.3\columnwidth]{pol2.png}
     \caption[Gauss]{Spektrum des kommerziellen \hne{}s f\"ur zwei
-      orthogonale Polarisationen}
+      orthogonale Polarisationsrichtungen}
   \end{figure}
 
   \begin{itemize}
@@ -713,8 +694,8 @@
     \end{figure}
     \column{.5\textwidth}
     \begin{itemize}
-    \item<1-> analoge bestimmung des Modenabstandes
-    \item<2-> anzahl der Peaks f\"ur \(L=\SI{60}{\centi\meter}\) sehr
+    \item<1-> analoge Bestimmung des Modenabstandes
+    \item<2-> Anzahl der Peaks f\"ur \(L=\SI{60}{\centi\meter}\) sehr
       gering
     \end{itemize}
   \end{columns}
@@ -749,7 +730,7 @@
     \item<1-> Dopplerverbreitung ist dominant
     \item<2-> Einh\"ullende des Modenspektrums sollte Gausskurve
       entsprechen \(\implies\) Bestimmung der Temperatur m\"oglich
-    \item<3-> Fit symtrisch angesetzt, Amplitude und Breite als freie
+    \item<3-> Fit symmetrisch angesetzt, Amplitude und Breite als freie
       Parameter
     \end{itemize}
   \end{columns}
@@ -759,6 +740,7 @@
   \(m=\SI{3.35092e-26}{\kg}\)~\cite{IUPAC2013} und
   \(\nu_0=\SI{473.755}{\tera\hertz}\) ~\cite[226]{Sigrist2018}
   \begin{align}
+    \sigma_{\text{Doppler}} & = \nu_0\qty(\frac{kT}{mc^2})^{1/2} \\
     \sigma & = \SI{53\pm 20}{u} = \SI{340\pm 130}{\mega\hertz} \\
     T & = \qty(\frac{\sigma\cdot c}{\nu_0})^2\cdot \frac{m}{k_B}=\SI{110\pm 90}{\kelvin}
   \end{align}
@@ -789,6 +771,7 @@
   \item<4-> toller Betreuer
   \end{itemize}
 \end{frame}
+
 \begin{frame}[allowframebreaks]{Ausgesuchte Quellen}
   \printbibliography
 \end{frame}
@@ -905,7 +888,7 @@
       \end{figure}
     } \column{.5\textwidth}
     \begin{itemize}
-    \item<1-> longitudnale Resonanzbedinung:\note<1->[item]{stehende
+    \item<1-> longitudnale Resonanzbedingungg:\note<1->[item]{stehende
         Welle, in realit\"at nur ein paar moden ausgepraegt,
         Modenkonkurrenz}
       \begin{equation}
@@ -960,6 +943,34 @@
       pumpen an laser\"ubergan vorbei}
     \note<3->[item]{ZWEITE LB ERW\"AHNEN}
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Acronym}
+    \textsc{Light Amplification by Stimulated Emission of Radiation.}
+  \end{block}
+
+  \pause
+
+  \begin{block}{Basic Facts}
+    \begin{itemize}
+    \item erster Laser um 1960 von Theodore H. Maiman
+      \begin{itemize}
+      \item bezeichnet als ``L\"osung auf der Suche nach einem
+        Problem''~\cite{2010}
+      \end{itemize}
+    \item kann sehr fokussiertes und koh\"arentes Licht erzeugen
+    \item findet Anwendung in breiten Bereichen der Technik und
+      Wissenschaft
+      \begin{itemize}
+      \item Barcode Scanner, CD-Spieler, Optische
+        Telekommunikationstechnik
+      \item Erzeugung tiefer Temperaturen, Schockwellen, gro\ss{}en
+        Energiedichten, Holographie, Interferometrie,
+        Teilchenbeschleuniger
+      \end{itemize}
+    \end{itemize}
+  \end{block}
 \end{frame}
 
 \end{document}
