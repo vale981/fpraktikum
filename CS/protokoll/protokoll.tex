@@ -5,7 +5,7 @@ supervisor=Juliane\ Volkmer, coursedate=29.\ 11.\ 2019]{../../Lab_Report_LaTeX/l
 \author{Oliver Matthes, Valentin Boettcher}
 \usepackage{todonotes}
 \graphicspath{ {figs/} }
-\newcommand{\cs}{\emph{Comptonstreuung }}
+\newcommand{\cs}{\emph{Comptonstreuung}}
 \newcommand{\am}{\ce{^241Am} }
 \newcommand{\kev}[1]{\SI{#1}{\kilo\electronvolt}}
 \usepackage{pgf}
@@ -21,25 +21,22 @@ supervisor=Juliane\ Volkmer, coursedate=29.\ 11.\ 2019]{../../Lab_Report_LaTeX/l
 \section{Einleitung}
 \label{sec:einl}
 
-\cs ist in einem Energiebereich von hundert Kiloelektronenvolt bis hin zu wenigen
+\cs{} ist in einem Energiebereich von hundert Kiloelektronenvolt bis hin zu wenigen
 Megaelektronenvolt der Wechselwirkungsprozess zwischen Photonen und Materie, der am
  wahrscheinlichsten auftritt und deswegen in vielen physikalischen Bereichen beachtet werden muss.
-Neben \cs gibt es natürlich auch noch andere Wechselwirkungsprozesse wie der
+Neben \cs{} gibt es natürlich auch noch andere Wechselwirkungsprozesse wie den
 Photoeffekt, der vor allem bei geringen Photonenenergien auftritt oder die Paarbildung bei
 der man Energien von mindestens zwei Elektronenmassen braucht, um ein Elektron-Positron-Paar
 zu erzeugen. Diese Prozesse werden in diesem Versuch allerdings nicht betrachtet.\\
 
 Um Aussagen über die Wahrscheinlichkeit, dass ein Photon mit einem Elektron wechselwirkt,
-treffen zu können, definiert man den Wirkungsquerschnitt:
-
+treffen zu können, definiert man den Wirkungsquerschnitt
 \begin{equation}\label{eq:wirkquer}
         \sigma = \frac{N}{\Phi}
 \end{equation}
-
-\begin{conditions}
-        N & mittlere Wechselwirkungsanzahl eines Teilchens mit einem atomaren Target \\
-        \Phi & Teilchenfluenz, dem das Target ausgesetzt ist
-\end{conditions}
+mit der mittleren Wechselwirkungsanzahl eines Teilchens mit einem
+atomaren Target \(N\) und der Teilchenfluenz, dem das Target
+ausgesetzt ist \(\Phi\).
 
 Der Wechselwirkungsquerschnitt der inkohärenten Streuung und damit des Comptoneffekts ist
 proportional zur Ordnungszahl des Atoms (\(\sigma_i \propto\) Z).\cite[2]{iktp19}\\
@@ -47,21 +44,25 @@ proportional zur Ordnungszahl des Atoms (\(\sigma_i \propto\) Z).\cite[2]{iktp19
 \subsection{Inkohärente Streuung}
 \label{sec:inkostreu}
 
-Wichtig, um \cs beschreiben zu können, ist der Prozess der \emph{inkohärenten Streuung}.
+Wichtig, um \cs{} beschreiben zu können, ist der Prozess der \emph{inkohärenten Streuung}.
 Dabei überträgt das Photon bei der Wechselwirkung mit einem an einem Atomkern gebundenen
 Elektron einen Teil seiner Energie auf dieses, so dass es den gebundenen Zustand verlassen kann.
-Vernachlässigt man bei diesem Prozess die Bindungsenergie des Elektrons, nennt man diesen \cs,
+Vernachlässigt man bei diesem Prozess die Bindungsenergie des Elektrons, nennt man diesen \cs{},
 da Arthur Holly Compton 1922 diese Annahme traf, um diesen Effekt zu beschreiben.~\cite[3]{iktp19}\\
 
 \subsubsection{Comptonstreuung}
 \label{sec:cs}
 
-Um \cs zu beschreiben, geht man, wie oben schon erwähnt, von quasi freien Elektronen aus.
-Diese Annahme trifft besonders gut auf Metalle zu (im Experiment werden wir mit einem Aluminiumtarget arbeiten).
-Wird ein Photon an einem Elektron gestreut, ändert sich seine Energie sowie seine
-Bewegungsrichtung um einen polaren Streuwinkel \(\vartheta\). Nutzt man den Energie-
-und den Impulserhaltungssatz aus und setzt den Photonenimpuls \(p = E/c\) ein, so erhält man
-einen Ausdruck für die Energie des Wechselwirkungsphotons nach der Interaktion:
+Um \cs{} zu beschreiben, geht man, wie oben schon erwähnt, von quasi
+freien Elektronen aus.  Diese Annahme trifft besonders gut auf Metalle
+zu (im Experiment werden wir mit einem Aluminiumtarget arbeiten).
+Wird ein Photon an einem Elektron gestreut, ändert sich seine Energie
+sowie seine Bewegungsrichtung um einen polaren Streuwinkel
+\(\vartheta\). Nutzt man den Energie- und den Impulserhaltungssatz aus
+und setzt den Photonenimpuls \(p = E/c\) ein, so erhält man mit \(E'\)
+als Energie des Photons vor dem Sto\ss{} den Ausdruck
+in~\eqref{eq:photoenergie} für die Energie des Wechselwirkungsphotons
+nach der Interaktion.
 
 \begin{gather}
         E(\mu) = \frac{E'}{1 + \kappa(1 - \mu)} \label{eq:photoenergie}\\
@@ -69,24 +70,20 @@ einen Ausdruck für die Energie des Wechselwirkungsphotons nach der Interaktion:
         \mu = \cos\vartheta
 \end{gather}
 
-\begin{conditions}
-        E' & Photonenenergie vor dem Stoß
-\end{conditions}
-
-Die Ruheenergie des Elektrons beträgt:
+Die Ruheenergie des Elektrons beträgt
 
 \begin{equation}\label{key}
-        E_{e^-} = m_0c^2 = \SI{511}{\kilo\electronvolt}
-\end{equation}\\
+        E_{e^-} = m_0c^2 = \SI{511}{\kilo\electronvolt}.
+\end{equation}
 
 Die maximal mögliche Energie, die ein Photon nach der Streuung haben kann, ist also dessen
 Ausgangsenergie. Bei einem Streuwinkel von \(\vartheta = 0^\circ\) (Vorwärtsstreuung) folgt
 \(\mu \rightarrow 1 \implies E(\mu) \rightarrow E'\).
 Die Minimalenergie wird bei \(\mu = -1\), also bei \(\vartheta = 180^\circ\), erreicht, da
-hier gilt:
+hier gilt
 
 \begin{equation}\label{eq:emax}
-        E(\mu) = \frac{E'}{1 + 2\kappa}
+        E(\mu) = \frac{E'}{1 + 2\kappa}.
 \end{equation}
 
 Je größer der polare Streuwinkel \(\vartheta\) des Photons ist, desto mehr Energie wird beim Stoß
@@ -104,17 +101,17 @@ Energieverlustes (vgl.~\ref{fig:evontheta}).\\
 Um eine Aussage zur Wahrscheinlichkeit zu treffen, mit der ein Photon in einem Raumwinkelelement
 \(d\Omega = \sin\vartheta d\vartheta d\phi\) gestreut wird, haben \textsc{O. Klein} und
 \textsc{Y. Nishina} 1929 einen analytischen Ausdruck für den differentiellen Wirkungsquerschnitt
-hergeleitet \cite{kn29}:
+hergeleitet~\cite{kn29}
 
 \begin{equation}\label{eq:kn}
         \sigma^{\text{KN}}_\Omega(\mu) = \frac{d\sigma}{d\Omega} = \frac{r_e^2}{2} \cdot \qty(\frac{1}{1 + \kappa(1 - \mu)})^2 \cdot \qty(\kappa(1 - \mu) + \frac{1}{1 + \kappa(1 - \mu)} + \mu^2)
 \end{equation}
 
-Mit \(r_e = \SI{2,818e-15}{\metre}\) als klassischen Elektronenradius.\\
+mit \(r_e = \SI{2,818e-15}{\metre}\) als klassischen Elektronenradius. Dieser Zussamenhang ist f\"ur verschiedene \(E'\) in~\ref{fig:sigmakn}.
 
-Für \(\mu = 1\), also Vorwärtsstreuung folgt:
+Für \(\mu = 1\), also Vorwärtsstreuung folgt
 \begin{equation}\label{key}
-        \sigma^{\text{KN}}_\Omega(\mu = 1) = r_e^2 = \SI{79,4}{\milli\barn}
+        \sigma^{\text{KN}}_\Omega(\mu = 1) = r_e^2 = \SI{79,4}{\milli\barn}.
 \end{equation}
 
 \begin{figure}[H]\centering
@@ -128,9 +125,11 @@ Die Grafiken und Formeln entstammen eigener Rechnung und~\cite[3-5]{iktp19}.
 \subsubsection{Korrektur für inkohärente Streuung}
 \label{sec:cskorrektur}
 
-Wenn man die Bindungsenergie der Elektronen nicht vernachlässigt, multipliziert man eine
-Korrektur des differentiellen Wirkungsquerschnitts an die \textsc{Klein}-\textsc{Nishina}-Formel
-eine inkohärente Streufunktion \(S(E', \mu, Z)\)~\cite[5-6]{iktp19}:
+Wenn man die Bindungsenergie der Elektronen nicht vernachlässigt,
+multipliziert man eine Korrektur des differentiellen
+Wirkungsquerschnitts an die \textsc{Klein}-\textsc{Nishina}-Formel
+eine inkohärente Streufunktion \(S(E', \mu, Z)\)~\cite[5-6]{iktp19},
+wie in \eqref{eq:knkorrektur} geschehen.
 
 \begin{equation}\label{eq:knkorrektur}
         \sigma^{i}_\Omega(E', \mu, Z) = \sigma^{\text{KN}}_\Omega(E', Z) \cdot S(E', \mu, Z)
@@ -183,9 +182,10 @@ Für alle Quellen wurden Histogramme aufgenommen und mit Hilfe der Website \emph
 die Energien der Peaks den Kanalnummern zugeordnet, um herauszufinden, welcher Kanal, welcher
 Energie entspricht.
 
-Die folgenden Tabellen listen die \(\gamma\) \"Uberg\"ange der
-einzelnen Kalibrierproben auf. Die jeweils in gleichen Farben
-hinterlegten Energien wurden gewichtet gemittelt zur Kalibrierung genutzt.
+\ref{tab:cspeaks}, \ref{tab:bapeaks}, \ref{tab:ampeaks} und
+\ref{tab:eupeaks} listen die \(\gamma\) \"Uberg\"ange der einzelnen
+Kalibrierproben auf. Die jeweils in gleichen Farben hinterlegten
+Energien wurden gewichtet gemittelt zur Kalibrierung genutzt.
 
 \begin{table}[H]
   \centering
@@ -252,14 +252,15 @@ Um die Kanallage der Peaks zu bestimmen wird eine Gaußkurve der Form
 
 \"uber die aufgenommenen Histogramme gefittet. Dabei gibt nun \(\mu\)
 die Kanallage. Die Unsicherheit der Kanallage ergibt sich aus der
-Unsicherheit im Fit. Für die Unsicherheit der einzelnen
-Histogrammwerte wurde gem\"a\ss{} der Poissonverteilung die Wurzel der
-Ereigniszahl angesetzt.
+Unsicherheit im Fit. Für die Unsicherheit der H\"ohe der einzelnen
+Bins im Histogram wurde gem\"a\ss{} der Poissonverteilung die Wurzel
+der Ereigniszahl angesetzt.
 
 Für \ce{^{137}Cs} ist das Resultat in~\ref{fig:calfitcs} dargestellt.
 \begin{figure}[h]\centering
   \input{../auswertung/figs/calibrate/cs.pgf}
-  \caption{Fit f\"ur \ce{^{137}Cs}}
+  \caption{Fit \"uber den Z\"ahlratenpeak f\"ur eine \ce{^{137}Cs} zur
+    Bestimmung der Kanallage desselben zwecks der Energiekalibrierung.}
   \label{fig:calfitcs}
 \end{figure}
 
@@ -271,13 +272,12 @@ Ein Linearer Fit der Form
   \label{eq:linclafit}
   K(E) = \frac{E-a}{b}
 \end{equation}
-
 ergibt die Kalibrierungsparameter (in dieser Form, da \(K\) mit
 Unsicherheit behaftet). Daraus erhält man durch Umstellen
 einen Zusammenhang
 \begin{equation}
   \label{eq:eofk}
-  E(K) = a + K\cdot b
+  E(K) = a + K\cdot b.
 \end{equation}
 
 In~\ref{fig:energyfit} werden die Kanallagen \"uber der Energie
@@ -300,13 +300,23 @@ Es ergibt sich f\"ur die Parameter:
 \subsection{Aufnahme eines Histogramms}
 \label{sec:histogramm}
 
-Zur Aufnahme dieses Histogramms wurde die \am{}-Quelle mit Kollimator mit einer
-Aktivität von \(\SI{0,5}{\giga\becquerel}\) in die entsprechende Halterung (1) eingespannt, auf
-einen Streuwinkel von \(\vartheta = 90^\circ\) und eine Distanz vom Aluminiumstreustab, der einen
-Durchmesser von \(\SI{6}{\milli\metre}\) hatte, von \(\SI{3}{\centi\metre}\) eingestellt.
-Danach wurde für ca. \(\SI{20}{\min}\) ein Histogramm aufgezeichnet. Dies wurde für die
-Hintergrundmessung ohne Streustab wiederholt. Die aufgenommen
-Histogramme sind in~\ref{fig:am20hist} und~\ref{fig:am20histnull} dargestellt.
+Zur Aufnahme dieses Histogramms wurde die \am{}-Quelle mit Kollimator
+mit einer Aktivität von \(\SI{0,5}{\giga\becquerel}\) in die
+entsprechende Halterung (1) eingespannt, auf einen Streuwinkel von
+\(\vartheta = 90^\circ\) und eine Distanz vom Aluminiumstreustab, der
+einen Durchmesser von \(\SI{6}{\milli\metre}\) hatte, von
+\(\SI{3}{\centi\metre}\) eingestellt.  Danach wurde für
+ca. \(\SI{20}{\min}\) ein Histogramm aufgezeichnet. Dies wurde für die
+Hintergrundmessung ohne Streustab wiederholt. Die Hintergrundmessung
+verl\"auft analog zur Aufnahme des Histograms mit stab und dient der
+Quantifizierung des Anteils von detektierten Photonen, die nicht am
+Stab gestreut werden (z. B. Streuung an der Raumwand). Zieht man
+diesen Hintergrund von den eigentlichen Messungen ab, so z\"ahlt man
+in guter N\"aherung nur noch am Stab gestreute Photonen. Dabei kann es
+durch statistische Schwankungen auch zu N\"agtiven Ereigniszahlen
+kommen, die an sich unphysikalisch sind, aber nur bei geringen
+Ereignisszahlen auftreten.  Die aufgenommen Histogramme sind
+in~\ref{fig:am20hist} und~\ref{fig:am20histnull} dargestellt.
 
 \begin{figure}[h]\centering
   \input{../auswertung/figs/hists/am_90.pgf}
@@ -324,17 +334,15 @@ Histogramme sind in~\ref{fig:am20hist} und~\ref{fig:am20histnull} dargestellt.
 \subsection{Messzeitoptimierung}
 \label{sec:topt}
 
-Die effektive Zählrate ergibt sich wie folgt:
+Die effektive Zählrate ergibt sich zu
 \begin{align}
   \label{eq:countrate}
   \dot{N} &= \frac{N_g-N_0}{t} \\
   \Delta N_i &= \sqrt{N_i}\qq{(Poissonverteilng)}
 \end{align}
-\begin{conditions}
-  N_g & Gesamtzählrate \\
-  N_0 & Dunkelzählrate \\
-  t   & Messzeit
-\end{conditions}
+
+mit der Gesamtzählrate \(N_g\), Dunkelzählrate \(N_0\) und der
+Messzeit \(t\).
 
 Aus der Gau\ss{}schen Fehlerfortpflanzung folgt f\"ur die minimale
 Messzeit bei Forderung einer maximalen Unsicherheit
@@ -349,9 +357,9 @@ Messzeit bei Forderung einer maximalen Unsicherheit
                    3\cdot\dot{N_0})^2\cdot\frac{\dot{N_g}}{t}
                    + (3\cdot\dot{N_g} + \dot{N_0})^2\cdot\frac{\dot{N_0}}{t}}}{(\Delta\dot{N}/\dot{N})^2\cdot (\dot{N_g} -
             \dot{N_0})^3}
-\end{align}
+\end{align}.
 
-In unserem Fall gilt nun:
+In unserem Fall gilt nun
 \begin{align}
   t &=\SI{1183}{\second} \\
   \dot{N_g} &=\SI{7.96\pm.08}{\per\second} \\
@@ -359,7 +367,7 @@ In unserem Fall gilt nun:
   \Delta\dot{N}/\dot{N} &\overset{!}{=}\SI{5}{\percent} \\
   t_{opt} &=\SI{7.8}{\min} \\
   \Delta t_{opt} &=\SI{1.6}{\min}
-\end{align}
+\end{align}.
 
 Die Gesamtereigniszahl wurde jeweils durch Aufsummierung der
 Ereigniszahlen der Kan\"ale \(530\) bis \(780\) ermittelt.
@@ -376,7 +384,9 @@ aber auf
 festgelegt.
 
 In den folgenden Betrachtungen ergeben sich au\ss{}erhalb der Peaks
-immer wieder negative Z\"ahlraten nach Abzug des Untergrunds. Man kann das als statistische Schwankung interprettieren, die bei gr\"o\ss{}eren Messzeiten weniger ins gewicht fiele.
+immer wieder negative Z\"ahlraten nach Abzug des Untergrunds. Man kann
+das als statistische Schwankung interprettieren, die bei
+gr\"o\ss{}eren Messzeiten weniger ins Gewicht fiele.
 
 \subsection{Photonenenergiebestimmung in Abhängigkeit des Streuwinkels}
 \label{sec:energwinkel}
@@ -390,7 +400,7 @@ Winkel musste natürlich auch der Hintergrund gemessen werden, um
 diesen später in der Auswertung abziehen zu können. Durch ein
 \"ahnliches Verfahren wie in~\ref{sec:kalib} wurden die Kanallagen des
 Peaks um \kev{60} nach Abzug der Nullmessungen bestimmt und
-mit~\ref{eq:eofk} in Energien umgerechnet. Die dazugeh\"origen Plots
+mit~\eqref{eq::eofk} in Energien umgerechnet. Die dazugeh\"origen Plots
 finden sich in~\ref{sec:anangplot}.
 
 \begin{table}[H]
@@ -414,17 +424,16 @@ finden sich in~\ref{sec:anangplot}.
 \end{table}
 
 \ref{fig:energycurve} zeigt die Energien im Vergleich mit den
-theoretischen Erwartungen nach~\ref{eq:photoenergie}. Zu erkennen ist
+theoretischen Erwartungen nach~\eqref{eq::photoenergie}. Zu erkennen ist
 eine prinzipielle \"Ubereinstimmung im Verlauf. Die Kalibrierung
 scheint aber im hier betrachteten Bereich nicht optimal zu sein,
 wahrscheinlich aufgrund der wenigen Kalibriermessungen im Bereich um
-\kev{60}. Auch wurde in die Unsicherheit in der Peakbreite bei der
-Berechnung der Messabweichungen vernachlässigt.
+\kev{60}.
 
 \begin{figure}[H]\centering
   \input{../auswertung/figs/winkelmessung/energycurve.pgf}
   \caption{Energie der gestreuten Photonen in Abhängigkeit von \(\mu\)
-  und Theoretische Erwartung.}
+  und theoretische Erwartung.}
   \label{fig:energycurve}
 \end{figure}
 
@@ -435,7 +444,7 @@ Summierung der Z\"ahlzahlen in einem Bereich von \(\pm 3\sigma\) um
 die in~\ref{sec:energwinkel} ermittelten Peaks berechnet.  Der Prozess
 wird wiederum durch die Plots in~\ref{sec:anangplot} veranschaulicht.
 
-Die Messabweichung ergeben sich gem\"a\ss{}~\ref{eq:countrate} zu:
+Die Messabweichung ergeben sich gem\"a\ss{}~\eqref{eq::countrate} zu:
 
 \begin{align}
   \Delta\dot{N} &= \sqrt{\qty(\pdv{\dot{N}}{\dot{N_g}}\cdot\Delta\dot{N_g})^2 + \qty(\pdv{\dot{N}}{\dot{N_0}}\cdot\Delta\dot{N_0})^2} \\
@@ -444,7 +453,7 @@ Die Messabweichung ergeben sich gem\"a\ss{}~\ref{eq:countrate} zu:
 
 Die ermittelten Zählraten sind in~\ref{fig:countrates}
 aufgetragen. Normiert man diese und auch die theoretische Kurve
-nach~\ref{eq:kn} auf den Wert bei \(\theta = 120^\circ\), so ergibt
+nach~\eqref{eq::kn} auf den Wert bei \(\theta = 120^\circ\), so ergibt
 sich~\ref{fig:rel_countrates}. Man erkennt wiederum eine prinzipielle
 \"Ubereinstimmung, wobei sich Abweichungen wie
 in~\ref{fig:sigmaknkorrigiert} ergeben. Der dritte Messpunkt ist von
@@ -452,11 +461,11 @@ sehr schlechter Qualit\"at, da die Messung ungew\"ohnlich stark
 rauschte und liegt deswegen weitab der Theoriekurve. (Siehe
 auch~\ref{fig:90})
 
-Zu erkennen ist weiterhin, dass die Theoriekurve bei kleinen \(\mu\)
-sehr gut mit den Messungen \"ubereinstimmt und bei gro\ss{}en \(mu\)
+Zu erkennen ist weiterhin, dass die Theoriekurve bei gro\ss{}en Winkeln
+recht gut mit den Messungen \"ubereinstimmt und kleinen Winkeln
 wie in~\ref{fig:sigmaknkorrigiert} Abweichungen bedingt durch die
 endliche Bindungsenergie zeigt. Nat\"urlich wurde die Normierung so
-gew\"ahlt, um diese Bild zu provozieren.
+gew\"ahlt, um dieses Bild zu provozieren.
 
 \begin{table}[H]
   \centering
@@ -518,9 +527,9 @@ in~\ref{fig:dicke-countrate} aufgetragen.
         \label{tab:ratedurch}
 \end{table}
 
-Aufgrund starken Rauschens ergibt sich
-aus~\ref{fig:dicke-2} bei \SI{2}{\milli\meter} eine sehr kleine
-Zählrate.
+Aufgrund starken Rauschens ergibt sich aus~\ref{fig:dicke-2} bei
+\SI{2}{\milli\meter} eine kleine Peakbreite im Fit und daher eine sehr
+kleine Zählrate.
 
 Generell ist zu erkennen, dass die Zählrate ann\"ahernd linear vom
 Streukörperdurchmesser abhängt, da auch die bestrahlte
@@ -591,15 +600,17 @@ in~\ref{fig:dists-countrates} zu erkennen, nimmt die Zählrate mit dem
 Abstand der Quelle zum Target wie erwartet ab.
 
 Dahingegen nimmt die Peakbreite, wie in~\ref{fig:dists-widths} zu
-erkennen mit \(l\) zu. Betrachtet man den Strahlkegel der am Target
-gestreut wird so verringert sich bei Vergr\"o\ss{}erung des Abstandes
-\(l\) dessen \"Offnungswinkel. Daraus folgt, dass mehr nah bei der
-zentralen Energie liegende Strahlen den Detektor erreichen. Es w\"are
-innerhalb der Messabweichung auch der umgekehrte Fall m\"oglich. Es
-l\"asst sich hier also keine entg\"ultige Aussage treffen.
+erkennen mit \(l\) zu.  Es w\"are innerhalb der Messabweichung auch
+der umgekehrte Fall m\"oglich und damit l\"asst sich hier also keine
+entg\"ultige Aussage treffen.  Betrachtet man den Strahlkegel der am
+Target gestreut wird so verringert sich bei Vergr\"o\ss{}erung des
+Abstandes \(l\) dessen \"Offnungswinkel. Daraus folgt, dass mehr nah
+bei der zentralen Energie liegende Strahlen den Detektor
+erreichen. Diese Betrachtung w\"urde gerade den nicht beobachteten
+Fall favorisieren.
 
 \section{Fazit}
-Der Prozess der \cs ist in diesem Versuch in qualitativer
+Der Prozess der \cs{} ist in diesem Versuch in qualitativer
 Übereinstimmung mit der Theorie untersucht worden. Die Kalibrierung
 war trotz der relativ gro\ss{}en Anzahl der Messpunkte nicht sehr akkurat,
 wie sich in~\ref{sec:energwinkel} zeigte. Die optimale Messzeit wurde
