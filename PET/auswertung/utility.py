@@ -243,7 +243,7 @@ def reconstruct(proj, backweights):
     r0 = reproject_straight(p0)
     r90 = np.flip(reproject_straight(p90).T)
     r45 = reproject_diagonal(p45)
-    r135 = np.flip(reproject_diagonal(p135).T, 1)
+    r135 = np.flip(reproject_diagonal(p135), 1)
 
     print('0', bmatrix(r0))
     print('45', bmatrix(r45))
