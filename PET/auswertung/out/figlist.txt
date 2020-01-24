@@ -2039,3 +2039,195 @@
   \label{fig:theory-rec_filtered}
 \end{figure}
     
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/mid_over_energy.pgf}
+  \caption{}
+  \label{fig:calibration-mid_over_energy}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/mid_over_channel.pgf}
+  \caption{}
+  \label{fig:calibration-mid_over_channel}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/time_range.pgf}
+  \caption{}
+  \label{fig:calibration-time_range}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/all_times.pgf}
+  \caption{}
+  \label{fig:calibration-all_times}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/lenght_det.pgf}
+  \caption{}
+  \label{fig:calibration-lenght_det}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/comp.pgf}
+  \caption{}
+  \label{fig:calibration-comp}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/3dplot.pgf}
+  \caption{}
+  \label{fig:tom1-3dplot}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/unfiltered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-unfiltered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/3dplot.pgf}
+  \caption{}
+  \label{fig:tom1-3dplot}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/filtered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-filtered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/tom1/unfiltered_fit.pgf}
+  \caption{}
+  \label{fig:tom1-unfiltered_fit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/mid_over_energy.pgf}
+  \caption{}
+  \label{fig:calibration-mid_over_energy}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/mid_over_channel.pgf}
+  \caption{}
+  \label{fig:calibration-mid_over_channel}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/time_range.pgf}
+  \caption{}
+  \label{fig:calibration-time_range}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/all_times.pgf}
+  \caption{}
+  \label{fig:calibration-all_times}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/calibration/lenght_det.pgf}
+  \caption{}
+  \label{fig:calibration-lenght_det}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/source.pgf}
+  \caption{}
+  \label{fig:theory-source}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/projection.pgf}
+  \caption{}
+  \label{fig:theory-projection}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/convoluted.pgf}
+  \caption{}
+  \label{fig:theory-convoluted}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/rec_simple.pgf}
+  \caption{}
+  \label{fig:theory-rec_simple}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/rec_filtered.pgf}
+  \caption{}
+  \label{fig:theory-rec_filtered}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/source.pgf}
+  \caption{}
+  \label{fig:theory-source}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/projection.pgf}
+  \caption{}
+  \label{fig:theory-projection}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/convoluted.pgf}
+  \caption{}
+  \label{fig:theory-convoluted}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/rec_simple.pgf}
+  \caption{}
+  \label{fig:theory-rec_simple}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/rec_filtered.pgf}
+  \caption{}
+  \label{fig:theory-rec_filtered}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/source.pgf}
+  \caption{}
+  \label{fig:theory-source}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/projection.pgf}
+  \caption{}
+  \label{fig:theory-projection}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/convoluted.pgf}
+  \caption{}
+  \label{fig:theory-convoluted}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/rec_simple.pgf}
+  \caption{}
+  \label{fig:theory-rec_simple}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/rec_filtered.pgf}
+  \caption{}
+  \label{fig:theory-rec_filtered}
+\end{figure}
+    

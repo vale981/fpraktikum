@@ -303,7 +303,7 @@ mit der Kantenl\"ange des Detektors
 \begin{align}
   \label{eq:incidentalrate}
   \mathfrak{R}_Z &= \qty[4\tau\cdot A\cdot
-  \qty(\frac{\Omega_{\min}}{2\pi})]\cdot \mathfrak{R} \pm
+  \qty(\frac{\Omega_{\min}}{2\pi})]\cdot \mathfrak{R} \pm \mathfrak{R}_Z\cdot
   \sqrt{\qty(\frac{\Delta\tau}{\tau})^2 + \qty(\frac{\Delta A}{A})^2 +
     \qty(\frac{\Delta\Omega_{\min}}{\Omega_{\min}})^2 +
                    \qty(\frac{\Delta\mathfrak{R}}{\mathfrak{R}})^2} \\
@@ -320,7 +320,7 @@ mit \(P_\beta = 0.90382\pm 0.00021\) zu:
 
 \begin{align}
   \epsilon & = \frac{\mathfrak{R}}{P_\beta\cdot A \cdot
-  \frac{\Omega_{\min}}{2\pi}} \pm \sqrt{\qty(\frac{\Delta A}{A})^2 +
+  \frac{\Omega_{\min}}{2\pi}} \pm \epsilon\cdot\sqrt{\qty(\frac{\Delta A}{A})^2 +
   \qty(\frac{\Delta\Omega_{\min}}{\Omega_{\min}})^2 +
   \qty(\frac{\Delta P_\beta}{P_\beta})^2 +
              \qty(\frac{\Delta\mathfrak{R}}{\mathfrak{R}})^2} \\
@@ -674,9 +674,9 @@ von den Eckpunkten eines perfekten Quadrates.
                                          [\si{\milli\meter}]} \\ 
 
     \midrule
-    1 & 11.89 & 0.1 & 65.604 & 0.04 & 35.972 & 0.04 & 4.664 & 0.028 \\
+    1 & 11.89 & 0.10 & 65.604 & 0.040 & 35.972 & 0.040 & 4.664 & 0.028 \\
     2 & 22.49 & 0.11 & 67.971 & 0.022 & 64.842 & 0.022 & 4.639 & 0.016 \\
-    3 & 14.24 & 0.16 & 94.68 & 0.06 & 65.9 & 0.06 & 5.22 & 0.04
+    3 & 14.24 & 0.16 & 94.680 & 0.060 & 65.900 & 0.060 & 5.220 & 0.040
   \end{tabular}
   \caption[Peakpositionen]{Gefitte Peakamplituden, Positionen und
     Breiten. Die Abweichungen ergeben sich aus den
@@ -693,17 +693,22 @@ Abw. \SI{3}{\percent}).
 
 \begin{equation}
   \label{eq:act3today}
-  A_3 = \SI{19\pm 6}{\kilo\becquerel}
+  A_3 = \SI{19.1\pm .6}{\kilo\becquerel}
 \end{equation}
 
 Damit berechnen sich die in~\ref{tab:peakactivities} aufgelisteten
-Aktivit\"aten der beiden anderen Proben wiefolgt.
+Aktivit\"aten der beiden anderen Proben wiefolgt durch
+verh\"altnissbildung der Peak volumina (\(= 2\pi A\sigma**2\)) die ein
+Ma\ss{} f\"ur die Z\"ahlrate geben. Die Abweichungen liegen alle in
+der Gr\"o\ss{}enordnung von \SI{3}{\percent} und r\"uhren
+haupts\"achlich von der Abweichung der Aktivit\"at \(A_3\) her.
 
 \begin{equation}
   \label{eq:relakt}
-  A_i = \frac{\mathfrak{A}_i}{\mathfrak{A}_3}\cdot
-  A_3\pm\sqrt{\qty(\frac{\Delta\mathfrak{A}_i}{\mathfrak{A}_i})^2 +
-    \qty(\frac{\Delta\mathfrak{A}_3}{\mathfrak{A}_3})^2 +
+  A_i = \frac{\mathfrak{A}_i\cdot\sigma_i^2}{\mathfrak{A}_3\cdot\sigma_3^2}\cdot
+  A_3\pm
+  A_i\cdot\sqrt{\qty(\frac{\Delta\mathfrak{A}_i}{\mathfrak{A}_i})^2 + \qty(\frac{2\sigma_i}{\sigma_i})^2 +
+    \qty(\frac{\Delta\mathfrak{A}_3}{\mathfrak{A}_3})^2 + \qty(\frac{2\sigma_3}{\sigma_3})^2 +
   \qty(\frac{\Delta A_3}{A_3})^2}
 \end{equation}
 
@@ -713,8 +718,8 @@ Aktivit\"aten der beiden anderen Proben wiefolgt.
     \toprule
     Peak & {\(A\) [\si{\kilo\becquerel}]} & {\(\Delta A\) [\si{\kilo\becquerel}]} \\
     \midrule
-    Peak 1 & 16 & 5 \\
-    Peak 2 & 30 & 9
+    Peak 1 & 12.7 & .5 \\
+    Peak 2 & 23.8 & .9
   \end{tabular}
   \caption[Rekonstruierte Quellaktivit\"aten]{Die
     aus~\eqref{eq:relakt} berechneten Quellaktivit\"aten.}
@@ -1125,11 +1130,15 @@ Es ist zu erkennen, das in beiden Rekonstruktionen die starken Signale
 Unterschiede in der Signalst\"arke nicht im urspr\"unglichen
 Verh\"altnis stehen. Die gefilterte R\"uckprojektion weist in den
 Randfeldern und im mittleren Feld einen h\"oheren Kontrast auf,
-erzeugt aber dennoch nur ein geringf\"ugig besseres und in manchen
-Bereichen (Ecken) sogar ein schlechteres Bild. Das schwache Signal
-\((0,4)\) wurde in beiden F\"allen nicht rekonstruiert. F\"uhrt man
-die Rechnung ohne diesen Punkt aus, ergibt sich kaum ein
-Unterschied. Schwache Signale werden also nicht gut reproduziert.
+erzeugt aber dennoch nur ein geringf\"ugig besseres Bild.  Der
+angewendete Filter unterdr\"uckt schwache Signale, die zwischen
+Starken liegen da die angrenzenden Werte abgezogen werden.  Das
+schwache Signal \((0,4)\) wurde in beiden F\"allen nicht
+rekonstruiert. F\"uhrt man die Rechnung ohne diesen Punkt aus, ergibt
+sich kaum ein Unterschied. Schwache Signale werden also nicht gut
+reproduziert. In beiden F\"allen schmieren die Starken Quellen auf
+ihren jeweiligen Verbindungsachsen aus. Dies kann ein Effekt der
+bergrenzten Anzahl von Projektionswinkeln sein.
 
 \newpage
 \section{Verzeichnisse}
