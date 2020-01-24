@@ -9468,10 +9468,10 @@
 \pgfsetstrokeopacity{0.800000}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{0.799736in}{3.109259in}}%
-\pgfpathlineto{\pgfqpoint{1.840825in}{3.109259in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{1.868603in}{3.109259in}}{\pgfqpoint{1.868603in}{3.137037in}}%
-\pgfpathlineto{\pgfqpoint{1.868603in}{3.704167in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{1.868603in}{3.731944in}}{\pgfqpoint{1.840825in}{3.731944in}}%
+\pgfpathlineto{\pgfqpoint{2.037392in}{3.109259in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{2.065170in}{3.109259in}}{\pgfqpoint{2.065170in}{3.137037in}}%
+\pgfpathlineto{\pgfqpoint{2.065170in}{3.704167in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{2.065170in}{3.731944in}}{\pgfqpoint{2.037392in}{3.731944in}}%
 \pgfpathlineto{\pgfqpoint{0.799736in}{3.731944in}}%
 \pgfpathquadraticcurveto{\pgfqpoint{0.771959in}{3.731944in}}{\pgfqpoint{0.771959in}{3.704167in}}%
 \pgfpathlineto{\pgfqpoint{0.771959in}{3.137037in}}%
@@ -9528,7 +9528,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=1.216403in,y=3.191821in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont \(\displaystyle Peak\)}%
+\pgftext[x=1.216403in,y=3.191821in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Peakzentrum}%
 \end{pgfscope}%
 \end{pgfpicture}%
 \makeatother%

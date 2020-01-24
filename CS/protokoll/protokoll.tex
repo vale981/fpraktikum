@@ -254,7 +254,8 @@ Um die Kanallage der Peaks zu bestimmen wird eine Gaußkurve der Form
 die Kanallage. Die Unsicherheit der Kanallage ergibt sich aus der
 Unsicherheit im Fit. Für die Unsicherheit der H\"ohe der einzelnen
 Bins im Histogram wurde gem\"a\ss{} der Poissonverteilung die Wurzel
-der Ereigniszahl angesetzt.
+der Ereigniszahl angesetzt. Daraus ergibt sich auch die Unsicherheit
+der Ereigniszahl im Peak.
 
 Für \ce{^{137}Cs} ist das Resultat in~\ref{fig:calfitcs} dargestellt.
 \begin{figure}[h]\centering
@@ -317,13 +318,50 @@ durch statistische Schwankungen auch zu N\"agtiven Ereigniszahlen
 kommen, die an sich unphysikalisch sind, aber nur bei geringen
 Ereignisszahlen auftreten.  Die aufgenommen Histogramme sind
 in~\ref{fig:am20hist} und~\ref{fig:am20histnull} dargestellt.
+\ref{fig:hists-am_90_sub} zeigt das korrigierte Histogram mit
+abgezogenem Hintergrund. Es ist zu erkennen, dass der Peak
+symmetrischer wirkt und das Histogram die steigende Flanke bei hohen
+Kan\"alen verloren hat. Generell schwankt die Z\"ahlrate au\ss{}erhalb
+der Peaks einigerma\ss{}en Symmetrisch um die Nullinie, wobei die
+Schwankung bei Gro\ss{}en Energien zunehmen und der Mittlwert unter
+die Nullinie f\"allt. Da nach der Poissonverteilung zwar der relative
+Fehler sinkt, aber der Absolute steigt, ist dieser Unmstand nicht
+verwunderlich.
 
-\begin{figure}[h]\centering
+Analog zu den Kalibrierungsmessungen wurde
+in~\ref{fig:hists-am_90_sub_fit} und~\ref{fig:hists-am_90_fit} das
+Zentrum des hohen Peaks bestimmt. Mit abgezogenem Untergrund ergibt
+sich \(E_{p}=\SI{51.4\pm 2.1}{\kilo\electronvolt}\) und ohne
+\(E_{p}=\SI{53.4\pm 2.1}{\kilo\electronvolt}\). Dahingegen ist der
+Theoretisch f\"ur diesen Winkel erwartete Wert
+\(E_{pt}=\SI{50.9}{\kilo\electronvolt}\). Es zeigt sich hier also,
+dass der Peak ohne Abgezogenen untergrund einen Bias zu h\"oheren
+Energien hat. Warscheinlich finden au\ss{}erhalb des Streustabes
+andere Streuprozesse unter anderen Winkel mit anderen Charakteristika
+statt.
+
+
+\begin{figure}[htp]\centering
+  \input{../auswertung/figs/hists/am_90_sub_fit.pgf}
+  \caption{Fit des \am{} Peaks  bei \(\vartheta = 90^\circ\) mit Target und abgezogenen Hintergrund.}
+  \label{fig:hists-am_90_sub_fit}
+\end{figure}
+\begin{figure}[htp]\centering
+  \input{../auswertung/figs/hists/am_90_fit.pgf}
+  \caption{Fit des \am{} Peaks  bei \(\vartheta = 90^\circ\) mit Target und Hintergrund.}
+  \label{fig:hists-am_90_fit}
+\end{figure}
+\begin{figure}[htp]\centering
+  \input{../auswertung/figs/hists/am_90_sub.pgf}
+  \caption{Histogramm f\"ur \am{} bei \(\vartheta = 90^\circ\) mit Target und abgezogenen Hintergrund.}
+  \label{fig:hists-am_90_sub}
+\end{figure}
+\begin{figure}[htp]\centering
   \input{../auswertung/figs/hists/am_90.pgf}
   \caption{Histogramm f\"ur \am{} bei \(\vartheta = 90^\circ\) mit Target.}
   \label{fig:am20hist}
 \end{figure}
-\begin{figure}[h]\centering
+\begin{figure}[htp]\centering
   \input{../auswertung/figs/hists/am_90_0.pgf}
   \caption{Histogramm f\"ur \am{} bei \(\vartheta = 90^\circ\) ohne
     Target. Nullmessung.}
@@ -451,15 +489,15 @@ Die Messabweichung ergeben sich gem\"a\ss{}~\eqref{eq::countrate} zu:
                 &= \frac{1}{t}\sqrt{N_g + N_0} \\
 \end{align}
 
-Die ermittelten Zählraten sind in~\ref{fig:countrates}
-aufgetragen. Normiert man diese und auch die theoretische Kurve
-nach~\eqref{eq::kn} auf den Wert bei \(\theta = 120^\circ\), so ergibt
-sich~\ref{fig:rel_countrates}. Man erkennt wiederum eine prinzipielle
-\"Ubereinstimmung, wobei sich Abweichungen wie
-in~\ref{fig:sigmaknkorrigiert} ergeben. Der dritte Messpunkt ist von
-sehr schlechter Qualit\"at, da die Messung ungew\"ohnlich stark
-rauschte und liegt deswegen weitab der Theoriekurve. (Siehe
-auch~\ref{fig:90})
+Die ermittelten Zählraten sind in~\ref{fig:countrates} aufgetragen und
+in~\ref{tab:ratedurch1} aufgelistat. Normiert man diese und auch die
+theoretische Kurve nach~\eqref{eq::kn} auf den Wert bei
+\(\theta = 120^\circ\), so ergibt sich~\ref{fig:rel_countrates}. Man
+erkennt wiederum eine prinzipielle \"Ubereinstimmung, wobei sich
+Abweichungen wie in~\ref{fig:sigmaknkorrigiert} ergeben. Der dritte
+Messpunkt ist von sehr schlechter Qualit\"at, da die Messung
+ungew\"ohnlich stark rauschte und liegt deswegen weitab der
+Theoriekurve. (Siehe auch~\ref{fig:90})
 
 Zu erkennen ist weiterhin, dass die Theoriekurve bei gro\ss{}en Winkeln
 recht gut mit den Messungen \"ubereinstimmt und kleinen Winkeln
@@ -484,7 +522,7 @@ gew\"ahlt, um dieses Bild zu provozieren.
     120                          & 4.04  & .13
   \end{tabular}
   \caption{Zählrate \(\dot{N}\) in Abhängigkeit vom Winkel.}
-  \label{tab:ratedurch}
+  \label{tab:ratedurch1}
 \end{table}
 
 
@@ -523,7 +561,9 @@ in~\ref{fig:dicke-countrate} aufgetragen.
                 10,2                        &     9.88 & .20                                 \\
                 20,4                        &     8.13 & .19
         \end{tabular}
-        \caption{Zählrate \(\dot{N}\) in Abhängigkeit des Durchmessers \(d\).}
+        \caption{Zählrate \(\dot{N}\) in Abhängigkeit des Durchmessers
+          \(d\). Die ungeraden Zahlen wurden so gemessen. Im text wird
+          auf gerundete Were Bezug genommen.}
         \label{tab:ratedurch}
 \end{table}
 
