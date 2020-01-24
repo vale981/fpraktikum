@@ -23,3 +23,39 @@
   \label{fig:vortrag-stabdiag}
 \end{figure}
     
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/kaustik/peakfit.pgf}
+  \caption{}
+  \label{fig:kaustik-peakfit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/kaustik/peakfit.pgf}
+  \caption{}
+  \label{fig:kaustik-peakfit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/kaustik/peakfit.pgf}
+  \caption{}
+  \label{fig:kaustik-peakfit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/kaustik/peakfit.pgf}
+  \caption{}
+  \label{fig:kaustik-peakfit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/kaustik/peakfit.pgf}
+  \caption{}
+  \label{fig:kaustik-peakfit}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/kaustik/kaust_red.pgf}
+  \caption{}
+  \label{fig:kaustik-kaust_red}
+\end{figure}
+    

@@ -1811,3 +1811,231 @@
   \label{fig:tom2-3dplot}
 \end{figure}
     
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/source.pgf}
+  \caption{}
+  \label{fig:theory-source}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/projection.pgf}
+  \caption{}
+  \label{fig:theory-projection}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/convoluted.pgf}
+  \caption{}
+  \label{fig:theory-convoluted}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/rec_simple.pgf}
+  \caption{}
+  \label{fig:theory-rec_simple}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/rec_filtered.pgf}
+  \caption{}
+  \label{fig:theory-rec_filtered}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/source.pgf}
+  \caption{}
+  \label{fig:theory-source}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/projection.pgf}
+  \caption{}
+  \label{fig:theory-projection}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/convoluted.pgf}
+  \caption{}
+  \label{fig:theory-convoluted}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/rec_simple.pgf}
+  \caption{}
+  \label{fig:theory-rec_simple}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/rec_filtered.pgf}
+  \caption{}
+  \label{fig:theory-rec_filtered}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/rec_simple.pgf}
+  \caption{}
+  \label{fig:theory-rec_simple}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/rec_filtered.pgf}
+  \caption{}
+  \label{fig:theory-rec_filtered}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/source.pgf}
+  \caption{}
+  \label{fig:theory-source}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/projection.pgf}
+  \caption{}
+  \label{fig:theory-projection}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/convoluted.pgf}
+  \caption{}
+  \label{fig:theory-convoluted}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/rec_simple.pgf}
+  \caption{}
+  \label{fig:theory-rec_simple}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/rec_simple.pgf}
+  \caption{}
+  \label{fig:theory-rec_simple}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/source.pgf}
+  \caption{}
+  \label{fig:theory-source}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/projection.pgf}
+  \caption{}
+  \label{fig:theory-projection}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/convoluted.pgf}
+  \caption{}
+  \label{fig:theory-convoluted}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/rec_simple.pgf}
+  \caption{}
+  \label{fig:theory-rec_simple}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/rec_filtered.pgf}
+  \caption{}
+  \label{fig:theory-rec_filtered}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/rec_filtered.pgf}
+  \caption{}
+  \label{fig:theory-rec_filtered}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/source.pgf}
+  \caption{}
+  \label{fig:theory-source}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/projection.pgf}
+  \caption{}
+  \label{fig:theory-projection}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/convoluted.pgf}
+  \caption{}
+  \label{fig:theory-convoluted}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/rec_simple.pgf}
+  \caption{}
+  \label{fig:theory-rec_simple}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/rec_filtered.pgf}
+  \caption{}
+  \label{fig:theory-rec_filtered}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/convoluted.pgf}
+  \caption{}
+  \label{fig:theory-convoluted}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/convoluted.pgf}
+  \caption{}
+  \label{fig:theory-convoluted}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/convoluted.pgf}
+  \caption{}
+  \label{fig:theory-convoluted}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/rec_simple.pgf}
+  \caption{}
+  \label{fig:theory-rec_simple}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/rec_filtered.pgf}
+  \caption{}
+  \label{fig:theory-rec_filtered}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/source.pgf}
+  \caption{}
+  \label{fig:theory-source}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/projection.pgf}
+  \caption{}
+  \label{fig:theory-projection}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/convoluted.pgf}
+  \caption{}
+  \label{fig:theory-convoluted}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/rec_simple.pgf}
+  \caption{}
+  \label{fig:theory-rec_simple}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/theory/rec_filtered.pgf}
+  \caption{}
+  \label{fig:theory-rec_filtered}
+\end{figure}
+    
