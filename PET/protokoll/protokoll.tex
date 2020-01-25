@@ -57,7 +57,8 @@ die Photonen auf, sodass diese ergo eine Energie von \(E_\gamma = \SI{511}{\kilo
 Da die Annihilation in Ruhe stattfindet und Energie und Impulserhaltung gilt, schließen die beiden
 Photonen einen Winkel von \(180^\circ\) ein, bewegen sich also antiparallel.\\
 
-Um den Beobachtungsort sind in einem Ring (in diesem Versuch nur zwei gegenüberliegende)
+Um den Beobachtungsort sind in einem Ring (in diesem Versuch nur zwei gegenüberliegende, die
+in einer festgelegten Geschwindigkeit um die Quelle herumfahren)
 Detektoren angebracht, die die entstandenen Photonen registrieren.
 Allerdings können zum Beispiel durch andere Zerfallsprozesse natürlich auch andere Photonen
 entstehen, die die Messungen stören. Um solche zufällige Koinzidenzen möglichst gering zu halten,
@@ -165,6 +166,16 @@ ergibt sich die Rückprojektion
 	f_I(x,y) \approxeq \int_{0}^{\pi} p_F(s,\vartheta) d\vartheta .
 \end{equation}
 
+In der Praxis werden zuerst die Energien der detektierten Photonen berechnet und anschließend
+überprüft, ob diese die vorher eingestellten Energie- und Koinzidenzzeitfenster einhalten.
+Nun werden den Photonen die Kristalle zugeordnet und deren Position auf der Projektionsachse
+bestimmt. Sind beide Photonen in die Detektoren, die sich genau gegenüberliegen eingetroffen,
+werden sie für die weiteren Berechnungen verwendet.
+Zuerst wird das eindimensionale Intensitätsprofil, also die Projektion, berechnet, aus dem dann
+wiederum das Sinogramm bestimmt wird. Anschließend erfolgt die einfache Rückprojektion.
+Die gefilterte Rückprojektion wird aus den Projektionsdaten berechnet, die vorher mit dem Filter
+im Ortsraum gefaltet werden. Zum Schluss wird das tomographische Bild aus den Daten der
+gefilterten Projektion ermittelt.
 
 \section{Auswertung}
 \label{sec:ausw}
