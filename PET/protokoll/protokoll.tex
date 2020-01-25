@@ -165,10 +165,6 @@ ergibt sich die Rückprojektion
 	f_I(x,y) \approxeq \int_{0}^{\pi} p_F(s,\vartheta) d\vartheta .
 \end{equation}
 
-\section{Durchführung und Auswertung}
-\label{sec:durch}
-
-
 
 \section{Auswertung}
 \label{sec:ausw}
@@ -178,14 +174,14 @@ ergibt sich die Rückprojektion
 
 Zur Kalibrierung des PET wurde eine relativ aktive \ce{^22Na} Quelle
 zuerst mittig zwischen bei Detektoren und dann seitlich direkt vor die
-jeweiligen Detektoren (mit abstand im Milimeterberreich)
-eingbracht. Das Steuerprogramm wurde jeweils angewiesen \(400000\)
-Ereignisse (koinzidenzen nach groben kriterien) aufzuzeichnen.
-Im folgenden wir mit der Detektor A mit der rechten Seite und der
-Dektor B mit der Linken seite bezeichet.
-Die Messzeiten f\"ur die jeweiligen Positionen wurden Manuell mit
+jeweiligen Detektoren (mit Abstand im Millimeterbereich)
+eingebracht. Das Steuerprogramm wurde jeweils angewiesen \(400000\)
+Ereignisse (Koinzidenzen nach groben Kriterien) aufzuzeichnen.
+Im folgenden wird der Detektor A mit der rechten Seite und der
+Detektor B mit der linken Seite bezeichnet.
+Die Messzeiten f\"ur die jeweiligen Positionen wurden manuell mit
 einer Stoppuhr vermessen und sind in~\ref{tab:caltime} dargestellt
-(abweichung grob abgesch\"atzt).
+(Abweichung grob abgesch\"atzt).
 
 \begin{table}[H]
   \centering
@@ -203,33 +199,33 @@ einer Stoppuhr vermessen und sind in~\ref{tab:caltime} dargestellt
   \label{tab:caltime}
 \end{table}
 
-Man erkennt an den L\"angeren messzeiten f\"ur die seitlichen
+Man erkennt an den l\"angeren Messzeiten f\"ur die seitlichen
 Quellpositionen eine geringere Koinzidenzrate und eine abnehmende
 Detektoreffizienz.
 
-Die gewonnen histogramme f\"ur Ereignisszahlen nach Energie und
+Die gewonnen Histogramme f\"ur Ereigniszahlen nach Energie und
 Koinzidenzzeit pro Detektor werden im Folgenden betrachtet.
 
 \subsubsection{Festlegung der Energie und Koinzidenzzeitfenster}
 \label{sec:energkozeit}
 
-Zur bestimmung der Energiefenster wurden die (normierten) Z\"ahlraten
+Zur Bestimmung der Energiefenster wurden die (normierten) Z\"ahlraten
 der beiden Detektoren f\"ur die mittige Quellposition \"uber die
 Energie aufgetragen.
 
 \begin{figure}[h]\centering
   \input{../auswertung/figs/calibration/mid_over_energy.pgf}
-  \caption{Z\"ahlraten der beiden detektoren in Abhängigkeit der Energie.}
+  \caption{Z\"ahlraten der beiden Detektoren in Abhängigkeit der Energie.}
   \label{fig:calibration-mid_over_energy}
 \end{figure}
 
 Die gew\"ahlten Energieintervalle sind
-in~\ref{fig:calibration-mid_over_energy} eingezeichenet und richten
-sich nach der Halbwertsbreite der prominentesten Peaks um eine
+in~\ref{fig:calibration-mid_over_energy} eingezeichnet und richten
+sich nach der Halbwertsbreite der prominentesten Peaks, um eine
 angemessene Z\"ahlrate zu gew\"ahrleisten und dennoch eine gute
-Auflösung zu erhalten. Da in Detektor A ein PM ausgetauscht wurde
+Auflösung zu erhalten. Da in Detektor A ein PM ausgetauscht wurde,
 zeigt die Energiekurve andere Charakteristiken als die von
-B. Interessanter weise liegen die beiden h\"ochsten Peaks nicht
+B. Interessanterweise liegen die beiden h\"ochsten Peaks nicht
 aufeinander (Kalibrierungsproblem/Skalierung).
 
 \begin{align}
@@ -239,15 +235,15 @@ aufeinander (Kalibrierungsproblem/Skalierung).
   R_B &= [1600, 2300] \hat{=} [452.0, 606.0]\,\si{\kilo\electronvolt}
 \end{align}
 
-Bei der Bestimmung des Zeitintervals wurde analog durch auftragen der
-Ereignisszahl \"uber die Kan\"ale vorgegangen
-(\ref{fig:calibration-time_range}). Dabei wurde die Intervalbreite
-etwas gr\"o\ss{}er als die die Halbwertsbreite gew\"ahlt um eine gute
+Bei der Bestimmung des Zeitintervalls wurde analog durch Auftragen der
+Ereigniszahl \"uber die Kan\"ale vorgegangen
+(\ref{fig:calibration-time_range}). Dabei wurde die Intervallbreite
+etwas gr\"o\ss{}er als die Halbwertsbreite gew\"ahlt, um eine gute
 Z\"ahlrate zu gew\"ahrleisten.
 
 \begin{figure}[h]\centering
   \input{../auswertung/figs/calibration/time_range.pgf}
-  \caption{Ereignisszahl \"uber Kanal zur Bestimmung der Zeitschranken.}
+  \caption{Ereigniszahl \"uber Kanal zur Bestimmung der Zeitschranken.}
   \label{fig:calibration-time_range}
 \end{figure}
 
@@ -257,12 +253,11 @@ Z\"ahlrate zu gew\"ahrleisten.
         0.030]\,\si{\nano\second} = [t_1, t_2]
 \end{align}
 
-\subsubsection{Koinzidenzaufl\"osungszeit, Anteil zuf\"alliger
-  Koinzidenze und Koinzidenznachweiseffektivit\"at}
+\subsubsection{Koinzidenzaufl\"osungszeit, Anteil zuf\"alliger Koinzidenzen und Koinzidenznachweiseffektivit\"at}
 \label{sec:koaufl}
 
-Nimmt man die Differnz der beiden Endpunkte von~\eqref{eq:timeint} so
-ergiebt sich die Koinzidenzaufl\"osungszeit \(\tau\) zu:
+Nimmt man die Differenz der beiden Endpunkte von~\eqref{eq:timeint}, so
+ergibt sich die Koinzidenzaufl\"osungszeit \(\tau\) zu:
 \begin{equation}
   \label{eq:koauf}
   \tau = t_2 - t_1 \pm \sqrt{\qty(\Delta t_1)^2 + \qty(\Delta t_2)^2}
@@ -270,11 +265,11 @@ ergiebt sich die Koinzidenzaufl\"osungszeit \(\tau\) zu:
 \end{equation}
 
 Dieser Wert liegt in der Gr\"o\ss{}enordnung der Lichtlaufzeit
-zweischen den Detektoren (ca. \SI{1}{\nano\second}).
+zwischen den Detektoren (ca. \SI{1}{\nano\second}).
 
 Die Koinzidenzz\"ahlrate (ohne Filterung nach Energie) ergibt sich
-durch Summierung der Ereignisszahlen (\(\Delta N = \sqrt{N}\),
-Poisson) im Zeitinterval~\eqref{eq:timeint} und der Division
+durch Summierung der Ereigniszahlen (\(\Delta N = \sqrt{N}\),
+Poisson) im Zeitintervall~\eqref{eq:timeint} und der Division
 durch~\eqref{tab:caltime}.
 
 \begin{equation}
@@ -327,9 +322,9 @@ mit \(P_\beta = 0.90382\pm 0.00021\) zu:
   & = \SI{16.3\pm 0.8}{\percent}
 \end{align}
 
-Damit ist die Effektivit\"at, wie im folgenden zu sehen, zwar
-ausreichend f\"ur einigerma\ss{}en z\"ugigie Messungen, k\"onnte aber
-optimiert werden. Der hier gefundene Wert stellt einen sch\"atzer
+Damit ist die Effektivit\"at, wie im Folgenden zu sehen, zwar
+ausreichend f\"ur einigerma\ss{}en z\"ugige Messungen, k\"onnte aber
+optimiert werden. Der hier gefundene Wert stellt einen Sch\"atzer
 f\"ur die Effektivit\"at mit bestimmten Zeit-, aber unbestimmten
 Energieintervall da.
 
@@ -341,37 +336,37 @@ Die Energie und Zeitspektren f\"ur verschiedene Quellpositionen sind
 in~\ref{fig:calibration-comp} dargestellt.
 \begin{figure}[H]\centering
   \input{../auswertung/figs/calibration/comp.pgf}
-  \caption[Vergleich der Quellpositionen]{Zeit und Energiespektren f\"ur Verschiedene
+  \caption[Vergleich der Quellpositionen]{Zeit und Energiespektren f\"ur verschiedene
     Quellpositionen. (Links \(=\) bei Detektor A), relevante Ausschnitte}
   \label{fig:calibration-comp}
 \end{figure}
 
 Die Z\"ahlrate ist generell f\"ur die mittlere Quellposition am
-wenigsten breit verteilt, da die Anordnung so am symetrischsten- und
+wenigsten breit verteilt, da die Anordnung so am symmetrischsten- und
 der l\"angste Detektorabstand am geringsten ist. Im Zeitspektrum sieht
 man eine Verschiebung des Peaks entsprechend des Laufzeitunterschiedes
 der Positionen. F\"ur den Vergleich der Energiespektra eignet sich
-Detektor B am besten, da er der urspr\"unglichen konfiguration
-entspricht. So erkennt man, das sich f\"ur die Linke Position (bei
+Detektor B am besten, da er der urspr\"unglichen Konfiguration
+entspricht. So erkennt man, das sich f\"ur die linke Position (bei
 Detektor A) entsprechend eine h\"ohere Z\"ahlrate f\"ur
 niederenergetische Ereignisse bei Detektor B ergibt (Analog bei Det. A
-f\"ur die rechte Position). Dies k\"onnte unter anderem von Streuueng
+f\"ur die rechte Position). Dies k\"onnte unter anderem von Streuung
 bedingt sein. Dabei ist die Verteilung des jeweils anderen Detektors
-bei h\"oheren Energien angehoben (gleiche Gesamtereignisszahl,
+bei h\"oheren Energien angehoben (gleiche Gesamtereigniszahl,
 Umverteilung entsprechend h\"oherer ungestreuter Energie).  Die Peaks
 sind generell zu niedrigeren Energien verschoben.
 
 Bildet man die Differenz der Peakpositionen im Zeitspektrum f\"ur die
-Linke und die rechte Quellposition (mittlere wird bei Mittelung
-redundant) so ergibt sich die Doppelte Lichtlaufzeit \(\mathfrak{t}\)
+linke und die rechte Quellposition (mittlere wird bei Mittelung
+redundant) so ergibt sich die doppelte Lichtlaufzeit \(\mathfrak{t}\)
 zwischen den Detektoren
 (\(t_0 + \mathfrak{t} - (t_0 - \mathfrak{t}) = 2\mathfrak{t}\)).
 
-Um die Peakpositionen zu erhalten, wurden Gaussfunktionen \"uber die
-Zeitspektren gefittet. Als ma\ss{} f\"ur die Peakbreite und damit die
+Um die Peakpositionen zu erhalten, wurden Gaußfunktionen \"uber die
+Zeitspektren gefittet. Als Ma\ss{} f\"ur die Peakbreite und damit die
 (statistische) Unsicherheit wurde \(1/10\) des \(\sigma\) Parameters
-der Gaussfunktion genutzt (heuristische Absch\"atzung). Nicht explizit
-betrachtet werden hier der Endliche Quellendurchmesser
+der Gaußfunktion genutzt (heuristische Absch\"atzung). Nicht explizit
+betrachtet werden hier der endliche Quellendurchmesser
 \SI{2.5}{\centi\meter} sowie der Restabstand der Quelle zum Detektor
 (kleiner \SI{1}{\centi\meter}). Der Prozess wird
 in~\ref{fig:calibration-lenght_det} illustriert.
@@ -379,7 +374,7 @@ in~\ref{fig:calibration-lenght_det} illustriert.
 \begin{figure}[H]\centering
   \input{../auswertung/figs/calibration/lenght_det.pgf}
   \caption[Abstandsbestimmung]{Bestimmung der Peakpositionen der Zeitspektren zwecks der
-    Berechnung des Detektorabstandes. Die farbigen Intervalmarkierung
+    Berechnung des Detektorabstandes. Die farbigen Intervallmarkierungen
     stellen die gesch\"atzte Abweichung dar.}
   \label{fig:calibration-lenght_det}
 \end{figure}
@@ -419,15 +414,15 @@ Entsprechend ergibt sich dann der Detektorabstand zu:
   \label{fig:abstand}
 \end{figure}
 
-Um die Detektoren auch im Ortsraum zu kalibrieren wurden die Messdaten
+Um die Detektoren auch im Ortsraum zu kalibrieren, wurden die Messdaten
 (aus den Kalibrierungsmessungen) eingelesen und Schwerpunktsdiagramme
-erstellt, um die werterbereiche der Koordinaten der eintreffenden
+erstellt, um die Wertebereiche der Koordinaten der eintreffenden
 Signale den entsprechenden Detektorsegment zuzuordnen. Eine
-entsprechnde Kalibrationsdatei wurde erzeugt und
-abgespeichert. Grafische darstellungen der Diagramme sind
+entsprechende Kalibrationsdatei wurde erzeugt und
+abgespeichert. Grafische Darstellungen der Diagramme sind
 in~\ref{fig:abstand} f\"ur Detektor \(B\) gezeigt. (Die entsprechenden
 Darstellungen f\"ur Det. A waren durch den ersetzten PM verzerrt.)
-Man ergkennt deutlich mehr oder weniger stark ausgedehente
+Man erkennt deutlich mehr oder weniger stark ausgedehnte
 Schwerpunkte, die dann jeweils einer Zelle (rote Linien) zugeordnet
 werden.
 
@@ -442,16 +437,16 @@ der \(8\times 8\)-Matrix artigen Anordnung der Dichteverteilung der
 Messpunkte erkennen.  Die Dichte der Messpunkte ist in
 \ref{fig:ab-nah} deutlich im Zentrum der Aufnahme konzentriert sowie
 die am Rand liegenden Bereiche höherer Messpunktdichte stark
-verzerrt. Daraus wurde der Schluss, dass \ref{fig:ab-nah} eine Messung
+verzerrt. Daraus wurde der Schluss gezogen, dass \ref{fig:ab-nah} eine Messung
 zeigt, bei der die Quelle nah am Detektor lag. Das Wegfallen der Peaks
-am Rand l\"asst auf nichterfolgende Reflexion aufgrund des Steilen
-einfallswinkel (kleiner Winkel zur Normale) schließen. Es ist hier
+am Rand l\"asst auf nichterfolgte Reflexion aufgrund des steilen
+Einfallswinkels (kleiner Winkel zur Normale) schließen. Es ist hier
 keine sinnvolle Zuordnung zu Gitterpunkten mehr m\"oglich.  Bei
 gr\"o\ss{}eren Abst\"anden f\"allt die Verzerrung nicht merklich ins
-gewicht. So ist aber die Dichte in~\ref{fig:ab-fern} (also in der
+Gewicht. So ist aber die Dichte in~\ref{fig:ab-fern} (also in der
 gr\"o\ss{}ten Entfernung) diffuser als in~\ref{fig:ab-mitte} (in der
-Mitte). Mit zunehmenden Abstand der Quelle wird der Einfalswinkel der
-Photonen immer Flacher (zur Detektoroberfl\"achennormale) und damit
+Mitte). Mit zunehmenden Abstand der Quelle wird der Einfallswinkel der
+Photonen immer flacher (zur Detektoroberfl\"achennormale) und damit
 die Ablenkung durch Reflexionen geringer. Es sollte also im
 allgemeinen ein optimaler Abstand (geringe Verzerrung, ausreichende
 Z\"ahlrate) existieren.
@@ -471,19 +466,19 @@ Z\"ahlrate) existieren.
 \label{sec:tom1}
 
 Es wurde eine vorgegebene, aber unbekannte Quellkonfiguration
-innerhalb eines aus Wachs (\"ahnlichkeit zu K\"orpergewebe)
-bestehenden istropen und homogenen Beh\"alters vermessen und mit Hilfe
+innerhalb eines aus Wachs (\"Ahnlichkeit zu K\"orpergewebe)
+bestehenden isotropen und homogenen Beh\"alters vermessen und mit Hilfe
 dieser Messungen auf die Gestalt der Quellkonfiguration geschlossen.
 
 Die Quelle befand sich dabei genau mittig zwischen den Detektoren,
 welche dabei mit einer Geschwindigkeit von
-\(\SI{12}{\milli\metre\per\second}\) verfahren wurden um eine Breite
+\(\SI{12}{\milli\metre\per\second}\) verfahren wurden, um eine Breite
 von \(40\) Bins (Breite \SI{3.375}{\milli\meter}) zu vermessen. Die
 Projektionen, R\"uckprojektionen und gefilterten R\"uckprojektionen
 wurden in Echtzeit durch ein Computer graphisch dargestellt. Es kam
 dabei der sog. ``Mittelfilter'' mit mit der Dimensionseinstellung
 \(9\) zur Anwendung, es wurde also der Filter jeweils \"uber \(9\)
-Bins gefaltet. Der Aufnahme und Rekonstruktionsprozess ist
+Bins gefaltet. Der Aufnahme- und Rekonstruktionsprozess ist
 in~\ref{fig:tom1} dargestellt und wird im Folgenden nachvollzogen.
 
 \begin{figure}[htp]
@@ -543,15 +538,15 @@ in~\ref{fig:tom1} dargestellt und wird im Folgenden nachvollzogen.
 \begin{figure}[bp]\centering
   \input{../auswertung/figs/tom1/3dplot.pgf}
   \caption[Rekonstruierte Quellenverteilung]{Surface Plots der
-    rekonstruierten Quellenvertilung. Die Z-Achse hat willk\"urliche
+    rekonstruierten Quellenverteilung. Die z-Achse hat willk\"urliche
     Einheiten. Von links nach rechts sieht man Peaks 1, 2 und 3.}
   \label{fig:tom1-3dplot}
 \end{figure}
 
 \begin{description}
-\item[\(7^\circ\) (\ref{eq:tom1-7})] Es sind auf der horizontalen
-  zwei gleich starke Signale zu unterscheiden. Vertical ist die
-  R\"uckprojektion homogen, da keine information in dieser Richtung
+\item[\(7^\circ\) (\ref{eq:tom1-7})] Es sind auf der Horizontalen
+  zwei gleich starke Signale zu unterscheiden. Vertikal ist die
+  R\"uckprojektion homogen, da keine Information in dieser Richtung
   vorhanden ist. Die gefilterte R\"uckprojektion erscheint
   verwaschener. Aufgrund der Filterung ist auch der schwarze
   Hintergrund ins Graue verschoben.
@@ -559,101 +554,99 @@ in~\ref{fig:tom1} dargestellt und wird im Folgenden nachvollzogen.
 \item[\(18^\circ\) (\ref{eq:tom1-18})] Die vertikale Differenzierung
   der Signale beginnt. Auch entstehen leichte Artefakte fernab der
   Quelle (links). Die gefilterte R\"uckprojektion ist wiederum
-  unsch\"arfer, wenn auch Elle linien deutilcher von schw\"acheren
+  unsch\"arfer, wenn auch alle Linien deutlicher von schw\"acheren
   getrennt sind.
 
 \item[\(36^\circ\) (\ref{eq:tom1-36})] Die R\"uckprojektionen
-  manifestieren sich zunhemend als interferrierende Linien. Bereiche
+  manifestieren sich zunehmend als interferierende Linien. Bereiche
   die vom Detektorwinkel aus gesehen neben den Quellen liegen bleiben
-  dunkler, da auf diesen sichtlinien weniger ereignissee gez\"ahlt
-  werden. Die gefilterte RP verh\"alt sich unver\"andert.
+  dunkler, da auf diesen Sichtlinien weniger Ereignisse gez\"ahlt
+  werden. Die gefilterte Rückprojektion verh\"alt sich unver\"andert.
 
 \item[\(90^\circ\) (\ref{eq:tom1-90})] Es ist nun in der ungefilterten
-  RP deutlich eine Unterteilung des Bildes in vier rechteckige Zonen
-  zu erkennen. Rechts oben und links unten ist das bild dunkler und
+  Rückprojektion deutlich eine Unterteilung des Bildes in vier rechteckige Zonen
+  zu erkennen. Rechts oben und links unten ist das Bild dunkler und
   ann\"ahernd frei von Artefakten. Diese Bereiche entsprechen den
-  Sichtlinien aus denen der detektor wenige ereignisse Erhalten
-  hat. Die rekonstruktion kann diese bereiche
-  ``ausschlie\ss{}en''. Die anderen beiden bereiche weisen
+  Sichtlinien aus denen der Detektor wenige Ereignisse erhalten
+  hat. Die Rekonstruktion kann diese Bereiche
+  ``ausschlie\ss{}en''. Die anderen beiden Bereiche weisen
   linienartige Artefakte auf, da dort die Quellen immer in der
-  Sichtlinie lag, auch wenn diese Linien aufgrund der
-  rundumbeobachtung aus zwei ortogonalen richtungen nun schw\"acher
-  als im vorherigen Bild sind. Es sind nun gen\"ugend informationen
+  Sichtlinie lagen, auch wenn diese Linien aufgrund der
+  Rundumbeobachtung aus zwei orthogonalen Richtungen nun schw\"acher
+  als im vorherigen Bild sind. Es sind nun gen\"ugend Informationen
   verf\"ugbar um eine dritte, schwache Quelle (links unten)
-  auszumachen. In der gefilterten RP ist das Bild weniger
+  auszumachen. In der gefilterten Rückprojektion ist das Bild weniger
   differenziert und die dritte Quelle ist sogar schlechter zu
   erkennen.
 \item[\(150^\circ\) (\ref{eq:tom1-150})] Sowohl in der gefilterten als
-  auch der ungefilterten RP sind die artefakte nun schw\"acher und
-  mehr in der mitte konzentriert.  Intuitiv gesehen, werden die
-  Artefakte von neuen Linien (projektionen) \"uberlagert, in denen zu
-  erkennen ist, das dort keine Qellen vorliegen. Die schwache Quelle
-  ist deutlicher zu erkennen.  In der Gefliterten RP sind zwar die
+  auch der ungefilterten Rückprojektion sind die Artefakte nun schw\"acher und
+  mehr in der Mitte konzentriert.  Intuitiv gesehen, werden die
+  Artefakte von neuen Linien (Projektionen) \"uberlagert, in denen zu
+  erkennen ist, dass dort keine Quellen vorliegen. Die schwache Quelle
+  ist deutlicher zu erkennen.  In der gefilterten Rückprojektion sind zwar die
   Artefakte gleichm\"a\ss{}iger verteilt, jedoch auch deutlicher
   auszumachen (andere Farbskalierung). Die Quellen sind allerdings
   besser zu differenzieren.
 
-\item[\(178^\circ\) (\ref{eq:tom1-178})] Der trend aus dem vorherigen
+\item[\(178^\circ\) (\ref{eq:tom1-178})] Der Trend aus dem vorherigen
   Bild setzt sich fort. Es ist nun Information aus allen n\"otigen
   Richtungen vorhanden und die Artefakte treten nun eher als
-  gleichm\"a\ss{}iger Hintergrund zu auf. Dieser Hintergund wird in
-  der gefilterten RP nun besser unterdr\"uckt (da der filter gl\"attet
-  und mittelt) und die Quellen sin deutlich besser abgegrenzt. Die
+  gleichm\"a\ss{}iger Hintergrund zu auf. Dieser Hintergrund wird in
+  der gefilterten Rückprojektion nun besser unterdr\"uckt (da der filter gl\"attet
+  und mittelt) und die Quellen sind deutlich besser abgegrenzt. Die
   runde Form der Quellen l\"asst sich nun ausmachen, auch wenn die
-  schwache Quelle ins ovale verzerrt ist. Dieser umstand ist
+  schwache Quelle ins ovale verzerrt ist. Dieser Umstand ist
   verst\"andlich, da diese Quelle erst in den letzten \(90^\circ\)
   aufgel\"ost wurde.
 \end{description}
 
-\begin{wrapfigure}{r}{.5\textwidth}
-  \centering
-  \resizebox{0.2\textwidth}{!}{
-    \begin{tikzpicture}
-      \draw[black] (3,3) circle (2.7cm);
-      \draw[black] (3,4.5) circle (.6cm) node {2};
-      \draw[black] (3,1.5) circle (.6cm) node {Leer};
-      \draw[black] (1.5,3) circle (.6cm) node {1};
-      \draw[black] (4.5,3) circle (.6cm) node {3};
-      \draw (3,3) circle (.6cm) node {Leer};
-      \node[draw] at (1.5,2) {Wachs};
-    \end{tikzpicture}
-  }
+%\begin{wrapfigure}{r}{.5\textwidth}
+%  \centering
+%  \resizebox{0.2\textwidth}{!}{
+%    \begin{tikzpicture}
+%      \draw[black] (3,3) circle (2.7cm);
+%      \draw[black] (3,4.5) circle (.6cm) node {2};
+%      \draw[black] (3,1.5) circle (.6cm) node {Leer};
+%      \draw[black] (1.5,3) circle (.6cm) node {1};
+%      \draw[black] (4.5,3) circle (.6cm) node {3};
+%      \draw (3,3) circle (.6cm) node {Leer};
+%      \node[draw] at (1.5,2) {Wachs};
+%    \end{tikzpicture}}
+%  \caption[Quellenkonstellation]{Quellenkonstellation}
+%  \label{fig:sourccof}
+%\end{wrapfigure}
 
-  \caption[Quellenkonstelation]{Quellenkonstelation}
-  \label{fig:sourccof}
-\end{wrapfigure}
-
-Die endg\"ultige rekonstuktion ist als 3D Surface Plot
+Die endg\"ultige Rekonstruktion ist als 3D Surface-Plot
 in~\ref{fig:tom1-3dplot} dargestellt. Zu erkennen ist die wesentlich
 bessere Klarheit der Peaks in der gefilterten Rekonstruktion. Trotz
-der Geringen statistik (ca. 5 Ereignisse pro Projektion, Detektor zu
-schnell verfaheren!)  kann man in der Rekonstruierten Quellverteilung
+der geringen Statistik (ca. 5 Ereignisse pro Projektion, Detektor zu
+schnell verfahren!)  kann man in der rekonstruierten Quellverteilung
 klare Peaks erkennen, die die Bestimmung der Quellpositionen m\"oglich
 machen. Die Anordnung und Nummerierungskonvention f\"ur die Quellen
 ist in~\ref{fig:sourccof} einzusehen.
 
-Durch istolation der Peaks und jeweils einem fit einer Gaussfunktion
-\"uber den Peak werden die Positionen und h\"ohen der Peaks bestimmt
+Durch Isolation der Peaks und jeweils einem Fit einer Gaußfunktion
+\"uber den Peak werden die Positionen und H\"ohen der Peaks bestimmt
 (siehe auch~\ref{fig:tom1-filtered_fit}).
 
 \begin{figure}[h]\centering
   \includegraphics[width=\textwidth]{../auswertung/figs/tom1/filtered_fit.pdf}
   \caption[Fit der Peaks]{Isolierte und gefittete Peaks der
     Quellverteilung. Automatisiert erstellt mithilfe von scipy
-    filtern und methoden.\footnote{Ich habe da zu viel Zeit reingesteckt.}}
+    filtern und Methoden.\footnote{Ich habe da zu viel Zeit reingesteckt.}}
   \label{fig:tom1-filtered_fit}
 \end{figure}
 
 Es ergeben sich mit der Binbreite von \SI{3.375}{\milli\meter} die
-in~\ref{tab:positions} zussamengefasst Positionen, Amplituden und
+in~\ref{tab:positions} zusammengefassten Positionen, Amplituden und
 Breiten. Da die Quellen alle gleichgro\ss{} sind, ist es nicht
 verwunderlich, dass die Peakbreiten alle \"ahnlich sind. Die
 Abweichungen der r\"aumlichen Werte entstanden aus dem Fit und
 erscheinen zu gering, um die Ortsaufl\"osung des PET
-wiederzuspiegeln. In~\ref{fig:tom1-3dplot}
-und~\ref{fig:tom1-filtered_fit} ist zu erkennen, das die Peaks im
-allgemeinen kein Plateau zeigen (desswegen auch ein Fit mit der
-Gaussfunktion) und \"uber einige Bins hinweg abfallen. Damit wird die
+widerzuspiegeln. In~\ref{fig:tom1-3dplot}
+und~\ref{fig:tom1-filtered_fit} ist zu erkennen, dass die Peaks im
+allgemeinen kein Plateau zeigen (deswegen auch ein Fit mit der
+Gaußfunktion) und \"uber einige Bins hinweg abfallen. Damit wird die
 Ortsaufl\"osung, als Unsch\"arfe des Randes der Peaks, in der
 Gr\"oss{}enordnung von 2 Bins (\(\approx \SI{6}{\milli\meter}\))
 liegen. Das ist auch vertr\"aglich mit der Abweichung der Koordinaten
@@ -683,7 +676,7 @@ Ort liegt weit \"uber der mittleren Diffusionsl\"ange der Positronen
   \caption[Peakpositionen]{Gefitte Peakamplituden, Positionen und
     Breiten. Die Abweichungen ergeben sich aus den
     Fitfehlern. \(\mathfrak{A}\) ist die Amplitude. \(x, y\) sind die Koordinaten
-    des Mittelpunktes. \(\sigma\) ist die Standartbreite der Gaussfunktion.}
+    des Mittelpunktes. \(\sigma\) ist die Standartbreite der Gaußfunktion.}
   \label{tab:positions}
 \end{table}
 
@@ -699,8 +692,8 @@ Abw. \SI{3}{\percent}).
 \end{equation}
 
 Damit berechnen sich die in~\ref{tab:peakactivities} aufgelisteten
-Aktivit\"aten der beiden anderen Proben wiefolgt durch
-verh\"altnissbildung der Peak volumina (\(= 2\pi A\sigma**2\)) die ein
+Aktivit\"aten der beiden anderen Proben wie folgt durch
+Verh\"altnisbildung der Peakvolumina (\(= 2\pi A\sigma**2\)), die ein
 Ma\ss{} f\"ur die Z\"ahlrate geben. Die Abweichungen liegen alle in
 der Gr\"o\ss{}enordnung von \SI{3}{\percent} und r\"uhren
 haupts\"achlich von der Abweichung der Aktivit\"at \(A_3\) her.
@@ -741,72 +734,72 @@ haupts\"achlich von der Abweichung der Aktivit\"at \(A_3\) her.
 \end{figure}
 
 Analog zu~\ref{sec:tom1} wurde nun eine, von einer unbekannten
-konfiguration von Bleim\"unzen umgebene, zentrierte Quelle
-vermessen. Die gesammte Anordnung war wieredum in Wax eingebettet.
+Konfiguration von Bleim\"unzen umgebene, zentrierte Quelle
+vermessen. Die gesamte Anordnung war wiederum in Wachs eingebettet.
 Auf~\ref{fig:tom2-3dplot} erkennt man deutlich die Quelle als
-zentralen Peak, sowie vier mehr oder weniger tiefe \"aler an den
+zentralen Peak, sowie vier mehr oder weniger tiefe T\"aler an den
 R\"andern, die durch die blockierenden M\"unzen hervorgerufen werden.
 
-Anhand des einbruchs der Z\"ahlzahl im Sinogramm k\"onnen (infolge der
-Absorbtion und Steuung der Gammaphotonen durch das Blei) verschiedene
-M\"unzenkonfigurationen in klassen einegteilt und unterschieden
+Anhand des Einbruchs der Z\"ahlzahl im Sinogramm k\"onnen (infolge der
+Absorption und Streuung der Gammaphotonen durch das Blei) verschiedene
+M\"unzkonfigurationen in Klassen eingeteilt und unterschieden
 werden\footnote{Details aus Platzgr\"unden ausgelassen.}. Im hier
-vorliegenden Sinogramm~\ref{fig:tom2} ergkennt man in zwei
+vorliegenden Sinogramm~\ref{fig:tom2} erkennt man in zwei
 Winkelbereichen eine unterschiedlich starke Abschw\"achung. Der erste,
-hellere Bereich wurde also warscheinlich von nur einer M\"unze
+hellere Bereich wurde also wahrscheinlich von nur einer M\"unze
 blockiert, der zweite, dunklere demnach von zwei M\"unzen
-(siehe~\ref{fig:munzen}). Diese breiten verdunklungen sind im
+(siehe~\ref{fig:munzen}). Diese breiten Verdunklungen sind im
 isotropen Fall (~\ref{fig:tom1-sino}) nicht zu erkennen. Da bei diesem
 Versuch die Quelle genau mittig zwischen den Detektoren lag, ist
 in~\ref{fig:tom2} nur eine gerade Linie zu erkennen.
-\begin{figure}[h]
-  \centering
-  \begin{subfigure}{.4\textwidth}
-    \centering
-    \resizebox{0.8\textwidth}{!}{
-      \input{../auswertung/figs/tom2/3dplot.pgf}
-    }
-    \caption{Surface Plot der (gefilterten) Rekonstruktion der Messung zur Anistropen Dichteverteilung}
-    \label{fig:tom2-3dplot}
-  \end{subfigure}
-  \begin{subfigure}{.4\textwidth}
-    \centering
-    \resizebox{0.4\textwidth}{!}{
-      \begin{tikzpicture}
-        \draw[black] (3,3) circle (2.7cm);
-        \filldraw[black] (3,4.5) circle (.6cm);
-        \draw[black] (3,1.5) circle (.6cm);
-        \filldraw[black] (1.5,3) circle (.6cm);
-        \filldraw[black] (4.5,3) circle (.6cm);
-        \draw (3,3) circle (.6cm) node {\ce{^22Na}};
-        \node[draw] at (1.5,2) {Wachs};
-      \end{tikzpicture}
-    }
 
-    \caption[M\"unzkonfiguration]{Deduzierte
-      M\"unzenkonfiguration. Gef\"ullte Kreise stellen M\"unzen
-      dar. Vertikale M\"unzen k\"onnten auch vertauscht sein.}
-    \label{fig:munzen}
-  \end{subfigure}
-\end{figure}
+%\begin{figure}[h]
+%  \centering
+%  \begin{subfigure}{.4\textwidth}
+%    \centering
+%    \resizebox{0.8\textwidth}{!}{
+%      \input{../auswertung/figs/tom2/3dplot.pgf}
+%    }
+%    \caption{Surface Plot der (gefilterten) Rekonstruktion der Messung zur Anistropen Dichteverteilung}
+%    \label{fig:tom2-3dplot}
+%  \end{subfigure}
+%  \begin{subfigure}{.4\textwidth}
+%    \centering
+%    \resizebox{0.4\textwidth}{!}
+%      \begin{tikzpicture}{
+%        \draw[black] (3,3) circle (2.7cm);
+%        \filldraw[black] (3,4.5) circle (.6cm);
+%        \draw[black] (3,1.5) circle (.6cm);
+%        \filldraw[black] (1.5,3) circle (.6cm);
+%        \filldraw[black] (4.5,3) circle (.6cm);
+%        \draw (3,3) circle (.6cm) node {\ce{^22Na}};
+%        \node[draw] at (1.5,2) {Wachs};
+%    }
+%      \end{tikzpicture}
+%    \caption[M\"unzkonfiguration]{Deduzierte
+%      M\"unzenkonfiguration. Gef\"ullte Kreise stellen M\"unzen
+%      dar. Vertikale M\"unzen k\"onnten auch vertauscht sein.}
+%    \label{fig:munzen}
+%  \end{subfigure}
+%\end{figure}
 
 
-Das Sinogramm aus~\ref{fig:tom2} enth\"alt redundante spalten, welche
+Das Sinogramm aus~\ref{fig:tom2} enth\"alt redundante Spalten, welche
 im Folgenden entfernt wurden (\ref{fig:tom2-raw_and_corrected}
 oben). Summiert man jeweils die Projektion f\"ur einen Winkel auf,
-erh\"alt man einen Indikator f\"ur die Gesamtereignisszahl bei diesem
-Winkel. Es wird sodann eine Schnelle Fouriertransformation (DFFT) auf
+erh\"alt man einen Indikator f\"ur die Gesamtereigniszahl bei diesem
+Winkel. Es wird sodann eine schnelle Fouriertransformation (DFFT) auf
 diese Kurve angewendet, wobei nur die ersten Koeffizienten behalten
-werden.  Transformiert man diese zur\"uck, so gelangt man zu einer
+werden. Transformiert man diese zur\"uck, so gelangt man zu einer
 relativ simplen und glatten Anpassung \(\mathfrak{C}^{-1}\) an diese
-Kurve die jeh nach anforderungen durch erh\"ohung der
+Kurve die je nach Anforderungen durch Erh\"ohung der
 Koeffizientenzahl verbessern l\"asst. Das (eventuell normierte)
 Reziproke von \(\mathfrak{C}^{-1}\) so erh\"alt man eine
-Korrecturfaktorfunktin \(\mathfrak{C}\). Diese ist
+Korrekturfaktorfunktion \(\mathfrak{C}\). Diese ist
 in~\eqref{eq:correction} aufgef\"uhrt, wobei \(n=90\) die Anzahl der
-gemessenen Winkel bezeichet, \(K=5\) die Anzahl der mitgenommenen
-Fourierparameter ist und th\"eta der Winkel ist f\"ur den die
-Korrektur gesucht wird. Die fourierkoeffizienten \(c_i\) sind
+gemessenen Winkel bezeichnet, \(K=5\) die Anzahl der mitgenommenen
+Fourierparameter ist und \(\theta\) der Winkel ist f\"ur den die
+Korrektur gesucht wird. Die Fourierkoeffizienten \(c_i\) sind
 in~\ref{tab:coeff} aufgelistet.
 
 \begin{table}[h]
@@ -817,7 +810,7 @@ in~\ref{tab:coeff} aufgelistet.
     \midrule
             & 10321 & 647.68-220.76i & -2723.6+1336.38i & 23.13-309.09i & 306.73-450.29i
   \end{tabular}
-  \caption{Fourierkoeffizienten des Sinograms in~\ref{fig:tom2-raw_and_corrected}.}
+  \caption{Fourierkoeffizienten des Sinogramms in~\ref{fig:tom2-raw_and_corrected}.}
   \label{tab:coeff}
 \end{table}
 
@@ -830,10 +823,10 @@ in~\ref{tab:coeff} aufgelistet.
 \begin{figure}[h]
   \centering
   \includegraphics[width=\textwidth]{../auswertung/figs/tom2/raw_and_corrected.pdf}
-  \caption[Sinogramme und Korrekturfunktion]{Links: Zussamengefasstes
-    Originalsinogramm und korrigiertes Sinogram. Rechts: Z\"ahlzahl
-    (centerline, in Willk\"urlicher Skalierung), Anpassung mit wenigen
-  Fourierkoeffizienten, der darausberechnete Korrekturfaktor und die
+  \caption[Sinogramme und Korrekturfunktion]{Links: Zussammengefasstes
+    Originalsinogramm und korrigiertes Sinogramm. Rechts: Z\"ahlzahl
+    (centerline, in willk\"urlicher Skalierung), Anpassung mit wenigen
+  Fourierkoeffizienten, der daraus berechnete Korrekturfaktor und die
   Korrigierte Z\"ahlzahl. Alle Kurven sind skaliert.}
   \label{fig:tom2-raw_and_corrected}
 \end{figure}
@@ -841,11 +834,11 @@ in~\ref{tab:coeff} aufgelistet.
 \ref{fig:tom2-raw_and_corrected} zeigt deutlich, dass nun die
 ``Belichtungsst\"arke'' wesentlich ebenm\"a\ss{}iger ist. Die
 gefundene Korrektur ist noch verbesserungsbed\"urftig, da kleine
-Ereignisszahlen (mit ihren gr\"o\ss{}en relativen Fehlern)
-\"uberm\"a\ss{}ig verst\"arkt werden (peak
-in~\ref{fig:tom2-raw_and_corrected} rechts). Auch wird der abrubten
-natur des Z\"ahlzahleinbruchs nicht wirklich Rechnung
-getragen. Allerdings kann diese methode gut automatisiert und
+Ereigniszahlen (mit ihren gro\ss{}en relativen Fehlern)
+\"uberm\"a\ss{}ig verst\"arkt werden (Peak
+in~\ref{fig:tom2-raw_and_corrected} rechts). Auch wird der abrupten
+Natur des Z\"ahlzahleinbruchs nicht wirklich Rechnung
+getragen. Allerdings kann diese Methode gut automatisiert und
 generalisiert (Koeffizientenzahl) werden.\footnote{Ich habe da zuviel
   Zeit reingesteckt, aber es hat Spa\ss{} gemacht.}
 
@@ -854,7 +847,7 @@ generalisiert (Koeffizientenzahl) werden.\footnote{Ich habe da zuviel
 
 Zuletzt wird noch der Einfluss verschiedener Filter auf die gefilterte Rückprojektion
 untersucht. Dazu wurden die Messdaten aus~\ref{sec:tom1} verwendet. Es
-wurde vers\"aumt, die r\"ckprojektion ohne die Energie und Zeitfenster
+wurde vers\"aumt, die R\"uckprojektion ohne die Energie und Zeitfenster
 durchzuf\"uhren.
 
 \begin{figure}[h]
@@ -872,18 +865,17 @@ Wie man in~\ref{fig:filter} erkennen kann, sehen sich die gefilterten
 Rückprojektionen mit dem Hannig-Filter und dem Rauschfilter sowie jene
 mit Ramp-Filter und Shepp-Filter recht ähnlich. Die filter in (a) und
 (b), sowie auch der Mittelfilter aus~\ref{eq:tom1-178} scheinen
-feinere artefaktstrukturen zu gr\"o\ss{}eren, langsamer
-ver\"anderlichen zussenzufassen, wobei sie dabei auch den Kontrast von
-sehr starken Signalen (Qeullen) zu ihrer Umgebung steigern und diese
+feinere Artefaktstrukturen zu gr\"o\ss{}eren, langsamer
+ver\"anderlichen zusammenzufassen, wobei sie dabei auch den Kontrast von
+sehr starken Signalen (Quellen) zu ihrer Umgebung steigern und diese
 klarer abgrenzt. Die gelingt in (b) besser als in (a) oder auch im
-Mittelfilter, wobei abei bei (a) und (b) die Rechte, obere Quelle
+Mittelfilter, wobei bei (a) und (b) die Rechte, obere Quelle
 verschmiert und sie in~\ref{eq:tom1-178} klar aufgel\"ost wird. In (b)
 und (c) erscheinen die Quellen als relativ helle, kleine Punkte mit
 mehr oder weniger unf\"ormigen Halos. Die rechte obere Quelle ist
-recht unkenntlich und die Artefakte sind im vergleich zur
-ungefilterten r\"uckprojektion in~\ref{eq:tom1-178} breiter bei nur
-geringf\"ugig
-veringertem Kontrast. \\
+recht unkenntlich und die Artefakte sind im Vergleich zur
+ungefilterten R\"uckprojektion in~\ref{eq:tom1-178} breiter bei nur
+geringf\"ugig verringertem Kontrast. \\
 
 %\begin{figure}[h]
 %	\centering
@@ -930,8 +922,8 @@ ist, k\"onnen gr\"o\ss{}ere Strukturen nicht besser kontrastiert
 werden. In (b) und (c) hingegen ist die Lage der Quellen besser
 auszumachen, da diese schärfer im Vergleich zu (a) sind. Es ist
 allerdings kein wirklicher Unterschied zwischen (b) und (c) zu
-erkennen. Sobald die Dimension die gr\"o\ss{}e der Relevanten
-strukturen \"uberschreitet, scheint die Sch\"arfe nicht mehr
+erkennen. Sobald die Dimension die gr\"o\ss{}e der relevanten
+Strukturen \"uberschreitet, scheint die Sch\"arfe nicht mehr
 zuzunehmen. Es w\"are sinnvoll noch weitere Dimensionen auszuprobieren
 um diesen Trend zu best\"atigen.
 
@@ -1004,7 +996,7 @@ Beispiels nachvollzogen.
 
 Im ersten Schritt wird die Projektion~\ref{fig:theory-projection} des
 Ausgangsbildes~\ref{fig:theory-source} aus Verschiedenen Winkeln
-berechenet. Dabei wurden die diagonalen entsprechend gewichtet.
+berechnet. Dabei wurden die diagonalen entsprechend gewichtet.
 
 \begin{equation}
   \label{eq:proj}
@@ -1134,13 +1126,13 @@ Verh\"altnis stehen. Die gefilterte R\"uckprojektion weist in den
 Randfeldern und im mittleren Feld einen h\"oheren Kontrast auf,
 erzeugt aber dennoch nur ein geringf\"ugig besseres Bild.  Der
 angewendete Filter unterdr\"uckt schwache Signale, die zwischen
-Starken liegen da die angrenzenden Werte abgezogen werden.  Das
+starken liegen, da die angrenzenden Werte abgezogen werden.  Das
 schwache Signal \((0,4)\) wurde in beiden F\"allen nicht
 rekonstruiert. F\"uhrt man die Rechnung ohne diesen Punkt aus, ergibt
 sich kaum ein Unterschied. Schwache Signale werden also nicht gut
-reproduziert. In beiden F\"allen schmieren die Starken Quellen auf
+reproduziert. In beiden F\"allen schmieren die starken Quellen auf
 ihren jeweiligen Verbindungsachsen aus. Dies kann ein Effekt der
-bergrenzten Anzahl von Projektionswinkeln sein.
+begrenzten Anzahl von Projektionswinkeln sein.
 
 \newpage
 \section{Verzeichnisse}
