@@ -77,7 +77,7 @@ def set_up_angle_plot(ticks=10):
 
     deg_ax = ax.secondary_xaxis('top', functions=(mu_to_deg, deg_to_mu))
     deg_ax.set_xlabel('Winkel')
-    ax.set_xlabel('$\mu$')
+    ax.set_xlabel(r'$\mu$')
 
     return fig, ax
 
@@ -124,10 +124,10 @@ def calibrate_peak(spec, start, end, save=None, ret_sigma=False):
     opt[0] = np.round(opt[0])
     fig, ax = plot_spec(slc, offset=start, label='Gemessen')
     ax.plot(chan, gauss_offset(chan, *opt), label='Peak Fit', linestyle='--')
-    plt.axvline(opt[0], linestyle='-.', color='green', label='$Peak$')
+    plt.axvline(opt[0], linestyle='-.', color='green', label='Peakzentrum')
     if ret_sigma:
         ax.axvspan(opt[0]-3*opt[1], opt[0]+3*opt[1], alpha=.2,
-                   label='$3\cdot\sigma$', color='gray', zorder=-10)
+                   label=r'$3\cdot\sigma$', color='gray', zorder=-10)
     ax.legend()
 
     if save:
@@ -154,7 +154,7 @@ def save_fig(fig, title, folder='unsorted', size=(5, 4)):
   + f'{folder}/{title}.pgf' +
   r'''}
   \caption{}
-  \label{fig:''' + folder + '-' + title + '''}
+  \label{fig:''' + folder + '-' + title + r'''}
 \end{figure}
     ''')
 
@@ -194,3 +194,37 @@ def baseline_als(y, lam, p, niter=10):
     z = spsolve(Z, w*y)
     w = p * (y > z) + (1-p) * (y < z)
   return z
+
+
+def scientific_round(val, err):
+    """Scientifically rounds the values to the given errors."""
+    val, err = np.asarray(val), np.asarray(err)
+
+    if err.size == 1 and val.size > 1:
+        err = np.ones_like(val)*err
+
+    if val.size == 1 and err.size > 1:
+        val = np.ones_like(err)*val
+
+    i = np.floor(np.log10(err))
+    first_digit = err // 10**i
+    i = i.astype(int)
+    prec = (-i + np.ones_like(val) *  (first_digit <= 3)).astype(int)
+
+    def smart_round(value, precision):
+        value = np.round(value, precision)
+        if precision <= 0:
+            value = int(value)
+        return value
+
+
+    if val.size > 1:
+        rounded = np.empty_like(val)
+        rounded_err = np.empty_like(val)
+        for n, (value, error, precision) in enumerate(zip(val, err, prec)):
+            rounded[n] = smart_round(value, precision)
+            rounded_err[n] = smart_round(error, precision)
+
+        return rounded, rounded_err
+    else:
+        return smart_round(val, prec), smart_round(err, prec)

@@ -11034,15 +11034,15 @@
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetstrokeopacity{0.800000}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{3.573319in}{3.109259in}}%
-\pgfpathlineto{\pgfqpoint{4.614407in}{3.109259in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{4.642185in}{3.109259in}}{\pgfqpoint{4.642185in}{3.137037in}}%
-\pgfpathlineto{\pgfqpoint{4.642185in}{3.704167in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{4.642185in}{3.731944in}}{\pgfqpoint{4.614407in}{3.731944in}}%
-\pgfpathlineto{\pgfqpoint{3.573319in}{3.731944in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{3.545541in}{3.731944in}}{\pgfqpoint{3.545541in}{3.704167in}}%
-\pgfpathlineto{\pgfqpoint{3.545541in}{3.137037in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{3.545541in}{3.109259in}}{\pgfqpoint{3.573319in}{3.109259in}}%
+\pgfpathmoveto{\pgfqpoint{0.799736in}{3.109259in}}%
+\pgfpathlineto{\pgfqpoint{2.037392in}{3.109259in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{2.065170in}{3.109259in}}{\pgfqpoint{2.065170in}{3.137037in}}%
+\pgfpathlineto{\pgfqpoint{2.065170in}{3.704167in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{2.065170in}{3.731944in}}{\pgfqpoint{2.037392in}{3.731944in}}%
+\pgfpathlineto{\pgfqpoint{0.799736in}{3.731944in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{0.771959in}{3.731944in}}{\pgfqpoint{0.771959in}{3.704167in}}%
+\pgfpathlineto{\pgfqpoint{0.771959in}{3.137037in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{0.771959in}{3.109259in}}{\pgfqpoint{0.799736in}{3.109259in}}%
 \pgfpathclose%
 \pgfusepath{stroke,fill}%
 \end{pgfscope}%
@@ -11053,15 +11053,15 @@
 \definecolor{currentstroke}{rgb}{0.121569,0.466667,0.705882}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{3.601097in}{3.627778in}}%
-\pgfpathlineto{\pgfqpoint{3.878874in}{3.627778in}}%
+\pgfpathmoveto{\pgfqpoint{0.827514in}{3.627778in}}%
+\pgfpathlineto{\pgfqpoint{1.105292in}{3.627778in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=3.989986in,y=3.579167in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Gemessen}%
+\pgftext[x=1.216403in,y=3.579167in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Gemessen}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -11070,15 +11070,15 @@
 \definecolor{currentstroke}{rgb}{1.000000,0.498039,0.054902}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{{5.550000pt}{2.400000pt}}{0.000000pt}%
-\pgfpathmoveto{\pgfqpoint{3.601097in}{3.434105in}}%
-\pgfpathlineto{\pgfqpoint{3.878874in}{3.434105in}}%
+\pgfpathmoveto{\pgfqpoint{0.827514in}{3.434105in}}%
+\pgfpathlineto{\pgfqpoint{1.105292in}{3.434105in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=3.989986in,y=3.385494in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Peak Fit}%
+\pgftext[x=1.216403in,y=3.385494in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Peak Fit}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -11087,15 +11087,15 @@
 \definecolor{currentstroke}{rgb}{0.000000,0.501961,0.000000}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{{9.600000pt}{2.400000pt}{1.500000pt}{2.400000pt}}{0.000000pt}%
-\pgfpathmoveto{\pgfqpoint{3.601097in}{3.240432in}}%
-\pgfpathlineto{\pgfqpoint{3.878874in}{3.240432in}}%
+\pgfpathmoveto{\pgfqpoint{0.827514in}{3.240432in}}%
+\pgfpathlineto{\pgfqpoint{1.105292in}{3.240432in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=3.989986in,y=3.191821in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont \(\displaystyle Peak\)}%
+\pgftext[x=1.216403in,y=3.191821in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Peakzentrum}%
 \end{pgfscope}%
 \end{pgfpicture}%
 \makeatother%
