@@ -25,8 +25,20 @@ Die Transmissionselektronenmikroskopie, kurz TEM, stellt in vielen Bereichen der
 Ingenieurswissenschaften sowie der Medizin ein wichtiges Verfahren zur Untersuchung von
 anorganischen wie organischen Materialien auf deren atomare Struktur oder zur hohen Auflösung
 diverser Materialien dar. Man nutzt hierzu Elektronen, da deren geringe Wellenlänge eine
-deutlich genauere Auflösung ermöglicht als beispielsweise Röntgenstrahlung und diese einfacher
-zu handhaben sind als Gammastrahlung im gleichen Wellenlängenbereich.
+deutlich genauere Auflösung ermöglicht (vgl.~\ref{eq:auflösung}) als beispielsweise 
+Röntgenstrahlung und diese einfacher zu handhaben sind als Gammastrahlung im gleichen 
+Wellenlängenbereich.
+
+\begin{equation}\label{eq:auflösung}
+	\delta_{min} = 0.61 \cdot \frac{\lambda}{n \cdot \sin\alpha}
+\end{equation}
+
+\begin{conditions}
+	\delta_{min} & Auflösungsgrenze eines Lichtmikroskops\\
+	\lambda & Wellenlänge\\
+	n & Brechungsindex vor der Objektivlinse\\
+	\alpha & halber Öffnungswinkel des Objektivs
+\end{conditions}
 
 \subsection{Aufbau und Funktionsweise eines TEM}
 \label{sec:aufbau}
@@ -107,6 +119,59 @@ störende Moleküle, an diesem kondensieren. NOCHMAL NACHSCHAUEN!
 Von elastische Streuung spricht man, wenn die kinetische Energie des Elektrons vor und nach dem
 Stoß gleich bleibt. Dabei wird ein Atom durch das Coulombpotential, das sich aus Atomkern und den
 ihn umgebenden, abschirmend wirkenden Elektronen zusammensetzt.
+
+\subsubsection{Unelastische Streuung}
+\label{sec:inelast}
+
+Inelastische Streuung erfolgt dann, wenn die Strahlelektronen mit den Hüllenelektronen der
+Objektatome zusammenstoßen. Dabei überträgt das einfallende Elektron dem Hüllenelektron Energie,
+die dazu führt, dass das Hüllenelektron entweder auf ein höheres Energieniveau geschubst wird
+oder falls die übertragene Energie mindestens so groß wie die Bindungsenergie des Atoms ist,
+sogar zur Ionisation führen. Bei Festkörpern kann es außerdem zu Verlusten aufgrund von 
+Phononenanregungen sowie Plasmonen kommen.\\
+
+Diese Energieverluste, die vor allem bei Ionisierungsverlusten elementspezifisch sind, werden bei
+der Elektronenenergieverlustspektroskopie aufgezeichnet. Dadurch können Rückschlüsse auf die
+Zusammensetzung des untersuchten Materials gezogen werden.
+
+\subsubsection{Streuung an dünnen Folien}
+\label{sec:folie}
+
+Da man die untersuchten Objekte mit Elektronen durchleuchten möchte, müssen diese dünn sein,
+so dünn, dass man sie als Folien beschreiben kann. Bei dieser Betrachtungsweise geht man von
+Einfachstreuungen aus, da die Amplitude der einfallenden Welle so stark abgeschwächt wird, dass
+man sie vernachlässigen kann. Diese Annahme der Einfachstreuung nennt man kinematische Näherung.
+Die gestreute Welle ergibt sich dann als Summe, ergo Interferenz, der Einzelwellen.
+Wichtig für die Betrachtung ist des Weiteren die Unterscheidung der Folien in verschiedene
+Materialien: amorph, einkristallin und polykristallin.\\
+
+Amorph sind Materialien dann, wenn die Atome bzw. Moleküle aus denen sie bestehen in keiner
+strukturierten oder periodischen Ordnung zu einander stehen, sondern zufällig zu einander
+ausgerichtet sind. Das Beugungsbild ergibt sich zu konzentrischen Kreisen, die allerdings nicht
+unbedingt einzeln erkennbar sein müssen, da sie eher verschmiert aussehen. Aus diesem Beugungsbild
+kann man den Abstand, den die Atome zu einander haben berechnen.\\
+
+Kristalline Strukturen beschreibt man in dem man die Elementarzellen, die die Grundstruktur des
+Kristalls darstellen, verschiebt, um somit den gesamten Kristall aus diesen aufzubauen.
+Anschließend kann man in den Kristall Netzebenen, parallele, äquidistante Ebenen, die die selbe
+Periodizität aufweisen wie die Beschreibung der Elementarzellen mittels Punktgitter, legen und 
+mit Hilfe der Bragg-Gleichung eine Bedingung für konstruktive Interferenz aufstellen.
+
+\begin{equation}\label{eq:bragg}
+	2 \cdot d_{hkl} \sin\vartheta = n \cdot \lambda, n=1,2,3,...
+\end{equation}
+
+Dabei ist \(d_{hkl}\) der Abstand der Netzebenen:
+
+\begin{equation}\label{eq:netz}
+	d_{hkl} = \frac{a}{\sqrt{h^2+k^2+l^2}}
+\end{equation}
+
+\begin{conditions}
+	\vartheta & Einfallswinkel der Welle\\
+	\lambda & Wellenlänge\\
+	a & Gitterkonstante
+\end{conditions}
 
 \section{Durchf\"uhrung und Auswertung}
 \label{sec:durchaus}
