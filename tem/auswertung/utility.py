@@ -223,9 +223,9 @@ def generate_miller_table(squares):
     out = ''
 
     for i, ind_list in zip(squares, inds):
-        out += f'{i} & '
+        out += r'\(\sqrt{' + str(i) + '}\) & '
         for ind in ind_list:
-            out += r'\mqty{' + ' & '.join(ind.astype(str)) + '}, '
+            out += r'\(\mqty(' + ' & '.join(ind.astype(str)) + r')\), '
         out = out[:-2]
 
         out += r' \\' + '\n'
@@ -242,6 +242,14 @@ def evaluate_hypothesis(analyzed, maximum=10, gold=.4078):
     mindiff = np.argmin(diff, axis=1)
     return squared_ds[mindiff], analyzed[:]*ds[mindiff,None],  diff.min(axis=1)
 
+def generate_analysis_table(analyzed):
+    out = ''
+
+    for i, val in enumerate(analyzed):
+        val = np.array(scientific_round(*val))
+        out += f'{i + 1} & ' + ' & '.join(val.astype(str)) + ' \\\\\n'
+
+    return out
 def generate_hypethsesis_table(squared, analyzed, residues):
     out = ''
     for i, square, value, residue in zip(range(1, len(squared)+1),

@@ -3,7 +3,6 @@
 \title{Transmissionselektronenmikroskop}
 \author{Oliver Matthes, Valentin Boettcher}
 \usepackage{todonotes}
-\graphicspath{ {figs/} }
 \usepackage{tikz}
 \usepackage{pgf}
 \usepackage[version=4]{mhchem}
@@ -28,7 +27,236 @@
 \subsection{Hochaufgel\"oste Abbildung von Goldinseln}
 \label{sec:hrtem}
 
-Das TEM wurde im realbildmodus
+Nach dem Auffinden einer geeigneten Ansammlung von Goldinseln und erneuter
+Fokussierung wurden mehrere HRTEM Bilder dieser Ansammlung
+aufgenonmmen. Dabei war deutlich ein Drift durch die Thermische
+L\"angen\"anderung des Objekttr\"agers zu erkennen.
+
+Aus diesen Abbildungen sind in bestimmten Bereichen deutlich
+Atomreihen zu erkennen (siehe auch~\ref{fig:hrtem}). Diese Regionen
+wurden mit der Software \verb|Digital Micrograph| ausgew\"ahlt und
+weitergehend ausgewertet
+(siehe~\ref{fig:gold_hires-detail_1}). In~\ref{fig:gold_hires-detail_2}
+ist gut zu erkennen, dass der Kontrast am Rand der Goldinsel besser
+ist, da dort die Goldschicht d\"unner ist. Der bessere Kontrast
+k\"onnte sich aus weniger fehlstellen und allgemein weniger strarker
+Streuung (absorbtion am Linsenpolschuh) ergeben. Auch erscheinen die
+Netzebenen heller als Effekt des Beugungskontrastes heller als der
+Hintegrund. Es sollte also generell vermieden werden, die HRTEM
+Abbildung wie die Abbildung eines Lichtmikroskopes zu interpretieren.
+
+% TODO: in theorie
+% https://commons.wikimedia.org/wiki/File:Simulation_GaN.png einbinden
+
+Anschließend konnte durch Bildung eines Intensitätsprofils die
+Abst\"ande der sichtbaren Reihen (= Netzebenen) errechnet
+werden. Dabei wurde jeweils \"uber die Breite eines Rechtecks
+(siehe~\ref{fig:gold_hires-detail_1}), welches senkrecht zu den
+Netzebenen orientiert wurde, integriert. Die entstandenen Profile
+wurden jeweils in Bereichen, in denen der Peakabstand konstant schien
+auf Peaks analysiert (siehe~\ref{fig:gold_hires-profile_1}). Der
+gemittelte Peakabstand ergab dann die Netzebenenabst\"ande
+in~\ref{tab:hrtemnetz}. Die statistische Abweichung ergibts sich aus
+der Standardabweichung der Peakabst\"ande (geteilt durch die Wurzel
+der Anzahl der Peaks). Die systematische Abweichung ergibt sich
+gem\"a\ss{} der Fehlerfortpflanzung zu
+\(\Delta d = \frac{\Delta x}{n}\), wobei \(n\) die Anzahl der Peaks
+und \(\Delta x = \SI{0.037}{\nano\meter}\) die ortsaufl\"osung des
+Profils ist.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{S|SSS}
+    \toprule
+    {Aufn. Nr.} & {\(d\) [\si{\nano\meter}]} & {\(\Delta d_{syst}\)
+                                               [\si{\nano\meter}]} &
+                                                                     {\(\Delta
+                                                                     d_{stat}\)
+                                                                     [\si{\nano\meter}]}\\
+    \midrule
+    1 & 0.204 & 0.007 & 0.007 \\
+    2 & 0.245 & 0.005 & 0.006 \\
+    3 & 0.2336 & 0.0037 & 0.0047 \\
+    4 & 0.241 & 0.005 & 0.006 \\
+  \end{tabular}
+  \caption[HRTEM Netzebenenabst\"ande]{Aus den HRTEM Aufnahmen
+    ermittelte Netzebenenabst\"ande}
+  \label{tab:hrtemnetz}
+\end{table}
+
+\begin{figure}[hpt]\centering
+  \subfloat[Aufnahme 1]{%
+    \begin{subfigure}{.29\textwidth}
+      \centering \resizebox{1\textwidth}{!}{%
+        \input{../auswertung/figs/gold_hires/profile_1.pgf} }
+      \caption{Intenit\"atsprofil.}
+      \label{fig:gold_hires-profile_1}
+    \end{subfigure}
+    \begin{subfigure}{.29\textwidth}
+      \centering
+      \includegraphics[width=.8\textwidth]{../messungen/gold_hires/auswertung/1/insel/Gold_1.jpg}%
+      \caption{Gesamtbild.}
+      \label{fig:gold_hires-picture_1}
+    \end{subfigure}
+
+  \begin{subfigure}{.29\textwidth}
+    \centering
+    \includegraphics[width=.8\textwidth]{../messungen/gold_hires/auswertung/1/insel/Gold_1s.jpg}%
+    \caption{Ausschnitt.}
+    \label{fig:gold_hires-detail_1}
+  \end{subfigure}
+}
+
+\vspace{.5cm}
+\subfloat[Aufnahme 2]{%
+  \begin{subfigure}{.29\textwidth}
+    \centering \resizebox{1\textwidth}{!}{%
+      \input{../auswertung/figs/gold_hires/profile_4.pgf} }
+    \caption{Intenit\"atsprofil.}
+    \label{fig:gold_hires-profile_2}
+  \end{subfigure}
+  \begin{subfigure}{.29\textwidth}
+    \centering
+    \includegraphics[width=.8\textwidth]{../messungen/gold_hires/auswertung/4/insel/Gold_4.jpg}%
+    \caption{Gesamtbild.}
+    \label{fig:gold_hires-picture_2}
+  \end{subfigure}
+
+  \begin{subfigure}{.29\textwidth}
+    \centering
+    \includegraphics[width=.8\textwidth]{../messungen/gold_hires/auswertung/4/insel/Gold_4s.jpg}%
+    \caption{Ausschnitt.}
+    \label{fig:gold_hires-detail_2}
+  \end{subfigure}
+}
+
+\vspace{.5cm}
+\subfloat[Aufnahme 3]{%
+  \begin{subfigure}{.29\textwidth}
+    \centering \resizebox{1\textwidth}{!}{%
+      \input{../auswertung/figs/gold_hires/profile_6.pgf} }
+    \caption{Intenit\"atsprofil.}
+    \label{fig:gold_hires-profile_3}
+  \end{subfigure}
+  \begin{subfigure}{.29\textwidth}
+    \centering
+    \includegraphics[width=.8\textwidth, ]{../messungen/gold_hires/auswertung/6/zwei _richtungen/diag_6.jpg}%
+    \caption{Gesamtbild.}
+    \label{fig:gold_hires-picture_3}
+  \end{subfigure}
+
+  \begin{subfigure}{.29\textwidth}
+    \centering
+    \includegraphics[width=.8\textwidth]{../messungen/gold_hires/auswertung/6/zwei _richtungen/diag_6s.jpg}%
+    \caption{Ausschnitt. Auswahlrechteck fehlt.}
+    \label{fig:gold_hires-detail_3}
+  \end{subfigure}
+}
+
+
+\vspace{.5cm}
+\subfloat[Aufnahme 4]{%
+  \begin{subfigure}{.29\textwidth}
+    \centering \resizebox{1\textwidth}{!}{%
+      \input{../auswertung/figs/gold_hires/profile_10.pgf} }
+    \caption{Intenit\"atsprofil.}
+    \label{fig:gold_hires-profile_4}
+  \end{subfigure}
+  \begin{subfigure}{.29\textwidth}
+    \centering
+    \includegraphics[width=.8\textwidth, ]{../messungen/gold_hires/auswertung/10/1/Gold_10.jpg}%
+    \caption{Gesamtbild.}
+    \label{fig:gold_hires-picture_4}
+  \end{subfigure}
+
+  \begin{subfigure}{.29\textwidth}
+    \centering
+    \includegraphics[width=.8\textwidth]{../messungen/gold_hires/auswertung/10/1/Gold_10s.jpg}%
+    \caption{Ausschnitt.}
+    \label{fig:gold_hires-detail_4}
+  \end{subfigure}
+}
+\caption[HRTEM Aufnahmen]{HRTEM aufnamen einer Gruppe von Goldinseln
+  mit Detailausschnitt und Intensitätsprofil, integriert aus den
+  blauen Rechtecken in den Ausschnitten.}\label{fig:hrtem}
+\end{figure}
+
+% todo: formel index kub. Gitter
+
+Da f\"ur die Netzebenenabst\"ande im Kubischen Gitter mit der
+Gitterkonstante \(a\)
+\begin{equation}
+  \label{eq:cubd}
+  d_{hkl} = \frac{a}{\sqrt{h^2+k^2+l^2}}
+\end{equation}
+gilt k\"onnen durch durch Multiplikation des gemessenen Abstandes mit
+\({\sqrt{h^2+k^2+l^2}}\) f\"ur verschiedene \(h,k,l\in\mathbb{N}\) und
+Vergleich mit dem Literaturwert
+\(a_{lit}=\SI{.4078}{\nano\meter}\)~\cite{Wyckoff1968} die plausibelsten
+Netzebenen ermittelt werden.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{SS|SSSS}
+    \toprule
+    {Aufn. Nr.} & {\(\sqrt{h^2+k^2+l^2}\)} & {\(a\) [\si{\nano\meter}]} &
+                                                                   {\(\Delta a_{syst}\)
+                                               [\si{\nano\meter}]} &
+                                                                     {\(\Delta
+                                                                     a_{stat}\)
+                                                                     [\si{\nano\meter}]}
+    & {\(|a-a_{lit}|\) [\si{\nano\meter}]}\\
+    \midrule
+    1 & \(\sqrt{4}\) & 0.409 & 0.013 & 0.013 & 0.001 \\
+    2 & \(\sqrt{3}\) & 0.424 & 0.009 & 0.010 & 0.016 \\
+    3 & \(\sqrt{3}\) & 0.405 & 0.006 & 0.008 & 0.003 \\
+    4 & \(\sqrt{3}\) & 0.418 & 0.008 & 0.010 & 0.010 \\
+  \end{tabular}
+  \caption[HRTEM Gitterkonstanten]{Aus den HRTEM Aufnahmen
+    ermittelte Gitterkonstanten.}
+  \label{tab:hrtemas}
+\end{table}
+
+\ref{tab:hrtemnetz} Zeigt die gewonnenen
+Gitterkonstanten. Interssanterweise weist Messung \(2\) den
+gr\"o\ss{}ten Abstand zum Literaturwert auf und hat dennoch nicht die
+gr\"o\ss{}ten Fehlergrenzen. Falls die Profielbildung nich genau
+senkrecht zu den Netzebenen erfolgt, ergeben sich nicht gut
+Quantifizierbare Abweichungen. Das ist hier warscheinlich der Fall. In
+allen F\"allen liegt der Litertaturwert jedoch innerhalb der
+kombinierten Fehlergrenzen.
+
+Die zwei dazugeh\"origen Netzebenen (ohne Permutation) sind
+in~\ref{tab:netzhrtem} einzusehen.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ll}
+    \toprule
+    \(\sqrt{h^2+k^2+l^2}\) & Netzebenen \\
+    \midrule
+    \(\sqrt{3}\) & \(\mqty(1 & 1 & 1)\) \\
+    \(\sqrt{4}\) & \(\mqty(2 & 0 & 0)\) \\
+  \end{tabular}
+  \caption{Netzebenen zu den \(\sqrt{h^2+k^2+l^2}\) aus der HRTEM Messung.}
+  \label{tab:netzhrtem}
+\end{table}
+
+Durch gewichtetes mitteln der Gitterkonstanten aus~\ref{tab:hrtemas}
+wird die Resultierende Gitterkonstante ermittelt. Die gewichte ergeben
+sich dabei aus \(w_i = (\Delta a_{syst} + \Delta a_{stat})^{-2}\). Mit eben
+diesen Gewichten wird auch die systematische Abweichung nach
+Fehlerfortpflanzung zu \((\sum_i w_i)^{-1/2}\) bestimmt. Die
+statistische Abweichung ergibt sich durch die gewichtete
+Standardabweichung aus den vier Messwerten.~\cite{Aachen}
+
+\begin{equation}
+  \label{eq:ahrtem}
+  a_{HRTEM} = \SI[parse-numbers=false]{0.413\pm 0.009\,(sys)\pm 0.008\,(stat)}{\nano\meter} 
+\end{equation}
+
+Der wert in~\eqref{eq:ahrtem} stimmt innerhalb der Abweichungsgrenzen
+mit der Litertatur \"uberein.
 
 \newpage
 \section{Verzeichnisse}
