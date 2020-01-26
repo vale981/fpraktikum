@@ -42,6 +42,9 @@ def load_profiles(path):
 def scientific_round(val, *err):
     """Scientifically rounds the values to the given errors."""
     val, err = np.asarray(val), np.asarray(err)
+    if len(err.shape) == 1:
+        err = np.array([err])
+        err = err.T
     err = err.T
 
     if err.size == 1 and val.size > 1:
@@ -74,7 +77,7 @@ def scientific_round(val, *err):
         return rounded, rounded_err
     else:
         prec = prec[0]
-        return smart_round(val, prec), smart_round(err, prec)[0]
+        return smart_round(val, prec), *smart_round(err, prec)[0]
 
 ###############################################################################
 #                                  Plot Porn                                  #
@@ -131,25 +134,55 @@ def save_fig(fig, title, folder='unsorted', size=(5, 4)):
 \end{figure}
     ''')
 
-def plot_profile(profile, **pyplot_args):
+def plot_profile_common(profile, **pyplot_args):
     x, amp = profile.T
     fig, ax = set_up_plot()
 
     ax.step(x, amp, label='Intensität', **pyplot_args)
     ax.set_xlim([x[0], x[-1]])
     ax.set_ylabel('relative Intensit\"a')
-    ax.set_xlabel('x [nm]')
-
     ax.legend()
 
     return fig, ax
 
 
-def analyze_profile(profile, limits=(0, -1), save=None):
+def plot_profile(profile, **pyplot_args):
+    fig, ax = plot_profile_common(profile, **pyplot_args)
+
+    ax.set_xlabel('x [nm]')
+
+    return fig, ax
+
+def plot_diffr_profile(profile, **pyplot_args):
+    fig, ax = plot_profile_common(profile, **pyplot_args)
+
+    ax.set_xlabel('x [1/nm]')
+
+    return fig, ax
+
+def analyze_diffr_profile(profile, limits, save=None, **peak_args):
+    x, amp = profile.T
+    fig, ax = plot_diffr_profile(profile)
+
+    peaks, peak_info = find_peaks(amp[limits[0]:limits[1]], width=0, **peak_args)
+
+    peaks += limits[0]
+
+    ax.plot(x[peaks], amp[peaks], "x", label='Peaks')
+    ax.axvspan(x[limits[0]], x[limits[1]], color='gray', zorder=-1, alpha=.2,
+               label='Auswertungsbereich')
+    ax.legend()
+
+    candidates = 1/x[peaks]
+    d_candidates = candidates**2*(x[1]-x[0])
+    sigma_candidates = candidates**2*peak_info['widths']*(x[1]-x[0])
+    return candidates, d_candidates, sigma_candidates
+
+def analyze_profile(profile, limits=(0, -1), save=None, **peak_args):
     x, amp = profile.T
     fig, ax = plot_profile(profile)
 
-    peaks, _ = find_peaks(amp[limits[0]:limits[1]])
+    peaks, _ = find_peaks(amp[limits[0]:limits[1]], **peak_args)
     peaks += limits[0]
 
     ax.plot(x[peaks], amp[peaks], "x", label='Peaks')
@@ -182,10 +215,25 @@ def evaluate_hypothesis(analyzed, maximum=10, gold=.4078):
 def generate_hypethsesis_table(squared, analyzed, residues):
     out = ''
     for square, value, residue in zip(squared, analyzed, residues):
-        #value = scientific_round(*value)
-        val, err = scientific_round(value[0], [value[1]], [value[2]])
+        value = np.array(scientific_round(*value))
 
-        out += rf'\(\sqrt{{{square}}}\) & {val} & ' \
-        + ' & '.join(err.astype(str)) + f' & {residue:.3f} \\\\\n'
+        out += rf'\(\sqrt{{{square}}}\) & ' \
+        + ' & '.join(value.astype(str)) + f' & {residue:.3f} \\\\\n'
 
     return out
+
+def determine_lattice_constant(hypothesis):
+    """
+    Calculate the weighted mean and standard deviation by using the
+    combined deviation as weights.
+
+    The systemic deviation is calculated by error propagation.
+    """
+    a_s = hypothesis[1][:,0]
+    syst_err = hypothesis[1][:,1] + hypothesis[1][:,2]
+    weights = 1/syst_err**2
+    a = np.average(a_s, weights=weights)
+    d_a = np.sqrt(1/np.sum(weights))
+    sigma_a = np.sqrt(np.average((a_s-a)**2, weights=weights))
+
+    return a, d_a, sigma_a
