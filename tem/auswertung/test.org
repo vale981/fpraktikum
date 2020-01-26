@@ -1,0 +1,40 @@
+
+thesnht
+
+
+
+#+BEGIN_SRC emacs-lisp :results output :exports both
+  (princ (concat (format "Emacs version: %s\n" (emacs-version))
+                 (format "org version: %s\n" (org-version))))
+
+#+END_SRC
+
+#+RESULTS:
+: Emacs version: GNU Emacs 26.3 (build 1, x86_64-pc-linux-gnu, GTK+ Version 3.24.10)
+:  of 2019-08-29
+: org version: 9.1.9
+
+#+NAME: 2eb6a65a-ca91-45f6-a96e-8f16c3d222d2
+#+BEGIN_SRC ein-python :session localhost :results raw drawer
+  import numpy, math, matplotlib.pyplot as plt
+  %matplotlib inline
+  x = numpy.linspace(0, 2*math.pi)
+  plt.plot(x, numpy.sin(x))
+  print('hi')
+#+END_SRC
+
+#+RESULTS: 2eb6a65a-ca91-45f6-a96e-8f16c3d222d2
+:RESULTS:
+[<matplotlib.lines.Line2D at 0x7fd67e31f8b0>]
+[[file:ein-images/ob-ein-e5a882ae75bd4a3a40303cdc25c0ac76.png]]
+:END:
+
+#BEGIN_SRC ein-python
+
+#+END_SRC
+
+
+#+NAME: d3e8af2d-eb61-474e-b075-fdb5d5b5849d
+#+BEGIN_SRC ein-hy :session localhost :results raw drawer
+(print "hi")
+#+END_SRC
