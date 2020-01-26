@@ -30,6 +30,10 @@ Dazu muss der Patient einen so genannten Tracer aufnehmen. Dabei handelt es sich
 radioaktive Substanz mit einer Halbwertszeit von mehreren Minuten oder Stunden, die sich an
 bestimmte Geweberegionen im Körper anlagert. Bei dieser radioaktiven Substanz handelt es sich
 um ein Material, das überwiegend über den \(\beta^+\) - Zerfall zerfällt.
+
+\subsection{\(\beta^+\)-Zerfall}
+\label{sec:betazerf}
+
 Wie der Name des Verfahrens besagt, benötigt es für dieses Positronen. Diese werden durch eben
 erwähnten \(\beta^+\) - Zerfall erzeugt:
 
@@ -57,6 +61,9 @@ die Photonen auf, sodass diese ergo eine Energie von \(E_\gamma = \SI{511}{\kilo
 Da die Annihilation in Ruhe stattfindet und Energie und Impulserhaltung gilt, schließen die beiden
 Photonen einen Winkel von \(180^\circ\) ein, bewegen sich also antiparallel.\\
 
+\subsection{Grundlegende Funktionsweise des PET}
+\label{sec:fktweise}
+
 Um den Beobachtungsort sind in einem Ring (in diesem Versuch nur zwei gegenüberliegende, die
 in einer festgelegten Geschwindigkeit um die Quelle herumfahren)
 Detektoren angebracht, die die entstandenen Photonen registrieren.
@@ -68,6 +75,9 @@ ein Energiefenster passen, nicht berücksichtigt werden. Des Weiteren haben die 
 bestimmten Abstand zu einander, was bedeutet, dass die Photonen mit einer maximalen zeitlichen
 Differenz von Detektorabstand geteilt durch Lichtgeschwindigkeit eintreffen müssen, sofern sie
 innerhalb des PET erzeugt wurden.\\
+
+\subsubsection{Koinzidenzen}
+\label{sec:koinz}
 
 Die Zählrate der wahren Koinzidenzen, also der für uns interessanten ergibt sich folgendermaßen:
 
@@ -81,6 +91,30 @@ Die Zählrate der wahren Koinzidenzen, also der für uns interessanten ergibt si
         A & Aktivität der Quelle\\
         \epsilon_1/\epsilon_2 & intrinsische Nachweiseffektivitäten der Detektoren
 \end{conditions}
+
+Es gibt aber auch zufällige Koinzidenzen, also unkorrelierte Ereignisse, die herausgefiltert
+ werden müssen. Deren Zahl steigt mit der Quellaktivität \(A\) an:
+ 
+\begin{equation}\label{eq:zufkoinz}
+	\dot{N_Z} = \qty[4\tau \cdot A \cdot \qty(\frac{\Omega_{\min}}{2\pi})] \cdot \dot{N_K}
+\end{equation}
+
+\(\tau\) bezeichnet die Koinzidenzauflösungszeit.\\
+
+Das Raumwinkelelement \(\Omega_{\min}\) berechnet sich wie folgt:
+
+\begin{equation}\label{eq:raumwinkel}
+	\Omega_{\min} = \frac{A_{eff}}{d^2_{max}}
+\end{equation}
+
+\begin{conditions}
+	A_{eff} & effektive Detektorfläche\\
+	d_{max} & Abstand des Detektors zur Quelle
+\end{conditions}
+
+
+\subsubsection{Detektoren des PET}
+\label{sec:detektor}
 
 Die Detektoren, die für die PET verwendet werden, sind Szintillationsdetektoren. Einfach
 beschrieben absorbiert ein Szintillator ein eintreffendes Photon und wandelt dieses in Photonen
@@ -103,6 +137,10 @@ Kristall vor den vier Photomultipliern in einer 8 x 8 - Matrix unterteilt.
 Die so aufgenommenen Amplituden sind aufsummiert proportional zu der Energie, die von den
 Photonen im Detektor deponiert wurde. Bildet man den Schwerpunkt der Amplituden kann man
 den Ort, an dem die Photonen mit dem Kristall wechselwirkten, bestimmen.\\
+
+
+\subsection{Mathematische Grundlagen}
+\label{sec:maths}
 
 Bei diesem Verfahren wird also eine zweidimensionale Abbildung, eine Quellverteilung, die man
 untersuchen will, auf eine eindimensionale Funktion, die eine Intensitätsverteilung beschreibt,
@@ -166,10 +204,19 @@ ergibt sich die Rückprojektion
 	f_I(x,y) \approxeq \int_{0}^{\pi} p_F(s,\vartheta) d\vartheta .
 \end{equation}
 
+
+\subsection{Erfassung der Messdaten}
+\label{sec:datenerf}
+
 In der Praxis werden zuerst die Energien der detektierten Photonen berechnet und anschließend
 überprüft, ob diese die vorher eingestellten Energie- und Koinzidenzzeitfenster einhalten.
+Die im Detektor deponierte Energie wird durch die Summierung der gemessenen Amplituden, die 
+proportional zur Energie sind, ermittelt.
 Nun werden den Photonen die Kristalle zugeordnet und deren Position auf der Projektionsachse
-bestimmt. Sind beide Photonen in die Detektoren, die sich genau gegenüberliegen eingetroffen,
+bestimmt.
+Zur Bestimmung wo die Photonen auf den Detektor getroffen, wo sie mit ihm wechselwirkten,
+wird aus den Amplituden der Schwerpunkt gebildet.
+Sind beide Photonen in die Detektoren, die sich genau gegenüberliegen, eingetroffen,
 werden sie für die weiteren Berechnungen verwendet.
 Zuerst wird das eindimensionale Intensitätsprofil, also die Projektion, berechnet, aus dem dann
 wiederum das Sinogramm bestimmt wird. Anschließend erfolgt die einfache Rückprojektion.
@@ -881,7 +928,7 @@ feinere Artefaktstrukturen zu gr\"o\ss{}eren, langsamer
 ver\"anderlichen zusammenzufassen, wobei sie dabei auch den Kontrast von
 sehr starken Signalen (Quellen) zu ihrer Umgebung steigern und diese
 klarer abgrenzt. Die gelingt in (b) besser als in (a) oder auch im
-Mittelfilter, wobei bei (a) und (b) die Rechte, obere Quelle
+Mittelfilter, wobei bei (a) und (b) die rechte, obere Quelle
 verschmiert und sie in~\ref{eq:tom1-178} klar aufgel\"ost wird. In (b)
 und (c) erscheinen die Quellen als relativ helle, kleine Punkte mit
 mehr oder weniger unf\"ormigen Halos. Die rechte obere Quelle ist
