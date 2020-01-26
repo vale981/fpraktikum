@@ -201,11 +201,40 @@ def analyze_profile(profile, limits=(0, -1), save=None, **peak_args):
 
     return l, dl, sigma
 
+def find_miller_indices(squares):
+    squares = np.asarray(squares)
+    if squares.size > 1:
+        return np.array([find_miller_indices(x) for x in squares])
+    square = squares
+    return np.array([(a, b, c) for (a, b, c) \
+                in np.ndindex((square+1, square+1, square+1)) \
+       if a**2 + b**2 + c**2 == square and a >= b >= c])
+
+def can_be_sum_of_squares(square):
+    for a, b, c in np.ndindex((square+1, square+1, square+1)):
+        if a**2 + b**2 + c**2 == square:
+            return True
+
+    return False
+
+def generate_miller_table(squares):
+    squares = np.unique(squares)
+    inds = find_miller_indices(squares)
+    out = ''
+    for i, ind_list in zip(squares, inds):
+        out += f'{i + 1} & '
+        for ind in ind_list:
+            out += r'\mqty{' + ' & '.join(ind.astype(str)) + '}, '
+        out = out[:-2]
+
+        out += r' \\' + '\n'
+    return out
 
 def evaluate_hypothesis(analyzed, maximum=10, gold=.4078):
     diffs = np.empty((maximum, analyzed.shape[0]))
 
-    squared_ds = np.arange(1, maximum + 1, 1)
+    squared_ds = np.array([x for x in np.arange(1, maximum + 1, 1) \
+                           if can_be_sum_of_squares(x)])
     ds = np.sqrt(squared_ds)
     a = analyzed[:,0][:, None] * ds[None, :]
     diff = np.abs(a - gold)
