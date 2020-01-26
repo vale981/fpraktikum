@@ -221,8 +221,9 @@ def generate_miller_table(squares):
     squares = np.unique(squares)
     inds = find_miller_indices(squares)
     out = ''
+
     for i, ind_list in zip(squares, inds):
-        out += f'{i + 1} & '
+        out += f'{i} & '
         for ind in ind_list:
             out += r'\mqty{' + ' & '.join(ind.astype(str)) + '}, '
         out = out[:-2]
@@ -243,10 +244,11 @@ def evaluate_hypothesis(analyzed, maximum=10, gold=.4078):
 
 def generate_hypethsesis_table(squared, analyzed, residues):
     out = ''
-    for square, value, residue in zip(squared, analyzed, residues):
+    for i, square, value, residue in zip(range(1, len(squared)+1),
+                                     squared, analyzed, residues):
         value = np.array(scientific_round(*value))
 
-        out += rf'\(\sqrt{{{square}}}\) & ' \
+        out += rf'{i} & \(\sqrt{{{square}}}\) & ' \
         + ' & '.join(value.astype(str)) + f' & {residue:.3f} \\\\\n'
 
     return out

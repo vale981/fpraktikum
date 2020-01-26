@@ -95,3 +95,27 @@
   \label{fig:gold_hires-profile_10}
 \end{figure}
     
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/gold_hires/profile_1.pgf}
+  \caption{}
+  \label{fig:gold_hires-profile_1}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/gold_hires/profile_4.pgf}
+  \caption{}
+  \label{fig:gold_hires-profile_4}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/gold_hires/profile_6.pgf}
+  \caption{}
+  \label{fig:gold_hires-profile_6}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/gold_hires/profile_10.pgf}
+  \caption{}
+  \label{fig:gold_hires-profile_10}
+\end{figure}
+    
