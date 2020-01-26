@@ -23,33 +23,37 @@
 \section{Einleitung}
 \label{sec:einl}
 
-Dieser Versuch beschäftigt sich mit der Positronen-Emissions-Tomographie (PET), die ein
-wichtiges bildgebendes Verfahren in der Medizin darstellt, um beispielsweise einen Tumore oder
-allgemein Stoffwechselvorgänge sichtbar zu machen.
-Dazu muss der Patient einen so genannten Tracer aufnehmen. Dabei handelt es sich um eine
-radioaktive Substanz mit einer Halbwertszeit von mehreren Minuten oder Stunden, die sich an
-bestimmte Geweberegionen im Körper anlagert. Bei dieser radioaktiven Substanz handelt es sich
-um ein Material, das überwiegend über den \(\beta^+\) - Zerfall zerfällt.
+Dieser Versuch beschäftigt sich mit der
+Positronen-Emissions-Tomographie (PET), die ein wichtiges bildgebendes
+Verfahren in der Medizin darstellt, um beispielsweise einen Tumore
+oder allgemein Stoffwechselvorgänge sichtbar zu machen.  Dazu muss der
+Patient einen so genannten Tracer aufnehmen. Dabei handelt es sich um
+eine radioaktive Substanz mit einer Halbwertszeit von mehreren Minuten
+oder Stunden, die sich an bestimmte Geweberegionen im Körper anlagert,
+also Verstoffwechselt wird. Bei dieser radioaktiven Substanz handelt
+es sich um ein Material, das überwiegend über den
+\(\beta^+\)~-~Zerfall zerfällt.
 
 \subsection{\(\beta^+\)-Zerfall}
 \label{sec:betazerf}
 
-Wie der Name des Verfahrens besagt, benötigt es für dieses Positronen. Diese werden durch eben
-erwähnten \(\beta^+\) - Zerfall erzeugt:
+Wie der Name des Verfahrens besagt, benötigt es für dieses
+Positronen. Diese werden durch \(\beta^+\)~-~Zerfall erzeugt.
 
 \begin{equation}\label{eq:betazerf}
         p^+ \rightarrow n + e^+ + \nu_e
 \end{equation}
 
-Wie die Zerfallsgleichung~\eqref{eq:betazerf} zeigt, zerfällt beim \(\beta^+\) - Zerfall ein Proton
-in ein Neutron, das für die PET wichtige Positron und ein Elektron-Neutrino. Weswegen die
-Tracer-Materialien einen Protonenüberschuss im Kern haben.
-Neutrinos interagieren nur sehr selten mit Materie, weshalb die beim Zerfall entstehenden einfach
-durch den Körper durchgehen und somit hier nicht interessant sind. Das Neutron verbleibt im Kern
-und das Positron propagiert durch das Gewebe des Körpers mit einer Reichweite von wenigen
-Millimetern und annihiliert dann mit einem Elektron aus der Hülle eines Atoms zu zwei Photonen.
-Je besser die Auflösung dieses Verfahrens sein soll, desto kürzer darf die Reichweite der
-Positronen sein, das heißt: Je näher sie am Entstehungsort annihilieren, desto besser.
+Wie die Zerfallsgleichung~\eqref{eq:betazerf} zeigt, zerfällt beim
+\(\beta^+\)~-~Zerfall ein Proton in ein Neutron, das für die PET
+wichtige Positron und ein Elektron-Neutrino. Weswegen die
+Tracer-Materialien einen Protonenüberschuss im Kern haben.  Neutrinos
+interagieren nur sehr selten mit Materie, weshalb die beim Zerfall
+entstehenden einfach durch den Körper durchgehen und somit hier nicht
+interessant sind. Das Neutron verbleibt im Kern und das Positron
+propagiert durch das Gewebe des Körpers mit einer Reichweite von
+wenigen Millimetern und annihiliert dann mit einem Elektron aus der
+Hülle eines Atoms zu zwei Photonen.
 
 \begin{equation}\label{eq:annihi}
         e^+ + e^- \rightarrow \gamma + \gamma
@@ -64,92 +68,117 @@ Photonen einen Winkel von \(180^\circ\) ein, bewegen sich also antiparallel.\\
 \subsection{Grundlegende Funktionsweise des PET}
 \label{sec:fktweise}
 
-Um den Beobachtungsort sind in einem Ring (in diesem Versuch nur zwei gegenüberliegende, die
-in einer festgelegten Geschwindigkeit um die Quelle herumfahren)
-Detektoren angebracht, die die entstandenen Photonen registrieren.
-Allerdings können zum Beispiel durch andere Zerfallsprozesse natürlich auch andere Photonen
-entstehen, die die Messungen stören. Um solche zufällige Koinzidenzen möglichst gering zu halten,
-müssen die eintreffenden Lichtquanten bestimmte Kriterien erfüllen:\\
-Wie eben beschrieben haben die Photonen immer die gleiche Energie, sodass Photonen, die nicht in
-ein Energiefenster passen, nicht berücksichtigt werden. Des Weiteren haben die Detektoren einen
-bestimmten Abstand zu einander, was bedeutet, dass die Photonen mit einer maximalen zeitlichen
-Differenz von Detektorabstand geteilt durch Lichtgeschwindigkeit eintreffen müssen, sofern sie
-innerhalb des PET erzeugt wurden.\\
+Um den Beobachtungsort sind in einem Ring (in diesem Versuch nur zwei
+gegenüberliegende, die in einer festgelegten Geschwindigkeit um die
+Quelle herumfahrende, siehe~\ref{fig:aufgau}) Detektoren angebracht,
+die die entstandenen Photonen registrieren.  Allerdings können zum
+Beispiel durch andere Zerfallsprozesse natürlich auch andere Photonen
+entstehen, die die Messungen stören. Um solche zufällige Koinzidenzen
+möglichst gering zu halten, müssen die eintreffenden Lichtquanten
+bestimmte Kriterien erfüllen.  Wie eben beschrieben haben die Photonen
+immer die gleiche Energie, sodass Photonen, die nicht in ein
+Energiefenster passen, nicht berücksichtigt werden. Desweiteren haben
+die Detektoren einen bestimmten Abstand zu einander, was bedeutet,
+dass die Photonen mit einer maximalen zeitlichen Differenz von
+Detektorabstand geteilt durch Lichtgeschwindigkeit eintreffen müssen,
+sofern sie innerhalb des PET erzeugt wurden. Genau dann wird das
+Registrieren dieser Photonen als Koinzidenz bezeichnet.
 
 \subsubsection{Koinzidenzen}
 \label{sec:koinz}
 
-Die Zählrate der wahren Koinzidenzen, also der für uns interessanten ergibt sich folgendermaßen:
+Die Zählrate der wahren Koinzidenzen, also der für uns interessanten
+ergibt sich wie in~\eqref{eq:wahrkoinz} beschrieben und ist
+Proportional zur Aktivität der Quelle und der Detektorgeometrie.
 
 \begin{equation}\label{eq:wahrkoinz}
-        \dot N_K = \qty(\frac{\Omega_{\min}}{2 \pi}) \cdot P_\beta A \cdot \epsilon_1 \epsilon_2
+        \dot N_K = \qty(\frac{\Omega_{\min}}{2 \pi}) \cdot P_\beta\cdot A \cdot \epsilon_1\cdot\epsilon_2
 \end{equation}
 
 \begin{conditions}
         \Omega_{\min} & Raumwinkelelement des von der Quelle am weitesten entfernten Detektors\\
         P_\beta & Zerfallswahrscheinlichkeit des Nuklids für \(\beta^+\) - Zerfall\\
         A & Aktivität der Quelle\\
-        \epsilon_1/\epsilon_2 & intrinsische Nachweiseffektivitäten der Detektoren
+        \epsilon_1, \epsilon_2 & intrinsische Nachweiseffektivitäten der Detektoren
 \end{conditions}
 
-Es gibt aber auch zufällige Koinzidenzen, also unkorrelierte Ereignisse, die herausgefiltert
- werden müssen. Deren Zahl steigt mit der Quellaktivität \(A\) an:
- 
+Neben den wahren koinzidenzen ergeben sich auch Zuf\"allige
+Koinzidenzen, beispielsweise durch Mehrfachstreuung. Diese Ereignisse
+stimmen Zeitlich ungef\"ahr \"uberein und werden jeh nach
+Koinzidenaufl\"osungszeit \(\tau\) vom Detektor als Koinzidenz
+gez\"ahlt.  Die Z\"ahlrate solcher Ereignisse ist Proportional zur
+Koinzidenzz\"ahlrate \(\dot{N}_K\) und zu \(\tau\). Es sollte also
+\(\tau\) m\"oglichst kurz sein.
+
 \begin{equation}\label{eq:zufkoinz}
-	\dot{N_Z} = \qty[4\tau \cdot A \cdot \qty(\frac{\Omega_{\min}}{2\pi})] \cdot \dot{N_K}
+        \dot{N}_Z = \qty[4\tau \cdot A \cdot \qty(\frac{\Omega_{\min}}{2\pi})] \cdot \dot{N}_K
 \end{equation}
 
-\(\tau\) bezeichnet die Koinzidenzauflösungszeit.\\
 
-Das Raumwinkelelement \(\Omega_{\min}\) berechnet sich wie folgt:
+Das Raumwinkelelement der Detektorgeometrie \(\Omega_{\min}\)
+berechnet sich wie in beiden F\"allen wie in~\eqref{eq:raumwinkel}.
 
 \begin{equation}\label{eq:raumwinkel}
-	\Omega_{\min} = \frac{A_{eff}}{d^2_{max}}
+        \Omega_{\min} = \frac{A_{eff}}{d^2_{max}}
 \end{equation}
 
 \begin{conditions}
-	A_{eff} & effektive Detektorfläche\\
-	d_{max} & Abstand des Detektors zur Quelle
+        A_{eff} & effektive Detektorfläche\\
+        d_{max} & Abstand des Detektors zur Quelle
 \end{conditions}
 
 
 \subsubsection{Detektoren des PET}
 \label{sec:detektor}
 
-Die Detektoren, die für die PET verwendet werden, sind Szintillationsdetektoren. Einfach
-beschrieben absorbiert ein Szintillator ein eintreffendes Photon und wandelt dieses in Photonen
-mit einer anderen Wellenlänge, die meist im sichtbaren oder ultravioletten Bereich liegt, um.
-Dabei dient das Szintillatormaterial, das in diesem Versuch aus Kristallen besteht (es gibt
-aber auch weitere Szintillatortypen, beispielsweise organische, die mit Plastik als Material
-arbeiten) auch als Lichtleiter.
-Hinter dem Kristall befindet sich eine Photokathode, die die eintreffenden Photonen über den
-Photoelektrischen Effekt in Elektronen umwandeln. Da die durch die Photonen herausgelösten
-Elektronen sehr wenige sein können, zu wenige, um ein Signal zu messen, ist nun noch ein
-Photomultiplier angeschlossen, der die Elektronen mittels Hochspannung beschleunigt und die
-Anzahl der Elektronen vervielfältigt. Diese Vervielfältigung funktioniert über Dynoden. Auf diese
-prallen die Elektronen auf und lösen mehrere Sekundärelektronen heraus. Durch
-Hintereinanderreihung von mehreren Dynoden, steigt die Elektronenanzahl exponentiell an.\\
+Die Detektoren, die für die PET verwendet werden, sind
+Szintillationsdetektoren.  Ein Szintillator absorbiert ein
+eintreffendes Photon und wandelt dieses in Photonen mit einer anderen
+Wellenlänge, die meist im sichtbaren oder ultravioletten Bereich
+liegt, um.  Dabei dient das Szintillatormaterial, das in diesem
+Versuch aus Kristallen besteht (es gibt aber auch weitere
+Szintillatortypen, beispielsweise organische, die mit Plastik als
+Material arbeiten) auch als Lichtleiter.  Hinter dem Kristall befindet
+sich eine Photokathode, die die eintreffenden Photonen über den
+Photoelektrischen Effekt in Elektronen umwandeln. Da die durch die
+Photonen herausgelösten Elektronen sehr wenige sein können, zu wenige,
+um ein Signal zu messen, ist nun noch ein Photomultiplier
+angeschlossen, der die Elektronen mittels Hochspannung beschleunigt
+und die Anzahl der Elektronen vervielfältigt. Diese Vervielfältigung
+wird durch eine Spannungskaskade über sog. Dynoden. Auf diese prallen
+die Elektronen auf und lösen mehrere Sekundärelektronen heraus. Durch
+Hintereinanderreihung von mehreren Dynoden, zwischen denen jeweils
+Hochspannung herrscht, steigt die Elektronenanzahl exponentiell an.\\
 
-Um mit Hilfe der Szintillatoren auf die Energie sowie den Ort der im Detektor erzeugten Photonen
-schließen zu können, ist ein Szintillatorkristall von vier Photomultipliern unterschiedlich tief
-eingeschnitten. Diese Art von Detektoren nennt sich Blockdetektoren. In diesem Versuch ist der
-Kristall vor den vier Photomultipliern in einer 8 x 8 - Matrix unterteilt.
-Die so aufgenommenen Amplituden sind aufsummiert proportional zu der Energie, die von den
-Photonen im Detektor deponiert wurde. Bildet man den Schwerpunkt der Amplituden kann man
-den Ort, an dem die Photonen mit dem Kristall wechselwirkten, bestimmen.\\
-
+Um mit Hilfe der Szintillatoren auf die Energie sowie den Ort der im
+Detektor erzeugten Photonen schließen zu können, ist ein
+Szintillatorkristall von vier Photomultipliern unterschiedlich tief
+eingeschnitten. Diese Art von Detektoren nennt sich
+Blockdetektoren. In diesem Versuch ist der Kristall vor den vier
+Photomultipliern in einer \(8\times 8\)~-~Matrix unterteilt.  Die so
+aufgenommenen Amplituden sind aufsummiert proportional zu der Energie,
+die von den Photonen im Detektor deponiert wurde. Bildet man den
+Schwerpunkt der Amplituden kann man den Ort, an dem die Photonen mit
+dem Kristall wechselwirkten, nach
+entsprechender Kalibrierung bestimmen.
 
 \subsection{Mathematische Grundlagen}
 \label{sec:maths}
+\begin{wrapfigure}{r}{.4\textwidth}
+ \includegraphics[width=.4\textwidth]{radon.png}
+ \caption{Illustration der Radon-Transformation in zwei Dimensionen.}
+ \label{fig:radonillu}
+\end{wrapfigure}
 
-Bei diesem Verfahren wird also eine zweidimensionale Abbildung, eine Quellverteilung, die man
-untersuchen will, auf eine eindimensionale Funktion, die eine Intensitätsverteilung beschreibt,
-projiziert.
-Dieser Vorgang wird mathematisch durch die Radon-Transformation beschrieben. Diese Transformation
-projiziert eine zweidimensionale Funktion auf eine Gerade \(s\), die durch den Koordinatenursprung
-läuft und einen Winkel \(\vartheta\) mit der x-Achse einschließt.
-Die Projektion ordnet dabei den auf der Projektionsgeraden \(s\) befindlichen Punkten ein
-Linienintegral \(p(s, \vartheta)\) zu:
+Bei aufnahmen mit dem PET wird eine zweidimensionale Abbildung, eine
+Quellverteilung, die man untersuchen will, auf eine Winkelabh\"angige
+die eine Intensitätsverteilung projiziert.  Dieser Vorgang wird
+mathematisch durch die Radon-Transformation beschrieben. Diese
+Transformation projiziert eine zweidimensionale Funktion auf eine
+Gerade \(s\), die durch den Koordinatenursprung läuft und einen Winkel
+\(\vartheta\) mit der x-Achse einschließt (siehe~\ref{fig:radonillu}).
+Die Projektion ordnet dabei den auf der Projektionsgeraden \(s\)
+befindlichen Punkten ein Linienintegral \(p(s, \vartheta)\) zu:
 
 \begin{equation}\label{eq:linienint}
         p(s, \vartheta) = \int_{-R_I}^{+R_I} f_I(s \cdot \cos
@@ -174,55 +203,76 @@ Frequenzraum. Nach Verwendung des Projektionssatzes und Übergang von den kartes
 zu Zylinderkoordinaten \(S, \vartheta\) folgt:
 
 \begin{equation}\label{eq:invradon}
-	f_I(x,y) = \int_{0}^{\pi} d\vartheta \int_{-\infty}^{+\infty} P(S, \vartheta) \cdot |S| \cdot \exp[2\pi i S(x \cdot \cos\vartheta + y \cdot \sin\vartheta)] dS
+        f_I(x,y) = \int_{0}^{\pi} d\vartheta \int_{-\infty}^{+\infty}
+        P(S, \vartheta) \cdot |S| \cdot \exp[2\pi i S(x \cdot
+        \cos\vartheta + y \cdot \sin\vartheta)] \dd{S}
 \end{equation}
 
-~\eqref{eq:invradon} entspricht der inversen Radon-Transformation, die allerdings keine Lösung
-hat, da das Integral über \(dS\) divergiert.
+~\eqref{eq:invradon} entspricht der inversen Radon-Transformation, die
+allerdings schon bei kleinen St\"orungen keine Lösung
+hat, da das Integral über \(\dd{S}\) divergiert.
 Um dennoch eine Lösung anzunähern, führt man eine Filterfunktion \(H(S)\) ein, die als Produkt der
-Betragsfunktion \(|S| = \sqrt{k_x^2+k_y^2}\) und einer Fensterfunktion \(A(S)\) definiert ist.
+Betragsfunktion \(|S| = \sqrt{k_x^2+k_y^2}\) und einer Fensterfunktion
+\(A(S)\) definiert ist. Die Fensterfunktion ist dabei auf einer
+beschr\"ankten Menge ungleich null und kann verschiedene Formen
+annehmen (ergo verschiedene Filter). Im einfachsten Fall kann \(A\)
+die Rechteckfunktion sein, die dann einen Rampenfilter erzeugt.
 
 \begin{equation}\label{eq:filterfkt}
-	H(S) = A(S) \cdot |S|
+        H(S) = A(S) \cdot |S|
 \end{equation}
 
 Mit
 
 \begin{equation}\label{eq:filterkern}
-	h(s) = \int_{-\infty}^{+\infty} A(S) \cdot |S| \cdot \exp[2\pi i Ss] dS
+        h(s) = \int_{-\infty}^{+\infty} A(S) \cdot |S| \cdot \exp[2\pi i Ss] \dd{S}
 \end{equation}
 
 und
 
 \begin{equation}\label{eq:gefltdaten}
-	p_F(s, \vartheta) = p(s, \vartheta) \cdot h(s) = \int_{0}^{s'_{max}} p(s', \vartheta) \cdot h(s-s') ds'
+        p_F(s, \vartheta) = p(s, \vartheta) * h(s) = \int_{0}^{s'_{max}} p(s', \vartheta) \cdot h(s-s') \dd{s}'
 \end{equation}
 
 ergibt sich die Rückprojektion
 
 \begin{equation}\label{eq:rücktrafo}
-	f_I(x,y) \approxeq \int_{0}^{\pi} p_F(s,\vartheta) d\vartheta .
+        f_I(x,y) \approxeq \int_{0}^{\pi} p_F(s,\vartheta) \dd{\vartheta}.
 \end{equation}
 
+Die Faltung in~\eqref{eq:gefltdaten} bewirkt dabei im einfachsten Fall
+eine Verst\"arkung hoher Frequenzen und damit eine erh\"ohung des
+Kontrasts Scharf abgegrenzter objekte.
 
 \subsection{Erfassung der Messdaten}
 \label{sec:datenerf}
 
-In der Praxis werden zuerst die Energien der detektierten Photonen berechnet und anschließend
-überprüft, ob diese die vorher eingestellten Energie- und Koinzidenzzeitfenster einhalten.
-Die im Detektor deponierte Energie wird durch die Summierung der gemessenen Amplituden, die 
-proportional zur Energie sind, ermittelt.
-Nun werden den Photonen die Kristalle zugeordnet und deren Position auf der Projektionsachse
-bestimmt.
-Zur Bestimmung wo die Photonen auf den Detektor getroffen, wo sie mit ihm wechselwirkten,
-wird aus den Amplituden der Schwerpunkt gebildet.
-Sind beide Photonen in die Detektoren, die sich genau gegenüberliegen, eingetroffen,
-werden sie für die weiteren Berechnungen verwendet.
-Zuerst wird das eindimensionale Intensitätsprofil, also die Projektion, berechnet, aus dem dann
-wiederum das Sinogramm bestimmt wird. Anschließend erfolgt die einfache Rückprojektion.
-Die gefilterte Rückprojektion wird aus den Projektionsdaten berechnet, die vorher mit dem Filter
-im Ortsraum gefaltet werden. Zum Schluss wird das tomographische Bild aus den Daten der
-gefilterten Projektion ermittelt.
+\begin{wrapfigure}{r}{.5\textwidth}
+ \includegraphics[width=.5\textwidth]{aufbau.png}
+ \caption{Vesuchsaufbau}
+ \label{fig:aufbau}
+\end{wrapfigure}
+In der Praxis werden zuerst die Energien der detektierten Photonen
+berechnet und anschließend überprüft, ob diese die vorher
+eingestellten Energie- und Koinzidenzzeitfenster einhalten. Dabei
+l\"auft die Pr\"ufung des Zeitkriteriums auf einem schnelleren Pfad
+als die Verarbeitung der Energieinformationen, um eine hohe Z\"ahlrate
+zu gew\"ahrleisten. Diese Teilung wird durch spezielle NIM Karten in
+Hardware vorgenommen (siehe~\ref{fig:aufgau}).  Die im Detektor
+deponierte Energie wird durch die Summierung der gemessenen
+Amplituden, die proportional zur Energie sind, ermittelt.  Nun werden
+den Photonen die Kristalle zugeordnet und deren Position auf der
+Projektionsachse bestimmt.  Zur Bestimmung wo die Photonen auf den
+Detektor getroffen, wo sie mit ihm wechselwirkten, wird aus den
+Amplituden der Schwerpunkt gebildet.  Sind beide Photonen in die
+Detektoren, die sich genau gegenüberliegen, eingetroffen, werden sie
+für die weiteren Berechnungen verwendet.  Zuerst wird das
+eindimensionale Intensitätsprofil, also die Projektion, berechnet, aus
+dem dann wiederum das Sinogramm bestimmt wird. Anschließend erfolgt
+die einfache Rückprojektion.  Die gefilterte Rückprojektion wird aus
+den Projektionsdaten berechnet, die vorher mit dem Filter im Ortsraum
+gefaltet werden. Zum Schluss wird das tomographische Bild aus den
+Daten der gefilterten Projektion ermittelt.
 
 \section{Auswertung}
 \label{sec:ausw}
@@ -284,7 +334,9 @@ angemessene Z\"ahlrate zu gew\"ahrleisten und dennoch eine gute
 Auflösung zu erhalten. Da in Detektor A ein PM ausgetauscht wurde,
 zeigt die Energiekurve andere Charakteristiken als die von
 B. Interessanterweise liegen die beiden h\"ochsten Peaks nicht
-aufeinander (Kalibrierungsproblem/Skalierung).
+aufeinander. Es scheint ganz so, als geh\"orte der Kleine Peak zu den
+PM die \"aquivalent zu denen in Detektor B sind und der Gro\ss{}e Peak
+zum ausgetauschten PM.
 
 \begin{align}
   \label{eq:fenster}
@@ -292,6 +344,9 @@ aufeinander (Kalibrierungsproblem/Skalierung).
   \\
   R_B &= [1600, 2300] \hat{=} [452.0, 606.0]\,\si{\kilo\electronvolt}
 \end{align}
+Man erkennt, dass die Energiekalibrierung von Detektor A sehr ungenau
+ist, da das Energieinterval deutlich \"uber der Ruheenergie des
+Elektrons liegt.
 
 Bei der Bestimmung des Zeitintervalls wurde analog durch Auftragen der
 Ereigniszahl \"uber die Kan\"ale vorgegangen
@@ -391,8 +446,9 @@ Energieintervall da.
 \label{sec:quellpos}
 
 Die Energie und Zeitspektren f\"ur verschiedene Quellpositionen sind
-in~\ref{fig:calibration-comp} dargestellt.
-\begin{figure}[H]\centering
+in~\ref{fig:calibration-comp} dargestellt. Dabei ist Jeweils ein Peak
+um die Ruheenergie des Elektrons (ca. \SI{500}{\kilo\electronvolt})
+\begin{figure}[htb]\centering
   \input{../auswertung/figs/calibration/comp.pgf}
   \caption[Vergleich der Quellpositionen]{Zeit und Energiespektren f\"ur verschiedene
     Quellpositionen. (Links \(=\) bei Detektor A), relevante Ausschnitte}
@@ -429,7 +485,7 @@ betrachtet werden hier der endliche Quellendurchmesser
 (kleiner \SI{1}{\centi\meter}). Der Prozess wird
 in~\ref{fig:calibration-lenght_det} illustriert.
 
-\begin{figure}[H]\centering
+\begin{figure}[htb]\centering
   \input{../auswertung/figs/calibration/lenght_det.pgf}
   \caption[Abstandsbestimmung]{Bestimmung der Peakpositionen der Zeitspektren zwecks der
     Berechnung des Detektorabstandes. Die farbigen Intervallmarkierungen
@@ -602,26 +658,26 @@ in~\ref{fig:tom1} dargestellt und wird im Folgenden nachvollzogen.
 \end{figure}
 
 \begin{description}
-\item[\(7^\circ\) (\ref{eq:tom1-7})] Es sind auf der Horizontalen
+\item[\(7^\circ\) (\eqref{eq:tom1-7})] Es sind auf der Horizontalen
   zwei gleich starke Signale zu unterscheiden. Vertikal ist die
   R\"uckprojektion homogen, da keine Information in dieser Richtung
   vorhanden ist. Die gefilterte R\"uckprojektion erscheint
   verwaschener. Aufgrund der Filterung ist auch der schwarze
   Hintergrund ins Graue verschoben.
 
-\item[\(18^\circ\) (\ref{eq:tom1-18})] Die vertikale Differenzierung
+\item[\(18^\circ\) (\eqref{eq:tom1-18})] Die vertikale Differenzierung
   der Signale beginnt. Auch entstehen leichte Artefakte fernab der
   Quelle (links). Die gefilterte R\"uckprojektion ist wiederum
   unsch\"arfer, wenn auch alle Linien deutlicher von schw\"acheren
   getrennt sind.
 
-\item[\(36^\circ\) (\ref{eq:tom1-36})] Die R\"uckprojektionen
+\item[\(36^\circ\) (\eqref{eq:tom1-36})] Die R\"uckprojektionen
   manifestieren sich zunehmend als interferierende Linien. Bereiche
   die vom Detektorwinkel aus gesehen neben den Quellen liegen bleiben
   dunkler, da auf diesen Sichtlinien weniger Ereignisse gez\"ahlt
   werden. Die gefilterte Rückprojektion verh\"alt sich unver\"andert.
 
-\item[\(90^\circ\) (\ref{eq:tom1-90})] Es ist nun in der ungefilterten
+\item[\(90^\circ\) (\eqref{eq:tom1-90})] Es ist nun in der ungefilterten
   Rückprojektion deutlich eine Unterteilung des Bildes in vier rechteckige Zonen
   zu erkennen. Rechts oben und links unten ist das Bild dunkler und
   ann\"ahernd frei von Artefakten. Diese Bereiche entsprechen den
@@ -636,7 +692,7 @@ in~\ref{fig:tom1} dargestellt und wird im Folgenden nachvollzogen.
   auszumachen. In der gefilterten Rückprojektion ist das Bild weniger
   differenziert und die dritte Quelle ist sogar schlechter zu
   erkennen.
-\item[\(150^\circ\) (\ref{eq:tom1-150})] Sowohl in der gefilterten als
+\item[\(150^\circ\) (\eqref{eq:tom1-150})] Sowohl in der gefilterten als
   auch der ungefilterten Rückprojektion sind die Artefakte nun schw\"acher und
   mehr in der Mitte konzentriert.  Intuitiv gesehen, werden die
   Artefakte von neuen Linien (Projektionen) \"uberlagert, in denen zu
@@ -646,7 +702,7 @@ in~\ref{fig:tom1} dargestellt und wird im Folgenden nachvollzogen.
   auszumachen (andere Farbskalierung). Die Quellen sind allerdings
   besser zu differenzieren.
 
-\item[\(178^\circ\) (\ref{eq:tom1-178})] Der Trend aus dem vorherigen
+\item[\(178^\circ\) (\eqref{eq:tom1-178})] Der Trend aus dem vorherigen
   Bild setzt sich fort. Es ist nun Information aus allen n\"otigen
   Richtungen vorhanden und die Artefakte treten nun eher als
   gleichm\"a\ss{}iger Hintergrund zu auf. Dieser Hintergrund wird in
@@ -663,11 +719,11 @@ in~\ref{fig:tom1} dargestellt und wird im Folgenden nachvollzogen.
  \resizebox{0.2\textwidth}{!}{
    \begin{tikzpicture}
      \draw[black] (3,3) circle (2.7cm);
-     \draw[black] (3,4.5) circle (.6cm) node {2};
-     \draw[black] (3,1.5) circle (.6cm) node {Leer};
-     \draw[black] (1.5,3) circle (.6cm) node {1};
+     \draw[black] (3,4.5) circle (.6cm) node {Leer};
+     \draw[black] (3,1.5) circle (.6cm) node {1};
+     \draw[black] (1.5,3) circle (.6cm) node {Leer};
      \draw[black] (4.5,3) circle (.6cm) node {3};
-     \draw (3,3) circle (.6cm) node {Leer};
+     \draw (3,3) circle (.6cm) node {2};
      \node[draw] at (1.5,2) {Wachs};
    \end{tikzpicture}
  }
@@ -675,14 +731,16 @@ in~\ref{fig:tom1} dargestellt und wird im Folgenden nachvollzogen.
  \label{fig:sourccof}
 \end{wrapfigure}
 
-Die endg\"ultige Rekonstruktion ist als 3D Surface-Plot
-in~\ref{fig:tom1-3dplot} dargestellt. Zu erkennen ist die wesentlich
-bessere Klarheit der Peaks in der gefilterten Rekonstruktion. Trotz
-der geringen Statistik (ca. 5 Ereignisse pro Projektion, Detektor zu
-schnell verfahren!)  kann man in der rekonstruierten Quellverteilung
-klare Peaks erkennen, die die Bestimmung der Quellpositionen m\"oglich
-machen. Die Anordnung und Nummerierungskonvention f\"ur die Quellen
-ist in~\ref{fig:sourccof} einzusehen.
+Im Sinogramm in~\ref{fig:tom1-sino} sind gut drei Sinusartig
+oszilierende Spuren zu erkennen.  Die endg\"ultige Rekonstruktion ist
+als 3D Surface-Plot in~\ref{fig:tom1-3dplot} dargestellt. Zu erkennen
+ist die wesentlich bessere Klarheit der Peaks in der gefilterten
+Rekonstruktion. Trotz der geringen Statistik (ca. 5 Ereignisse pro
+Projektion, Detektor zu schnell verfahren!)  kann man in der
+rekonstruierten Quellverteilung klare Peaks erkennen, die die
+Bestimmung der Quellpositionen m\"oglich machen. Die Anordnung und
+Nummerierungskonvention f\"ur die Quellen ist in~\ref{fig:sourccof}
+einzusehen.
 
 Durch Isolation der Peaks und jeweils einem Fit einer Gaußfunktion
 \"uber den Peak werden die Positionen und H\"ohen der Peaks bestimmt
@@ -711,7 +769,7 @@ Gr\"oss{}enordnung von 2 Bins (\(\approx \SI{6}{\milli\meter}\))
 liegen. Das ist auch vertr\"aglich mit der Abweichung der Koordinaten
 von den Eckpunkten eines perfekten Quadrates. Diese Unsicherheit im
 Ort liegt weit \"uber der mittleren Diffusionsl\"ange der Positronen
-(\SI{100}{\nano\meter}\cite[2]{Procházka}).
+(\SI{100}{\nano\meter}\cite[2]{Pro}).
 
 \begin{table}[ht]
   \centering
@@ -725,7 +783,7 @@ Ort liegt weit \"uber der mittleren Diffusionsl\"ange der Positronen
                                     {\(\Delta y\) [\si{\milli\meter}]}
     & {\(\sigma\) [\si{\milli\meter}]} &
                                          {\(\Delta \sigma\)
-                                         [\si{\milli\meter}]} \\ 
+                                         [\si{\milli\meter}]} \\
 
     \midrule
     1 & 11.89 & 0.10 & 65.604 & 0.040 & 35.972 & 0.040 & 4.664 & 0.028 \\
@@ -824,8 +882,8 @@ in~\ref{fig:tom2} nur eine gerade Linie zu erkennen.
  \end{subfigure}
  \begin{subfigure}{.4\textwidth}
    \centering
-   \resizebox{0.4\textwidth}{!}
-     \begin{tikzpicture}{
+   \resizebox{0.4\textwidth}{!}{%
+     \begin{tikzpicture}
        \draw[black] (3,3) circle (2.7cm);
        \filldraw[black] (3,4.5) circle (.6cm);
        \draw[black] (3,1.5) circle (.6cm);
@@ -833,8 +891,8 @@ in~\ref{fig:tom2} nur eine gerade Linie zu erkennen.
        \filldraw[black] (4.5,3) circle (.6cm);
        \draw (3,3) circle (.6cm) node {\ce{^22Na}};
        \node[draw] at (1.5,2) {Wachs};
-   }
      \end{tikzpicture}
+   }
    \caption[M\"unzkonfiguration]{Deduzierte
      M\"unzenkonfiguration. Gef\"ullte Kreise stellen M\"unzen
      dar. Vertikale M\"unzen k\"onnten auch vertauscht sein.}
@@ -923,41 +981,41 @@ durchzuf\"uhren.
 Wie man in~\ref{fig:filter} erkennen kann, sehen sich die gefilterten
 Rückprojektionen mit dem Hannig-Filter und dem Rauschfilter sowie jene
 mit Ramp-Filter und Shepp-Filter recht ähnlich. Die filter in (a) und
-(b), sowie auch der Mittelfilter aus~\ref{eq:tom1-178} scheinen
+(b), sowie auch der Mittelfilter aus~\eqref{eq:tom1-178} scheinen
 feinere Artefaktstrukturen zu gr\"o\ss{}eren, langsamer
 ver\"anderlichen zusammenzufassen, wobei sie dabei auch den Kontrast von
 sehr starken Signalen (Quellen) zu ihrer Umgebung steigern und diese
 klarer abgrenzt. Die gelingt in (b) besser als in (a) oder auch im
 Mittelfilter, wobei bei (a) und (b) die rechte, obere Quelle
-verschmiert und sie in~\ref{eq:tom1-178} klar aufgel\"ost wird. In (b)
+verschmiert und sie in~\eqref{eq:tom1-178} klar aufgel\"ost wird. In (b)
 und (c) erscheinen die Quellen als relativ helle, kleine Punkte mit
 mehr oder weniger unf\"ormigen Halos. Die rechte obere Quelle ist
 recht unkenntlich und die Artefakte sind im Vergleich zur
-ungefilterten R\"uckprojektion in~\ref{eq:tom1-178} breiter bei nur
+ungefilterten R\"uckprojektion in~\eqref{eq:tom1-178} breiter bei nur
 geringf\"ugig verringertem Kontrast. \\
 
 %\begin{figure}[h]
-%	\centering
-%	\begin{subfigure}[t]{0.5\textwidth}
-%		\centering
-%		\includegraphics[width=.3\textwidth]{../messungen/olifilter/hanningweight9_gefiltert.png}
-%		\caption{Hanning-Filter.}
-%	\end{subfigure}
-%	\begin{subfigure}[t]{0.5\textwidth}
-%		\centering
-%		\includegraphics[width=.3\textwidth]{../messungen/olifilter/ramp9_gefiltert.png}
-%		\caption{Ramp-Filter.}
-%	\end{subfigure}
-%	\begin{subfigure}[t]{0.5\textwidth}
-%		\centering
-%		\includegraphics[width=.3\textwidth]{../messungen/olifilter/shepp9_gefiltert.png}
-%		\caption{Shepp-Filter.}
-%	\end{subfigure}
-%	\begin{subfigure}[t]{0.5\textwidth}
-%		\centering
-%		\includegraphics[width=.3\textwidth]{../messungen/olifilter/rauschfilter_gefiltert.png}
-%		\caption{Rausch-Filter.}
-%	\end{subfigure}
+%       \centering
+%       \begin{subfigure}[t]{0.5\textwidth}
+%               \centering
+%               \includegraphics[width=.3\textwidth]{../messungen/olifilter/hanningweight9_gefiltert.png}
+%               \caption{Hanning-Filter.}
+%       \end{subfigure}
+%       \begin{subfigure}[t]{0.5\textwidth}
+%               \centering
+%               \includegraphics[width=.3\textwidth]{../messungen/olifilter/ramp9_gefiltert.png}
+%               \caption{Ramp-Filter.}
+%       \end{subfigure}
+%       \begin{subfigure}[t]{0.5\textwidth}
+%               \centering
+%               \includegraphics[width=.3\textwidth]{../messungen/olifilter/shepp9_gefiltert.png}
+%               \caption{Shepp-Filter.}
+%       \end{subfigure}
+%       \begin{subfigure}[t]{0.5\textwidth}
+%               \centering
+%               \includegraphics[width=.3\textwidth]{../messungen/olifilter/rauschfilter_gefiltert.png}
+%               \caption{Rausch-Filter.}
+%       \end{subfigure}
 %\caption{Gegenüberstellung verschiedener Filter mit einer Dimension von je \(9\).}
 %\label{fig:filter}
 %\end{figure}
@@ -966,12 +1024,12 @@ Der Rauschfilter wurde außerdem aufgrund der guten Qualit\"at der
 entstehenden R\"uckprojektion mit mehreren Dimensionseinstellungen getestet.
 
 \begin{figure}[h!]
-	\centering
-	\subfloat[Dimension \(= 5\).]{\includegraphics[width=.3\textwidth]{../messungen/olifilter/rausch_5_gefiltert.png}}
-	\subfloat[Dimension \(= 9\).]{\includegraphics[width=.3\textwidth]{../messungen/olifilter/rauschfilter_gefiltert.png}}
-	\subfloat[Dimension \(= 12\).]{\includegraphics[width=.3\textwidth]{../messungen/olifilter/rausch12_gefiltert.png}}
-	\caption{Rauschfilter mit verschiedenen Dimensionen.}
-	\label{fig:rausch}
+        \centering
+        \subfloat[Dimension \(= 5\).]{\includegraphics[width=.3\textwidth]{../messungen/olifilter/rausch_5_gefiltert.png}}
+        \subfloat[Dimension \(= 9\).]{\includegraphics[width=.3\textwidth]{../messungen/olifilter/rauschfilter_gefiltert.png}}
+        \subfloat[Dimension \(= 12\).]{\includegraphics[width=.3\textwidth]{../messungen/olifilter/rausch12_gefiltert.png}}
+        \caption{Rauschfilter mit verschiedenen Dimensionen.}
+        \label{fig:rausch}
 \end{figure}
 
 In~\ref{fig:rausch} erscheint (a) am unschärfsten und undeutlichsten,
@@ -988,21 +1046,21 @@ um diesen Trend zu best\"atigen.
 
 % \begin{figure}[h!]
 % \centering
-% 	\begin{subfigure}[t]{0.5\textwidth}
-% 	\centering
-% 	\includegraphics[width=.6\textwidth]{../messungen/olifilter/rausch_5_gefiltert.png}
-% 	\caption{Dimension \(= 5\).}	
-% 	\end{subfigure}
-% 	\begin{subfigure}[t]{0.5\textwidth}
-% 	\centering
-% 	\includegraphics[width=.6\textwidth]{../messungen/olifilter/rauschfilter_gefiltert.png}
-% 	\caption{Dimension \(= 9\).}	
-% 	\end{subfigure}
-% 	\begin{subfigure}[t]{0.5\textwidth}
-% 	\centering
-% 	\includegraphics[width=.6\textwidth]{../messungen/olifilter/rausch12_gefiltert.png}
-% 	\caption{Dimension \(= 12\).}	
-% 	\end{subfigure}
+%       \begin{subfigure}[t]{0.5\textwidth}
+%       \centering
+%       \includegraphics[width=.6\textwidth]{../messungen/olifilter/rausch_5_gefiltert.png}
+%       \caption{Dimension \(= 5\).}
+%       \end{subfigure}
+%       \begin{subfigure}[t]{0.5\textwidth}
+%       \centering
+%       \includegraphics[width=.6\textwidth]{../messungen/olifilter/rauschfilter_gefiltert.png}
+%       \caption{Dimension \(= 9\).}
+%       \end{subfigure}
+%       \begin{subfigure}[t]{0.5\textwidth}
+%       \centering
+%       \includegraphics[width=.6\textwidth]{../messungen/olifilter/rausch12_gefiltert.png}
+%       \caption{Dimension \(= 12\).}
+%       \end{subfigure}
 % \caption{Rauschfilter mit verschiedenen Dimensionen.}
 % \label{fig:rausch}
 % \end{figure}
