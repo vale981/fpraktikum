@@ -208,11 +208,11 @@ def find_miller_indices(squares):
     square = squares
     return np.array([(a, b, c) for (a, b, c) \
                 in np.ndindex((square+1, square+1, square+1)) \
-       if a**2 + b**2 + c**2 == square and a >= b >= c])
+       if (a % 2 + b % 2 + c % 2) in (0, 3) and a**2 + b**2 + c**2 == square and a >= b >= c])
 
 def can_be_sum_of_squares(square):
     for a, b, c in np.ndindex((square+1, square+1, square+1)):
-        if a**2 + b**2 + c**2 == square:
+        if (a % 2 + b % 2 + c % 2) in (0, 3) and  a**2 + b**2 + c**2 == square:
             return True
 
     return False
@@ -223,7 +223,7 @@ def generate_miller_table(squares):
     out = ''
 
     for i, ind_list in zip(squares, inds):
-        out += r'\(\sqrt{' + str(i) + '}\) & '
+        out += r'\(\sqrt{' + str(i) + r'}\) & '
         for ind in ind_list:
             out += r'\(\mqty(' + ' & '.join(ind.astype(str)) + r')\), '
         out = out[:-2]
