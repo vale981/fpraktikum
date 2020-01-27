@@ -21,6 +21,158 @@
 \section{Einleitung}
 \label{sec:einl}
 
+Die Transmissionselektronenmikroskopie, kurz TEM, stellt in vielen Bereichen der Natur- und
+Ingenieurswissenschaften sowie der Medizin ein wichtiges Verfahren zur Untersuchung von
+anorganischen wie organischen Materialien auf deren atomare Struktur oder zur hohen Auflösung
+diverser Materialien dar. Man nutzt hierzu Elektronen, da deren geringe Wellenlänge eine
+deutlich genauere Auflösung ermöglicht (vgl.~\ref{eq:auflösung}) als beispielsweise 
+Röntgenstrahlung und diese einfacher zu handhaben sind als Gammastrahlung im gleichen 
+Wellenlängenbereich.
+
+\begin{equation}\label{eq:auflösung}
+	\delta_{min} = 0.61 \cdot \frac{\lambda}{n \cdot \sin\alpha}
+\end{equation}
+
+\begin{conditions}
+	\delta_{min} & Auflösungsgrenze eines Lichtmikroskops\\
+	\lambda & Wellenlänge\\
+	n & Brechungsindex vor der Objektivlinse\\
+	\alpha & halber Öffnungswinkel des Objektivs
+\end{conditions}
+
+\subsection{Aufbau und Funktionsweise eines TEM}
+\label{sec:aufbau}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{../protokoll/figures/aufbau_tem.png}
+	\caption{Schematische Darstellung des Aufbaus eines TEM mit Skizzierung des Strahlenverlaufs.}
+	\label{fig:aufbau}
+\end{figure}
+
+In~\ref{fig:aufbau} ist der Aufbau sowie der Strahlenverlauf eines TEM skizziert. Die Elektronen
+werden in der Elektronenquelle erzeugt. Dies kann über mehrere verschiedene Verfahren geschehen.
+
+\subsubsection{Elektronenquellen}
+\label{sec:equellen}
+
+Die einfachste Möglichkeit, eine Elektronenquelle aufzubauen, ist ähnlich der einer Glühbirne.
+Dabei wird eine Wolfram-Haarnadel-Kathode als Emitter genutzt. Um Elektronen zu emittieren, wird
+die Kathode erhitzt. Wenige Millimeter hinter der Kathode befindet sich die Wehneltelektrode mit
+einem Potential von wenigen \(\SI{-100}{\volt}\). Durch diese Elektrode werden die Elektronen zur
+optischen Achse hin gelenkt, sodass ein engster Bündelquerschnitt zwischen Wehneltelektrode und
+Anode entsteht. Die Anode sorgt dafür, dass die Elektronen abgesaugt und beschleunigt werden.
+Diese Art von Elektronenquellen nennt man wegen der Nutzung allein thermische Anregung zur 
+Emission \emph{thermische Elektronenquellen}.\\
+
+Eine andere Möglichkeit stellt die \emph{Feldemissionsquelle} dar, die im Gegensatz zur
+rein thermischen Quelle, einen fokussierteren Strahl erzeugen kann. Sie besteht aus einer
+sehr dünnen Kathode (Spitzenkathode) mit einer Spitze, die aus Wolframdraht besteht, dessen
+Radius ca. \(\SI{50}{\nano\metre}\) groß ist. Die Kathodenspitze ist so dünn damit man starke
+elektrische Felder erzeugen kann, um Elektronen allein mit diesen aus der Kathode zu lösen.
+Direkt hinter der Kathode befindet sich der Extraktor. Eine Elektrode, die sich auf einem 
+Potential von wenigen Kilovolt befindet. Wenn die Elektronen den Extraktor passiert haben werden
+sie von der Anode beschleunigt. Bei der Feldemissionsquelle entsteht eine virtuelle Quelle,
+die man meist mit Hilfe einer Linse nach der Anode in eine reelle Quelle umwandelt.\\
+
+Eine dritte Möglichkeit ist die Kombination beider Quellarten zur so genannten
+\emph{Schottky-Feldemissionsquelle}.
+
+\subsubsection{Magnetische Linsen}
+\label{sec:linsen}
+
+Im TEM werden magnetische Rundlinsen verwendet. Diese bestehen aus zwei Spulen, die sich
+gegenüber von einander angeordnet sind und in der sich jeweils ein
+Kern und an dessen Ende ein Polschuh befinden. Durch die Symmetrie dieser Anordnung wird im
+Polschuhspalt ein starkes Magnetfeld (\(\approx \SI{1}{\tesla} \text{bis} \SI{2}{\tesla}\)) 
+erzeugt.
+Die Variation der Brennweite der Linse erfolgt über eine Variation des Spulenstroms.
+
+\subsubsection{Strahlenverlauf}
+\label{sec:verlauf}
+
+Mit Hilfe der Kondensorlinsen, die sich unter der Elektronenquelle befinden kann man die Größe
+des bestrahlten Objektbereichs sowie die Beleuchtungsapertur einstellen.
+Danach treffen die Elektronen auf das Objekt und werden von diesem entsprechend in ihrem
+Verlauf beeinflusst.
+In der hinteren Brennebene der Objektivlinsen wird das Beugungsbild erzeugt. Dort werden alle
+Elektronen in einem Punkt vereinigt, die im selben Winkel das Objekt verlassen haben.
+Nachdem der Strahl die Kontrastblende passiert hat entsteht das erste Zwischenbild. Dabei handelt
+es sich bereits um ein Objektbild, das anschließen durch die Zwischen- und Projektivlinse stark
+vergrößert und auf einen Leuchtschirm geworfen wird. Dieser Schirm kann hochgeklappt werden, um
+zur Aufnahme von Bildern eine CCD-Kamera zu belichten.\\
+
+Im Mikroskop herrscht ein Vakuum damit die Elektronen nicht schon auf ihrem Weg zum oder vom
+Objekt an anderen Molekülen gestreut werden und das Objekt an sich nicht Kontaminiert wird. Um zu 
+verhindern, dass zum Beispiel durch Eingabe
+des Objekts Schmutzmoleküle in das Mikroskop gelangen, wird das Objekt in eine Vakuumschleuse
+eingeführt, die vor Eintritt in das Mikroskop ein Vakuum um das Objekt herum herstellt.
+Außerdem wird ein Kondensring im Mikroskop mit flüssigem Stickstoff gekühlt, damit eventuelle
+störende Moleküle, an diesem kondensieren. NOCHMAL NACHSCHAUEN!
+
+\subsection{Streuung von Elektronen}
+\label{sec:streuung}
+
+\subsubsection{Elastische Streuung}
+\label{sec:elast}
+
+Von elastische Streuung spricht man, wenn die kinetische Energie des Elektrons vor und nach dem
+Stoß gleich bleibt. Dabei wird ein Atom durch das Coulombpotential, das sich aus Atomkern und den
+ihn umgebenden, abschirmend wirkenden Elektronen zusammensetzt.
+
+\subsubsection{Unelastische Streuung}
+\label{sec:inelast}
+
+Inelastische Streuung erfolgt dann, wenn die Strahlelektronen mit den Hüllenelektronen der
+Objektatome zusammenstoßen. Dabei überträgt das einfallende Elektron dem Hüllenelektron Energie,
+die dazu führt, dass das Hüllenelektron entweder auf ein höheres Energieniveau geschubst wird
+oder falls die übertragene Energie mindestens so groß wie die Bindungsenergie des Atoms ist,
+sogar zur Ionisation führen. Bei Festkörpern kann es außerdem zu Verlusten aufgrund von 
+Phononenanregungen sowie Plasmonen kommen.\\
+
+Diese Energieverluste, die vor allem bei Ionisierungsverlusten elementspezifisch sind, werden bei
+der Elektronenenergieverlustspektroskopie aufgezeichnet. Dadurch können Rückschlüsse auf die
+Zusammensetzung des untersuchten Materials gezogen werden.
+
+\subsubsection{Streuung an dünnen Folien}
+\label{sec:folie}
+
+Da man die untersuchten Objekte mit Elektronen durchleuchten möchte, müssen diese dünn sein,
+so dünn, dass man sie als Folien beschreiben kann. Bei dieser Betrachtungsweise geht man von
+Einfachstreuungen aus, da die Amplitude der einfallenden Welle so stark abgeschwächt wird, dass
+man sie vernachlässigen kann. Diese Annahme der Einfachstreuung nennt man kinematische Näherung.
+Die gestreute Welle ergibt sich dann als Summe, ergo Interferenz, der Einzelwellen.
+Wichtig für die Betrachtung ist des Weiteren die Unterscheidung der Folien in verschiedene
+Materialien: amorph, einkristallin und polykristallin.\\
+
+Amorph sind Materialien dann, wenn die Atome bzw. Moleküle aus denen sie bestehen in keiner
+strukturierten oder periodischen Ordnung zu einander stehen, sondern zufällig zu einander
+ausgerichtet sind. Das Beugungsbild ergibt sich zu konzentrischen Kreisen, die allerdings nicht
+unbedingt einzeln erkennbar sein müssen, da sie eher verschmiert aussehen. Aus diesem Beugungsbild
+kann man den Abstand, den die Atome zu einander haben berechnen.\\
+
+Kristalline Strukturen beschreibt man in dem man die Elementarzellen, die die Grundstruktur des
+Kristalls darstellen, verschiebt, um somit den gesamten Kristall aus diesen aufzubauen.
+Anschließend kann man in den Kristall Netzebenen, parallele, äquidistante Ebenen, die die selbe
+Periodizität aufweisen wie die Beschreibung der Elementarzellen mittels Punktgitter, legen und 
+mit Hilfe der Bragg-Gleichung eine Bedingung für konstruktive Interferenz aufstellen.
+
+\begin{equation}\label{eq:bragg}
+	2 \cdot d_{hkl} \sin\vartheta = n \cdot \lambda, n=1,2,3,...
+\end{equation}
+
+Dabei ist \(d_{hkl}\) der Abstand der Netzebenen:
+
+\begin{equation}\label{eq:netz}
+	d_{hkl} = \frac{a}{\sqrt{h^2+k^2+l^2}}
+\end{equation}
+
+\begin{conditions}
+	\vartheta & Einfallswinkel der Welle\\
+	\lambda & Wellenlänge\\
+	a & Gitterkonstante
+\end{conditions}
+
 \section{Durchf\"uhrung und Auswertung}
 \label{sec:durchaus}
 % TODO: allgemeines zu sensitivitaet der Kamera, bedienung
