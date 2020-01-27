@@ -46,6 +46,10 @@ channel_to_time_val = SecondaryValue('a + b*(k-1/2)',
 def channel_to_time(channel, d=0):
     return channel_to_time_val(k=(channel, d))
 
+def time_to_channel(time):
+    a = -.014
+    b = .0483
+    return ((time - a)/b).astype(int)
 
 def scientific_round(val, err):
     """Scientifically rounds the values to the given errors."""
@@ -160,23 +164,27 @@ def plot_spectrum(counts, offset=1, save=None, **pyplot_args):
 #                           Time of Flight Analysiss                          #
 ###############################################################################
 
-def gauss(x, a, mu, sigma):
-    return a*np.exp(-(x-mu)**2/(2*sigma**2))
+def gauss(x, a, mu, sigma, o):
+    return a*np.exp(-(x-mu)**2/(2*sigma**2)) + o
 
-def find_and_plot_peak(counts, ax, label):
+def find_and_plot_peak(counts, ax, label, time_interval=[40, 70]):
     channels = np.arange(0, counts.size) + 1
     counts = counts.copy()/counts.max()
     times, d_times = channel_to_time(channels)
-
+    interval = time_to_channel(np.array(time_interval))
     splot = ax.step(times, counts, label=label, alpha=.4)
-    opt, cov = curve_fit(gauss, channels, counts,
-                         p0=(1, counts.argmax(), 100))
+    opt, cov = curve_fit(gauss, channels[interval[0]:interval[1]],
+                         counts[interval[0]:interval[1]],
+                         sigma=np.sqrt(counts[interval[0]:interval[1]]),
+                         absolute_sigma=True,
+                         p0=(1, counts.argmax(), 100, .3))
     cov = np.sqrt(np.diag(cov))
-    gplot = ax.plot(times, gauss(channels,*opt), label=f"Fit {label}", color=splot[0].get_color())
+    gplot = ax.plot(times, gauss(channels,*opt), label=f"Fit {label}",
+                    color=splot[0].get_color())
     ax.axvline(channel_to_time(opt[1])[0], color=gplot[0].get_color())
-    t, dt = channel_to_time(opt[1], opt[2]/10)
+    t, dt = channel_to_time(opt[1], cov[1])
     ax.axvspan(t-dt, t+dt, alpha=.2, color=gplot[0].get_color())
-    return channel_to_time(opt[1], opt[2]/10)
+    return t, dt
 
 
 ###############################################################################

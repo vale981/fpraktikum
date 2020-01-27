@@ -1,4 +1,5 @@
-\documentclass[slug=PET, room=Andreas-Schubert-Bau\,\ 424A, supervisor=Carsten\ Bittrich, coursedate=10.\ 01.\ 2020]{../../Lab_Report_LaTeX/lab_report}
+\documentclass[slug=PET, room=Andreas-Schubert-Bau\,\ 424A,
+supervisor=Carsten\ Bittrich, coursedate=10.\ 01.\ 2020, ngerman]{../../Lab_Report_LaTeX/lab_report}
 
 \title{Postitronenemissionstomographie}
 \author{Oliver Matthes, Valentin Boettcher}
@@ -391,7 +392,7 @@ durch~\eqref{tab:caltime}.
 \end{equation}
 
 Die Aktivität der \ce{^22Na} Kalibrierungsprobe ergibt sich mit
-\(t=\SI{166492800}{\second},\, t_{1/2} = \SI{2.6027\pm .0010}{a}\) und \(A_0
+\(t=\SI{166492800\pm 86400}{\second},\, t_{1/2} = \SI{2.6027\pm .0010}{a}\) und \(A_0
 = \SI{1.36}{\mega\becquerel}\) (1.10.2014, Abw. \SI{3}{\percent}).
 
 \begin{equation}
@@ -400,8 +401,7 @@ Die Aktivität der \ce{^22Na} Kalibrierungsprobe ergibt sich mit
   \frac{\ln{2}}{t_{1/2}}\cdot A\cdot\Delta A = \SI{.333\pm.010}{\mega\becquerel}
 \end{equation}
 
-Die Z\"ahlate der zuf\"alligen Koinzidenzen ergibt sich aus
-% \todo{!!!!! GLEICHUNG}
+Die Z\"ahlate der zuf\"alligen Koinzidenzen ergibt sich aus~\eqref{eq:zufkoinz}
 mit der Kantenl\"ange des Detektors
 \(a=\SI{54}{\milli\meter}\) und dem Detektorabstand
 \(D=\SI{386}{\milli\meter}\) sowie
@@ -475,29 +475,32 @@ redundant) so ergibt sich die doppelte Lichtlaufzeit \(\mathfrak{t}\)
 zwischen den Detektoren
 (\(t_0 + \mathfrak{t} - (t_0 - \mathfrak{t}) = 2\mathfrak{t}\)).
 
-Um die Peakpositionen zu erhalten, wurden Gaußfunktionen \"uber die
-Zeitspektren gefittet. Als Ma\ss{} f\"ur die Peakbreite und damit die
-(statistische) Unsicherheit wurde \(1/10\) des \(\sigma\) Parameters
-der Gaußfunktion genutzt (heuristische Absch\"atzung). Nicht explizit
-betrachtet werden hier der endliche Quellendurchmesser
-\SI{2.5}{\centi\meter} sowie der Restabstand der Quelle zum Detektor
-(kleiner \SI{1}{\centi\meter}). Der Prozess wird
+Um die Peakpositionen zu erhalten, wurden Gaußfunktionen (mit
+vertikalem offset) \"uber die Zeitspektren im Bereich von
+\SIrange{40}{60}{\nano\second} (links, mitte) und
+\SIrange{45}{65}{\nano\second} (rechts )gefittet. Die (statistische)
+Unsicherheit wurde aus der Fit unsicherheit f\"ur den Mittelwert
+\"bernommen. Nicht explizit betrachtet werden hier der endliche
+Quellendurchmesser \SI{2.5}{\centi\meter} sowie der Restabstand der
+Quelle zum Detektor (kleiner \SI{1}{\centi\meter}). Der Prozess wird
 in~\ref{fig:calibration-lenght_det} illustriert.
 
 \begin{figure}[htb]\centering
   \input{../auswertung/figs/calibration/lenght_det.pgf}
   \caption[Abstandsbestimmung]{Bestimmung der Peakpositionen der Zeitspektren zwecks der
     Berechnung des Detektorabstandes. Die farbigen Intervallmarkierungen
-    stellen die gesch\"atzte Abweichung dar.}
+    stellen die Abweichung aus dem Fit dar.}
   \label{fig:calibration-lenght_det}
 \end{figure}
 
-Entsprechend ergibt sich dann der Detektorabstand zu:
+Entsprechend ergibt sich dann der Detektorabstand zu
 \begin{align}
   \label{eq:abst}
-  \mathfrak{t} &= \SI{2.2\pm .6}{\nano\second} \\
-  D &= \frac{\mathfrak{t}}{2c} = \SI{330\pm 90}{\milli\meter}
+  2\mathfrak{t} &= \SI{2.0\pm .6}{\nano\second} \\
+  D &= \mathfrak{t}\cdot c = \SI{310\pm 90}{\milli\meter}.
 \end{align}
+Dieses Ergebnis ist kompatibel mit dem Litertaturwert von
+\SI{386}{\milli\meter}.
 
 \subsubsection{Schwerpunktsdiagramme}
 \label{sec:schwpkt}
@@ -798,7 +801,7 @@ Ort liegt weit \"uber der mittleren Diffusionsl\"ange der Positronen
 
 Analog zu~\eqref{eq:acttoday} ergibt sich f\"ur die Aktivität der
 \ce{^22Na} Quelle zu Peak 3 mit
-\(t=\SI{313632000}{\second},\, t_{1/2} = \SI{2.6027\pm .0010}{a}\)
+\(t=\SI{313632000\pm 86400}{\second},\, t_{1/2} = \SI{2.6027\pm .0010}{a}\)
 und \(A_0 = \SI{270}{\kilo\becquerel}\) (1.2.2010,
 Abw. \SI{3}{\percent}).
 
@@ -811,8 +814,7 @@ Damit berechnen sich die in~\ref{tab:peakactivities} aufgelisteten
 Aktivit\"aten der beiden anderen Proben wie folgt durch
 Verh\"altnisbildung der Peakvolumina (\(= 2\pi A\sigma**2\)), die ein
 Ma\ss{} f\"ur die Z\"ahlrate geben. Die Abweichungen liegen alle in
-der Gr\"o\ss{}enordnung von \SI{3}{\percent} und r\"uhren
-haupts\"achlich von der Abweichung der Aktivit\"at \(A_3\) her.
+der Gr\"o\ss{}enordnung von \SI{3}{\percent}.
 
 \begin{equation}
   \label{eq:relakt}
