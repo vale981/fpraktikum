@@ -173,9 +173,15 @@ def analyze_diffr_profile(profile, limits, save=None, **peak_args):
                label='Auswertungsbereich')
     ax.legend()
 
+    for i, peak in enumerate(peaks):
+        ax.annotate(str(i+1), xy=(x[peak], amp[peak]), textcoords='offset points', xytext=(-3, 5))
+
+    if save:
+        save_fig(fig, *save)
+
     candidates = 1/x[peaks]
     d_candidates = candidates**2*(x[1]-x[0])
-    sigma_candidates = candidates**2*peak_info['widths']*(x[1]-x[0])
+    sigma_candidates = candidates**2*peak_info['widths']*(x[1]-x[0])/(2.355)  # correct for width
     return candidates, d_candidates, sigma_candidates
 
 def analyze_profile(profile, limits=(0, -1), save=None, **peak_args):
