@@ -234,42 +234,90 @@ diese Effekte von der Biegung, also Wölbung der Folie herrühren.
 \label{sec:durchaus}
 % TODO: allgemeines zu sensitivitaet der Kamera, bedienung
 
+
+Nach inbetriebname des TEM durch auff\"ullen der K\"uhlfalle mit
+fl\"ussigem Stickstoff und einschleusen des Probehalters wurden
+verschiedenliche Aufnahmen angefertigt.
+Die Probe selbst besteht aus einer Kohlenstoffolie auf einem
+Kupfernetz. Auf der Kolenstoffolie sind wiederum Latexk\"ugelchen und
+Goldinseln aufgebracht.
+Die Aufnahmen wurden mit einener Slowscan CCD Kamera angefertigt,
+wobei zum schutze des Szintilators vor der Kamera unbedingt auf die
+Intensität des Elektronenbildes geachtet werden muss.
+
 \subsection{Bildaufnahme von Latexkügelchen}
 \label{sec:latex}
 
-Um den Fokus einzustellen und ein Gefühl dafür zu bekommen, ob die Aufnahme überfokussiert oder
-unterfokussiert ist, wurde zunächst eine auf Kohlenstofffolie befindliche Latexkugel abgebildet.
-Zu erst wurde der Fokus möglichst gut eingestellt und anschließend der Fokus gleichermaßen stark
-in den Über- bzw. Unterfokus verschoben.
+Um den Fokus einzustellen wurde zunächst eine auf Kohlenstofffolie
+befindliche Latexkugel abgebildet.  Zu erst wurde der Fokus möglichst
+gut eingestellt und anschließend der Fokus gleichermaßen stark in den
+Über- bzw. Unterfokus verschoben. Zur groben Fokussierung wurde zuerst
+der Probenhalter verfahren und dann der Defokus des Linsensystem zur
+Feinjustage eingestellt.
 
 \begin{figure}[h]
 	\centering
 	\begin{subfigure}{.29\textwidth}
 		\includegraphics[width=.8\textwidth]{../messungen/Fokus_Latex/auswertung/Fokus0.jpg}
-		\caption{Latexkugel im Fokus.}
+		\caption{Fokus.\\ Defokus \SI{4.49}{\micro\meter}.}
 		\label{fig:fokus}
 	\end{subfigure}
 	\begin{subfigure}{.29\textwidth}
 		\includegraphics[width=.8\textwidth]{../messungen/Fokus_Latex/auswertung/Fokus20.jpg}
-		\caption{Latexkugel im Unterfokus.}
+		\caption{Unterfokus.\\ Defokus \SI{25.25}{\micro\meter}.}
 		\label{fig:unterfok}
 	\end{subfigure}
 	\begin{subfigure}{.29\textwidth}
 		\includegraphics[width=.8\textwidth]{../messungen/Fokus_Latex/auswertung/Fokus-20.jpg}
-		\caption{Latexkugel im Überfokus.}
+		\caption{Überfokus.\\ Defokus \SI{-15.85}{\micro\meter}.}
 		\label{fig:uberfok}
 	\end{subfigure}
 \caption{Abbildungen der Latexkugeln mit verschiedenen Fokuseinstellungen.}
 \label{fig:latex}
 \end{figure}
 
-In~\ref{fig:latex} kann man das Resultat der verschiedenen Fokuseinstellungen sehen. Dabei ist
-die Latexkugel in~\ref{fig:fokus} im Fokus. In~\ref{fig:unterfok} erkennt man einen Unterfokus,
-da sich ein etwas hellerer Ring innerhalb der Kugel gebildet hat und die Kugel von einem 
-schwarzen Rand umgeben ist. In~\ref{fig:uberfok} hingegen ist ein Überfokus erkennbar, da die
-Kugel nun von einem hellen Ring umgeben wird. Diese Ringe entstehen durch Fresnel-Beugungseffekte.
-Beim Überfokus wird eine Ebene hinter dem Objekt abgebildet, beim Unterfokus eine Ebene davor,
-beim Fokus wird die Ebene, in der sich das Objekt befindet, abgebildet.
+In~\ref{fig:latex} kann das Resultat der verschiedenen
+Fokuseinstellungen eingesehen werden.  Allgemein ist im Zentrum des
+Bildes ein Latexk\"ugelchen zu sehen, wobei sich im Hintergrund der
+Kohlenstoffilm samt L\"ochern und Goldinseln befindet.  Dabei ist die
+Latexkugel in~\ref{fig:fokus} im Fokus.  In~\ref{fig:unterfok} erkennt
+man einen Unterfokus, da sich ein etwas hellerer Ring innerhalb der
+Kugel gebildet hat und die Kugel von einem schwarzen Rand umgeben
+ist. In~\ref{fig:uberfok} hingegen ist ein Überfokus erkennbar, da die
+Kugel nun von einem hellen Ring umgeben wird. Diese Ringe entstehen
+durch Fresnel-Beugungseffekte.  Beim Überfokus wird eine Ebene hinter
+dem Objekt abgebildet, beim Unterfokus eine Ebene davor, beim Fokus
+wird die Ebene, in der sich das Objekt befindet, abgebildet.  Durch
+die Fresnel S\"aume steigt der Kontrast sodass der Kontrast in der
+Fokussierten Abbildung am geringsten ist. Der leichte ``Schatten'' des
+Latexk\"ugelchen ist eine Anistropie und l\"asst auf eine (wenn auch
+sehr geringe) Verkippung des Probhalters schliessen.
+
+
+Zur praktischen Einstellung des Fokus war allerdings die Darstellung
+des Absolutbetrages der Fouriertransformierten
+(Leistungsspektrumsdichte) des Bildes hilfreich. Diese ist f\"ur die
+drei Fokussituationen in~\ref{fig:latex_kugel-latex_fft}
+abgebildet. Im unter und \"uberfokussierten Bild sind deutlich recht
+scharf begrenzte Ringe zu sehen, welche beim fokussierten Bild fehlen
+(diese sorgen vermutlich unter anderem f\"ur den erh\"ohten Kontrast
+im Bild). Diese Ringe werden als sog. Thon-Ringe bezeichnet und
+k\"onnen als Resultat der \"Ubertragunstheorie erkl\"art werden. So
+wird die Fouriertransformierte in Radialrichtung durch die
+sog. Kontrast\"ubertragungsfunktion moduliert in die neben
+Abbildungsfehlern auch der Defokus. N\"ahert man sich dem Fokus, so
+wandern die Ringe zum zentrum. Ein astigmatismus w\"urde sich in
+Anisotropien in der FFT \"au\ss{}ern und ist hier nicht in hohem
+Ma\ss{}e zu erkennen.
+
+\begin{figure}[h]\centering
+  \includegraphics[width=\textwidth]{../auswertung/figs/latex_kugel/latex_fft.pdf}
+  \caption{Die Darstellung des Absolutbetrages der
+    Fouriertransformierten der Bilder der Latexkügelchen
+    (\ref{fig:latex}). Niedrige Frequnzen sind in der Mitte der
+    Bilder zentriert.}
+  \label{fig:latex_kugel-latex_fft}
+\end{figure}
 
 \subsection{Hochaufgel\"oste Abbildung von Goldinseln}
 \label{sec:hrtem}
