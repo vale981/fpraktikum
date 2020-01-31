@@ -311,3 +311,15 @@
   \label{fig:gold_diffr-profile}
 \end{figure}
     
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/gold_diffr/profile.pgf}
+  \caption{}
+  \label{fig:gold_diffr-profile}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/gold_diffr/profile.pgf}
+  \caption{}
+  \label{fig:gold_diffr-profile}
+\end{figure}
+    

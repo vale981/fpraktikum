@@ -256,6 +256,7 @@ def generate_analysis_table(analyzed):
         out += f'{i + 1} & ' + ' & '.join(val.astype(str)) + ' \\\\\n'
 
     return out
+
 def generate_hypethsesis_table(squared, analyzed, residues):
     out = ''
     for i, square, value, residue in zip(range(1, len(squared)+1),
@@ -266,6 +267,8 @@ def generate_hypethsesis_table(squared, analyzed, residues):
         + ' & '.join(value.astype(str)) + f' & {residue:.3f} \\\\\n'
 
     return out
+
+
 
 def determine_lattice_constant(hypothesis):
     """
