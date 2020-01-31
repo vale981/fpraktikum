@@ -285,3 +285,31 @@ def determine_lattice_constant(hypothesis):
     sigma_a = np.sqrt(np.average((a_s-a)**2, weights=weights))
 
     return a, d_a, sigma_a
+
+
+###############################################################################
+#                                  FFT Stuff                                  #
+###############################################################################
+import cv2
+def get_image_fft_mag(image):
+    f = np.fft.fft2(image)
+    fshift = np.fft.fftshift(f)
+    magnitude_spectrum = 20*np.log(np.abs(fshift))
+
+    return magnitude_spectrum
+
+def plot_images_fft(paths, labels, cmap='gray', save=None):
+    fig, axes = plt.subplots(1, len(paths))
+    for path, label, ax in zip(paths, labels, axes):
+        img = cv2.imread(path, 0)
+        fft = get_image_fft_mag(img)
+
+        ax.set_xticks([])
+        ax.set_yticks([])
+        ax.imshow(fft, cmap=cmap)
+        ax.set_title('FFT ' + label)
+
+    if save:
+        save_fig(fig, *save)
+
+    return fig, axes

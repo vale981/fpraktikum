@@ -323,3 +323,69 @@
   \label{fig:gold_diffr-profile}
 \end{figure}
     
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/latex_kugel/latex_fft.pgf}
+  \caption{}
+  \label{fig:latex_kugel-latex_fft}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/latex_kugel/latex_fft.pgf}
+  \caption{}
+  \label{fig:latex_kugel-latex_fft}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/latex_kugel/latex_fft.pgf}
+  \caption{}
+  \label{fig:latex_kugel-latex_fft}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/latex_kugel/latex_fft.pgf}
+  \caption{}
+  \label{fig:latex_kugel-latex_fft}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/latex_kugel/latex_fft.pgf}
+  \caption{}
+  \label{fig:latex_kugel-latex_fft}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/latex_kugel/latex_fft.pgf}
+  \caption{}
+  \label{fig:latex_kugel-latex_fft}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/latex_kugel/latex_fft.pgf}
+  \caption{}
+  \label{fig:latex_kugel-latex_fft}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/latex_kugel/latex_fft.pgf}
+  \caption{}
+  \label{fig:latex_kugel-latex_fft}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/latex_kugel/latex_fft.pgf}
+  \caption{}
+  \label{fig:latex_kugel-latex_fft}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/latex_kugel/latex_fft.pgf}
+  \caption{}
+  \label{fig:latex_kugel-latex_fft}
+\end{figure}
+    
+\begin{figure}[H]\centering
+  \input{../auswertung/figs/latex_kugel/latex_fft.pgf}
+  \caption{}
+  \label{fig:latex_kugel-latex_fft}
+\end{figure}
+    
