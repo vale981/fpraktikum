@@ -339,10 +339,17 @@ k\"onnte sich aus weniger Fehlstellen und allgemein weniger starker
 Streuung (Absorption am Linsenpolschuh) ergeben. Auch erscheinen die
 Netzebenen heller als Effekt des Beugungskontrastes heller als der
 Hintergrund. Es sollte also generell vermieden werden, die HRTEM
-Abbildung wie die Abbildung eines Lichtmikroskopes zu interpretieren.
+Abbildung wie die Abbildung eines Lichtmikroskopes zu
+interpretieren. In~\ref{fig:simu} ist eine Simulation einer HRTEM
+aufnahme bei verschiedenen defokusierungen zu sehen. Das entstehende
+Bild stimmt zwar qualitiativ mit der Ausgangsstruktur \"uberein,
+pr\"agt sich aber jeh nach defokus unterschiedlich aus.
 
-% TODO: in theorie
-% https://commons.wikimedia.org/wiki/File:Simulation_GaN.png einbinden
+\begin{figure}[htp]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figs/Simulation_GaN.png}
+  \caption{Multslice Simulation von GaN[0001]. Oben: atomares Modell von GaN[0001] und zugehörige Exit-Welle. Die Welle hat am Ort der Gallium und Stickstoff Kolonnen Maxima.~\cite{wiki:simu}}\label{fig:simu}
+\end{figure}
 
 Anschließend konnte durch Bildung eines Intensitätsprofils die
 Abst\"ande der sichtbaren Reihen (= Netzebenen) errechnet
@@ -806,22 +813,37 @@ Dunkelfeldabbildung einzelner Reflexe sichtbar machen.
 \label{sec:beugungmolyb}
 
 \begin{figure}[h]
-	\centering
-	\includegraphics[width=0.6\textwidth]{../messungen/molybdaen/auswertung/MoO_diffr_5_m.jpg}%
-	\caption{Beugungsbild des Molybdänoxidkristalls.}
-	\label{fig:molbeug}
+  \centering
+  \includegraphics[width=0.6\textwidth]{../messungen/molybdaen/auswertung/MoO_diffr_5_m.jpg}%
+  \caption{Beugungsbild des Molybdänoxidkristalls.}
+  \label{fig:molbeug}
 \end{figure}
 
-In~\ref{fig:molbeug} ist das Beugungsbild des Molybdänoxidkristalls zu erkennen, der
-in~\ref{fig:molpicts} abgebildet wurde. Es ist eine gitterförmige Struktur in der Anordnung der
-Beugungspunkte zu erkennen, was auf einen Einkristall schließen lässt. Einige dieser Punkte sind
-deutlich heller als andere. Diese scheinen in regelmäßigen Abständen in Linien, die leicht
-schräg von links nach rechts oben im Bild verlaufen, angeordnet zu sein. Auch kann man einige
-kleinere, aber dennoch helle, Punkte, die willkürlich verteilt sind, vor allem in der Mitte des
-Bildes auf dem Blocker sowie vermehrt am oberen Bildrand erkennen. Dabei handelt es sich um
-Störreflexe, die also nichts mit dem eigentlichen Kristall zu tun haben. Diese hätten durch eine
-Übereinanderlegung der zehn Aufnahmen, die hintereinander gemacht wurden herausgefiltert werden
-können, was allerdings versäumt wurde.
+Um das Beugungsbild des Kristalls aus \ref{fig:molpicts} aufzunhemen
+wurde eine Blende in der Bildebene auf Denselben zentriert, damit
+ausschlie\ss{}lich an diesem Kristall gebeugte Strahlen zum
+Beugungsbild beitragen.  In~\ref{fig:molbeug} ist diese Beugungsbild
+des Molybdänoxidkristalls zu betrachten. Zu erkennen ist eine kubische
+oder orthorombische Symetrie. Dies legt den Schluss nahe, dass es sich
+hier um Molybdäntrioxid handelt, welches in ein Orthormibsches gitter
+kristallisiert.~\cite{WOOSTER1931} Molybdändioxid kristalisiert
+Monoklin, weist also nur einen rechten Winkel
+auf~\ref{brandt1967refinement}.
+
+Die regul\"are Struktur des Beugunsbildes l\"asst auf einen
+Einkristall schließen. Einige dieser Punkte sind deutlich heller als
+andere. Diese scheinen in regelmäßigen Abständen in Linien, die leicht
+schräg von links nach rechts oben im Bild verlaufen, angeordnet zu
+sein. Die Reflexe sind weniger hell, da f\"ur sie der Anregungsfehler
+gr\"o\ss{}er ist. Die konzentrischen Ringe, die man bei durchstrahlung
+entlang einer Schnittaxe zweier Netzebenen (Zonenachse) erwarten
+w\"urde sind nicht sichtbar.  Auch kann man einige kleinere, aber
+dennoch helle, Punkte, die willkürlich verteilt sind, vor allem in der
+Mitte des Bildes auf dem Blocker sowie vermehrt am oberen Bildrand
+erkennen. Dabei handelt es sich um Störreflexe aus
+R\"ontgen\"uberg\"angen. Diese hätten durch eine Übereinanderlegung
+der zehn Aufnahmen, die hintereinander gemacht wurden herausgefiltert
+werden können, was allerdings versäumt wurde.
 
 \section{Zusammenfassung}
 \label{sec:zusfassung}
