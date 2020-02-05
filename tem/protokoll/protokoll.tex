@@ -21,13 +21,16 @@
 \section{Einleitung}
 \label{sec:einl}
 
-Die Transmissionselektronenmikroskopie, kurz TEM, stellt in vielen Bereichen der Natur- und
-Ingenieurswissenschaften sowie der Medizin ein wichtiges Verfahren zur Untersuchung von
-anorganischen wie organischen Materialien auf deren atomare Struktur oder zur hohen Auflösung
-diverser Materialien dar. Man nutzt hierzu Elektronen, da deren geringe Wellenlänge eine
-deutlich genauere Auflösung ermöglicht (vgl.~\eqref{eq:auflösung}) als beispielsweise 
-Röntgenstrahlung und diese einfacher zu handhaben sind als Gammastrahlung im gleichen 
-Wellenlängenbereich.
+Die Transmissionselektronenmikroskopie, kurz TEM, stellt in vielen
+Bereichen der Natur- und Ingenieurswissenschaften sowie der Medizin
+ein wichtiges Verfahren zur Untersuchung von anorganischen wie
+organischen Materialien auf deren atomare Struktur.  Das
+Abbe-Kriterium (siehe~\eqref{eq:auflösung}) stellt eine untere Grenze
+der erreichbaren Auflösung dar. Daraus ersichtlich ist, dass mit
+sichtbaren Licht der Subnanometerbereich nicht aufzulösen ist. Da die
+\"ublichen optischen Komponenten (Linsen, Spiegel) f\"ur R\"ontgen-
+bzw. Gammastrahlen schlecht einzusetzen (transparent) sind, wird zu
+Materiewellen \"ubergegangen.
 
 \begin{equation}\label{eq:auflösung}
 	\delta_{min} = 0.61 \cdot \frac{\lambda}{n \cdot \sin\alpha}
@@ -39,6 +42,21 @@ Wellenlängenbereich.
 	n & Brechungsindex vor der Objektivlinse\\
 	\alpha & halber Öffnungswinkel des Objektivs
 \end{conditions}
+
+Im Transmissionselektronenmikroskop werden Elektonen genutzt, die sich
+aufgrund ihrer elektrischen Ladung durch Elektrische Felder
+beschleunigen und durch Magnetfelder b\"undeln lassen.
+
+Die Wellenlänge von Elektronen ergibt sich aus der relativistischen
+Energie-Impuls Beziehung mit der Beschleunigungsspannung \(U_A\) zur
+Faustregel in~\eqref{eq:elambda}. Sie liegt also schon bei
+\SI{80}{\kilo\volt} bei \SI{.004}{\nano\meter}. Linsenfehler und
+apertur beschr\"anken die Aufl\"osing jedoch meist auf
+\SIrange{.1}{.2}{\nano\meter}.
+
+\begin{equation}\label{eq:elambda}
+	\lambda [\si{\nano\meter}] = \sqrt{\frac{1.5}{U_A[\si{\volt}]}}
+\end{equation}
 
 \subsection{Aufbau und Funktionsweise eines TEM}
 \label{sec:aufbau}
@@ -63,17 +81,21 @@ einem Potential von wenigen \(\SI{-100}{\volt}\). Durch diese Elektrode werden d
 optischen Achse hin gelenkt, sodass ein engster Bündelquerschnitt zwischen Wehneltelektrode und
 Anode entsteht. Die Anode sorgt dafür, dass die Elektronen abgesaugt und beschleunigt werden.
 Diese Art von Elektronenquellen nennt man wegen der Nutzung allein thermische Anregung zur 
-Emission \emph{thermische Elektronenquellen}.\\
+Emission \emph{thermische Elektronenquellen}.
 
-Eine andere Möglichkeit stellt die \emph{Feldemissionsquelle} dar, die im Gegensatz zur
-rein thermischen Quelle, einen fokussierteren Strahl erzeugen kann. Sie besteht aus einer
-sehr dünnen Kathode (Spitzenkathode) mit einer Spitze, die aus Wolframdraht besteht, dessen
-Radius ca. \(\SI{50}{\nano\metre}\) groß ist. Die Kathodenspitze ist so dünn damit man starke
-elektrische Felder erzeugen kann, um Elektronen allein mit diesen aus der Kathode zu lösen.
-Direkt hinter der Kathode befindet sich der Extraktor. Eine Elektrode, die sich auf einem 
-Potential von wenigen Kilovolt befindet. Wenn die Elektronen den Extraktor passiert haben werden
-sie von der Anode beschleunigt. Bei der Feldemissionsquelle entsteht eine virtuelle Quelle,
-die man meist mit Hilfe einer Linse nach der Anode in eine reelle Quelle umwandelt.\\
+Eine andere Möglichkeit stellt die \emph{Feldemissionsquelle} dar, die
+im Gegensatz zur rein thermischen Quelle, einen fokussierteren Strahl
+erzeugen kann. Sie besteht aus einer sehr dünnen Kathode
+(Spitzenkathode) mit einer Wolframspitze, deren Radius
+ca. \(\SI{50}{\nano\metre}\) betr\"agt. An der d\"unne Kathodenspitze
+bilden sich (softern diese auf Spannung liegt) starke elektrische
+Felder aus, die wiederum Elektronen aus der Kathode zu lösen.  Direkt
+hinter der Kathode befindet sich der Extraktor. Eine Elektrode, die
+sich auf einem Potential von wenigen Kilovolt befindet. Wenn die
+Elektronen den Extraktor passiert haben werden sie von der Anode
+beschleunigt. Bei der Feldemissionsquelle entsteht eine virtuelle
+Quelle, die man meist mit Hilfe einer Linse nach der Anode in eine
+reelle Quelle umwandelt.
 
 Eine dritte Möglichkeit ist die Kombination beider Quellarten zur so genannten
 \emph{Schottky - Feldemissionsquelle}.
@@ -81,12 +103,15 @@ Eine dritte Möglichkeit ist die Kombination beider Quellarten zur so genannten
 \subsubsection{Magnetische Linsen}
 \label{sec:linsen}
 
-Im TEM werden magnetische Rundlinsen verwendet. Diese bestehen aus zwei Spulen, die sich
-gegenüber von einander angeordnet sind und in der sich jeweils ein
-Kern und an dessen Ende ein Polschuh befinden. Durch die Symmetrie dieser Anordnung wird im
-Polschuhspalt ein starkes Magnetfeld (\(\approx \SI{1}{\tesla} \text{bis} \SI{2}{\tesla}\)) 
-erzeugt.
-Die Variation der Brennweite der Linse erfolgt über eine Variation des Spulenstroms.
+Im TEM werden magnetische Rundlinsen verwendet. Diese bestehen aus
+zwei Spulen, die sich gegenüber von einander angeordnet sind und in
+der sich jeweils ein Kern und an dessen Ende ein Polschuh
+befinden. Durch die Symmetrie dieser Anordnung wird im Polschuhspalt
+ein starkes Magnetfeld
+(\(\approx \SI{1}{\tesla} \text{bis} \SI{2}{\tesla}\)) erzeugt.  Die
+Variation der Brennweite der Linse erfolgt über eine Variation des
+Spulenstroms. Die geometrie dieser Linsen ist im allgemeinen recht
+kompliziert, um Linsenfehler zu minimieren.
 
 \subsubsection{Strahlenverlauf}
 \label{sec:verlauf}
@@ -102,13 +127,15 @@ es sich bereits um ein Objektbild, das anschließen durch die Zwischen- und Proj
 vergrößert und auf einen Leuchtschirm geworfen wird. Dieser Schirm kann hochgeklappt werden, um
 zur Aufnahme von Bildern eine CCD-Kamera zu belichten.\\
 
-Im Mikroskop herrscht ein Vakuum damit die Elektronen nicht schon auf ihrem Weg zum oder vom
-Objekt an anderen Molekülen gestreut werden und das Objekt an sich nicht Kontaminiert wird. Um zu 
-verhindern, dass zum Beispiel durch Eingabe
-des Objekts Schmutzmoleküle in das Mikroskop gelangen, wird das Objekt in eine Vakuumschleuse
-eingeführt, die vor Eintritt in das Mikroskop ein Vakuum um das Objekt herum herstellt.
-Außerdem wird ein Metallring als Kondensationsfalle im Mikroskop mit flüssigem Stickstoff 
-gekühlt, damit eventuelle störende Moleküle, an diesem kondensieren.
+Im Mikroskop herrscht ein Vakuum damit die Elektronen nicht schon auf
+ihrem Weg zum oder vom Objekt an anderen Molekülen gestreut werden und
+das Objekt an sich nicht Kontaminiert wird. Um zu verhindern, dass zum
+Beispiel durch Eingabe des Objekts Schmutzmoleküle in das Mikroskop
+gelangen, wird das Objekt in eine Vakuumschleuse eingeführt, die vor
+Eintritt in das Mikroskop ein Vakuum um das Objekt herum herstellt.
+Außerdem wird ein Metallring als K\"uhlfalle im Mikroskop mit
+flüssigem Stickstoff gekühlt, damit eventuelle störende Moleküle, an
+diesem kondensieren.
 
 \subsection{Streuung von Elektronen}
 \label{sec:streuung}
@@ -116,9 +143,11 @@ gekühlt, damit eventuelle störende Moleküle, an diesem kondensieren.
 \subsubsection{Elastische Streuung}
 \label{sec:elast}
 
-Von elastischer Streuung spricht man, wenn die kinetische Energie des Elektrons vor und nach dem
-Stoß gleich bleibt. Dabei wird ein Atom durch das Coulombpotential, das sich aus Atomkern und den
-ihn umgebenden, abschirmend wirkenden Elektronen zusammensetzt.
+Von elastischer Streuung spricht man, wenn die kinetische Energie des
+Elektrons vor und nach dem (n\"aherungsweise) Stoß gleich
+bleibt. Dabei wird ein Atom durch das Coulombpotential, das sich aus
+Atomkern und den ihn umgebenden, abschirmend wirkenden Elektronen
+zusammensetzt.
 
 \subsubsection{Unelastische Streuung}
 \label{sec:inelast}
@@ -137,12 +166,12 @@ Zusammensetzung des untersuchten Materials gezogen werden.
 \subsubsection{Streuung an dünnen Folien}
 \label{sec:folie}
 
-Da man die untersuchten Objekte mit Elektronen durchleuchten möchte, müssen diese dünn sein,
-so dünn, dass man sie als Folien beschreiben kann. Bei dieser Betrachtungsweise geht man von
-Einfachstreuungen aus, da die Amplitude der einfallenden Welle so stark abgeschwächt wird, dass
-man sie vernachlässigen kann. Diese Annahme der Einfachstreuung nennt man kinematische Näherung.
-Die gestreute Welle ergibt sich dann als Summe, ergo Interferenz, der Einzelwellen.
-Wichtig für die Betrachtung ist des Weiteren die Unterscheidung der Folien in verschiedene
+Da man die untersuchten Objekte mit Elektronen durchleuchten möchte,
+eignen sich als Proben nur d\"unne Folien. In erster N\"aherung
+(kinematische N\"aherung) geht man von Einfachstreuungen aus. Die
+gestreute Welle ergibt sich dann als Summe, ergo Interferenz, der
+Einzelwellen.  Wichtig für die Betrachtung ist des Weiteren die
+Unterscheidung der Folien in verschiedene
 Materialien: amorph, einkristallin und polykristallin.\\
 
 Amorph sind Materialien dann, wenn die Atome bzw. Moleküle aus denen sie bestehen in keiner
@@ -189,6 +218,15 @@ Netzebenen stellen:
 	\lambda & Wellenlänge
 \end{conditions}
 
+Bei d\"unnen Folien ergeben sich Aufweichungen der Braggbedingung, da
+das Matrial nicht mehr als unendlich ausgedehnt gen\"ahert werden
+kann. Jeh nach Grad der Verletzung der Braggbedingung
+(Anregungsfehler) ergeben sich unterschiedlich helle Reflexe. Wird der
+Kristall in Richtung der Schnittlinie zweier Netzebenen (Zonenachse)
+durchstrahlt, so entarten die Punkte des reziproken Gitters zu
+``Stacheln'' unterschiedlicher Dicke und das Beugungsbild ergibt
+konzentrische, ringartige Anordnungen aus Beugungsreflexen.
+
 \subsection{Kontrastentstehung}
 \label{sec.kontrast}
 
@@ -228,6 +266,13 @@ diese Effekte von der Biegung, also Wölbung der Folie herrühren.
 	als bei der Hellfeldmethode, allerdings ist es mit Hilfe dieser Methode möglich, feinere 
 	Strukturen als mit der Hellfeldmethode aufzulösen.
 \end{description}
+
+L\"asst man zur Bildentstehung sowohl gebeugte als auch ungebeugte
+Wellen beitragen, so entsteht eine Netzebenen- (bei auswertung eines
+Beugungsreflexes) oder eine Gitterabbildung (mehrere Beugungsreflexe
+tragen bei). Quantitiv ist die Bildentstehung hier nur im Ramen der
+\"Ubertragungstheorie m\"oglich. Dabei h\"angt die Gestalt des Bildes
+auch von der Fokusierung ab (siehe dazu~\ref\label{fig:simu}).
 
 
 \section{Durchf\"uhrung und Auswertung}
@@ -349,7 +394,11 @@ pr\"agt sich aber je nach Defokus unterschiedlich aus.
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.5\textwidth]{figs/Simulation_GaN.png}
-  \caption{Multslice Simulation von GaN[0001]. Oben: atomares Modell von GaN[0001] und zugehörige Exit-Welle. Die Welle hat am Ort der Gallium und Stickstoff Kolonnen Maxima.~\cite{wiki:simu}}\label{fig:simu}
+  \caption{Multslice Simulation von GaN[0001]. Oben: atomares Modell
+    von GaN[0001] und zugehörige Exit-Welle. Die Welle hat am Ort der
+    Gallium und Stickstoff Kolonnen Maxima.~\cite{wiki:simu} Der
+    Defokus ist jeweils in der Linken oberen Ecke
+    angegeben.}\label{fig:simu}
 \end{figure}
 
 Anschließend konnte durch Bildung eines Intensitätsprofils die
@@ -564,7 +613,7 @@ Messwerten.
   a_{HRTEM} = \SI[parse-numbers=false]{0.413\pm 0.009\,(sys)\pm 0.008\,(stat)}{\nano\meter} 
 \end{equation}
 
-Der wert in~\eqeqref{eq:ahrtem} stimmt innerhalb der Abweichungsgrenzen
+Der wert in~\eqref{eq:ahrtem} stimmt innerhalb der Abweichungsgrenzen
 mit der Literatur \"uberein, wobei er leicht oberhalb desselben liegt.
 
 \subsection{Elektronenbeugungsbild einer Goldinsel}
@@ -587,7 +636,7 @@ Radien \(r_{hkl}\) der Beugungsringe ergibt.
 
 \begin{equation}
   \label{eq:beugrad}
-  d_{hkl} = \frac{1}{r_{hkl}} \pm \frac{\delta r_{hkl}}{r_{hkl}^2}
+  d_{hkl} = \frac{1}{r_{hkl}} \pm \frac{\Delta r_{hkl}}{r_{hkl}^2}
 \end{equation}
 
 Um \"uber gesamte L\"ange der Ringe mitteln zu k\"onnen, wird das Bild
@@ -714,7 +763,7 @@ Abweichung wird bei diesem Peak allerdings grob untersch\"atzt.
 
 Die Gitterkonstante ergibt sich wieder durch gewichtete Mittelung.
 \begin{equation}
-  \label{eq:ahrtem}
+  \label{eq:adiffr}
   a_{DIFFR} = \SI[parse-numbers=false]{0.4016\pm 0.0017\,(sys)\pm 0.0089\,(stat)}{\nano\meter}
 \end{equation}
 
@@ -830,7 +879,7 @@ oder orthorombische Symmetrie. Dies legt den Schluss nahe, dass es sich
 hier um Molybdäntrioxid handelt, welches in ein orthormibsches Gitter
 kristallisiert.~\cite{WOOSTER1931} Molybdändioxid kristallisiert
 Monoklin, weist also nur einen rechten Winkel
-auf~\ref{brandt1967refinement}.
+auf~\cite{brandt1967refinement}.
 
 Die regul\"are Struktur des Beugungsbildes l\"asst auf einen
 Einkristall schließen. Einige dieser Punkte sind deutlich heller als
