@@ -272,7 +272,7 @@ Wellen beitragen, so entsteht eine Netzebenen- (bei auswertung eines
 Beugungsreflexes) oder eine Gitterabbildung (mehrere Beugungsreflexe
 tragen bei). Quantitiv ist die Bildentstehung hier nur im Ramen der
 \"Ubertragungstheorie m\"oglich. Dabei h\"angt die Gestalt des Bildes
-auch von der Fokusierung ab (siehe dazu~\ref\label{fig:simu}).
+auch von der Fokusierung ab (siehe dazu~\ref{fig:simu}).
 
 
 \section{Durchf\"uhrung und Auswertung}
@@ -354,7 +354,7 @@ k\"onnen als Resultat der \"Ubertragunstheorie erkl\"art werden. So
 wird die Fouriertransformierte in Radialrichtung durch die
 sog. Kontrast\"ubertragungsfunktion moduliert in die neben
 Abbildungsfehlern auch der Defokus.~\cite{WADE1992145} N\"ahert man
-sich dem Fokus, so wandern die Ringe zum Zentrum. Ein Astigmatismus
+sich dem Fokus, so nimmt der Radius der Ringe zu. Ein Astigmatismus
 w\"urde sich in Anisotropien in der FFT \"au\ss{}ern und ist hier
 nicht in hohem Ma\ss{}e zu erkennen.
 
@@ -651,14 +651,15 @@ ist durch die Aufl\"osung des Profils von
 statistische Abweichung ist durch die Standardbreite der Peaks gegeben.
 
 Von da an kann die Gitterkonstante analog zu~\ref{sec:hrtem} bestimmt
-werden. Die Netzebenenabst\"ande zu den einzelnen Peaks sind
-in~\ref{tab:diffrnetz} aufgelistet und die zugeordneten Werte f\"ur die
-Gitterkonstante k\"onnen in~\ref{tab:diffras} eingesehen werden. Die
-dazugeh\"origen Netzebenen sind in~\ref{tab:netzdiffr}
-aufgelistet. Dabei ist der vierte Peak nur unter Vergr\"o\ss{}erung
-des Graphen in~\ref{fig:gold_diffr-profile} zu erkennen, liefert aber
-einen Wert in er richtigen Gr\"o\ss{}enordnung. Die statistische
-Abweichung wird bei diesem Peak allerdings grob untersch\"atzt.
+werden. Allerdings wurde nicht der Literaturwert, sondern die sich aus
+dem ersten Peak \(\mqty(1&1&1)\) ergebende Gitterkonstante als
+Referenz angenommen, damit eventuelle Kalibrierungsfehler des TEM nich
+zu Abweichungen f\"uhren.  Die Netzebenenabst\"ande zu den einzelnen
+Peaks sind in~\ref{tab:diffrnetz} aufgelistet und die zugeordneten
+Werte f\"ur die Gitterkonstante k\"onnen in~\ref{tab:diffras}
+eingesehen werden. Die dazugeh\"origen Netzebenen sind
+in~\ref{tab:netzdiffr} aufgelistet.
+
 \begin{table}[h]
   \centering
   \begin{tabular}{S|SSS}
@@ -672,12 +673,13 @@ Abweichung wird bei diesem Peak allerdings grob untersch\"atzt.
     1 & 0.2183 & 0.0016 & 0.0072 \\
     2 & 0.1933 & 0.0012 & 0.0028 \\
     3 & 0.1331 & 0.0006 & 0.0027 \\
-    4 & 0.12041 & 0.00048 & 0.00021 \\
-    5 & 0.1136 & 0.0004 & 0.0024 \\
-    6 & 0.08500 & 0.00024 & 0.00177 \\
-    7 & 0.07721 & 0.00020 & 0.00087 \\
-    8 & 0.07329 & 0.00018 & 0.00060 \\
-    9 & 0.06415 & 0.00014 & 0.00080 \\
+    4 & 0.1136 & 0.0004 & 0.0024 \\
+    5 & 0.09664 & 0.00031 & 7e-05 \\
+    6 & 0.085 & 0.00024 & 0.00177 \\
+    7 & 0.07721 & 0.0002 & 0.00087 \\
+    8 & 0.07329 & 0.00018 & 0.0006 \\
+    9 & 0.0664 & 0.00015 & 0.00013 \\
+    10 & 0.06415 & 0.00014 & 0.00077 \\
   \end{tabular}
   \caption[Netzebenenabst\"ande aus dem Gold Beugungsbild.]{Aus dem
     Gold beugungsbild~\ref{fig:ebeug_orig} ermittelte
@@ -694,17 +696,18 @@ Abweichung wird bei diesem Peak allerdings grob untersch\"atzt.
                                                                                                 {\(\Delta
                                                                                                 a_{stat}\)
                                                                                                 [\si{\nano\meter}]}
-    & {\(|a-a_{lit}|\) [\si{\nano\meter}]}\\
+    & {\(|a-a_{1}|\) [\si{\nano\meter}]}\\
     \midrule
-    1 & \(\sqrt{4}\) & 0.4366 & 0.0031 & 0.0144 & 0.029 \\
-    2 & \(\sqrt{4}\) & 0.3865 & 0.0025 & 0.0056 & 0.021 \\
-    3 & \(\sqrt{8}\) & 0.3764 & 0.0017 & 0.0077 & 0.031 \\
-    4 & \(\sqrt{11}\) & 0.3994 & 0.0016 & 0.0007 & 0.008 \\
-    5 & \(\sqrt{12}\) & 0.3937 & 0.0015 & 0.0084 & 0.014 \\
-    6 & \(\sqrt{24}\) & 0.4164 & 0.0012 & 0.0087 & 0.009 \\
-    7 & \(\sqrt{27}\) & 0.4012 & 0.0010 & 0.0045 & 0.007 \\
-    8 & \(\sqrt{32}\) & 0.4146 & 0.0010 & 0.0034 & 0.007 \\
-    9 & \(\sqrt{40}\) & 0.4057 & 0.0009 & 0.0050 & 0.002 \\
+    1 & \(\sqrt{3}\) & 0.3781 & 0.0027 & 0.0125 & 0.000 \\
+    2 & \(\sqrt{4}\) & 0.3865 & 0.0025 & 0.0056 & 0.008 \\
+    3 & \(\sqrt{8}\) & 0.3764 & 0.0017 & 0.0077 & 0.002 \\
+    4 & \(\sqrt{11}\) & 0.3769 & 0.0014 & 0.0081 & 0.001 \\
+    5 & \(\sqrt{16}\) & 0.38655 & 0.00123 & 0.00028 & 0.008 \\
+    6 & \(\sqrt{19}\) & 0.3705 & 0.001 & 0.0077 & 0.008 \\
+    7 & \(\sqrt{24}\) & 0.3782 & 0.001 & 0.0043 & 0.000 \\
+    8 & \(\sqrt{27}\) & 0.3808 & 0.0009 & 0.0031 & 0.003 \\
+    9 & \(\sqrt{32}\) & 0.3756 & 0.0008 & 0.0007 & 0.002 \\
+    10 & \(\sqrt{35}\) & 0.3795 & 0.0008 & 0.0046 & 0.001 \\
   \end{tabular}
   \caption[Gitterkonstanten aus den Beugungsringen]{Aus dem
     Beugungsbild (\ref{fig:ebeug})
@@ -717,14 +720,16 @@ Abweichung wird bei diesem Peak allerdings grob untersch\"atzt.
     \toprule
     \(\sqrt{h^2+k^2+l^2}\) & Netzebenen \\
     \midrule
+    \(\sqrt{3}\) & \(\mqty(1 & 1 & 1)\) \\
     \(\sqrt{4}\) & \(\mqty(2 & 0 & 0)\) \\
     \(\sqrt{8}\) & \(\mqty(2 & 2 & 0)\) \\
     \(\sqrt{11}\) & \(\mqty(3 & 1 & 1)\) \\
-    \(\sqrt{12}\) & \(\mqty(2 & 2 & 2)\) \\
+    \(\sqrt{16}\) & \(\mqty(4 & 0 & 0)\) \\
+    \(\sqrt{19}\) & \(\mqty(3 & 3 & 1)\) \\
     \(\sqrt{24}\) & \(\mqty(4 & 2 & 2)\) \\
     \(\sqrt{27}\) & \(\mqty(3 & 3 & 3)\), \(\mqty(5 & 1 & 1)\) \\
     \(\sqrt{32}\) & \(\mqty(4 & 4 & 0)\) \\
-    \(\sqrt{40}\) & \(\mqty(6 & 2 & 0)\) \\
+    \(\sqrt{35}\) & \(\mqty(5 & 3 & 1)\) \\
   \end{tabular}
   \caption{Netzebenen zu den \(\sqrt{h^2+k^2+l^2}\) aus dem Beugungsbild.}
   \label{tab:netzdiffr}
@@ -764,25 +769,21 @@ Abweichung wird bei diesem Peak allerdings grob untersch\"atzt.
 Die Gitterkonstante ergibt sich wieder durch gewichtete Mittelung.
 \begin{equation}
   \label{eq:adiffr}
-  a_{DIFFR} = \SI[parse-numbers=false]{0.4016\pm 0.0017\,(sys)\pm 0.0089\,(stat)}{\nano\meter}
+  a_{DIFFR} = \SI[parse-numbers=false]{0.3809\pm 0.001\,(sys)\pm 0.0052\,(stat)}{\nano\meter}
 \end{equation}
 
-Auch dieser Wert ist innerhalb der Unsicherheitsgrenzen mit dem
-Literaturwert vertr\"aglich liegt aber unter selbigen. Mittelt man die
-Beiden werte f\"ur die Gitterkonstante ungewichtet (da hier nur zur
-Illustration gedacht), erhält man
-\(a=\SI{.4037}{\nano\meter}\). Dieser Wert stimmt bis auf eine
-Nachkommastelle mit der Literatur \"uberein.
-
-Die werte f\"ur die Gitterkonstanten sind jeweils innerhalb der
-Ungenauigkeitsgrenzen (summiert) miteinander und der Literatur
-kompatibel. Die Diskrepanz der beiden Werte von ca.~\SI{3}{\percent}
-kann durch statistische Schwankungen erkl\"art werden. Weiterhin ist
-die Genauigkeit der Eichung des TEM nicht bekannt. Die direkte
-Vermessung der Netzebenenabst\"ande ist zwar instruktiv, aber der
-Messung aus dem Beugungsbild hier in der systematischen Abweichung
-unterlegen. Auch l\"asst sich die Vermessung des Beugungsbildes besser
-automatisieren.
+Dieser Wert ist nicht innerhalb der Unsicherheitsgrenzen mit dem
+Literaturwert vertr\"aglich. Die Messabweichungen wurden hier nicht
+korrekt quantifiziert. Vermutlich liegt ein Kalibrierungsfehler am TEM
+vor. Die Abweichungen sind numerisch kleiner als bei der direkten
+Vermessung der Netzebenen. Der Erwartung nach sollte die Bestimmung
+der Gitterkonstante aus dem Beugungsbild genauer sein, da hier der
+Drift der Probe, ihre Ausrichtung und die Fokussierung keine so große
+Rolle spielen.  Die direkte Vermessung der Netzebenenabst\"ande ist
+zwar instruktiv, aber der Messung aus dem Beugungsbild hier in der
+systematischen Abweichung unterlegen. Auch l\"asst sich die Vermessung
+des Beugungsbildes besser automatisieren. Die Abh\"angigkeit von der
+Kalibrierung ist hier aber ein Problem.
 
 \subsection{Hell- und Dunkelfelabbildung eines Molybd\"anoxidkristalls.}
 \label{sec:molyb}

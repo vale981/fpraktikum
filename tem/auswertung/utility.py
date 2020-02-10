@@ -160,12 +160,14 @@ def plot_diffr_profile(profile, **pyplot_args):
 
     return fig, ax
 
-def analyze_diffr_profile(profile, limits, save=None, **peak_args):
+def analyze_diffr_profile(profile, limits, chosen_indices=[], save=None,
+                        **peak_args):
     x, amp = profile.T
     fig, ax = plot_diffr_profile(profile)
 
     peaks, peak_info = find_peaks(amp[limits[0]:limits[1]], width=0, **peak_args)
-
+    peaks = peaks[chosen_indices]
+    widths = peak_info['widths'][chosen_indices]
     peaks += limits[0]
 
     ax.plot(x[peaks], amp[peaks], "x", label='Peaks')
@@ -181,7 +183,7 @@ def analyze_diffr_profile(profile, limits, save=None, **peak_args):
 
     candidates = 1/x[peaks]
     d_candidates = candidates**2*(x[1]-x[0])
-    sigma_candidates = candidates**2*peak_info['widths']*(x[1]-x[0])/(2.355)  # correct for width
+    sigma_candidates = candidates**2*widths*(x[1]-x[0])/(2.355)  # correct for width
     return candidates, d_candidates, sigma_candidates
 
 def analyze_profile(profile, limits=(0, -1), save=None, **peak_args):
@@ -237,16 +239,24 @@ def generate_miller_table(squares):
         out += r' \\' + '\n'
     return out
 
-def evaluate_hypothesis(analyzed, maximum=10, gold=.4078):
+def evaluate_hypothesis(analyzed, maximum=10, gold=.4078, hints=[]):
     diffs = np.empty((maximum, analyzed.shape[0]))
 
     squared_ds = np.array([x for x in np.arange(1, maximum + 1, 1) \
                            if can_be_sum_of_squares(x)])
+
     ds = np.sqrt(squared_ds)
     a = analyzed[:,0][:, None] * ds[None, :]
+    gold = a[0,0]
+
     diff = np.abs(a - gold)
     mindiff = np.argmin(diff, axis=1)
-    return squared_ds[mindiff], analyzed[:]*ds[mindiff,None],  diff.min(axis=1)
+
+    for peak, ds_hint in hints:
+        mindiff[peak] = np.where(squared_ds == ds_hint)[0]
+
+    # thats ugly!
+    return squared_ds[mindiff], analyzed[:]*ds[mindiff,None], np.abs((analyzed[:]*ds[mindiff,None])[:, 0] - gold)
 
 def generate_analysis_table(analyzed):
     out = ''
